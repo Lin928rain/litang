@@ -2,47 +2,40 @@
 
 上海理工大学校园助手，Flutter 客户端。
 
-## 功能
 
-- 教务 CAS 登录 / 静默续期
-- 本周课表（按教学周过滤）
-- 成绩总览（含分项成绩）
-- 学业情况 / 培养方案课程树
-- 专业排名（PDF 解析）
-- 一网畅学：待办、考试安排、签到雷达 / 数字签到 / 扫码签到
-- 校园地图：官方地图 + 楼名图层，按名称搜索、点击楼栋、双击课表定位
-- 通知聚合：教务处 / 通知公告 / 健康学院
-- 待办与作业详情、附件预览
+⚠Vibe Coding⚠
 
-## 开发
 
-```bash
-flutter pub get
-flutter run
-```
+持续开发中...更多功能敬请等待...
 
-## 构建
 
-```bash
-flutter build apk --release --target-platform android-arm64
-```
+目前计划：
 
-产物：`build/app/outputs/flutter-apk/app-release.apk`
 
-## 项目结构
+1.做完整的信息板块，部分信息可能需要人工提交
 
-```
-lib/
-  data/      数据抓取、解析与本地存储
-  pages/     页面
-  widgets/   通用组件
-assets/map/  地图瓦片（底图 + 楼名层）
-```
 
-## 版本
+2.地图支持校内导航
 
-0.1.0 beta
 
-## 说明
+3.接入学习通、一网畅学、水成二维码(没人觉得喝水每次都要扫那个弱智二维码很蠢吗？)
+
+
+4.支持查询宿舍水电费等
+
+
+5.论坛（？？？）
+
+
+参考项目：
+
+
+https://github.com/DanXi-Dev/DanXi
+
+
+https://github.com/BigSilverFish/usst-jwgl-client
+
+
+如果你有好的想法，欢迎加入我（们？）！QQ:2897010516
 
 个人学习项目，与上海理工大学官方无关；地图版权归学校所有，仅用于校内信息展示。
