@@ -36,7 +36,6 @@ https://github.com/DanXi-Dev/DanXi
 https://github.com/BigSilverFish/usst-jwgl-client
 
 
-如果你有好的想法，欢迎加入我（们？）！
-49primary@gmail.com
+如果你有好的想法，欢迎加入我（们？）！QQ:2897010516
 
 个人学习项目，与上海理工大学官方无关；地图版权归学校所有，仅用于校内信息展示。
