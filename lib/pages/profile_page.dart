@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../data/attachment_cache.dart';
 import '../data/auth/jwgl_auth.dart';
 import '../data/auth/xuegong_auth.dart';
 import '../data/jwc/course_api.dart';
@@ -33,10 +34,12 @@ class _ProfilePageState extends State<ProfilePage> {
   UserProfile? _profile;
   bool _loading = false;
   int _week = 1;
+  late Future<int> _cacheSizeFuture;
 
   @override
   void initState() {
     super.initState();
+    _cacheSizeFuture = AttachmentCache.size();
     _bootstrap();
   }
 
@@ -234,10 +237,59 @@ class _ProfilePageState extends State<ProfilePage> {
             ]),
             const SizedBox(height: 16),
             _timetableSection(),
+            const SizedBox(height: 16),
+            _sectionTitle('存储'),
+            _cacheTile(),
           ],
         ),
       ),
     );
+  }
+
+  Widget _cacheTile() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: FutureBuilder<int>(
+        future: _cacheSizeFuture,
+        builder: (context, snap) {
+          final bytes = snap.data ?? 0;
+          final label = bytes <= 0
+              ? '暂无缓存'
+              : bytes < 1024 * 1024
+                  ? '${(bytes / 1024).toStringAsFixed(0)} KB'
+                  : '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
+          return ListTile(
+            leading: const Icon(Icons.cleaning_services_outlined,
+                size: 20, color: AppColors.usstRed),
+            title: const Text('清理下载缓存', style: TextStyle(fontSize: 14)),
+            subtitle: Text(
+              '附件预览缓存：$label',
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textSecondary,
+              ),
+            ),
+            trailing: TextButton(
+              onPressed: () => _clearCache(),
+              child: const Text('清理', style: TextStyle(fontSize: 12)),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _clearCache() async {
+    await AttachmentCache.clear();
+    setState(() => _cacheSizeFuture = AttachmentCache.size());
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('下载缓存已清理')),
+      );
+    }
   }
 
   Widget _userCard() {

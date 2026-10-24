@@ -4,10 +4,14 @@ import 'package:geolocator/geolocator.dart';
 import '../app_theme.dart';
 import '../data/auth/cas_client.dart';
 import '../data/auth/jwgl_auth.dart';
+import '../data/chaoxing/chaoxing_auth.dart';
+import '../data/chaoxing/chaoxing_client.dart';
 import '../data/jwc/course_repository.dart';
 import '../data/lms/rollcall_api.dart';
 import '../data/lms/todo_api.dart';
 import '../data/lms/tronclass_auth.dart';
+import 'chaoxing_homework_page.dart';
+import 'chaoxing_login_page.dart';
 import 'homework_page.dart';
 import 'qr_scan_page.dart';
 import 'simple_web.dart';
@@ -28,6 +32,14 @@ class _LifePageState extends State<LifePage> {
   List<LmsExam> _exams = const <LmsExam>[];
   String _currentTerm = '';
   String? _todosError;
+
+  // 学习通
+  bool _showChaoxingTodos = false;
+  bool _cxLoading = false;
+  String? _cxError;
+  List<ChaoxingCourse> _cxCourses = const <ChaoxingCourse>[];
+  List<ChaoxingActivity> _cxActivities = const <ChaoxingActivity>[];
+  List<ChaoxingWork> _cxWorks = const <ChaoxingWork>[];
 
   @override
   void initState() {
@@ -55,6 +67,81 @@ class _LifePageState extends State<LifePage> {
     }
     // 即使静默登录判定失败也尝试拉一次，避免误判导致整页空白
     await _refresh();
+    await _refreshChaoxing();
+  }
+
+  /// 拉取学习通数据。cookie 失效时会用保存的密码后台重登。
+  Future<void> _refreshChaoxing({bool withWorks = false}) async {
+    if (_cxLoading) {
+      return;
+    }
+    setState(() {
+      _cxLoading = true;
+      _cxError = null;
+    });
+    try {
+      final auth = ChaoxingAuth.instance;
+      if (!auth.isLoggedIn) {
+        await auth.restore();
+      }
+      if (!auth.isLoggedIn) {
+        return;
+      }
+      if (!await auth.ensureSession()) {
+        if (mounted) {
+          setState(() {
+            _cxActivities = const <ChaoxingActivity>[];
+            _cxWorks = const <ChaoxingWork>[];
+          });
+        }
+        return;
+      }
+      final client = auth.client;
+      if (client == null) {
+        return;
+      }
+      final courses = _cxCourses.isNotEmpty
+          ? _cxCourses
+          : await client.fetchCourses();
+      final activities = await client.fetchActivities(courses);
+      final works = (withWorks || _cxWorks.isNotEmpty)
+          ? await client.fetchWorks(courses)
+          : _cxWorks;
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _cxCourses = courses;
+        _cxActivities = activities;
+        _cxWorks = works;
+      });
+    } catch (e) {
+      if (mounted) {
+        setState(() => _cxError = '学习通数据拉取失败，请稍后重试');
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _cxLoading = false);
+      }
+    }
+  }
+
+  Future<void> _loginChaoxing() async {
+    final ok = await Navigator.of(context).push<bool>(
+      MaterialPageRoute<bool>(builder: (_) => const ChaoxingLoginPage()),
+    );
+    if (ok == true) {
+      await _refreshChaoxing(withWorks: true);
+    }
+  }
+
+  void _toggleTodoSource() {
+    setState(() => _showChaoxingTodos = !_showChaoxingTodos);
+    if (_showChaoxingTodos &&
+        ChaoxingAuth.instance.isLoggedIn &&
+        _cxWorks.isEmpty) {
+      _refreshChaoxing(withWorks: true);
+    }
   }
 
   Future<void> _refresh({bool silent = false}) async {
@@ -372,7 +459,12 @@ class _LifePageState extends State<LifePage> {
                 else
                   IconButton(
                     tooltip: '刷新签到',
-                    onPressed: () => _refresh(),
+                    onPressed: () async {
+                      await _refresh();
+                      await _refreshChaoxing(
+                        withWorks: _showChaoxingTodos,
+                      );
+                    },
                     icon: const Icon(Icons.refresh, size: 20),
                   ),
               ],
@@ -422,9 +514,9 @@ class _LifePageState extends State<LifePage> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
               const Spacer(),
-              if (_rollcalls.isNotEmpty)
+              if (_rollcalls.isNotEmpty || _cxActivities.isNotEmpty)
                 Text(
-                  '${_rollcalls.length} 个',
+                  '${_rollcalls.length + _cxActivities.length} 个',
                   style: const TextStyle(
                     fontSize: 11,
                     color: AppColors.textSecondary,
@@ -433,7 +525,9 @@ class _LifePageState extends State<LifePage> {
             ],
           ),
           const SizedBox(height: 10),
-          if (_error != null)
+          if (_error != null &&
+              _rollcalls.isEmpty &&
+              _cxActivities.isEmpty)
             Row(
               children: <Widget>[
                 Expanded(
@@ -451,7 +545,7 @@ class _LifePageState extends State<LifePage> {
                 ),
               ],
             )
-          else if (_rollcalls.isEmpty)
+          else if (_rollcalls.isEmpty && _cxActivities.isEmpty)
             const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -470,6 +564,8 @@ class _LifePageState extends State<LifePage> {
             Column(
               children: <Widget>[
                 for (final rollcall in _rollcalls) _rollcallTile(rollcall),
+                for (final activity in _cxActivities)
+                  _cxActivityTile(activity),
               ],
             ),
         ],
@@ -482,11 +578,23 @@ class _LifePageState extends State<LifePage> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: AppColors.redTint,
+        color: const Color(0xFFEFF5FF),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: <Widget>[
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            decoration: BoxDecoration(
+              color: const Color(0xFFE3EAFE),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: const Text(
+              '一网畅学',
+              style: TextStyle(fontSize: 10, color: Color(0xFF3B5BDB)),
+            ),
+          ),
+          const SizedBox(width: 8),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -529,7 +637,63 @@ class _LifePageState extends State<LifePage> {
     );
   }
 
+  Widget _cxActivityTile(ChaoxingActivity activity) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFDF2F2),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            decoration: BoxDecoration(
+              color: AppColors.redTint,
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: const Text(
+              '学习通',
+              style: TextStyle(fontSize: 10, color: AppColors.usstRed),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  activity.courseName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  '${activity.typeLabel} · ${activity.name}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right,
+              size: 16, color: AppColors.textSecondary),
+        ],
+      ),
+    );
+  }
+
   Widget _todoCard() {
+    final isCx = _showChaoxingTodos;
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
       decoration: BoxDecoration(
@@ -549,58 +713,280 @@ class _LifePageState extends State<LifePage> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
               const Spacer(),
-              if (_todos.isNotEmpty)
-                Text(
-                  '${_todos.length} 个',
-                  style: const TextStyle(
-                    fontSize: 11,
-                    color: AppColors.textSecondary,
-                  ),
+              Text(
+                isCx
+                    ? '${_cxWorks.where((w) => !w.finished && !w.expired).length} 个'
+                    : '${_todos.length} 个',
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: AppColors.textSecondary,
                 ),
+              ),
+              const SizedBox(width: 4),
+              _sourceSwitch(),
             ],
           ),
-          if (_todosError != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Row(
+          if (isCx) _cxTodoBody() else _lmsTodoBody(),
+        ],
+      ),
+    );
+  }
+
+  Widget _sourceSwitch() {
+    final isCx = _showChaoxingTodos;
+    final color =
+        isCx ? AppColors.usstRed : const Color(0xFF3B5BDB);
+    return GestureDetector(
+      onTap: _toggleTodoSource,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: isCx ? AppColors.redTint : const Color(0xFFE3EAFE),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Image.asset(
+              isCx
+                  ? 'assets/sources/chaoxing_tab.png'
+                  : 'assets/sources/tronclass_tab.png',
+              width: 13,
+              height: 13,
+              filterQuality: FilterQuality.high,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              isCx ? '学习通' : '一网畅学',
+              style: TextStyle(
+                fontSize: 10.5,
+                color: color,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(width: 2),
+            Icon(Icons.swap_horiz, size: 13, color: color),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _lmsTodoBody() {
+    if (_todosError != null) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                _todosError!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () => _refresh(),
+              child: const Text('重试', style: TextStyle(fontSize: 12)),
+            ),
+          ],
+        ),
+      );
+    }
+    if (_todos.isEmpty) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Text(
+          '暂无待办',
+          style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+        ),
+      );
+    }
+    return SizedBox(
+      height: 168,
+      child: ListView.separated(
+        padding: const EdgeInsets.only(top: 8),
+        itemCount: _todos.length,
+        separatorBuilder: (_, _) => const SizedBox(height: 8),
+        itemBuilder: (context, i) => _todoTile(_todos[i]),
+      ),
+    );
+  }
+
+  Widget _cxTodoBody() {
+    final auth = ChaoxingAuth.instance;
+    if (!auth.isLoggedIn) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: <Widget>[
+            const Expanded(
+              child: Text(
+                '学习通未登录',
+                style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+              ),
+            ),
+            FilledButton(
+              onPressed: _loginChaoxing,
+              style: FilledButton.styleFrom(
+                backgroundColor: AppColors.usstRed,
+                minimumSize: const Size(0, 30),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+              ),
+              child: const Text('登录', style: TextStyle(fontSize: 12)),
+            ),
+          ],
+        ),
+      );
+    }
+    if (_cxLoading) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Center(
+          child: SizedBox(
+            width: 18,
+            height: 18,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      );
+    }
+    if (_cxError != null) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                _cxError!,
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () => _refreshChaoxing(withWorks: true),
+              child: const Text('重试', style: TextStyle(fontSize: 12)),
+            ),
+          ],
+        ),
+      );
+    }
+    final pending =
+        _cxWorks.where((w) => !w.finished && !w.expired).toList();
+    final expired =
+        _cxWorks.where((w) => !w.finished && w.expired).length;
+    final expiredHint = expired == 0
+        ? null
+        : Padding(
+            padding: const EdgeInsets.only(top: 6),
+            child: Text(
+              '另有 $expired 个已截止未交',
+              style: const TextStyle(
+                fontSize: 10.5,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          );
+    if (pending.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text(
+              '暂无待交作业',
+              style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+            ),
+            ?expiredHint,
+          ],
+        ),
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(
+          height: 168,
+          child: ListView.separated(
+            padding: const EdgeInsets.only(top: 8),
+            itemCount: pending.length,
+            separatorBuilder: (_, _) => const SizedBox(height: 8),
+            itemBuilder: (context, i) => _cxWorkTile(pending[i]),
+          ),
+        ),
+        ?expiredHint,
+      ],
+    );
+  }
+
+  Widget _cxWorkTile(ChaoxingWork work) {
+    final subtitle = <String>[
+      if (work.courseName.isNotEmpty) work.courseName,
+      if (work.deadline.isNotEmpty) '截止 ${work.deadline}',
+    ].join(' · ');
+    return GestureDetector(
+      onTap: () => _openCxWork(work),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: const Color(0xFFF8F8FA),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              decoration: BoxDecoration(
+                color: AppColors.redTint,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: const Text(
+                '作业',
+                style: TextStyle(fontSize: 10, color: AppColors.usstRed),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      _todosError!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 11,
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
+                  Text(
+                    work.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 13),
                   ),
-                  TextButton(
-                    onPressed: () => _refresh(),
-                    child: const Text('重试', style: TextStyle(fontSize: 12)),
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 10.5,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ],
               ),
-            )
-          else if (_todos.isEmpty)
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Text(
-                '暂无待办',
-                style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
-              ),
-            )
-          else
-            SizedBox(
-              height: 168,
-              child: ListView.separated(
-                padding: const EdgeInsets.only(top: 8),
-                itemCount: _todos.length,
-                separatorBuilder: (_, _) => const SizedBox(height: 8),
-                itemBuilder: (context, i) => _todoTile(_todos[i]),
-              ),
             ),
-        ],
+            const Icon(Icons.chevron_right,
+                size: 16, color: AppColors.textSecondary),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _openCxWork(ChaoxingWork work) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ChaoxingHomeworkPage(work: work),
       ),
     );
   }
@@ -621,12 +1007,15 @@ class _LifePageState extends State<LifePage> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               decoration: BoxDecoration(
-                color: AppColors.redTint,
+                color: const Color(0xFFE3EAFE),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
                 todo.typeLabel,
-                style: const TextStyle(fontSize: 10, color: AppColors.usstRed),
+                style: const TextStyle(
+                  fontSize: 10,
+                  color: Color(0xFF3B5BDB),
+                ),
               ),
             ),
             const SizedBox(width: 10),
@@ -749,12 +1138,32 @@ class _LifePageState extends State<LifePage> {
     if (exams.isEmpty) {
       return exams;
     }
-    if (_currentTerm.isNotEmpty) {
-      return exams.where((e) => e.termLabel == _currentTerm).toList();
+    final target = _normalizeTerm(
+      _currentTerm.isNotEmpty ? _currentTerm : _currentTermFromNow(),
+    );
+    // 只显示目标学期；没有该学期考试时宁可隐藏，也不退回去显示旧学期。
+    return exams.where((e) => _normalizeTerm(e.termLabel) == target).toList();
+  }
+
+  static String _normalizeTerm(String raw) {
+    var s = raw.replaceAll(' ', '').replaceAll('学年', '');
+    s = s.replaceAll('第一学期', '1').replaceAll('第二学期', '2');
+    s = s.replaceAll('第1学期', '1').replaceAll('第2学期', '2');
+    s = s.replaceAll('第', '-').replaceAll('学期', '');
+    return s;
+  }
+
+  static String _currentTermFromNow() {
+    final now = DateTime.now();
+    final year = now.year;
+    final month = now.month;
+    if (month >= 9) {
+      return '$year-${year + 1}-1';
     }
-    final latest =
-        exams.map((e) => e.termLabel).reduce((a, b) => a.compareTo(b) >= 0 ? a : b);
-    return exams.where((e) => e.termLabel == latest).toList();
+    if (month == 1) {
+      return '${year - 1}-$year-1';
+    }
+    return '${year - 1}-$year-2';
   }
 
   String _formatDateTime(DateTime time) {

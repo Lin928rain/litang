@@ -161,8 +161,9 @@ class CasCookieJar {
 
   /// 生成请求头里的 Cookie 串；同一请求路径优先匹配更长的 path。
   String? headerFor(Uri uri) {
+    final path = uri.path.isEmpty ? '/' : uri.path;
     final matched = cookies
-        .where((c) => c.matchesHost(uri.host) && c.matchesPath(uri.path))
+        .where((c) => c.matchesHost(uri.host) && c.matchesPath(path))
         .toList()
       ..sort((a, b) => b.path.length.compareTo(a.path.length));
     final seen = <String>{};

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../app_theme.dart';
@@ -78,9 +79,8 @@ class _SimpleWebPageState extends State<SimpleWebPage> {
       try {
         final manager = WebViewCookieManager();
         for (final cookie in widget.cookies) {
-          final domain = cookie.domain.startsWith('.')
-              ? cookie.domain.substring(1)
-              : cookie.domain;
+          // 保留前导点，否则 .chaoxing.com 只对根域生效，子域会丢 cookie。
+          final domain = cookie.domain;
           await manager.setCookie(
             WebViewCookie(
               name: cookie.name,
@@ -110,6 +110,20 @@ class _SimpleWebPageState extends State<SimpleWebPage> {
               icon: const Icon(Icons.refresh, size: 20),
               onPressed: () => _controller?.reload(),
             ),
+          IconButton(
+            tooltip: '在浏览器打开',
+            icon: const Icon(Icons.open_in_new, size: 20),
+            onPressed: () async {
+              final uri = Uri.tryParse(widget.url);
+              if (uri == null) return;
+              try {
+                await launchUrl(uri, mode: LaunchMode.externalApplication);
+              } catch (_) {
+                // 忽略
+              }
+            },
+          ),
+
         ],
       ),
       body: !_supported

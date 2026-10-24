@@ -44,7 +44,13 @@ dependencies:
   archive: ^4.5.2
   mobile_scanner: ^7.4.2
   geolocator: ^14.0.2
-
+  encrypt: ^5.0.3
+  url_launcher: ^6.3.3
+  pdfx: ^2.11.0
+  path_provider: ^2.1.6
+  open_filex: ^5.0.0
+  image_picker: ^1.2.4
+  file_selector: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -70,6 +76,8 @@ flutter:
   assets:
     - assets/map/
     - assets/emblem.webp
+    - assets/sources/tronclass_tab.png
+    - assets/sources/chaoxing_tab.png
 
 
   # To add assets to your application, add an assets section, like this:
