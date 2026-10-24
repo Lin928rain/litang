@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../data/attachment_cache.dart';
@@ -126,9 +127,8 @@ class _ProfilePageState extends State<ProfilePage> {
     if (!mounted) {
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   /// 用当前会话 cookie 免密打开教务系统网页版。
@@ -147,9 +147,8 @@ class _ProfilePageState extends State<ProfilePage> {
       setState(() {});
       return;
     }
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const JwglWebPage()),
-    );
+    await Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const JwglWebPage()));
   }
 
   Future<void> _openRank() async {
@@ -158,9 +157,8 @@ class _ProfilePageState extends State<ProfilePage> {
       _toast('请先登录教务系统');
       return;
     }
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const RankPage()),
-    );
+    await Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const RankPage()));
   }
 
   Future<void> _openAcademic() async {
@@ -169,9 +167,8 @@ class _ProfilePageState extends State<ProfilePage> {
       _toast('请先登录教务系统');
       return;
     }
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const AcademicPage()),
-    );
+    await Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const AcademicPage()));
   }
 
   Future<void> _openGrades() async {
@@ -180,9 +177,8 @@ class _ProfilePageState extends State<ProfilePage> {
       _toast('请先登录教务系统');
       return;
     }
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const GradesPage()),
-    );
+    await Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const GradesPage()));
   }
 
   Future<void> _handleAuth() async {
@@ -199,9 +195,8 @@ class _ProfilePageState extends State<ProfilePage> {
       }
       return;
     }
-    final ok = await Navigator.of(context).push<bool>(
-      MaterialPageRoute<bool>(builder: (_) => const LoginPage()),
-    );
+    final ok = await Navigator.of(context)
+        .push<bool>(MaterialPageRoute<bool>(builder: (_) => const LoginPage()));
     if (!mounted) {
       return;
     }
@@ -231,13 +226,20 @@ class _ProfilePageState extends State<ProfilePage> {
             _grid(<Widget>[
               _entry(Icons.assessment_outlined, '成绩总览', onTap: _openGrades),
               _entry(Icons.school_outlined, '学业情况', onTap: _openAcademic),
-              _entry(Icons.workspace_premium_outlined, '专业排名',
-                  onTap: _openRank),
+              _entry(
+                Icons.workspace_premium_outlined,
+                '专业排名',
+                onTap: _openRank,
+              ),
             ]),
             const SizedBox(height: 16),
             _sectionTitle('空间'),
             _grid(<Widget>[
-              _entry(Icons.meeting_room_outlined, '教室查询', onTap: _openClassroom),
+              _entry(
+                Icons.meeting_room_outlined,
+                '教室查询',
+                onTap: _openClassroom,
+              ),
               _entry(Icons.badge_outlined, '学工一体化', onTap: _openXuegong),
               _entry(Icons.language_outlined, '教务网页版', onTap: _openJwglWeb),
             ]),
@@ -268,11 +270,14 @@ class _ProfilePageState extends State<ProfilePage> {
           final label = bytes <= 0
               ? '暂无缓存'
               : bytes < 1024 * 1024
-                  ? '${(bytes / 1024).toStringAsFixed(0)} KB'
-                  : '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
+              ? '${(bytes / 1024).toStringAsFixed(0)} KB'
+              : '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
           return ListTile(
-            leading: const Icon(Icons.cleaning_services_outlined,
-                size: 20, color: AppColors.usstRed),
+            leading: const Icon(
+              Icons.cleaning_services_outlined,
+              size: 20,
+              color: AppColors.usstRed,
+            ),
             title: const Text('清理下载缓存', style: TextStyle(fontSize: 14)),
             subtitle: Text(
               '附件预览缓存：$label',
@@ -295,9 +300,8 @@ class _ProfilePageState extends State<ProfilePage> {
     await AttachmentCache.clear();
     setState(() => _cacheSizeFuture = AttachmentCache.size());
     if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('下载缓存已清理')),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('下载缓存已清理')));
     }
   }
 
@@ -314,8 +318,11 @@ class _ProfilePageState extends State<ProfilePage> {
               ? ''
               : '当前版本 ${snap.data!.version} (${snap.data!.buildNumber})';
           return ListTile(
-            leading: const Icon(Icons.system_update_alt,
-                size: 20, color: AppColors.usstRed),
+            leading: const Icon(
+              Icons.system_update_alt,
+              size: 20,
+              color: AppColors.usstRed,
+            ),
             title: const Text('检查更新', style: TextStyle(fontSize: 14)),
             subtitle: Text(
               version,
@@ -338,9 +345,8 @@ class _ProfilePageState extends State<ProfilePage> {
     final info = await UpdateService.check();
     if (!mounted) return;
     if (info == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('当前已是最新版本')),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('当前已是最新版本')));
       return;
     }
     await showUpdateDialog(context, info);
@@ -356,8 +362,8 @@ class _ProfilePageState extends State<ProfilePage> {
         final nickname = (profile?.nickname.isNotEmpty ?? false)
             ? profile!.nickname
             : (_snapshot?.studentName.isNotEmpty ?? false)
-                ? _snapshot!.studentName
-                : '同学';
+            ? _snapshot!.studentName
+            : '同学';
         final avatar = profile?.avatar ?? '🎓';
         return Container(
           padding: const EdgeInsets.fromLTRB(14, 12, 6, 12),
@@ -511,7 +517,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                   : Colors.transparent,
                             ),
                           ),
-                          child: Text(item, style: const TextStyle(fontSize: 20)),
+                          child: Text(
+                            item,
+                            style: const TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                   ],
@@ -570,8 +579,9 @@ class _ProfilePageState extends State<ProfilePage> {
         await auth.reauthenticate();
         ok = await XuegongAuth.instance.ensureLoggedIn();
       }
-      final cookies =
-          ok ? await XuegongAuth.instance.loadCookies() : <CasCookie>[];
+      final cookies = ok
+          ? await XuegongAuth.instance.loadCookies()
+          : <CasCookie>[];
       if (!mounted) {
         return;
       }
@@ -684,8 +694,11 @@ class _ProfilePageState extends State<ProfilePage> {
           const SizedBox(height: 6),
           Row(
             children: <Widget>[
-              const Icon(Icons.touch_app_outlined,
-                  size: 13, color: AppColors.textSecondary),
+              const Icon(
+                Icons.touch_app_outlined,
+                size: 13,
+                color: AppColors.textSecondary,
+              ),
               const SizedBox(width: 4),
               const Text(
                 '双击课程可在地图上定位教室楼栋',
@@ -710,9 +723,8 @@ class _ProfilePageState extends State<ProfilePage> {
   void _locateCourse(Course course) {
     final place = placeForRoom(course.room);
     if (place == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('没认出「${course.room}」对应的楼栋')),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('没认出「${course.room}」对应的楼栋')));
       return;
     }
     MapFocus.focus(place);
@@ -796,12 +808,12 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _sectionTitle(String t) => Padding(
-        padding: const EdgeInsets.only(bottom: 10, left: 4),
-        child: Text(
-          t,
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 10, left: 4),
+    child: Text(
+      t,
+      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+    ),
+  );
 
   Widget _grid(List<Widget> children) {
     return Wrap(spacing: 12, runSpacing: 12, children: children);

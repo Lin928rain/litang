@@ -51,7 +51,8 @@ class UpdateService {
 
   /// 返回新版本；没有更新或检查失败返回 null。
   static Future<UpdateInfo?> check() async {
-    final info = await _fetchManifest(githubManifest) ??
+    final info =
+        await _fetchManifest(githubManifest) ??
         await _fetchManifest(giteeManifest);
     if (info == null) return null;
     final current = await _currentVersionCode();
@@ -72,9 +73,11 @@ class UpdateService {
   static Future<UpdateInfo?> _fetchManifest(String url) async {
     try {
       final response = await http
-          .get(Uri.parse(url), headers: <String, String>{
-        'User-Agent': 'Litang-Updater',
-      }).timeout(const Duration(seconds: 10));
+          .get(
+            Uri.parse(url),
+            headers: <String, String>{'User-Agent': 'Litang-Updater'},
+          )
+          .timeout(const Duration(seconds: 10));
       if (response.statusCode != 200) return null;
       final map = jsonDecode(response.body) as Map<String, dynamic>;
       return UpdateInfo.fromJson(map);
@@ -119,9 +122,9 @@ class UpdateService {
     try {
       final request = http.Request('GET', Uri.parse(url));
       request.headers['User-Agent'] = 'Litang-Updater';
-      final response = await client.send(request).timeout(
-            const Duration(seconds: 30),
-          );
+      final response = await client
+          .send(request)
+          .timeout(const Duration(seconds: 30));
       if (response.statusCode != 200) {
         throw Exception('HTTP ${response.statusCode}');
       }

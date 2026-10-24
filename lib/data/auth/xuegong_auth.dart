@@ -40,7 +40,9 @@ class XuegongAuth {
       return false;
     }
     try {
-      final resp = await client.getJson(Uri.parse('https://$host/default.aspx'));
+      final resp = await client.getJson(
+        Uri.parse('https://$host/default.aspx'),
+      );
       final body = resp.data ?? '';
       final finalUrl = resp.realUri.toString();
       final ok = !finalUrl.contains('WeLinkLogOn') && body.contains('学生主页');
@@ -75,21 +77,21 @@ class XuegongAuth {
     return cookies;
   }
 
+  Future<void> clear() async {
+    _cookies = <CasCookie>[];
+    try {
+      await _storage.delete(key: _key);
+    } catch (_) {
+      // ignore
+    }
+  }
+
   Future<void> _save() async {
     try {
       await _storage.write(
         key: _key,
         value: jsonEncode(_cookies.map((c) => c.toJson()).toList()),
       );
-    } catch (_) {
-      // ignore
-    }
-  }
-
-  Future<void> clear() async {
-    _cookies = <CasCookie>[];
-    try {
-      await _storage.delete(key: _key);
     } catch (_) {
       // ignore
     }

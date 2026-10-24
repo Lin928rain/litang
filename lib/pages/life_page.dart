@@ -421,9 +421,9 @@ class _LifePageState extends State<LifePage> {
   }
 
   Future<void> _openTodo(LmsTodo todo) async {
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => HomeworkPage(todo: todo)),
-    );
+    await Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => HomeworkPage(todo: todo)));
   }
 
   Future<List<CasCookie>> _lmsCookies() async {
@@ -459,7 +459,8 @@ class _LifePageState extends State<LifePage> {
     if (!mounted) {
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -488,9 +489,7 @@ class _LifePageState extends State<LifePage> {
                     tooltip: '刷新签到',
                     onPressed: () async {
                       await _refresh();
-                      await _refreshChaoxing(
-                        withWorks: _showChaoxingTodos,
-                      );
+                      await _refreshChaoxing(withWorks: _showChaoxingTodos);
                     },
                     icon: const Icon(Icons.refresh, size: 20),
                   ),
@@ -509,10 +508,7 @@ class _LifePageState extends State<LifePage> {
               child: TextButton.icon(
                 onPressed: _openLms,
                 icon: const Icon(Icons.open_in_new, size: 14),
-                label: const Text(
-                  '一网畅学网页版',
-                  style: TextStyle(fontSize: 12),
-                ),
+                label: const Text('一网畅学网页版', style: TextStyle(fontSize: 12)),
               ),
             ),
           ],
@@ -533,8 +529,11 @@ class _LifePageState extends State<LifePage> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.how_to_reg_outlined,
-                  size: 18, color: AppColors.usstRed),
+              const Icon(
+                Icons.how_to_reg_outlined,
+                size: 18,
+                color: AppColors.usstRed,
+              ),
               const SizedBox(width: 8),
               const Text(
                 '进行中的签到',
@@ -552,9 +551,7 @@ class _LifePageState extends State<LifePage> {
             ],
           ),
           const SizedBox(height: 10),
-          if (_error != null &&
-              _rollcalls.isEmpty &&
-              _cxActivities.isEmpty)
+          if (_error != null && _rollcalls.isEmpty && _cxActivities.isEmpty)
             Row(
               children: <Widget>[
                 Expanded(
@@ -566,10 +563,7 @@ class _LifePageState extends State<LifePage> {
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: _retryTronclass,
-                  child: const Text('重试'),
-                ),
+                TextButton(onPressed: _retryTronclass, child: const Text('重试')),
               ],
             )
           else if (_rollcalls.isEmpty && _cxActivities.isEmpty)
@@ -578,12 +572,18 @@ class _LifePageState extends State<LifePage> {
               children: <Widget>[
                 Text(
                   '暂无进行中的签到',
-                  style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
                 SizedBox(height: 4),
                 Text(
                   '老师发起签到后，点右上角刷新按钮即可看到',
-                  style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             )
@@ -591,8 +591,7 @@ class _LifePageState extends State<LifePage> {
             Column(
               children: <Widget>[
                 for (final rollcall in _rollcalls) _rollcallTile(rollcall),
-                for (final activity in _cxActivities)
-                  _cxActivityTile(activity),
+                for (final activity in _cxActivities) _cxActivityTile(activity),
               ],
             ),
         ],
@@ -712,8 +711,11 @@ class _LifePageState extends State<LifePage> {
               ],
             ),
           ),
-          const Icon(Icons.chevron_right,
-              size: 16, color: AppColors.textSecondary),
+          const Icon(
+            Icons.chevron_right,
+            size: 16,
+            color: AppColors.textSecondary,
+          ),
         ],
       ),
     );
@@ -732,8 +734,11 @@ class _LifePageState extends State<LifePage> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.assignment_outlined,
-                  size: 18, color: AppColors.usstRed),
+              const Icon(
+                Icons.assignment_outlined,
+                size: 18,
+                color: AppColors.usstRed,
+              ),
               const SizedBox(width: 8),
               const Text(
                 '待办事项',
@@ -761,8 +766,7 @@ class _LifePageState extends State<LifePage> {
 
   Widget _sourceSwitch() {
     final isCx = _showChaoxingTodos;
-    final color =
-        isCx ? AppColors.usstRed : const Color(0xFF3B5BDB);
+    final color = isCx ? AppColors.usstRed : const Color(0xFF3B5BDB);
     return GestureDetector(
       onTap: _toggleTodoSource,
       child: Container(
@@ -904,10 +908,8 @@ class _LifePageState extends State<LifePage> {
         ),
       );
     }
-    final pending =
-        _cxWorks.where((w) => !w.finished && !w.expired).toList();
-    final expired =
-        _cxWorks.where((w) => !w.finished && w.expired).length;
+    final pending = _cxWorks.where((w) => !w.finished && !w.expired).toList();
+    final expired = _cxWorks.where((w) => !w.finished && w.expired).length;
     final expiredHint = expired == 0
         ? null
         : Padding(
@@ -1002,8 +1004,11 @@ class _LifePageState extends State<LifePage> {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right,
-                size: 16, color: AppColors.textSecondary),
+            const Icon(
+              Icons.chevron_right,
+              size: 16,
+              color: AppColors.textSecondary,
+            ),
           ],
         ),
       ),
@@ -1012,9 +1017,7 @@ class _LifePageState extends State<LifePage> {
 
   void _openCxWork(ChaoxingWork work) {
     Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => ChaoxingHomeworkPage(work: work),
-      ),
+      MaterialPageRoute<void>(builder: (_) => ChaoxingHomeworkPage(work: work)),
     );
   }
 
@@ -1039,10 +1042,7 @@ class _LifePageState extends State<LifePage> {
               ),
               child: Text(
                 todo.typeLabel,
-                style: const TextStyle(
-                  fontSize: 10,
-                  color: Color(0xFF3B5BDB),
-                ),
+                style: const TextStyle(fontSize: 10, color: Color(0xFF3B5BDB)),
               ),
             ),
             const SizedBox(width: 10),
@@ -1072,8 +1072,11 @@ class _LifePageState extends State<LifePage> {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right,
-                size: 16, color: AppColors.textSecondary),
+            const Icon(
+              Icons.chevron_right,
+              size: 16,
+              color: AppColors.textSecondary,
+            ),
           ],
         ),
       ),
@@ -1095,8 +1098,11 @@ class _LifePageState extends State<LifePage> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.event_note_outlined,
-                  size: 18, color: AppColors.usstRed),
+              const Icon(
+                Icons.event_note_outlined,
+                size: 18,
+                color: AppColors.usstRed,
+              ),
               const SizedBox(width: 8),
               const Text(
                 '考试安排',
