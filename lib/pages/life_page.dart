@@ -56,13 +56,18 @@ class _LifePageState extends State<LifePage> {
     if (!auth.isLoggedIn) {
       await auth.restore();
     }
-    final ok = await TronclassAuth.instance.ensureLoggedIn();
+    var ok = await TronclassAuth.instance.ensureLoggedIn();
+    if (!ok) {
+      // 教务会话可能刚过期，刷新一次再重试
+      await JwglAuth.instance.ensureSession();
+      ok = await TronclassAuth.instance.ensureLoggedIn();
+    }
     if (!mounted) {
       return;
     }
     if (!ok) {
       setState(() {
-        _error = '一网畅学登录失败，请先到「我的」登录教务系统';
+        _error = '一网畅学登录失败，点「重试」重新登录';
       });
     }
     // 即使静默登录判定失败也尝试拉一次，避免误判导致整页空白
@@ -215,6 +220,26 @@ class _LifePageState extends State<LifePage> {
       if (mounted) {
         setState(() => _loading = false);
       }
+    }
+  }
+
+  Future<void> _retryTronclass() async {
+    if (_loading) return;
+    setState(() {
+      _error = null;
+      _loading = true;
+    });
+    try {
+      await JwglAuth.instance.ensureSession();
+      final ok = await TronclassAuth.instance.ensureLoggedIn();
+      if (!mounted) return;
+      if (!ok) {
+        setState(() => _error = '一网畅学登录失败，请先到「我的」重新登录教务');
+        return;
+      }
+      await _refresh();
+    } finally {
+      if (mounted) setState(() => _loading = false);
     }
   }
 
@@ -540,7 +565,7 @@ class _LifePageState extends State<LifePage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () => _refresh(),
+                  onPressed: _retryTronclass,
                   child: const Text('重试'),
                 ),
               ],

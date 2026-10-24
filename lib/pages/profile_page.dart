@@ -4,6 +4,7 @@ import '../app_theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../data/attachment_cache.dart';
+import '../data/auth/cas_client.dart';
 import '../data/auth/jwgl_auth.dart';
 import '../data/auth/xuegong_auth.dart';
 import '../data/jwc/course_api.dart';
@@ -37,6 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
   CourseSnapshot? _snapshot;
   UserProfile? _profile;
   bool _loading = false;
+  bool _openingXuegong = false;
   int _week = 1;
   late Future<int> _cacheSizeFuture;
 
@@ -550,29 +552,63 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<void> _openXuegong() async {
+    if (_openingXuegong) {
+      return;
+    }
     final auth = JwglAuth.instance;
     if (!auth.isLoggedIn) {
       _toast('请先登录教务系统');
       return;
     }
-    // 复用教务 CAS 会话静默登录学工，用户不需要在页面里再登一次
-    final ok = await XuegongAuth.instance.ensureLoggedIn();
-    final cookies = await XuegongAuth.instance.loadCookies();
-    if (!mounted) {
-      return;
-    }
-    if (!ok) {
-      _toast('学工自动登录失败，可能需要在页面里重新登录');
-    }
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => SimpleWebPage(
-          title: '学工一体化',
-          url: XuegongAuth.homeUrl,
-          cookies: cookies,
+    _openingXuegong = true;
+    try {
+      _toast('正在登录学工…');
+      // 复用教务 CAS 会话静默登录学工，用户不需要在页面里再登一次
+      var ok = await XuegongAuth.instance.ensureLoggedIn();
+      if (!ok) {
+        // 会话可能刚好过期，强制刷新一次教务会话再试
+        await auth.ensureSession();
+        ok = await XuegongAuth.instance.ensureLoggedIn();
+      }
+      final cookies =
+          ok ? await XuegongAuth.instance.loadCookies() : <CasCookie>[];
+      if (!mounted) {
+        return;
+      }
+      if (!ok) {
+        final go = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: const Text('学工自动登录失败'),
+            content: const Text('是否打开网页，在页面里手动登录一次？'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(false),
+                child: const Text('取消'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.of(dialogContext).pop(true),
+                child: const Text('打开网页'),
+              ),
+            ],
+          ),
+        );
+        if (go != true || !mounted) {
+          return;
+        }
+      }
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => SimpleWebPage(
+            title: '学工一体化',
+            url: XuegongAuth.homeUrl,
+            cookies: cookies,
+          ),
         ),
-      ),
-    );
+      );
+    } finally {
+      _openingXuegong = false;
+    }
   }
 
   Widget _timetableSection() {

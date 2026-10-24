@@ -47,7 +47,7 @@ class UpdateService {
   static const String githubManifest =
       'https://raw.githubusercontent.com/extrisha/litang/main/update.json';
   static const String giteeManifest =
-      'https://gitee.com/extrisha/litang/raw/main/update.json';
+      'https://gitee.com/extrisha/litang/raw/main/update.json?download=1';
 
   /// 返回新版本；没有更新或检查失败返回 null。
   static Future<UpdateInfo?> check() async {
