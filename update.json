@@ -1,8 +1,8 @@
 {
-  "version": "0.2.3",
-  "versionCode": 5,
-  "notes": "代码整理；一网畅学/学工会话自动静默重登；学习通与一网畅学作业提交；PDF 预览与文件上传",
-  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.3/app-release.apk",
-  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.3/app-release.apk",
-  "sha256": "9af6c817f1c551f995de91294deab45a09555fb929ddf449b45a38da8c09f4a5"
+  "version": "0.2.4",
+  "versionCode": 6,
+  "notes": "修复学工一体化 Cookie 注入、提交按钮换行、下载目录与大小刷新；包含 0.2.3 的静默重登和代码整理",
+  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.4/app-release.apk",
+  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.4/app-release.apk",
+  "sha256": "af45204c63a45847085d20e5b19373132f310a7c13ab44557797f37bef58a3b9"
 }
