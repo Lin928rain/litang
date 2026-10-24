@@ -79,8 +79,15 @@ class _SimpleWebPageState extends State<SimpleWebPage> {
       try {
         final manager = WebViewCookieManager();
         for (final cookie in widget.cookies) {
-          // 保留前导点，否则 .chaoxing.com 只对根域生效，子域会丢 cookie。
-          final domain = cookie.domain;
+          // Android 的实现把 domain 当成 URL 传给 CookieManager，
+          // 直接传 .usst.edu.cn / chaoxing.com 会被当成非法 URL 而静默失败。
+          final rawDomain = cookie.domain;
+          final bareDomain = rawDomain.startsWith('.')
+              ? rawDomain.substring(1)
+              : rawDomain;
+          final domain = defaultTargetPlatform == TargetPlatform.android
+              ? 'https://$bareDomain/'
+              : bareDomain;
           await manager.setCookie(
             WebViewCookie(
               name: cookie.name,

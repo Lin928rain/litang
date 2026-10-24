@@ -41,12 +41,11 @@ class _ProfilePageState extends State<ProfilePage> {
   bool _loading = false;
   bool _openingXuegong = false;
   int _week = 1;
-  late Future<int> _cacheSizeFuture;
 
   @override
   void initState() {
     super.initState();
-    _cacheSizeFuture = AttachmentCache.size();
+    AttachmentCache.refreshSize();
     _bootstrap();
   }
 
@@ -263,12 +262,11 @@ class _ProfilePageState extends State<ProfilePage> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
-      child: FutureBuilder<int>(
-        future: _cacheSizeFuture,
-        builder: (context, snap) {
-          final bytes = snap.data ?? 0;
+      child: ValueListenableBuilder<int>(
+        valueListenable: AttachmentCache.sizeNotifier,
+        builder: (context, bytes, _) {
           final label = bytes <= 0
-              ? '暂无缓存'
+              ? '暂无文件'
               : bytes < 1024 * 1024
               ? '${(bytes / 1024).toStringAsFixed(0)} KB'
               : '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
@@ -278,9 +276,9 @@ class _ProfilePageState extends State<ProfilePage> {
               size: 20,
               color: AppColors.usstRed,
             ),
-            title: const Text('清理下载缓存', style: TextStyle(fontSize: 14)),
+            title: const Text('清理下载文件', style: TextStyle(fontSize: 14)),
             subtitle: Text(
-              '附件预览缓存：$label',
+              '下载文件夹：$label',
               style: const TextStyle(
                 fontSize: 11,
                 color: AppColors.textSecondary,
@@ -298,10 +296,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> _clearCache() async {
     await AttachmentCache.clear();
-    setState(() => _cacheSizeFuture = AttachmentCache.size());
     if (mounted) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('下载缓存已清理')));
+          .showSnackBar(const SnackBar(content: Text('下载文件已清理')));
     }
   }
 

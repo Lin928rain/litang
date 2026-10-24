@@ -1,14 +1,18 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
-/// 作业附件下载缓存（PDF 预览用），可随时清理。
+/// 作业附件下载目录（持久化，可手动清理）。
 class AttachmentCache {
   AttachmentCache._();
 
+  /// 当前下载目录占用，下载/清理后自动通知界面刷新。
+  static final ValueNotifier<int> sizeNotifier = ValueNotifier<int>(0);
+
   static Future<Directory> _dir() async {
-    final base = await getTemporaryDirectory();
-    final dir = Directory('${base.path}/usst_attachments');
+    final base = await getApplicationDocumentsDirectory();
+    final dir = Directory('${base.path}/downloads');
     if (!await dir.exists()) {
       await dir.create(recursive: true);
     }
@@ -20,6 +24,7 @@ class AttachmentCache {
     final safe = name.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_');
     final file = File('${dir.path}/$safe');
     await file.writeAsBytes(bytes, flush: true);
+    await refreshSize();
     return file.path;
   }
 
@@ -31,7 +36,12 @@ class AttachmentCache {
         total += await entity.length();
       }
     }
+    sizeNotifier.value = total;
     return total;
+  }
+
+  static Future<void> refreshSize() async {
+    await size();
   }
 
   static Future<void> clear() async {
@@ -39,5 +49,6 @@ class AttachmentCache {
     if (await dir.exists()) {
       await dir.delete(recursive: true);
     }
+    sizeNotifier.value = 0;
   }
 }
