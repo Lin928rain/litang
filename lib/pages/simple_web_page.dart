@@ -30,7 +30,7 @@ class SimpleWebPage extends StatefulWidget {
 class _SimpleWebPageState extends State<SimpleWebPage> {
   static final bool _supported =
       defaultTargetPlatform == TargetPlatform.android ||
-          defaultTargetPlatform == TargetPlatform.iOS;
+      defaultTargetPlatform == TargetPlatform.iOS;
 
   WebViewController? _controller;
   bool _loading = true;
@@ -130,14 +130,14 @@ class _SimpleWebPageState extends State<SimpleWebPage> {
               }
             },
           ),
-
         ],
       ),
       body: !_supported
           ? _message('该页面只能在手机 App 内打开')
           : Stack(
               children: <Widget>[
-                if (_controller != null) WebViewWidget(controller: _controller!),
+                if (_controller != null)
+                  WebViewWidget(controller: _controller!),
                 if (_loading) const LinearProgressIndicator(minHeight: 2),
                 if (_error != null)
                   Positioned.fill(
@@ -152,13 +152,13 @@ class _SimpleWebPageState extends State<SimpleWebPage> {
   }
 
   Widget _message(String text) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
-          ),
-        ),
-      );
+    child: Padding(
+      padding: const EdgeInsets.all(24),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
+      ),
+    ),
+  );
 }

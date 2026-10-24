@@ -4,14 +4,18 @@ import 'package:geolocator/geolocator.dart';
 import '../app_theme.dart';
 import '../data/auth/cas_client.dart';
 import '../data/auth/jwgl_auth.dart';
+import '../data/calendar/calendar_service.dart';
 import '../data/chaoxing/chaoxing_auth.dart';
 import '../data/chaoxing/chaoxing_client.dart';
 import '../data/jwc/course_repository.dart';
 import '../data/lms/rollcall_api.dart';
+import '../data/lms/course_info_cache.dart';
 import '../data/lms/todo_api.dart';
 import '../data/lms/tronclass_auth.dart';
 import 'chaoxing_homework_page.dart';
 import 'chaoxing_login_page.dart';
+import 'chaoxing_course_detail_page.dart';
+import 'course_detail_page.dart';
 import 'homework_page.dart';
 import 'qr_scan_page.dart';
 import 'simple_web.dart';
@@ -33,6 +37,14 @@ class _LifePageState extends State<LifePage> {
   String _currentTerm = '';
   String? _todosError;
 
+  // 课程信息
+  final Set<String> _timetableNames = <String>{};
+  final Map<String, String> _timetableTeachers = <String, String>{};
+  bool _showChaoxingCourses = false;
+  bool _coursesLoading = false;
+  String? _coursesError;
+  List<LmsCourseInfo> _courseInfos = const <LmsCourseInfo>[];
+
   // 学习通
   bool _showChaoxingTodos = false;
   bool _cxLoading = false;
@@ -49,7 +61,14 @@ class _LifePageState extends State<LifePage> {
 
   Future<void> _bootstrap() async {
     final snapshot = await CourseRepository.loadCache();
-    _currentTerm = snapshot?.termLabel ?? '';
+    _currentTerm =
+        CalendarService.instance.currentTerm?.id ?? snapshot?.termLabel ?? '';
+    _timetableNames
+      ..clear()
+      ..addAll(
+        snapshot?.courses.map((c) => _cleanCourseName(c.name)) ??
+            const <String>[],
+      );
     // 生活页是启动时就存在的 tab，可能比「我的」页更早初始化，
     // 这里必须先恢复登录态，否则一网畅学接口会以未登录状态返回空。
     final auth = JwglAuth.instance;
@@ -73,6 +92,7 @@ class _LifePageState extends State<LifePage> {
     // 即使静默登录判定失败也尝试拉一次，避免误判导致整页空白
     await _refresh();
     await _refreshChaoxing();
+    await _loadCourses();
   }
 
   /// 拉取学习通数据。cookie 失效时会用保存的密码后台重登。
@@ -223,6 +243,130 @@ class _LifePageState extends State<LifePage> {
         setState(() => _loading = false);
       }
     }
+  }
+
+  static String _cleanCourseName(String raw) {
+    return raw
+        .replaceAll('（', '(')
+        .replaceAll('）', ')')
+        // 只去掉 (2026-2027-1) 这种学期后缀，保留课程本身的 (1)/(2)
+        .replaceAll(RegExp(r'\(\d{4}-\d{4}-\d\)-.*$'), '')
+        .replaceAll(RegExp(r'\s+'), '')
+        .trim();
+  }
+
+  bool _isCurrentCourse(String name, String termCode) {
+    final clean = _cleanCourseName(name);
+    if (_timetableNames.isNotEmpty && _timetableNames.contains(clean)) {
+      return true;
+    }
+    final effectiveTerm = _currentTerm.isNotEmpty
+        ? _currentTerm
+        : CalendarService.fallbackTermId();
+    if (termCode.isNotEmpty &&
+        _normalizeTerm(termCode) == _normalizeTerm(effectiveTerm)) {
+      return true;
+    }
+    return false;
+  }
+
+  Future<void> _loadCourses({bool force = false}) async {
+    if (_coursesLoading) return;
+    final termKey = _currentTerm.isNotEmpty
+        ? _currentTerm
+        : CalendarService.fallbackTermId();
+    final source = _showChaoxingCourses ? 'chaoxing' : 'tronclass';
+    if (!force) {
+      final cached = await CourseInfoCache.load(termKey, source);
+      if (cached != null) {
+        if (mounted) {
+          setState(() {
+            _courseInfos = cached;
+            _coursesError = null;
+          });
+        }
+        return;
+      }
+    }
+    setState(() {
+      _coursesLoading = true;
+      _coursesError = null;
+    });
+    try {
+      if (!_showChaoxingCourses) {
+        final auth = JwglAuth.instance;
+        if (!auth.isLoggedIn) {
+          await auth.restore();
+        }
+        await TronclassAuth.instance.ensureLoggedIn();
+        final client = auth.client;
+        if (client == null) {
+          setState(() => _coursesError = '请先登录教务系统');
+          return;
+        }
+        final list = await LmsApi(client).fetchCourseInfos();
+        final filtered = list
+            .where((c) => _isCurrentCourse(c.name, c.termCode))
+            .map(
+              (c) => LmsCourseInfo(
+                id: c.id,
+                name: c.name,
+                teacher: c.teacher.isNotEmpty
+                    ? c.teacher
+                    : (_timetableTeachers[_cleanCourseName(c.name)] ?? ''),
+                termCode: c.termCode,
+              ),
+            )
+            .toList();
+        if (mounted) setState(() => _courseInfos = filtered);
+      } else {
+        final auth = ChaoxingAuth.instance;
+        if (!auth.isLoggedIn) {
+          await auth.restore();
+        }
+        if (!await auth.ensureSession()) {
+          if (mounted) {
+            setState(() {
+              _courseInfos = const <LmsCourseInfo>[];
+              _coursesError = '学习通登录已失效';
+            });
+          }
+          return;
+        }
+        final client = auth.client;
+        if (client == null) return;
+        final courses = _cxCourses.isNotEmpty
+            ? _cxCourses
+            : await client.fetchCourses();
+        _cxCourses = courses;
+        final filtered = courses
+            .map(
+              (c) => LmsCourseInfo(
+                id: c.courseId,
+                name: c.name,
+                teacher: c.teacher.isNotEmpty
+                    ? c.teacher
+                    : (_timetableTeachers[_cleanCourseName(c.name)] ?? ''),
+                termCode: '',
+              ),
+            )
+            .where((c) => _isCurrentCourse(c.name, c.termCode))
+            .toList();
+        if (mounted) setState(() => _courseInfos = filtered);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _coursesError = '课程信息拉取失败');
+    } finally {
+      if (mounted) setState(() => _coursesLoading = false);
+    }
+  }
+
+  void _toggleCourseSource() {
+    setState(() {
+      _showChaoxingCourses = !_showChaoxingCourses;
+      _courseInfos = const <LmsCourseInfo>[];
+    });
+    _loadCourses();
   }
 
   Future<void> _retryTronclass() async {
@@ -497,10 +641,14 @@ class _LifePageState extends State<LifePage> {
             ),
             const SizedBox(height: 8),
             _rollcallCard(),
+            if (_exams.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 12),
+              _examCard(),
+            ],
             const SizedBox(height: 12),
             _todoCard(),
             const SizedBox(height: 12),
-            _examCard(),
+            _courseCard(),
             const SizedBox(height: 12),
             _campusCard(),
             const SizedBox(height: 8),
@@ -509,6 +657,197 @@ class _LifePageState extends State<LifePage> {
                 onPressed: _openLms,
                 icon: const Icon(Icons.open_in_new, size: 14),
                 label: const Text('一网畅学网页版', style: TextStyle(fontSize: 12)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _courseCard() {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              const Icon(
+                Icons.menu_book_outlined,
+                size: 18,
+                color: AppColors.usstRed,
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                '课程信息',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+              ),
+              const Spacer(),
+              Text(
+                '${_courseInfos.length} 门',
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+              const SizedBox(width: 4),
+              _courseSourceSwitch(),
+            ],
+          ),
+          const SizedBox(height: 10),
+          if (_coursesLoading)
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Center(
+                child: SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ),
+            )
+          else if (_coursesError != null)
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    _coursesError!,
+                    style: const TextStyle(
+                      fontSize: 11,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: _loadCourses,
+                  child: const Text('重试', style: TextStyle(fontSize: 12)),
+                ),
+              ],
+            )
+          else if (_courseInfos.isEmpty)
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                '本学期暂无课程',
+                style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+              ),
+            )
+          else
+            SizedBox(
+              height: 92,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: _courseInfos.length,
+                separatorBuilder: (_, _) => const SizedBox(width: 10),
+                itemBuilder: (context, i) => _courseTile(_courseInfos[i]),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _courseSourceSwitch() {
+    final isCx = _showChaoxingCourses;
+    final color = isCx ? AppColors.usstRed : const Color(0xFF3B5BDB);
+    return GestureDetector(
+      onTap: _toggleCourseSource,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: isCx ? AppColors.redTint : const Color(0xFFE3EAFE),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Image.asset(
+              isCx
+                  ? 'assets/sources/chaoxing_tab.png'
+                  : 'assets/sources/tronclass_tab.png',
+              width: 13,
+              height: 13,
+              filterQuality: FilterQuality.high,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              isCx ? '学习通' : '一网畅学',
+              style: TextStyle(
+                fontSize: 10.5,
+                color: color,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(width: 2),
+            Icon(Icons.swap_horiz, size: 13, color: color),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _courseTile(LmsCourseInfo course) {
+    final color = _showChaoxingCourses
+        ? const Color(0xFFFDF2F2)
+        : const Color(0xFFEFF5FF);
+    return InkWell(
+      borderRadius: BorderRadius.circular(10),
+      onTap: () {
+        if (_showChaoxingCourses) {
+          final match = _cxCourses.where((c) => c.courseId == course.id);
+          if (match.isEmpty) return;
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => ChaoxingCourseDetailPage(
+                courseName: course.name,
+                course: match.first,
+              ),
+            ),
+          );
+          return;
+        }
+        Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => TronCourseDetailPage(
+              courseName: course.name,
+              courseId: course.id,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        width: 148,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              course.name,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w600,
+                height: 1.25,
+              ),
+            ),
+            const Spacer(),
+            Text(
+              course.teacher.isEmpty ? '教师待补充' : course.teacher,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 10,
+                color: AppColors.textSecondary,
               ),
             ),
           ],
@@ -1172,7 +1511,7 @@ class _LifePageState extends State<LifePage> {
       return exams;
     }
     final target = _normalizeTerm(
-      _currentTerm.isNotEmpty ? _currentTerm : _currentTermFromNow(),
+      _currentTerm.isNotEmpty ? _currentTerm : CalendarService.fallbackTermId(),
     );
     // 只显示目标学期；没有该学期考试时宁可隐藏，也不退回去显示旧学期。
     return exams.where((e) => _normalizeTerm(e.termLabel) == target).toList();
@@ -1184,19 +1523,6 @@ class _LifePageState extends State<LifePage> {
     s = s.replaceAll('第1学期', '1').replaceAll('第2学期', '2');
     s = s.replaceAll('第', '-').replaceAll('学期', '');
     return s;
-  }
-
-  static String _currentTermFromNow() {
-    final now = DateTime.now();
-    final year = now.year;
-    final month = now.month;
-    if (month >= 9) {
-      return '$year-${year + 1}-1';
-    }
-    if (month == 1) {
-      return '${year - 1}-$year-1';
-    }
-    return '${year - 1}-$year-2';
   }
 
   String _formatDateTime(DateTime time) {

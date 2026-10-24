@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';
+import 'data/calendar/calendar_service.dart';
 import 'data/map_focus.dart';
 import 'data/notice_source.dart';
 import 'pages/home_page.dart';
@@ -11,7 +12,11 @@ import 'pages/map_page.dart';
 import 'pages/forum_page.dart';
 import 'pages/profile_page.dart';
 
-void main() => runApp(const CampusApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CalendarService.instance.load();
+  runApp(const CampusApp());
+}
 
 class CampusApp extends StatelessWidget {
   const CampusApp({super.key});

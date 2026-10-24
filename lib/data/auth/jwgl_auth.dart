@@ -27,6 +27,12 @@ class JwglAuth extends ChangeNotifier {
 
   String? get studentId => _studentId;
 
+  /// 本地保存的学号（WebVPN 等二次登录用）。
+  String get savedUsername => _savedUsername;
+
+  /// 本地保存的密码；未勾选记住登录时为 null。
+  String? get savedPassword => _savedPassword;
+
   CasClient? get client => _client;
 
   /// 本地是否保存了可自动登录的密码。
@@ -43,7 +49,11 @@ class JwglAuth extends ChangeNotifier {
     final client = CasClient();
     await client.login(username, password);
     _applyLogin(client, username.trim(), remember ? password : null);
-    await _store.save(client, username: _savedUsername, password: _savedPassword);
+    await _store.save(
+      client,
+      username: _savedUsername,
+      password: _savedPassword,
+    );
     notifyListeners();
   }
 
@@ -75,8 +85,11 @@ class JwglAuth extends ChangeNotifier {
       }
       if (await client.silentLogin()) {
         _client = client;
-        await _store.save(client,
-            username: _savedUsername, password: _savedPassword);
+        await _store.save(
+          client,
+          username: _savedUsername,
+          password: _savedPassword,
+        );
         notifyListeners();
         return;
       }
@@ -135,8 +148,11 @@ class JwglAuth extends ChangeNotifier {
       return true;
     }
     if (await client.silentLogin()) {
-      await _store.save(client,
-          username: _savedUsername, password: _savedPassword);
+      await _store.save(
+        client,
+        username: _savedUsername,
+        password: _savedPassword,
+      );
       return true;
     }
     return _tryAutoLogin();

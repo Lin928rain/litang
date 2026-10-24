@@ -18,11 +18,18 @@ class XuegongAuth {
   static const String _key = 'usst_xuegong_cookies_v1';
   static const String host = 'new2017.usst.edu.cn';
   static const String homeUrl = 'https://new2017.usst.edu.cn/StuDefault.aspx';
+  static const String webVpnHost = 'new2017.webvpn.usst.edu.cn';
+  static const String webVpnHomeUrl =
+      'https://new2017.webvpn.usst.edu.cn/default.aspx';
   static const FlutterSecureStorage _storage = FlutterSecureStorage();
 
   List<CasCookie> _cookies = <CasCookie>[];
+  bool _viaWebVpn = false;
 
   List<CasCookie> get cookies => List<CasCookie>.unmodifiable(_cookies);
+
+  /// 当前会话应该打开的地址（校外自动用 WebVPN）。
+  String get homeUrlForSession => _viaWebVpn ? webVpnHomeUrl : homeUrl;
 
   /// 用当前教务会话尝试静默登录学工；成功返回 true 并缓存 cookie。
   Future<bool> ensureLoggedIn() async {
@@ -47,9 +54,37 @@ class XuegongAuth {
       final finalUrl = resp.realUri.toString();
       final ok = !finalUrl.contains('WeLinkLogOn') && body.contains('学生主页');
       if (!ok) {
-        return false;
+        return await _loginViaWebVpn();
       }
       _cookies = client.jar.cookiesForHost(host);
+      _viaWebVpn = false;
+      await _save();
+      return _cookies.isNotEmpty;
+    } catch (_) {
+      return await _loginViaWebVpn();
+    }
+  }
+
+  /// 校外：WebVPN 会先跳 ids6-443 登录，登录后直接回到目标页。
+  Future<bool> _loginViaWebVpn() async {
+    final jwgl = JwglAuth.instance;
+    final username = jwgl.savedUsername;
+    final password = jwgl.savedPassword;
+    if (username.isEmpty || password == null || password.isEmpty) {
+      return false;
+    }
+    try {
+      final client = CasClient();
+      final result = await client.loginAt(
+        Uri.parse(webVpnHomeUrl),
+        username,
+        password,
+      );
+      if (!result.body.contains('学生主页')) {
+        return false;
+      }
+      _cookies = client.jar.cookiesForHost(webVpnHost);
+      _viaWebVpn = true;
       await _save();
       return _cookies.isNotEmpty;
     } catch (_) {

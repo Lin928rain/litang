@@ -51,7 +51,9 @@ class CourseWeekTable extends StatelessWidget {
                     child: Stack(
                       children: <Widget>[
                         Positioned.fill(
-                          child: CustomPaint(painter: _GridPainter(periods: periods)),
+                          child: CustomPaint(
+                            painter: _GridPainter(periods: periods),
+                          ),
                         ),
                         for (final course in shown)
                           _courseBlock(context, course, shown.indexOf(course)),
@@ -110,7 +112,10 @@ class CourseWeekTable extends StatelessWidget {
           decoration: BoxDecoration(
             color: const Color(0xFFFAFAFA),
             border: Border(
-              top: BorderSide(color: const Color(0xFFEDEDED), width: period == 1 ? 0.6 : 0.6),
+              top: BorderSide(
+                color: const Color(0xFFEDEDED),
+                width: period == 1 ? 0.6 : 0.6,
+              ),
             ),
           ),
           child: FittedBox(
@@ -129,7 +134,10 @@ class CourseWeekTable extends StatelessWidget {
                 const SizedBox(height: 1),
                 Text(
                   JwglSchedule.timeOfPeriod(period) ?? '',
-                  style: const TextStyle(fontSize: 8, color: AppColors.textSecondary),
+                  style: const TextStyle(
+                    fontSize: 8,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -137,7 +145,10 @@ class CourseWeekTable extends StatelessWidget {
         ),
       );
     }
-    return SizedBox(width: periodWidth, child: Column(children: cells));
+    return SizedBox(
+      width: periodWidth,
+      child: Column(children: cells),
+    );
   }
 
   Widget _courseBlock(BuildContext context, Course course, int index) {
@@ -180,14 +191,33 @@ class CourseWeekTable extends StatelessWidget {
                   const SizedBox(height: 3),
                   Text(
                     course.room,
-                    style: const TextStyle(fontSize: 9, color: AppColors.textSecondary),
+                    style: const TextStyle(
+                      fontSize: 9,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+                if (course.teacher != null &&
+                    course.teacher!.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 2),
+                  Text(
+                    course.teacher!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 8,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ],
                 if (timeRange != null) ...<Widget>[
                   const SizedBox(height: 2),
                   Text(
                     '${course.start + 1}-${course.start + course.span}节 $timeRange',
-                    style: const TextStyle(fontSize: 8, color: AppColors.textSecondary),
+                    style: const TextStyle(
+                      fontSize: 8,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ],
               ],
@@ -233,7 +263,8 @@ class CourseWeekTable extends StatelessWidget {
                 color: AppColors.textSecondary,
               ),
             ),
-            if (course.teacher != null && course.teacher!.isNotEmpty) ...<Widget>[
+            if (course.teacher != null &&
+                course.teacher!.isNotEmpty) ...<Widget>[
               const SizedBox(height: 6),
               Text(
                 '教师：${course.teacher}',

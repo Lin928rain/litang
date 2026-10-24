@@ -6,6 +6,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../data/attachment_cache.dart';
 import '../data/auth/cas_client.dart';
+import '../data/calendar/calendar_service.dart';
 import '../data/auth/jwgl_auth.dart';
 import '../data/auth/xuegong_auth.dart';
 import '../data/jwc/course_api.dart';
@@ -60,7 +61,8 @@ class _ProfilePageState extends State<ProfilePage> {
     }
     setState(() {
       _snapshot = cached;
-      _week = cached?.currentWeek ?? _week;
+      _week =
+          CalendarService.instance.currentWeek ?? cached?.currentWeek ?? _week;
       _profile = profile;
     });
 
@@ -106,7 +108,10 @@ class _ProfilePageState extends State<ProfilePage> {
       }
       setState(() {
         _snapshot = snapshot;
-        _week = snapshot.currentWeek ?? _week;
+        _week =
+            CalendarService.instance.currentWeek ??
+            snapshot.currentWeek ??
+            _week;
       });
       if (snapshot.courses.isEmpty && !silent) {
         _toast('没取到课表，请稍后重试');
@@ -622,6 +627,10 @@ class _ProfilePageState extends State<ProfilePage> {
     final auth = JwglAuth.instance;
     final snapshot = _snapshot;
     final updated = snapshot == null ? '' : _formatTime(snapshot.updatedAt);
+    final calendarLabel = CalendarService.instance.termLabel;
+    final termLabel = calendarLabel.isNotEmpty
+        ? calendarLabel
+        : (snapshot?.termLabel ?? '');
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -632,7 +641,12 @@ class _ProfilePageState extends State<ProfilePage> {
               '第$_week周课表',
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
             ),
-            if (snapshot?.currentWeek != null && _week == snapshot!.currentWeek)
+            if ((CalendarService.instance.currentWeek ??
+                        snapshot?.currentWeek) !=
+                    null &&
+                _week ==
+                    (CalendarService.instance.currentWeek ??
+                        snapshot!.currentWeek))
               Container(
                 margin: const EdgeInsets.only(left: 8),
                 padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
@@ -650,10 +664,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             const SizedBox(width: 8),
-            if (snapshot != null && snapshot.termLabel.isNotEmpty)
+            if (termLabel.isNotEmpty)
               Flexible(
                 child: Text(
-                  '${snapshot.termLabel} · 更新于 $updated',
+                  updated.isEmpty ? termLabel : '$termLabel · 更新于 $updated',
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 11,
@@ -751,7 +765,8 @@ class _ProfilePageState extends State<ProfilePage> {
         itemBuilder: (context, index) {
           final week = index + 1;
           final selected = week == _week;
-          final current = snapshot?.currentWeek;
+          final current =
+              CalendarService.instance.currentWeek ?? snapshot?.currentWeek;
           final isCurrent = current != null && week == current;
           return GestureDetector(
             onTap: () => setState(() => _week = week),

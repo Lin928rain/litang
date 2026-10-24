@@ -44,8 +44,7 @@ class CasTokens {
   /// 解析失败返回 null（例如页面结构变化或被风控拦截）。
   static CasTokens? parse(String html) {
     String? pick(String name) {
-      final match =
-          RegExp('name="$name"[^>]*value="([^"]*)"').firstMatch(html);
+      final match = RegExp('name="$name"[^>]*value="([^"]*)"').firstMatch(html);
       return match?.group(1);
     }
 
@@ -77,18 +76,18 @@ class CasCookie {
   final String path;
 
   Map<String, String> toJson() => <String, String>{
-        'name': name,
-        'value': value,
-        'domain': domain,
-        'path': path,
-      };
+    'name': name,
+    'value': value,
+    'domain': domain,
+    'path': path,
+  };
 
   static CasCookie fromJson(Map<String, dynamic> json) => CasCookie(
-        name: json['name'] as String? ?? '',
-        value: json['value'] as String? ?? '',
-        domain: json['domain'] as String? ?? '',
-        path: json['path'] as String? ?? '/',
-      );
+    name: json['name'] as String? ?? '',
+    value: json['value'] as String? ?? '',
+    domain: json['domain'] as String? ?? '',
+    path: json['path'] as String? ?? '/',
+  );
 
   bool matchesHost(String host) {
     if (domain.startsWith('.')) {
@@ -152,7 +151,9 @@ class CasCookieJar {
     cookies.removeWhere(
       (c) => c.name == name && c.domain == domain && c.path == path,
     );
-    cookies.add(CasCookie(name: name, value: value, domain: domain, path: path));
+    cookies.add(
+      CasCookie(name: name, value: value, domain: domain, path: path),
+    );
   }
 
   /// 取某个 host 下所有 cookie（WebView 注入用）。
@@ -162,10 +163,11 @@ class CasCookieJar {
   /// 生成请求头里的 Cookie 串；同一请求路径优先匹配更长的 path。
   String? headerFor(Uri uri) {
     final path = uri.path.isEmpty ? '/' : uri.path;
-    final matched = cookies
-        .where((c) => c.matchesHost(uri.host) && c.matchesPath(path))
-        .toList()
-      ..sort((a, b) => b.path.length.compareTo(a.path.length));
+    final matched =
+        cookies
+            .where((c) => c.matchesHost(uri.host) && c.matchesPath(path))
+            .toList()
+          ..sort((a, b) => b.path.length.compareTo(a.path.length));
     final seen = <String>{};
     final out = <String>[];
     for (final c in matched) {
@@ -186,11 +188,24 @@ class CasCookieJar {
   }
 }
 
+/// 一次 CAS 登录的最终结果（webvpn 等入口用）。
+class CasLoginResult {
+  const CasLoginResult({
+    required this.body,
+    required this.uri,
+    required this.statusCode,
+  });
+
+  final String body;
+  final Uri uri;
+  final int statusCode;
+}
+
 /// 复刻 usst-jwgl-client 的 CAS SSO 流程：
 /// 入口 /sso/jziotlogin → ehall 适配器 → ids6 authserver → 回跳 jwglxt。
 class CasClient {
   CasClient({Dio? dio, List<CasCookie> initialCookies = const <CasCookie>[]})
-      : _dio = dio ?? _buildDio() {
+    : _dio = dio ?? _buildDio() {
     jar.cookies.addAll(initialCookies);
   }
 
@@ -268,12 +283,46 @@ class CasClient {
     );
 
     if (!await checkSession()) {
-      final message = _extractError(result.data ?? '') ??
+      final message =
+          _extractError(result.data ?? '') ??
           _extractError(entryHtml) ??
           '登录失败，请检查学号和密码';
       throw CasLoginException(message);
     }
     studentId = username.trim();
+  }
+
+  /// 从任意 CAS 入口登录（例如 webvpn 的 authserver），返回最终页面。
+  Future<CasLoginResult> loginAt(
+    Uri entry,
+    String username,
+    String password,
+  ) async {
+    final page = await _send(entry);
+    final html = page.data ?? '';
+    final tokens = CasTokens.parse(html);
+    if (tokens == null) {
+      throw CasLoginException('统一身份认证页面解析失败');
+    }
+    final result = await _send(
+      page.realUri,
+      method: 'POST',
+      form: <String, String>{
+        'username': username.trim(),
+        'password': password,
+        'lt': tokens.lt,
+        'dllt': 'userNamePasswordLogin',
+        'execution': tokens.execution,
+        '_eventId': tokens.eventId,
+        'rmShown': '1',
+      },
+      referer: page.realUri.toString(),
+    );
+    return CasLoginResult(
+      body: result.data ?? '',
+      uri: result.realUri,
+      statusCode: result.statusCode ?? 0,
+    );
   }
 
   /// 当前会话是否还能访问 jwglxt。
@@ -323,7 +372,10 @@ class CasClient {
       _absorb(resp);
       final code = resp.statusCode ?? 0;
       final location = resp.headers.value('location');
-      if (code >= 300 && code < 400 && location != null && location.isNotEmpty) {
+      if (code >= 300 &&
+          code < 400 &&
+          location != null &&
+          location.isNotEmpty) {
         current = upgradeCasUrl(current.resolve(location));
         continue;
       }
@@ -374,22 +426,23 @@ class CasClient {
     return _send(
       uri,
       accept: 'application/json, text/plain, */*',
-      extraHeaders: const <String, String>{'X-Requested-With': 'XMLHttpRequest'},
+      extraHeaders: const <String, String>{
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     );
   }
 
   /// 带登录态发请求（后续课表 / 成绩接口用）。
-  Future<Response<String>> getJson(
-    Uri uri, {
-    Map<String, String>? data,
-  }) {
+  Future<Response<String>> getJson(Uri uri, {Map<String, String>? data}) {
     return _send(
       uri,
       method: data == null ? 'GET' : 'POST',
       form: data,
       referer: indexUrl,
       accept: 'application/json, text/javascript, */*; q=0.01',
-      extraHeaders: const <String, String>{'X-Requested-With': 'XMLHttpRequest'},
+      extraHeaders: const <String, String>{
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     );
   }
 
@@ -399,7 +452,8 @@ class CasClient {
     Map<String, String>? form,
     Object? jsonBody,
     String? referer,
-    String accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    String accept =
+        'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     Map<String, String> extraHeaders = const <String, String>{},
   }) async {
     var current = url;
@@ -440,7 +494,10 @@ class CasClient {
 
       final code = resp.statusCode ?? 0;
       final location = resp.headers.value('location');
-      if (code >= 300 && code < 400 && location != null && location.isNotEmpty) {
+      if (code >= 300 &&
+          code < 400 &&
+          location != null &&
+          location.isNotEmpty) {
         current = upgradeCasUrl(current.resolve(location));
         currentMethod = 'GET';
         body = null;

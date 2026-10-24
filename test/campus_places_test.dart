@@ -23,4 +23,24 @@ void main() {
     expect(placeForRoom('一教146')?.name.contains('第一教学楼'), isTrue);
     expect(placeForRoom(''), isNull);
   });
+
+  test('楼名别名归一化', () {
+    expect(
+      placeForRoom('卓越工程大楼118')?.name.contains('卓越楼'),
+      isTrue,
+    );
+    expect(placeForRoom('综合A101')?.name.contains('综合楼'), isTrue);
+    expect(
+      placeForRoom('二公三')?.name.contains('第二学生公寓三号楼'),
+      isTrue,
+    );
+    expect(
+      searchCampusPlaces('一教').first.name,
+      contains('第一教学楼'),
+    );
+    expect(
+      searchCampusPlaces('二公三').first.name,
+      contains('第二学生公寓三号楼'),
+    );
+  });
 }

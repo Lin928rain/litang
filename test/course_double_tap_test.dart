@@ -19,6 +19,7 @@ void main() {
                 start: 0,
                 span: 2,
                 room: '三教106',
+                teacher: '王老师',
               ),
             ],
             week: 1,
@@ -29,6 +30,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    expect(find.text('王老师'), findsOneWidget);
 
     await tester.tap(find.text('高等数学'));
     await tester.pump(const Duration(milliseconds: 50));

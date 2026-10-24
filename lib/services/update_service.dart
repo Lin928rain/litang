@@ -96,13 +96,14 @@ class UpdateService {
       if (info.giteeUrl.isNotEmpty) info.giteeUrl,
     ];
     Object? lastError;
-    for (final url in urls) {
+    for (var i = 0; i < urls.length; i++) {
       try {
         final path = await _downloadOne(
-          url,
+          urls[i],
           info.version,
           info.sha256,
           onProgress,
+          allowFallback: i < urls.length - 1,
         );
         return path;
       } catch (e) {
@@ -116,8 +117,9 @@ class UpdateService {
     String url,
     String version,
     String expectedSha256,
-    void Function(double)? onProgress,
-  ) async {
+    void Function(double)? onProgress, {
+    bool allowFallback = false,
+  }) async {
     final client = http.Client();
     try {
       final request = http.Request('GET', Uri.parse(url));
@@ -133,11 +135,25 @@ class UpdateService {
       final sink = file.openWrite();
       var received = 0;
       final total = response.contentLength ?? 0;
+      final watch = Stopwatch()..start();
       await for (final chunk in response.stream) {
         sink.add(chunk);
         received += chunk.length;
         if (total > 0) {
           onProgress?.call(received / total);
+        }
+        // 下载 5 秒后如果速度低于 120KB/s，放弃当前源，切下一个源
+        if (allowFallback && watch.elapsed.inSeconds >= 5) {
+          final seconds = watch.elapsedMilliseconds / 1000;
+          if (seconds > 0 && received / seconds < 120 * 1024) {
+            await sink.close();
+            try {
+              await file.delete();
+            } catch (_) {
+              // ignore
+            }
+            throw _SlowDownload();
+          }
         }
       }
       await sink.close();
@@ -159,3 +175,5 @@ class UpdateService {
     await OpenFilex.open(path);
   }
 }
+
+class _SlowDownload implements Exception {}

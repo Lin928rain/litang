@@ -152,13 +152,55 @@ const List<CampusPlace> kCampusPlaces = <CampusPlace>[
   CampusPlace(name: '思雷堂', anchor: Offset(0.4116, 0.6080)),
 ];
 
+/// 楼名/教室名别名（教务排课系统的各种写法）。
+/// 需要补别名时直接往这里加，例如 '二公三': '第二学生公寓三号楼'。
+const Map<String, String> kBuildingAliases = <String, String>{
+  '第一教学楼': '第一教学楼',
+  '一教': '第一教学楼',
+  '第三教学楼': '第三教学楼',
+  '三教': '第三教学楼',
+  '第四教学楼': '第四教学楼（逸兴楼）',
+  '四教': '第四教学楼（逸兴楼）',
+  '卓越工程大楼': '卓越楼',
+  '卓越楼': '卓越楼',
+  '综合A': '综合楼',
+  '综合楼A区': '综合楼',
+  '综合B': '综合楼',
+  '综合楼B区': '综合楼',
+  '综合C': '综合楼',
+  '综合楼C区': '综合楼',
+  '综合D': '综合楼',
+  '综合楼D区': '综合楼',
+  '国合楼': '国合楼（中德国际学院）',
+  '中德': '国合楼（中德国际学院）',
+  '二公一': '第二学生公寓一号楼',
+  '二公二': '第二学生公寓二号楼',
+  '二公三': '第二学生公寓三号楼',
+  '第二公寓三号楼': '第二学生公寓三号楼',
+  '三公一': '第三学生公寓一号楼',
+};
+
+String _aliasTarget(String input) {
+  final r = input.trim();
+  if (r.isEmpty) return r;
+  final keys = kBuildingAliases.keys.toList()
+    ..sort((a, b) => b.length.compareTo(a.length));
+  for (final key in keys) {
+    if (r == key || r.startsWith(key)) {
+      return kBuildingAliases[key]!;
+    }
+  }
+  return r;
+}
+
 List<CampusPlace> searchCampusPlaces(String query) {
   final q = query.trim();
   if (q.isEmpty) return const <CampusPlace>[];
+  final target = _aliasTarget(q);
   final seen = <String>{};
   final out = <CampusPlace>[];
   for (final p in kCampusPlaces) {
-    if (!p.name.contains(q)) continue;
+    if (!p.name.contains(target) && !p.name.contains(q)) continue;
     if (!seen.add(p.name)) continue;
     out.add(p);
     if (out.length >= 12) break;
@@ -171,15 +213,20 @@ CampusPlace? nearestPlace(Offset normalized, {double maxDistance = 0.06}) {
   var bestD = maxDistance;
   for (final p in kCampusPlaces) {
     final d = (p.anchor - normalized).distance;
-    if (d < bestD) { bestD = d; best = p; }
+    if (d < bestD) {
+      bestD = d;
+      best = p;
+    }
   }
   return best;
 }
 
 /// 把教务课表的教室名（如「三教106」「一教146」）解析成地图地点。
 CampusPlace? placeForRoom(String room) {
-  final r = room.trim();
-  if (r.isEmpty) return null;
+  final raw = room.trim();
+  if (raw.isEmpty) return null;
+  // 先做别名归一化，例如 卓越工程大楼118 → 卓越楼118，综合A101 → 综合楼101
+  final r = _aliasTarget(raw);
 
   CampusPlace? best;
   for (final p in kCampusPlaces) {
