@@ -1,8 +1,8 @@
 {
-  "version": "0.2.4",
-  "versionCode": 6,
-  "notes": "修复学工一体化 Cookie 注入、提交按钮换行、下载目录与大小刷新；包含 0.2.3 的静默重登和代码整理",
-  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.4/app-release.apk",
-  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.4/app-release.apk",
-  "sha256": "af45204c63a45847085d20e5b19373132f310a7c13ab44557797f37bef58a3b9"
+  "version": "0.2.9",
+  "versionCode": 11,
+  "notes": "新增一网畅学/学习通课程详情（章节、公告、作业、测试、讨论/考试），课程信息缓存与教师显示，学年学期校历配置",
+  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.9/app-release.apk",
+  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.9/app-release.apk",
+  "sha256": "4ff2f91afe3b8c796f82eeaf85b8f11b40f991c9389aa1b6909643d6c4028dd9"
 }
