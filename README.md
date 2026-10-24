@@ -4,15 +4,20 @@
 ⚠Vibe Coding⚠
 持续开发中...更多功能敬请等待...
 
+
 目前计划：
 1.做完整的信息板块，部分信息可能需要人工提交
 2.地图支持校内导航
 3.接入学习通、一网畅学、水成二维码
 4.论坛（？？？）
 
+
 参考项目：
 https://github.com/DanXi-Dev/DanXi
+
+
 https://github.com/BigSilverFish/usst-jwgl-client
+
 
 如果你有好的想法，欢迎加入我（们？）！
 49primary@gmail.com
