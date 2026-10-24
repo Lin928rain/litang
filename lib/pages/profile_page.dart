@@ -566,8 +566,8 @@ class _ProfilePageState extends State<ProfilePage> {
       // 复用教务 CAS 会话静默登录学工，用户不需要在页面里再登一次
       var ok = await XuegongAuth.instance.ensureLoggedIn();
       if (!ok) {
-        // 会话可能刚好过期，强制刷新一次教务会话再试
-        await auth.ensureSession();
+        // 会话可能刚好过期，后台强制重登后再试
+        await auth.reauthenticate();
         ok = await XuegongAuth.instance.ensureLoggedIn();
       }
       final cookies =

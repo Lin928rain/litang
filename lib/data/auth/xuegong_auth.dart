@@ -31,7 +31,9 @@ class XuegongAuth {
       return false;
     }
     if (!await jwgl.ensureSession()) {
-      return false;
+      if (!await jwgl.reauthenticate()) {
+        return false;
+      }
     }
     final client = jwgl.client;
     if (client == null) {

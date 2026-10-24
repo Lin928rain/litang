@@ -89,6 +89,42 @@ class JwglAuth extends ChangeNotifier {
     await _clearAll();
   }
 
+  /// 强制后台重登：先试 CAS 静默，再用本地保存的密码重新登录。
+  /// 用于「会话半失效」——checkSession 通过但业务接口已经不可用的情况。
+  Future<bool> reauthenticate() async {
+    final current = _client;
+    if (current != null) {
+      try {
+        if (await current.silentLogin()) {
+          await _store.save(
+            current,
+            username: _savedUsername,
+            password: _savedPassword,
+          );
+          notifyListeners();
+          return true;
+        }
+      } catch (_) {
+        // 继续尝试密码登录
+      }
+    }
+    final username = _savedUsername;
+    final password = _savedPassword;
+    if (username.isEmpty || password == null || password.isEmpty) {
+      return false;
+    }
+    try {
+      final client = CasClient();
+      await client.login(username, password);
+      _applyLogin(client, username, password);
+      await _store.save(client, username: username, password: password);
+      notifyListeners();
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   /// 数据页调用：过期时自动恢复，尽量不让用户手动登录。
   Future<bool> ensureSession() async {
     final client = _client;

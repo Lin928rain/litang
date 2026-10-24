@@ -162,6 +162,8 @@ class _LifePageState extends State<LifePage> {
     }
     setState(() => _loading = true);
     try {
+      // 每次刷新前确认一网畅学会话；半失效时内部会自动重登
+      await TronclassAuth.instance.ensureLoggedIn();
       final client = auth.client;
       if (client == null) {
         return;
@@ -230,7 +232,7 @@ class _LifePageState extends State<LifePage> {
       _loading = true;
     });
     try {
-      await JwglAuth.instance.ensureSession();
+      await JwglAuth.instance.reauthenticate();
       final ok = await TronclassAuth.instance.ensureLoggedIn();
       if (!mounted) return;
       if (!ok) {
