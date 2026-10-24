@@ -1,0 +1,8 @@
+{
+  "version": "0.2.0",
+  "versionCode": 2,
+  "notes": "学习通签到与作业、一网畅学作业提交（文字/图片/视频/文件）、PDF 预览与下载、地图与平板适配修复",
+  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.0/app-release.apk",
+  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.0/app-release.apk",
+  "sha256": "b0d589963ae1cf7ac58a09add0658877f0af1c95e76c705b46eae6d507841692"
+}

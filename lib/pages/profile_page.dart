@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+
 import '../data/attachment_cache.dart';
 import '../data/auth/jwgl_auth.dart';
 import '../data/auth/xuegong_auth.dart';
@@ -20,6 +22,8 @@ import 'jwgl_web.dart';
 import 'rank_page.dart';
 import 'simple_web.dart';
 import 'login_page.dart';
+import 'update_page.dart';
+import '../services/update_service.dart';
 
 /// 我的：个人信息 + 查询入口（学业 / 空间）+ 课表（自动同步 + 手动刷新）。
 class ProfilePage extends StatefulWidget {
@@ -240,6 +244,9 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 16),
             _sectionTitle('存储'),
             _cacheTile(),
+            const SizedBox(height: 16),
+            _sectionTitle('关于'),
+            _updateTile(),
           ],
         ),
       ),
@@ -290,6 +297,51 @@ class _ProfilePageState extends State<ProfilePage> {
         const SnackBar(content: Text('下载缓存已清理')),
       );
     }
+  }
+
+  Widget _updateTile() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: FutureBuilder<PackageInfo>(
+        future: PackageInfo.fromPlatform(),
+        builder: (context, snap) {
+          final version = snap.data == null
+              ? ''
+              : '当前版本 ${snap.data!.version} (${snap.data!.buildNumber})';
+          return ListTile(
+            leading: const Icon(Icons.system_update_alt,
+                size: 20, color: AppColors.usstRed),
+            title: const Text('检查更新', style: TextStyle(fontSize: 14)),
+            subtitle: Text(
+              version,
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textSecondary,
+              ),
+            ),
+            trailing: TextButton(
+              onPressed: _checkUpdate,
+              child: const Text('检查', style: TextStyle(fontSize: 12)),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _checkUpdate() async {
+    final info = await UpdateService.check();
+    if (!mounted) return;
+    if (info == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('当前已是最新版本')),
+      );
+      return;
+    }
+    await showUpdateDialog(context, info);
   }
 
   Widget _userCard() {

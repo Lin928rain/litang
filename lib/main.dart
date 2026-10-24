@@ -4,6 +4,8 @@ import 'app_theme.dart';
 import 'data/map_focus.dart';
 import 'data/notice_source.dart';
 import 'pages/home_page.dart';
+import 'pages/update_page.dart';
+import 'services/update_service.dart';
 import 'pages/life_page.dart';
 import 'pages/map_page.dart';
 import 'pages/forum_page.dart';
@@ -36,10 +38,20 @@ class RootScaffold extends StatefulWidget {
 class _RootScaffoldState extends State<RootScaffold> {
   int _index = 0;
 
+  static bool _checkedUpdate = false;
+
   @override
   void initState() {
     super.initState();
     MapFocus.target.addListener(_onMapFocus);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (_checkedUpdate || !mounted) return;
+      _checkedUpdate = true;
+      final info = await UpdateService.check();
+      if (info != null && mounted) {
+        await showUpdateDialog(context, info, startup: true);
+      }
+    });
   }
 
   @override

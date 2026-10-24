@@ -1,0 +1,158 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:crypto/crypto.dart';
+import 'package:http/http.dart' as http;
+import 'package:open_filex/open_filex.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:path_provider/path_provider.dart';
+
+/// 线上版本信息。
+class UpdateInfo {
+  const UpdateInfo({
+    required this.version,
+    required this.versionCode,
+    required this.notes,
+    required this.githubUrl,
+    required this.giteeUrl,
+    required this.sha256,
+  });
+
+  final String version;
+  final int versionCode;
+  final String notes;
+  final String githubUrl;
+  final String giteeUrl;
+  final String sha256;
+
+  static UpdateInfo? fromJson(Map<String, dynamic> json) {
+    final version = (json['version'] ?? '').toString().trim();
+    final code = (json['versionCode'] as num?)?.toInt() ?? 0;
+    if (version.isEmpty || code <= 0) return null;
+    return UpdateInfo(
+      version: version,
+      versionCode: code,
+      notes: (json['notes'] ?? '').toString(),
+      githubUrl: (json['apk_github'] ?? '').toString(),
+      giteeUrl: (json['apk_gitee'] ?? '').toString(),
+      sha256: (json['sha256'] ?? '').toString().toLowerCase(),
+    );
+  }
+}
+
+/// 自动更新：GitHub 优先，Gitee 兜底。
+class UpdateService {
+  UpdateService._();
+
+  static const String githubManifest =
+      'https://raw.githubusercontent.com/extrisha/litang/main/update.json';
+  static const String giteeManifest =
+      'https://gitee.com/extrisha/litang/raw/main/update.json';
+
+  /// 返回新版本；没有更新或检查失败返回 null。
+  static Future<UpdateInfo?> check() async {
+    final info = await _fetchManifest(githubManifest) ??
+        await _fetchManifest(giteeManifest);
+    if (info == null) return null;
+    final current = await _currentVersionCode();
+    if (info.versionCode <= current) return null;
+    if (info.githubUrl.isEmpty && info.giteeUrl.isEmpty) return null;
+    return info;
+  }
+
+  static Future<int> _currentVersionCode() async {
+    try {
+      final info = await PackageInfo.fromPlatform();
+      return int.tryParse(info.buildNumber) ?? 0;
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  static Future<UpdateInfo?> _fetchManifest(String url) async {
+    try {
+      final response = await http
+          .get(Uri.parse(url), headers: <String, String>{
+        'User-Agent': 'Litang-Updater',
+      }).timeout(const Duration(seconds: 10));
+      if (response.statusCode != 200) return null;
+      final map = jsonDecode(response.body) as Map<String, dynamic>;
+      return UpdateInfo.fromJson(map);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// 下载 APK，返回本地路径。GitHub 失败会自动切 Gitee。
+  static Future<String> download(
+    UpdateInfo info, {
+    void Function(double progress)? onProgress,
+  }) async {
+    final urls = <String>[
+      if (info.githubUrl.isNotEmpty) info.githubUrl,
+      if (info.giteeUrl.isNotEmpty) info.giteeUrl,
+    ];
+    Object? lastError;
+    for (final url in urls) {
+      try {
+        final path = await _downloadOne(
+          url,
+          info.version,
+          info.sha256,
+          onProgress,
+        );
+        return path;
+      } catch (e) {
+        lastError = e;
+      }
+    }
+    throw Exception('下载失败：${lastError ?? '没有可用的下载地址'}');
+  }
+
+  static Future<String> _downloadOne(
+    String url,
+    String version,
+    String expectedSha256,
+    void Function(double)? onProgress,
+  ) async {
+    final client = http.Client();
+    try {
+      final request = http.Request('GET', Uri.parse(url));
+      request.headers['User-Agent'] = 'Litang-Updater';
+      final response = await client.send(request).timeout(
+            const Duration(seconds: 30),
+          );
+      if (response.statusCode != 200) {
+        throw Exception('HTTP ${response.statusCode}');
+      }
+      final dir = await getTemporaryDirectory();
+      final file = File('${dir.path}/litang-$version.apk');
+      final sink = file.openWrite();
+      var received = 0;
+      final total = response.contentLength ?? 0;
+      await for (final chunk in response.stream) {
+        sink.add(chunk);
+        received += chunk.length;
+        if (total > 0) {
+          onProgress?.call(received / total);
+        }
+      }
+      await sink.close();
+      if (expectedSha256.isNotEmpty) {
+        final digest = sha256.convert(await file.readAsBytes()).toString();
+        if (digest != expectedSha256) {
+          await file.delete();
+          throw Exception('安装包校验失败');
+        }
+      }
+      return file.path;
+    } finally {
+      client.close();
+    }
+  }
+
+  /// 调系统安装器。
+  static Future<void> install(String path) async {
+    await OpenFilex.open(path);
+  }
+}
