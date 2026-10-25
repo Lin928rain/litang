@@ -52,6 +52,29 @@
 5.论坛（？？？）
 
 
+## 发布流程
+
+```bash
+# 1) 打包（从「中性路径」构建，避免把本机用户名写进 libapp.so）
+flutter build apk --release
+
+# 2) 写 update.json（会自动算 sha256、拼下载地址）
+node tools/release/set-update.mjs \
+  --apk build/app/outputs/flutter-apk/app-release.apk \
+  --version 0.4.2 --code 16 \
+  [--mandatory] --notes "这次改了什么"
+
+# 3) 提交 + 推送，然后在 GitHub / Gitee 建 Release
+#    上传 APK 并重命名为 app-release.apk
+```
+
+**tag 规则**：Gitee 的 tag 必须和 `--version` 完全一致（写成 `0.4.2`，不要 `v0.4.2`），
+清单里的 Gitee 地址是按这个拼的；GitHub 侧用的是 `releases/latest/download`，不挑 tag。
+
+**强制更新**：加 `--mandatory` 会把 `minVersionCode` 设成这一版的版本号，
+低于它的客户端启动时会被要求先更新（弹窗不可关闭，带「手动下载」兜底）；
+不加就是普通可选更新。注意 0.4.1 及更早的客户端不认识这个字段，只有 0.4.2+ 受管。
+
 参考项目：
 
 
