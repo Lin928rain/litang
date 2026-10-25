@@ -1,8 +1,8 @@
 {
-  "version": "0.4.0",
-  "versionCode": 14,
-  "notes": "首页通知全面改版：覆盖全校 63 个站点、7456 条通知，可按竞赛/教学/讲座等分类筛选；自动从教务识别本院，随时可改；修复筛选出空结果后回不去的 bug；补上智能科技学院等被漏掉的栏目",
-  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.4.0/app-release.apk",
-  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.4.0/app-release.apk",
-  "sha256": "0237f78665a13bd98c78c0c5d5bd604e5305755ea6eefc27c1d3b6b5b8765b2f"
+  "version": "0.4.1",
+  "versionCode": 15,
+  "notes": "学习通登录改为内嵌网页（机构账号登录），不再保存密码；首页通知覆盖 63 个站点、7456 条，可按分类筛选与本院优先",
+  "apk_github": "https://github.com/extrisha/litang/releases/latest/download/app-release.apk",
+  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/0.4.1/app-release.apk",
+  "sha256": "12e772667ad717a61b135cbcf7752aff5e387999a349846a78a9aa926557646e"
 }
