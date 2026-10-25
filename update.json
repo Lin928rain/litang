@@ -1,8 +1,8 @@
 {
-  "version": "0.2.9",
-  "versionCode": 11,
-  "notes": "新增一网畅学/学习通课程详情（章节、公告、作业、测试、讨论/考试），课程信息缓存与教师显示，学年学期校历配置",
-  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.2.9/app-release.apk",
-  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.2.9/app-release.apk",
-  "sha256": "4ff2f91afe3b8c796f82eeaf85b8f11b40f991c9389aa1b6909643d6c4028dd9"
+  "version": "0.3.0",
+  "versionCode": 13,
+  "notes": "统一缓存层（课程/课表/成绩/排名/培养计划）、作业截止提醒、考试与讨论详情页、作业历史提交回看、课表教室完整显示",
+  "apk_github": "https://github.com/extrisha/litang/releases/download/v0.3.0/app-release.apk",
+  "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.3.0/app-release.apk",
+  "sha256": "9b87fd13b4bc3dbf32f4ce166d21632750e6f99e4ba79caf16a90ff56119cd5e"
 }
