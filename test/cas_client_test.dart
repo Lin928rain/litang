@@ -127,7 +127,7 @@ void main() {
         );
       }
       // 别的域不能带上
-      expect(jar.headerFor(Uri.parse('https://example.com/')), isNull);
+      expect(jar.headerFor(Uri.parse('https://other.test/')), isNull);
     });
   });
 }
