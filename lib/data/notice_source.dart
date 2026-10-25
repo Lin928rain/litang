@@ -2,11 +2,48 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import 'cache_store.dart';
 import 'models.dart';
 
 /// 通知数据源抽象。UI 面向这个接口，来源可插拔。
 abstract class NoticeSource {
-  Future<List<Notice>> fetch();
+  /// [force] 为 true 时忽略本地缓存（下拉刷新用）。
+  Future<NoticeFeed> fetch({bool force = false});
+}
+
+/// 一次抓取的结果（比裸 List 多带一点元信息，UI 可以显示"数据时间/离线"）。
+class NoticeFeed {
+  const NoticeFeed({
+    required this.notices,
+    this.fetchedAt,
+    this.origin = NoticeOrigin.remote,
+  });
+
+  final List<Notice> notices;
+
+  /// 服务端生成这份数据的时间（不是本地拉到的时间）。
+  final DateTime? fetchedAt;
+
+  final NoticeOrigin origin;
+
+  bool get isOffline =>
+      origin == NoticeOrigin.cache || origin == NoticeOrigin.demo;
+
+  static const NoticeFeed empty = NoticeFeed(notices: <Notice>[]);
+}
+
+enum NoticeOrigin {
+  /// 从远端镜像拉到的
+  remote,
+
+  /// 本地缓存（网络失败时的兜底）
+  cache,
+
+  /// 现抓官网（远端全挂了才走这条）
+  live,
+
+  /// 演示数据
+  demo,
 }
 
 /// 演示数据源：答辩 / 离线 / 抓取失败时的兜底。
@@ -14,39 +51,230 @@ class DemoNoticeSource implements NoticeSource {
   const DemoNoticeSource();
 
   @override
-  Future<List<Notice>> fetch() async => const [
-    Notice(dept: '教务处', title: '关于调整校园上下课铃声的通知', time: '今天 08:30'),
-    Notice(dept: '校务公告', title: '关于举办校分析测试中心第一届微结构摄影大赛的通知', time: '昨天 15:20'),
-    Notice(
-      dept: '教务处',
-      title: '关于 2026 上海市高等学校信息技术水平考试模拟考试的通知',
-      time: '10-20 09:30',
-    ),
-    Notice(
-      dept: '光电信息与计算机工程学院',
-      title: '学术讲座：2026 年诺贝尔光遗传学奖与类脑深度计算（三教 313）',
-      time: '10-14 13:30',
-    ),
-  ];
+  Future<NoticeFeed> fetch({bool force = false}) async => NoticeFeed(
+    origin: NoticeOrigin.demo,
+    notices: <Notice>[
+      Notice(
+        dept: '教务处',
+        kind: '通知',
+        title: '关于调整校园上下课铃声的通知',
+        publishedAt: DateTime.now().subtract(const Duration(hours: 3)),
+      ),
+      Notice(
+        dept: '基础学部',
+        kind: '竞赛',
+        title: '【统计建模】2026年（第十二届）全国大学生统计建模大赛校赛获奖名单公告',
+        publishedAt: DateTime.now().subtract(const Duration(days: 1)),
+      ),
+      Notice(
+        dept: '教务处',
+        kind: '教学',
+        title: '关于 2026 上海市高等学校信息技术水平考试模拟考试的通知',
+        publishedAt: DateTime.now().subtract(const Duration(days: 5)),
+      ),
+    ],
+  );
 }
 
-/// 官网抓取数据源：抓教务处公开列表页（无需登录），失败时回退到 [_fallback]。
+/// 远端数据源：读 CI 每天生成好的 `notices.json`。
 ///
-/// 备注：Flutter Web 预览会被浏览器 CORS 拦截而回退到演示数据；
-/// 打包成移动端 App 后无 CORS 限制，可抓到真实数据。
+/// 顺序：本地缓存（6 小时内直接用）→ Gitee → GitHub → gh-proxy 镜像 →
+/// 过期缓存 → 现抓教务处列表页 → 演示数据。
+///
+/// 这样既不用每台设备去爬学校站点，也不会因为某一个源挂了就白屏。
+class RemoteNoticeSource implements NoticeSource {
+  RemoteNoticeSource({
+    NoticeSource? fallback,
+    this.cacheTtl = const Duration(hours: 6),
+  }) : _fallback = fallback ?? const DemoNoticeSource();
+
+  final NoticeSource _fallback;
+  final Duration cacheTtl;
+
+  static const String _cacheKey = 'notices_feed_v2';
+
+  /// 三个镜像，任意一个能用就行。Gitee 在国内最快，GitHub 兜底。
+  static const List<String> mirrors = <String>[
+    'https://gitee.com/extrisha/lit-Calendar/raw/main/notices.json',
+    'https://raw.githubusercontent.com/extrisha/litang/main/tools/notice-sync/out/notices.json',
+    'https://gh-proxy.com/https://raw.githubusercontent.com/extrisha/litang/main/tools/notice-sync/out/notices.json',
+  ];
+
+  @override
+  Future<NoticeFeed> fetch({bool force = false}) async {
+    final cached = force ? null : await _readCache();
+    if (cached != null && cached.age < cacheTtl) {
+      return cached.feed;
+    }
+
+    for (final url in mirrors) {
+      final feed = await _download(url);
+      if (feed != null && feed.notices.isNotEmpty) {
+        await _writeCache(feed);
+        return feed;
+      }
+    }
+
+    // 网络失败：过期缓存也比没有强
+    if (cached != null) {
+      return NoticeFeed(
+        notices: cached.feed.notices,
+        fetchedAt: cached.feed.fetchedAt,
+        origin: NoticeOrigin.cache,
+      );
+    }
+
+    // 再退一步：现抓教务处（列表页很小，几 KB）
+    final live = await _liveFallback();
+    if (live != null && live.notices.isNotEmpty) return live;
+
+    return _fallback.fetch();
+  }
+
+  Future<NoticeFeed?> _download(String url) async {
+    try {
+      final res = await http
+          .get(Uri.parse(url))
+          .timeout(const Duration(seconds: 20));
+      if (res.statusCode != 200) return null;
+      return parseFeed(utf8.decode(res.bodyBytes));
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<NoticeFeed?> _liveFallback() async {
+    try {
+      return await JwcNoticeSource().fetch();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // ---------------------------------------------------------------- 解析
+
+  /// 解析 `notices.json`。兼容 v1（带 `id`/`category` 的旧格式）。
+  static NoticeFeed? parseFeed(String raw) {
+    try {
+      final decoded = jsonDecode(raw);
+      final Map<String, dynamic> map;
+      if (decoded is List) {
+        map = <String, dynamic>{'notices': decoded};
+      } else if (decoded is Map<String, dynamic>) {
+        map = decoded;
+      } else {
+        return null;
+      }
+      final list = map['notices'];
+      if (list is! List) return null;
+
+      final notices = <Notice>[];
+      for (final item in list) {
+        if (item is! Map) continue;
+        final title = (item['title'] as String?)?.trim() ?? '';
+        final dept = (item['dept'] as String?)?.trim() ?? '';
+        if (title.isEmpty || dept.isEmpty) continue;
+        notices.add(
+          Notice(
+            dept: dept,
+            title: title,
+            kind: (item['kind'] as String?) ??
+                (item['category'] as String?) ??
+                '通知',
+            scope: (item['scope'] as String?) ?? 'school',
+            publishedAt: Notice.parseDate(item['date']),
+            url: (item['url'] as String?)?.trim(),
+          ),
+        );
+      }
+      if (notices.isEmpty) return null;
+      return NoticeFeed(
+        notices: notices,
+        fetchedAt: DateTime.tryParse((map['updatedAt'] as String?) ?? ''),
+      );
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // ---------------------------------------------------------------- 缓存
+
+  Future<_CachedFeed?> _readCache() async {
+    final entry = await CacheStore.read(_cacheKey);
+    if (entry == null) return null;
+    final feed = _feedFromCache(entry.data);
+    if (feed == null) return null;
+    return _CachedFeed(feed, entry.age);
+  }
+
+  Future<void> _writeCache(NoticeFeed feed) async {
+    await CacheStore.write(_cacheKey, <String, dynamic>{
+      'fetchedAt': feed.fetchedAt?.toIso8601String(),
+      'notices': <Map<String, dynamic>>[
+        for (final n in feed.notices)
+          <String, dynamic>{
+            'dept': n.dept,
+            'kind': n.kind,
+            'scope': n.scope,
+            'title': n.title,
+            'url': n.url,
+            'date': n.publishedAt?.toIso8601String().substring(0, 10),
+          },
+      ],
+    });
+  }
+
+  static NoticeFeed? _feedFromCache(Object? data) {
+    if (data is! Map) return null;
+    final list = data['notices'];
+    if (list is! List) return null;
+    final notices = <Notice>[];
+    for (final item in list) {
+      if (item is! Map) continue;
+      final title = item['title'] as String?;
+      final dept = item['dept'] as String?;
+      if (title == null || dept == null) continue;
+      notices.add(
+        Notice(
+          dept: dept,
+          title: title,
+          kind: item['kind'] as String? ?? '通知',
+          scope: item['scope'] as String? ?? 'school',
+          publishedAt: Notice.parseDate(item['date']),
+          url: item['url'] as String?,
+        ),
+      );
+    }
+    if (notices.isEmpty) return null;
+    return NoticeFeed(
+      notices: notices,
+      fetchedAt: DateTime.tryParse(data['fetchedAt'] as String? ?? ''),
+      origin: NoticeOrigin.cache,
+    );
+  }
+}
+
+/// 缓存 + 它的年龄（用来判断要不要联网刷新）。
+class _CachedFeed {
+  const _CachedFeed(this.feed, this.age);
+
+  final NoticeFeed feed;
+  final Duration age;
+}
+
+/// 官网现抓数据源：远端全部失败时兜底抓教务处公开列表页（无需登录）。
 class JwcNoticeSource implements NoticeSource {
   JwcNoticeSource([this._fallback = const DemoNoticeSource()]);
 
   final NoticeSource _fallback;
 
-  static const Map<String, String> _listUrls = {
+  static const Map<String, String> _listUrls = <String, String>{
     '教务处': 'https://jwc.usst.edu.cn/10239/list.htm',
     '通知公告': 'https://jwc.usst.edu.cn/zygg/list.htm',
-    '健康学院': 'https://jiankang.usst.edu.cn/',
   };
 
   @override
-  Future<List<Notice>> fetch() async {
+  Future<NoticeFeed> fetch({bool force = false}) async {
     final result = <Notice>[];
     for (final entry in _listUrls.entries) {
       try {
@@ -59,7 +287,6 @@ class JwcNoticeSource implements NoticeSource {
             entry.key,
             entry.value,
           );
-          // 每个来源只取前 8 条，避免一个栏目把首页刷满
           result.addAll(parsed.take(8));
         }
       } catch (_) {
@@ -67,7 +294,7 @@ class JwcNoticeSource implements NoticeSource {
       }
     }
     if (result.isEmpty) return _fallback.fetch();
-    return result.take(30).toList();
+    return NoticeFeed(notices: result.take(30).toList(), origin: NoticeOrigin.live);
   }
 
   /// 解析 wisedu(webplus) 列表页：
@@ -91,9 +318,7 @@ class JwcNoticeSource implements NoticeSource {
       final block = m.group(1) ?? '';
       final tm = titleRe.firstMatch(block);
       final title = (tm?.group(1) ?? tm?.group(2) ?? tm?.group(3) ?? '').trim();
-      if (title.isEmpty) {
-        continue;
-      }
+      if (title.isEmpty) continue;
       final date =
           (dateRe.firstMatch(block)?.group(1) ??
                   dateRe.firstMatch(block)?.group(2) ??
@@ -104,7 +329,14 @@ class JwcNoticeSource implements NoticeSource {
       if (href != null && href.isNotEmpty) {
         url = base.resolve(href).toString();
       }
-      items.add(Notice(dept: dept, title: title, time: date, url: url));
+      items.add(
+        Notice(
+          dept: dept,
+          title: title,
+          publishedAt: Notice.parseDate(date),
+          url: url,
+        ),
+      );
     }
     return items;
   }

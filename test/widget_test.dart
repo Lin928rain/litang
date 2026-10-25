@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -123,4 +125,50 @@ void main() {
     expect(find.text('高等数学'), findsOneWidget);
     expect(find.text('三教305'), findsOneWidget);
   });
+
+  group('首页 + 真实产物', () {
+    final file = File('tools/notice-sync/out/notices.json');
+    if (!file.existsSync()) {
+      test('跳过：本地没有 notices.json', () {}, skip: true);
+      return;
+    }
+
+    testWidgets('7000+ 条真实数据不溢出，筛选条能用', (tester) async {
+      tester.view.physicalSize = const Size(390 * 3, 844 * 3);
+      tester.view.devicePixelRatio = 3;
+      addTearDown(tester.view.reset);
+
+      await tester.pumpWidget(_wrap(HomePage(source: _FileSource(file))));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+
+      // 筛选条在（分类和「本院」都在）
+      expect(find.text('全部'), findsOneWidget);
+      expect(find.text('竞赛'), findsWidgets);
+      expect(find.textContaining('本院'), findsOneWidget);
+
+      // 点「竞赛」后列表只剩竞赛（至少还能找到竞赛标签）
+      await tester.tap(find.text('竞赛').first);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+
+      // 往下滚几屏，确认懒加载不会崩
+      for (var i = 0; i < 3; i++) {
+        await tester.drag(find.byType(ListView).last, const Offset(0, -1200));
+        await tester.pump();
+      }
+      expect(tester.takeException(), isNull);
+    });
+  });
+}
+
+/// 用本地产物当数据源，避免 widget 测试里发网络请求。
+class _FileSource implements NoticeSource {
+  _FileSource(this.file);
+
+  final File file;
+
+  @override
+  Future<NoticeFeed> fetch({bool force = false}) async =>
+      RemoteNoticeSource.parseFeed(file.readAsStringSync())!;
 }

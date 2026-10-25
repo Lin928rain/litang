@@ -77,7 +77,7 @@ class _RootScaffoldState extends State<RootScaffold> {
 
   /// 页面只构建一次；首页在这里注入真实数据源，页面本身仍可单独注入演示数据。
   static final List<Widget> _pages = [
-    HomePage(source: JwcNoticeSource()),
+    HomePage(source: RemoteNoticeSource()),
     const MapPage(),
     const LifePage(),
     const ForumPage(),
