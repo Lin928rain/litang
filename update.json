@@ -4,5 +4,5 @@
   "notes": "学习通登录改为内嵌网页（机构账号登录），不再保存密码；首页通知覆盖 63 个站点、7456 条，可按分类筛选与本院优先",
   "apk_github": "https://github.com/extrisha/litang/releases/latest/download/app-release.apk",
   "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/0.4.1/app-release.apk",
-  "sha256": "12e772667ad717a61b135cbcf7752aff5e387999a349846a78a9aa926557646e"
+  "sha256": "7f656772b555b9674f5a31c134cc42d9029c0b02af082ef6198b17059cde66aa"
 }
