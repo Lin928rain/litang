@@ -6,8 +6,9 @@ import 'campus_places.dart';
 class MapFocus {
   MapFocus._();
 
-  static final ValueNotifier<CampusPlace?> target =
-      ValueNotifier<CampusPlace?>(null);
+  static final ValueNotifier<CampusPlace?> target = ValueNotifier<CampusPlace?>(
+    null,
+  );
 
   static void focus(CampusPlace place) {
     target.value = place;

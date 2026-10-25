@@ -6,28 +6,28 @@ import 'package:project_usst/data/auth/cas_client.dart';
 import 'package:project_usst/data/auth/session_store.dart';
 
 StoredSession _session({String? password}) => StoredSession(
-      cookies: <CasCookie>[
-        const CasCookie(
-          name: 'JSESSIONID',
-          value: 'ABC',
-          domain: 'jwgl.usst.edu.cn',
-          path: '/jwglxt',
-        ),
-        const CasCookie(
-          name: 'CASTGC',
-          value: 'TGT-1',
-          domain: 'ids6.usst.edu.cn',
-          path: '/authserver/',
-        ),
-      ],
-      username: '20250001',
-      password: password,
-      savedAt: DateTime(2026, 10, 23, 8, 30),
-    );
+  cookies: <CasCookie>[
+    const CasCookie(
+      name: 'JSESSIONID',
+      value: 'ABC',
+      domain: 'jwgl.usst.edu.cn',
+      path: '/jwglxt',
+    ),
+    const CasCookie(
+      name: 'CASTGC',
+      value: 'TGT-1',
+      domain: 'ids6.usst.edu.cn',
+      path: '/authserver/',
+    ),
+  ],
+  username: '20250001',
+  password: password,
+  savedAt: DateTime(2026, 10, 23, 8, 30),
+);
 
 StoredSession _roundTrip(StoredSession session) => SessionStore.decode(
-      jsonDecode(SessionStore.encode(session)) as Map<String, dynamic>,
-    );
+  jsonDecode(SessionStore.encode(session)) as Map<String, dynamic>,
+);
 
 void main() {
   group('SessionStore 编解码', () {

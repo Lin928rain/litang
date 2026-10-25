@@ -19,6 +19,13 @@ class AttachmentCache {
     return dir;
   }
 
+  static Future<String?> existing(String name) async {
+    final dir = await _dir();
+    final safe = name.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_');
+    final file = File('${dir.path}/$safe');
+    return await file.exists() ? file.path : null;
+  }
+
   static Future<String> save(String name, List<int> bytes) async {
     final dir = await _dir();
     final safe = name.replaceAll(RegExp(r'[\\/:*?"<>|]'), '_');

@@ -15,13 +15,15 @@ Uint8List _miniPdf({required List<int> contentBytes}) {
     builder.add(latin1.encode('\nendstream\n'));
   }
 
-  addStream(latin1.encode(
-    '/CIDInit /ProcSet findresource begin\n'
-    'begincmap\n'
-    '1 begincodespacerange\n<0000> <FFFF>\nendcodespacerange\n'
-    '2 beginbfchar\n<0001> <4E13>\n<0002> <751F>\nendbfchar\n'
-    'endcmap\n',
-  ));
+  addStream(
+    latin1.encode(
+      '/CIDInit /ProcSet findresource begin\n'
+      'begincmap\n'
+      '1 begincodespacerange\n<0000> <FFFF>\nendcodespacerange\n'
+      '2 beginbfchar\n<0001> <4E13>\n<0002> <751F>\nendbfchar\n'
+      'endcmap\n',
+    ),
+  );
   addStream(contentBytes);
   return builder.toBytes();
 }
@@ -37,7 +39,9 @@ List<int> _content(List<int> payload) {
 void main() {
   group('PdfTextExtractor', () {
     test('从 CID 字符串 + ToUnicode 还原中文', () {
-      final pdf = _miniPdf(contentBytes: _content(<int>[0x00, 0x01, 0x00, 0x02]));
+      final pdf = _miniPdf(
+        contentBytes: _content(<int>[0x00, 0x01, 0x00, 0x02]),
+      );
       expect(PdfTextExtractor.extract(pdf), contains('专生'));
     });
 
@@ -73,18 +77,14 @@ void main() {
 
   group('RankApi.parseRank', () {
     test('解析中文排名句子', () {
-      final result = RankApi.parseRank(
-        '该生在该专业现排名为第6名，该专业共有学生59名。',
-      );
+      final result = RankApi.parseRank('该生在该专业现排名为第6名，该专业共有学生59名。');
       expect(result, isNotNull);
       expect(result!.rank, 6);
       expect(result.total, 59);
     });
 
     test('容忍空格与英文逗号', () {
-      final result = RankApi.parseRank(
-        '该生在该专业现排名为第 12 名, 该专业共有学生 120 名',
-      );
+      final result = RankApi.parseRank('该生在该专业现排名为第 12 名, 该专业共有学生 120 名');
       expect(result, isNotNull);
       expect(result!.rank, 12);
       expect(result.total, 120);

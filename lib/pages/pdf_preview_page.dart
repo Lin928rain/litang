@@ -6,11 +6,7 @@ import '../app_theme.dart';
 
 /// 本地 PDF 预览（支持双指缩放）。
 class PdfPreviewPage extends StatefulWidget {
-  const PdfPreviewPage({
-    super.key,
-    required this.title,
-    required this.path,
-  });
+  const PdfPreviewPage({super.key, required this.title, required this.path});
 
   final String title;
   final String path;
@@ -48,7 +44,11 @@ class _PdfPreviewPageState extends State<PdfPreviewPage> {
     final result = await OpenFilex.open(widget.path);
     if (result.type != ResultType.done && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result.message.isEmpty ? '没有可打开 PDF 的应用' : result.message)),
+        SnackBar(
+          content: Text(
+            result.message.isEmpty ? '没有可打开 PDF 的应用' : result.message,
+          ),
+        ),
       );
     }
   }
@@ -81,8 +81,8 @@ class _PdfPreviewPageState extends State<PdfPreviewPage> {
               ),
             )
           : _controller == null
-              ? const Center(child: CircularProgressIndicator())
-              : PdfViewPinch(controller: _controller!),
+          ? const Center(child: CircularProgressIndicator())
+          : PdfViewPinch(controller: _controller!),
     );
   }
 }

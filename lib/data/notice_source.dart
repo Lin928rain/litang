@@ -15,15 +15,19 @@ class DemoNoticeSource implements NoticeSource {
 
   @override
   Future<List<Notice>> fetch() async => const [
-        Notice(dept: '教务处', title: '关于调整校园上下课铃声的通知', time: '今天 08:30'),
-        Notice(dept: '校务公告', title: '关于举办校分析测试中心第一届微结构摄影大赛的通知', time: '昨天 15:20'),
-        Notice(dept: '教务处', title: '关于 2026 上海市高等学校信息技术水平考试模拟考试的通知', time: '10-20 09:30'),
-        Notice(
-          dept: '光电信息与计算机工程学院',
-          title: '学术讲座：2026 年诺贝尔光遗传学奖与类脑深度计算（三教 313）',
-          time: '10-14 13:30',
-        ),
-      ];
+    Notice(dept: '教务处', title: '关于调整校园上下课铃声的通知', time: '今天 08:30'),
+    Notice(dept: '校务公告', title: '关于举办校分析测试中心第一届微结构摄影大赛的通知', time: '昨天 15:20'),
+    Notice(
+      dept: '教务处',
+      title: '关于 2026 上海市高等学校信息技术水平考试模拟考试的通知',
+      time: '10-20 09:30',
+    ),
+    Notice(
+      dept: '光电信息与计算机工程学院',
+      title: '学术讲座：2026 年诺贝尔光遗传学奖与类脑深度计算（三教 313）',
+      time: '10-14 13:30',
+    ),
+  ];
 }
 
 /// 官网抓取数据源：抓教务处公开列表页（无需登录），失败时回退到 [_fallback]。

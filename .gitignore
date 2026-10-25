@@ -61,3 +61,6 @@ android/key.properties
 /android/build/
 **/.gradle/
 android/local.properties
+
+# 本地备份目录（不入库）
+Project_USST_backups/

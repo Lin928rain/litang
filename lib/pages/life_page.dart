@@ -12,6 +12,7 @@ import '../data/lms/rollcall_api.dart';
 import '../data/lms/course_info_cache.dart';
 import '../data/lms/todo_api.dart';
 import '../data/lms/tronclass_auth.dart';
+import '../services/reminder_service.dart';
 import 'chaoxing_homework_page.dart';
 import 'chaoxing_login_page.dart';
 import 'chaoxing_course_detail_page.dart';
@@ -140,6 +141,10 @@ class _LifePageState extends State<LifePage> {
         _cxActivities = activities;
         _cxWorks = works;
       });
+      // 学习通只有「剩余 X 小时」这种相对时间，拉到列表时换算成绝对时间排提醒
+      if (works.isNotEmpty) {
+        await ReminderService.instance.syncChaoxingWorks(works);
+      }
     } catch (e) {
       if (mounted) {
         setState(() => _cxError = '学习通数据拉取失败，请稍后重试');
@@ -234,6 +239,14 @@ class _LifePageState extends State<LifePage> {
         _todosError = todosError;
         _error = null;
       });
+      // 已提交的作业不再提醒（内部会按课程查一遍「我的提交」）
+      await ReminderService.instance.syncHomework(
+        todos: _todos,
+        submittedActivityIds: await ReminderService.instance.fetchSubmittedIds(
+          client,
+          _todos,
+        ),
+      );
     } catch (_) {
       if (mounted && !silent) {
         setState(() => _error = '签到信息拉取失败，请稍后重试');
@@ -276,6 +289,8 @@ class _LifePageState extends State<LifePage> {
         ? _currentTerm
         : CalendarService.fallbackTermId();
     final source = _showChaoxingCourses ? 'chaoxing' : 'tronclass';
+    // 缓存优先：有缓存先渲染；缓存过期就不显示加载态、后台静默刷一遍。
+    var silent = false;
     if (!force) {
       final cached = await CourseInfoCache.load(termKey, source);
       if (cached != null) {
@@ -285,13 +300,18 @@ class _LifePageState extends State<LifePage> {
             _coursesError = null;
           });
         }
-        return;
+        if (await CourseInfoCache.isFresh(termKey, source)) {
+          return;
+        }
+        silent = true;
       }
     }
-    setState(() {
-      _coursesLoading = true;
-      _coursesError = null;
-    });
+    if (!silent) {
+      setState(() {
+        _coursesLoading = true;
+        _coursesError = null;
+      });
+    }
     try {
       if (!_showChaoxingCourses) {
         final auth = JwglAuth.instance;
@@ -301,7 +321,7 @@ class _LifePageState extends State<LifePage> {
         await TronclassAuth.instance.ensureLoggedIn();
         final client = auth.client;
         if (client == null) {
-          setState(() => _coursesError = '请先登录教务系统');
+          if (!silent) setState(() => _coursesError = '请先登录教务系统');
           return;
         }
         final list = await LmsApi(client).fetchCourseInfos();
@@ -319,13 +339,16 @@ class _LifePageState extends State<LifePage> {
             )
             .toList();
         if (mounted) setState(() => _courseInfos = filtered);
+        // 缓存课程列表：下次进页面先用缓存渲染，不必等网络。
+        // 学习通那边点课程要依赖 _cxCourses，先不缓存，避免列表能看却点不开。
+        await CourseInfoCache.save(termKey, source, filtered);
       } else {
         final auth = ChaoxingAuth.instance;
         if (!auth.isLoggedIn) {
           await auth.restore();
         }
         if (!await auth.ensureSession()) {
-          if (mounted) {
+          if (mounted && !silent) {
             setState(() {
               _courseInfos = const <LmsCourseInfo>[];
               _coursesError = '学习通登录已失效';
@@ -355,9 +378,12 @@ class _LifePageState extends State<LifePage> {
         if (mounted) setState(() => _courseInfos = filtered);
       }
     } catch (_) {
-      if (mounted) setState(() => _coursesError = '课程信息拉取失败');
+      // 静默刷新失败就保持缓存内容，不打扰用户
+      if (mounted && !silent) {
+        setState(() => _coursesError = '课程信息拉取失败');
+      }
     } finally {
-      if (mounted) setState(() => _coursesLoading = false);
+      if (mounted && !silent) setState(() => _coursesLoading = false);
     }
   }
 
@@ -1294,10 +1320,11 @@ class _LifePageState extends State<LifePage> {
   }
 
   Widget _cxWorkTile(ChaoxingWork work) {
-    final subtitle = <String>[
-      if (work.courseName.isNotEmpty) work.courseName,
-      if (work.deadline.isNotEmpty) '截止 ${work.deadline}',
-    ].join(' · ');
+    // 学习通给的是「剩余91小时40分钟」这种文本，转成更好读的倒计时
+    final remaining = ReminderService.parseRemaining(work.deadline);
+    final countdown = work.expired
+        ? '已截止'
+        : (remaining == null ? '' : _humanRemaining(remaining));
     return GestureDetector(
       onTap: () => _openCxWork(work),
       child: Container(
@@ -1330,9 +1357,9 @@ class _LifePageState extends State<LifePage> {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(fontSize: 13),
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: 3),
                   Text(
-                    subtitle,
+                    work.courseName,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -1343,6 +1370,19 @@ class _LifePageState extends State<LifePage> {
                 ],
               ),
             ),
+            if (countdown.isNotEmpty) ...<Widget>[
+              const SizedBox(width: 8),
+              Text(
+                countdown,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: work.expired
+                      ? AppColors.textSecondary
+                      : _urgencyColor(remaining),
+                ),
+              ),
+            ],
             const Icon(
               Icons.chevron_right,
               size: 16,
@@ -1362,7 +1402,11 @@ class _LifePageState extends State<LifePage> {
 
   Widget _todoTile(LmsTodo todo) {
     final deadline = todo.deadline;
-    final deadlineText = deadline == null ? '' : _formatDateTime(deadline);
+    final absolute = deadline == null ? '' : _formatDateTime(deadline);
+    final countdown = _ddlCountdown(deadline);
+    // 接口给的课程名带学期和课程代码（工程力学C(2026-2027-1)-14000282-01），
+    // 原来和截止时间拼在一行被省略号吃掉，这里先清洗，再把时间单独摆开。
+    final course = _cleanCourseName(todo.courseName);
     return GestureDetector(
       onTap: () => _openTodo(todo),
       child: Container(
@@ -1395,22 +1439,55 @@ class _LifePageState extends State<LifePage> {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(fontSize: 13),
                   ),
-                  const SizedBox(height: 2),
-                  Text(
-                    <String>[
-                      if (todo.courseName.isNotEmpty) todo.courseName,
-                      if (deadlineText.isNotEmpty) '截止 $deadlineText',
-                    ].join(' · '),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 10.5,
-                      color: AppColors.textSecondary,
-                    ),
+                  const SizedBox(height: 3),
+                  Row(
+                    children: <Widget>[
+                      // 课程名可以被截断，截止时间不能
+                      if (course.isNotEmpty)
+                        Flexible(
+                          child: Text(
+                            course,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 10.5,
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                        ),
+                      if (absolute.isNotEmpty) ...<Widget>[
+                        if (course.isNotEmpty)
+                          const Text(
+                            ' · ',
+                            style: TextStyle(
+                              fontSize: 10.5,
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                        Text(
+                          '截止 $absolute',
+                          style: const TextStyle(
+                            fontSize: 10.5,
+                            color: AppColors.textSecondary,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ],
               ),
             ),
+            if (countdown.isNotEmpty) ...<Widget>[
+              const SizedBox(width: 8),
+              Text(
+                countdown,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: _ddlColor(deadline),
+                ),
+              ),
+            ],
             const Icon(
               Icons.chevron_right,
               size: 16,
@@ -1421,6 +1498,28 @@ class _LifePageState extends State<LifePage> {
       ),
     );
   }
+
+  /// 待办里的剩余时间提示：还有 5 小时 / 还有 3 天 / 已逾期。
+  static String _humanRemaining(Duration diff) {
+    if (diff.isNegative) return '已逾期';
+    if (diff.inMinutes < 60) return '还有 ${diff.inMinutes} 分钟';
+    if (diff.inHours < 24) return '还有 ${diff.inHours} 小时';
+    return '还有 ${diff.inDays} 天';
+  }
+
+  static String _ddlCountdown(DateTime? deadline) => deadline == null
+      ? ''
+      : _humanRemaining(deadline.difference(DateTime.now()));
+
+  static Color _urgencyColor(Duration? diff) {
+    if (diff == null) return AppColors.textSecondary;
+    if (diff.isNegative || diff.inHours < 24) return AppColors.usstRed;
+    if (diff.inDays < 3) return const Color(0xFFB8860B);
+    return AppColors.textSecondary;
+  }
+
+  static Color _ddlColor(DateTime? deadline) =>
+      _urgencyColor(deadline?.difference(DateTime.now()));
 
   Widget _examCard() {
     if (_exams.isEmpty) {

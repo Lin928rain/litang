@@ -205,9 +205,15 @@ class CasLoginResult {
 /// 入口 /sso/jziotlogin → ehall 适配器 → ids6 authserver → 回跳 jwglxt。
 class CasClient {
   CasClient({Dio? dio, List<CasCookie> initialCookies = const <CasCookie>[]})
-    : _dio = dio ?? _buildDio() {
+    : _dio = dio ?? _sharedDio {
     jar.cookies.addAll(initialCookies);
   }
+
+  /// 所有 CasClient 共用一个 Dio。
+  ///
+  /// Dio 底层的 HttpClient 会复用 TCP/TLS 连接；如果每个 CasClient 都 new 一个，
+  /// 登录链路里每个请求都要重新握手，登录/刷新会明显变慢。
+  static final Dio _sharedDio = _buildDio();
 
   static const String entryUrl = 'https://jwgl.usst.edu.cn/sso/jziotlogin';
   static const String indexUrl =
@@ -422,12 +428,13 @@ class CasClient {
   }
 
   /// 带登录态 GET 一个 JSON API（会带上 cookie，不设 jwgl 的 Referer）。
-  Future<Response<String>> getApi(Uri uri) {
+  Future<Response<String>> getApi(Uri uri, {Map<String, String>? headers}) {
     return _send(
       uri,
       accept: 'application/json, text/plain, */*',
-      extraHeaders: const <String, String>{
+      extraHeaders: <String, String>{
         'X-Requested-With': 'XMLHttpRequest',
+        ...?headers,
       },
     );
   }

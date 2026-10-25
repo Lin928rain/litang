@@ -60,7 +60,13 @@ void main() {
     });
 
     test('没有周次信息时每周都显示', () {
-      const everyWeek = Course(name: '讲座', day: 1, start: 2, span: 2, room: '三教');
+      const everyWeek = Course(
+        name: '讲座',
+        day: 1,
+        start: 2,
+        span: 2,
+        room: '三教',
+      );
       expect(everyWeek.activeInWeek(1), isTrue);
       expect(everyWeek.activeInWeek(18), isTrue);
     });
@@ -94,8 +100,22 @@ void main() {
       const table = CourseWeekTable(
         week: 4,
         courses: <Course>[
-          Course(name: 'A', day: 0, start: 0, span: 2, room: '1', weeks: <int>[3, 4]),
-          Course(name: 'B', day: 1, start: 2, span: 2, room: '2', weeks: <int>[5, 6]),
+          Course(
+            name: 'A',
+            day: 0,
+            start: 0,
+            span: 2,
+            room: '1',
+            weeks: <int>[3, 4],
+          ),
+          Course(
+            name: 'B',
+            day: 1,
+            start: 2,
+            span: 2,
+            room: '2',
+            weeks: <int>[5, 6],
+          ),
           Course(name: 'C', day: 2, start: 4, span: 2, room: '3'),
         ],
       );

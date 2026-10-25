@@ -89,7 +89,8 @@ class _AcademicPageState extends State<AcademicPage> {
     if (!mounted) {
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -145,7 +146,10 @@ class _AcademicPageState extends State<AcademicPage> {
             Text(
               '更新于 ${_formatTime(progress.updatedAt)}',
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textSecondary,
+              ),
             ),
           ],
         ],
@@ -179,15 +183,15 @@ class _AcademicPageState extends State<AcademicPage> {
                 SizedBox(height: 4),
                 Text(
                   '各专业培养计划以 PDF 发布，正在整理专业映射，暂以教务网站为准',
-                  style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
           ),
-          TextButton(
-            onPressed: _toastPlan,
-            child: const Text('说明'),
-          ),
+          TextButton(onPressed: _toastPlan, child: const Text('说明')),
         ],
       ),
     );
@@ -213,7 +217,10 @@ class _AcademicPageState extends State<AcademicPage> {
               Expanded(
                 child: Text(
                   progress.majorName.isEmpty ? '培养方案' : progress.majorName,
-                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
               Text(
@@ -233,7 +240,9 @@ class _AcademicPageState extends State<AcademicPage> {
               value: progress.progress,
               minHeight: 8,
               backgroundColor: const Color(0xFFF0F0F2),
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.usstRed),
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                AppColors.usstRed,
+              ),
             ),
           ),
           const SizedBox(height: 10),
@@ -250,21 +259,21 @@ class _AcademicPageState extends State<AcademicPage> {
   }
 
   Widget _stat(String label, String value) => Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              value,
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              label,
-              style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
-            ),
-          ],
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          value,
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
         ),
-      );
+        const SizedBox(height: 2),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+        ),
+      ],
+    ),
+  );
 
   Future<void> _toggleCategory(CreditCategory category) async {
     if (category.id.isEmpty) {
@@ -405,8 +414,10 @@ class _AcademicPageState extends State<AcademicPage> {
                 ),
                 if (node.passed)
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 1,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color(0x1F2E8B57),
                       borderRadius: BorderRadius.circular(4),
@@ -444,8 +455,10 @@ class _AcademicPageState extends State<AcademicPage> {
             Text(
               '已修 ${node.earned.toStringAsFixed(1)} / 要求 ${node.required.toStringAsFixed(1)} 学分'
               '${node.missing > 0 ? ' · 还差 ${node.missing.toStringAsFixed(1)}' : ''}',
-              style:
-                  const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textSecondary,
+              ),
             ),
             if (isLeaf && node.id.isNotEmpty) ...<Widget>[
               const SizedBox(height: 6),
@@ -461,12 +474,18 @@ class _AcademicPageState extends State<AcademicPage> {
               else if (_courseError.contains(node.id))
                 const Text(
                   '教务暂未返回这个分类的课程明细，稍后再试',
-                  style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
                 )
               else if ((courses ?? const <AcademicCourse>[]).isEmpty)
                 const Text(
                   '这个分类下暂无课程明细',
-                  style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                  ),
                 )
               else
                 Column(
@@ -493,18 +512,18 @@ class _AcademicPageState extends State<AcademicPage> {
   }
 
   Widget _hintCard(String text) => Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 22),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
-        ),
-      );
+    width: double.infinity,
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 22),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(14),
+    ),
+    child: Text(
+      text,
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
+    ),
+  );
 
   String _formatTime(DateTime time) {
     final m = time.month.toString().padLeft(2, '0');

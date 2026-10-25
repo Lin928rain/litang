@@ -88,7 +88,8 @@ class _RankPageState extends State<RankPage> {
     if (!mounted) {
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -192,7 +193,10 @@ class _RankPageState extends State<RankPage> {
           const SizedBox(height: 8),
           Text(
             '专业排名 · 超过 ${info.percentile.toStringAsFixed(1)}% 的同学',
-            style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+            style: const TextStyle(
+              fontSize: 12,
+              color: AppColors.textSecondary,
+            ),
           ),
         ],
       ),
@@ -226,7 +230,10 @@ class _RankPageState extends State<RankPage> {
           const SizedBox(height: 6),
           Text(
             '更新于 ${_formatTime(info.updatedAt)}',
-            style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+            style: const TextStyle(
+              fontSize: 11,
+              color: AppColors.textSecondary,
+            ),
           ),
         ],
       ),

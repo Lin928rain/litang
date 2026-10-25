@@ -44,8 +44,10 @@ class ForumPage extends StatelessWidget {
           children: [
             const Padding(
               padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
-              child: Text('课程找搭子',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+              child: Text(
+                '课程找搭子',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
             ),
             Expanded(
               child: ListView.separated(
@@ -66,8 +68,10 @@ class ForumPage extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
                               decoration: BoxDecoration(
                                 color: AppColors.redTint,
                                 borderRadius: BorderRadius.circular(6),
@@ -75,14 +79,18 @@ class ForumPage extends StatelessWidget {
                               child: Text(
                                 p['course']!,
                                 style: const TextStyle(
-                                    fontSize: 11, color: AppColors.usstRed),
+                                  fontSize: 11,
+                                  color: AppColors.usstRed,
+                                ),
                               ),
                             ),
                             const Spacer(),
                             Text(
                               p['people']!,
                               style: const TextStyle(
-                                  fontSize: 11, color: AppColors.textSecondary),
+                                fontSize: 11,
+                                color: AppColors.textSecondary,
+                              ),
                             ),
                           ],
                         ),
@@ -90,13 +98,18 @@ class ForumPage extends StatelessWidget {
                         Text(
                           p['demand']!,
                           style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w600, height: 1.4),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            height: 1.4,
+                          ),
                         ),
                         const SizedBox(height: 8),
                         Text(
                           p['author']!,
                           style: const TextStyle(
-                              fontSize: 12, color: AppColors.textSecondary),
+                            fontSize: 12,
+                            color: AppColors.textSecondary,
+                          ),
                         ),
                       ],
                     ),
@@ -120,11 +133,15 @@ class ForumPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('发起找搭子（占位）',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+            Text(
+              '发起找搭子（占位）',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            ),
             SizedBox(height: 8),
-            Text('绑定课号 · 填写需求 / 人数 / 技能，发布到对应课程专区。',
-                style: TextStyle(color: AppColors.textSecondary, height: 1.5)),
+            Text(
+              '绑定课号 · 填写需求 / 人数 / 技能，发布到对应课程专区。',
+              style: TextStyle(color: AppColors.textSecondary, height: 1.5),
+            ),
           ],
         ),
       ),

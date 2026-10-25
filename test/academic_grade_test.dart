@@ -5,14 +5,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:project_usst/data/jwc/academic_api.dart';
 import 'package:project_usst/data/jwc/grade_api.dart';
 
-const String _breakdownRaw = '{'
+const String _breakdownRaw =
+    '{'
     '"items": ['
     '{"jxb_id": "A", "kcmc": "金工实习B", "bfzcj": "79", "qmcj": "53", "qmxmbl": 30, "xnm": "2026", "xqm": "3"},'
     '{"jxb_id": "B", "kcmc": "形势与政策（Ⅱ）", "bfzcj": "92", "qmcj": "85", "qmxmbl": 50, "xnm": "2025", "xqm": "12"}'
     ']'
     '}';
 
-const String _academicHtml = '<p class=\'title1\' id=\'pAAA1\' yxxf=\'50.5\' yqzdxf=\'158\' sftg=\'0\'>" + "2025康复工程&nbsp;"'
+const String _academicHtml =
+    '<p class=\'title1\' id=\'pAAA1\' yxxf=\'50.5\' yqzdxf=\'158\' sftg=\'0\'>" + "2025康复工程&nbsp;"'
     '<p class=\'title1\' id=\'pAAA1\' yxxf=\'50.5\' yqzdxf=\'158\' sftg=\'0\'>" + "2025康复工程&nbsp;"'
     '<p class=\'title1\' id=\'pBBB2\' yxxf=\'8.0\' yqzdxf=\'17\' sftg=\'0\'>" + "通识-思政类01&nbsp;"'
     '<p class=\'title1\' id=\'pCCC3\' yxxf=\'3.0\' yqzdxf=\'3\' sftg=\'1\'>" + "通识-计算机类&nbsp;"';

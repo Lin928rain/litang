@@ -91,7 +91,10 @@ void main() {
     expect(find.text('08:00-08:40'), findsOneWidget);
     expect(find.text('第13节'), findsOneWidget);
     expect(find.text('19:30-20:10'), findsOneWidget);
-    expect(find.textContaining('09:45-11:55'), findsOneWidget);
+    // 课程块里只留课程名 / 教室 / 教师，不再显示上课时间
+    expect(find.textContaining('09:45-11:55'), findsNothing);
+    expect(find.text('大学物理'), findsOneWidget);
+    expect(find.text('三教106'), findsOneWidget);
   });
 
   testWidgets('课表组件按节次渲染课程', (tester) async {
@@ -100,18 +103,18 @@ void main() {
         const Scaffold(
           body: SingleChildScrollView(
             child: CourseWeekTable(
-            week: 3,
-            courses: <Course>[
-              Course(
-                name: '高等数学',
-                day: 0,
-                start: 0,
-                span: 2,
-                room: '三教305',
-                weeks: <int>[3, 4],
-              ),
-            ],
-          ),
+              week: 3,
+              courses: <Course>[
+                Course(
+                  name: '高等数学',
+                  day: 0,
+                  start: 0,
+                  span: 2,
+                  room: '三教305',
+                  weeks: <int>[3, 4],
+                ),
+              ],
+            ),
           ),
         ),
       ),

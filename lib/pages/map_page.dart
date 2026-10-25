@@ -95,8 +95,10 @@ class _MapPageState extends State<MapPage> {
       inverse,
       Offset(_viewport.width, _viewport.height),
     );
-    final rect = Rect.fromPoints(topLeft, bottomRight)
-        .inflate(_tileSize.toDouble());
+    final rect = Rect.fromPoints(
+      topLeft,
+      bottomRight,
+    ).inflate(_tileSize.toDouble());
     final c0 = (rect.left / _tileSize).floor().clamp(0, _tileCols - 1);
     final c1 = (rect.right / _tileSize).floor().clamp(0, _tileCols - 1);
     final r0 = (rect.top / _tileSize).floor().clamp(0, _tileRows - 1);
@@ -281,8 +283,11 @@ class _MapPageState extends State<MapPage> {
                   _searchController.clear();
                   setState(() => _query = '');
                 },
-                child: const Icon(Icons.close,
-                    size: 16, color: AppColors.textSecondary),
+                child: const Icon(
+                  Icons.close,
+                  size: 16,
+                  color: AppColors.textSecondary,
+                ),
               ),
           ],
         ),
@@ -428,7 +433,11 @@ class _MapPageState extends State<MapPage> {
                 color: AppColors.redTint,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Icon(Icons.place, size: 18, color: AppColors.usstRed),
+              child: const Icon(
+                Icons.place,
+                size: 18,
+                color: AppColors.usstRed,
+              ),
             ),
             const SizedBox(width: 10),
             Expanded(
@@ -456,8 +465,11 @@ class _MapPageState extends State<MapPage> {
             ),
             GestureDetector(
               onTap: () => setState(() => _selected = null),
-              child: const Icon(Icons.close,
-                  size: 18, color: AppColors.textSecondary),
+              child: const Icon(
+                Icons.close,
+                size: 18,
+                color: AppColors.textSecondary,
+              ),
             ),
           ],
         ),

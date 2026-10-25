@@ -41,33 +41,33 @@ class CourseSnapshot {
   final int? currentWeek;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'termLabel': termLabel,
-        'xnm': xnm,
-        'xqm': xqm,
-        'updatedAt': updatedAt.toIso8601String(),
-        'studentName': studentName,
-        'className': className,
-        'majorName': majorName,
-        'collegeName': collegeName,
-        'currentWeek': currentWeek,
-        'courses': courses
-            .map((c) => <String, dynamic>{
-                  'name': c.name,
-                  'day': c.day,
-                  'start': c.start,
-                  'span': c.span,
-                  'room': c.room,
-                  'teacher': c.teacher,
-                  'weeks': c.weeks,
-                  'weeksText': c.weeksText,
-                })
-            .toList(),
-      };
+    'termLabel': termLabel,
+    'xnm': xnm,
+    'xqm': xqm,
+    'updatedAt': updatedAt.toIso8601String(),
+    'studentName': studentName,
+    'className': className,
+    'majorName': majorName,
+    'collegeName': collegeName,
+    'currentWeek': currentWeek,
+    'courses': courses
+        .map(
+          (c) => <String, dynamic>{
+            'name': c.name,
+            'day': c.day,
+            'start': c.start,
+            'span': c.span,
+            'room': c.room,
+            'teacher': c.teacher,
+            'weeks': c.weeks,
+            'weeksText': c.weeksText,
+          },
+        )
+        .toList(),
+  };
 
-  CourseSnapshot copyWith({
-    int? currentWeek,
-    String? collegeName,
-  }) => CourseSnapshot(
+  CourseSnapshot copyWith({int? currentWeek, String? collegeName}) =>
+      CourseSnapshot(
         termLabel: termLabel,
         xnm: xnm,
         xqm: xqm,
@@ -81,30 +81,29 @@ class CourseSnapshot {
       );
 
   static CourseSnapshot fromJson(Map<String, dynamic> json) {
-    final list = (json['courses'] as List<dynamic>? ?? <dynamic>[])
-        .map((e) {
-          final m = e as Map<String, dynamic>;
-          return Course(
-            name: m['name'] as String? ?? '',
-            day: (m['day'] as num?)?.toInt() ?? 0,
-            start: (m['start'] as num?)?.toInt() ?? 0,
-            span: (m['span'] as num?)?.toInt() ?? 1,
-            room: m['room'] as String? ?? '',
-            teacher: m['teacher'] as String?,
-            weeks: (m['weeks'] as List<dynamic>?)
-                ?.map((e) => (e as num).toInt())
-                .toList(),
-            weeksText: m['weeksText'] as String? ?? '',
-          );
-        })
-        .toList();
+    final list = (json['courses'] as List<dynamic>? ?? <dynamic>[]).map((e) {
+      final m = e as Map<String, dynamic>;
+      return Course(
+        name: m['name'] as String? ?? '',
+        day: (m['day'] as num?)?.toInt() ?? 0,
+        start: (m['start'] as num?)?.toInt() ?? 0,
+        span: (m['span'] as num?)?.toInt() ?? 1,
+        room: m['room'] as String? ?? '',
+        teacher: m['teacher'] as String?,
+        weeks: (m['weeks'] as List<dynamic>?)
+            ?.map((e) => (e as num).toInt())
+            .toList(),
+        weeksText: m['weeksText'] as String? ?? '',
+      );
+    }).toList();
     return CourseSnapshot(
       termLabel: json['termLabel'] as String? ?? '',
       xnm: json['xnm'] as String? ?? '',
       xqm: json['xqm'] as String? ?? '',
       courses: list,
       updatedAt:
-          DateTime.tryParse(json['updatedAt'] as String? ?? '') ?? DateTime.now(),
+          DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
+          DateTime.now(),
       studentName: json['studentName'] as String? ?? '',
       className: json['className'] as String? ?? '',
       majorName: json['majorName'] as String? ?? '',
@@ -140,8 +139,11 @@ class CourseApi {
 
   Future<({String college, String className})?> _fetchUserInfo() async {
     try {
-      final resp = await client.getJson(Uri.parse(
-          'https://jwgl.usst.edu.cn/jwglxt/xtgl/index_cxYhxxIndex.html?xt=jw&localeKey=zh_CN&gnmkdm=index'));
+      final resp = await client.getJson(
+        Uri.parse(
+          'https://jwgl.usst.edu.cn/jwglxt/xtgl/index_cxYhxxIndex.html?xt=jw&localeKey=zh_CN&gnmkdm=index',
+        ),
+      );
       return parseUserInfo(resp.data ?? '');
     } catch (_) {
       return null;
@@ -151,10 +153,14 @@ class CourseApi {
   /// 教务首页会带当前教学周（id="dqzc"）。
   Future<int?> fetchCurrentWeek() async {
     try {
-      final resp = await client.getJson(Uri.parse(
-          'https://jwgl.usst.edu.cn/jwglxt/xtgl/index_cxAreaOne.html?gnmkdm=N2151'));
+      final resp = await client.getJson(
+        Uri.parse(
+          'https://jwgl.usst.edu.cn/jwglxt/xtgl/index_cxAreaOne.html?gnmkdm=N2151',
+        ),
+      );
       final html = resp.data ?? '';
-      final match = RegExp(r'<input[^>]*dqzc[^>]*value="(\d+)"').firstMatch(html);
+      final match = RegExp(r'<input[^>]*dqzc[^>]*value="(\d+)"')
+          .firstMatch(html);
       return match == null ? null : int.parse(match.group(1)!);
     } catch (_) {
       return null;
@@ -202,19 +208,19 @@ class CourseApi {
   }
 
   static CourseSnapshot _empty() => CourseSnapshot(
-        termLabel: '',
-        xnm: '',
-        xqm: '',
-        courses: const <Course>[],
-        updatedAt: DateTime.now(),
-      );
+    termLabel: '',
+    xnm: '',
+    xqm: '',
+    courses: const <Course>[],
+    updatedAt: DateTime.now(),
+  );
 
   /// 解析正方课表 JSON（字段名来自 2026-10 实测抓包）。
   static CourseSnapshot parseKb(String raw) {
     final map = jsonDecode(raw) as Map<String, dynamic>;
     final xsxx =
         (map['xsxx'] as Map<dynamic, dynamic>?)?.cast<String, dynamic>() ??
-            <String, dynamic>{};
+        <String, dynamic>{};
     final xnm = xsxx['XNM']?.toString() ?? '';
     final xqm = xsxx['XQM']?.toString() ?? '';
     final xnmc = xsxx['XNMC']?.toString() ?? '';
@@ -251,16 +257,18 @@ class CourseApi {
       if (start < 0 || start + span > 13) {
         continue;
       }
-      courses.add(Course(
-        name: name,
-        day: day,
-        start: start,
-        span: span,
-        room: room,
-        teacher: (teacher == null || teacher.isEmpty) ? null : teacher,
-        weeks: weeks,
-        weeksText: weeksText,
-      ));
+      courses.add(
+        Course(
+          name: name,
+          day: day,
+          start: start,
+          span: span,
+          room: room,
+          teacher: (teacher == null || teacher.isEmpty) ? null : teacher,
+          weeks: weeks,
+          weeksText: weeksText,
+        ),
+      );
     }
     courses.sort((a, b) {
       final d = a.day.compareTo(b.day);

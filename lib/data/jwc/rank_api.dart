@@ -31,22 +31,21 @@ class RankInfo {
   double get percentile => total <= 0 ? 0 : (1 - rank / total) * 100;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'rank': rank,
-        'total': total,
-        'major': major,
-        'rawText': rawText,
-        'updatedAt': updatedAt.toIso8601String(),
-      };
+    'rank': rank,
+    'total': total,
+    'major': major,
+    'rawText': rawText,
+    'updatedAt': updatedAt.toIso8601String(),
+  };
 
   static RankInfo fromJson(Map<String, dynamic> json) => RankInfo(
-        rank: (json['rank'] as num?)?.toInt() ?? 0,
-        total: (json['total'] as num?)?.toInt() ?? 0,
-        major: json['major'] as String? ?? '',
-        rawText: json['rawText'] as String? ?? '',
-        updatedAt:
-            DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
-                DateTime.now(),
-      );
+    rank: (json['rank'] as num?)?.toInt() ?? 0,
+    total: (json['total'] as num?)?.toInt() ?? 0,
+    major: json['major'] as String? ?? '',
+    rawText: json['rawText'] as String? ?? '',
+    updatedAt:
+        DateTime.tryParse(json['updatedAt'] as String? ?? '') ?? DateTime.now(),
+  );
 }
 
 /// 生成「专业排名证明」PDF 并解析排名。
@@ -102,12 +101,16 @@ class RankApi {
 
     final count = await _post('/bysxxcx/xscjzbdy_cxXsCount.html', params);
     if (!count.contains('可打印')) {
-      throw RankException(count.replaceAll('"', '').trim().isEmpty
-          ? '教务暂时不允许打印排名证明'
-          : count.replaceAll('"', '').trim());
+      throw RankException(
+        count.replaceAll('"', '').trim().isEmpty
+            ? '教务暂时不允许打印排名证明'
+            : count.replaceAll('"', '').trim(),
+      );
     }
-    final fileType =
-        (await _post('/bysxxcx/xscjzbdy_cxGswjlx.html', params)).replaceAll('"', '').trim();
+    final fileType = (await _post(
+      '/bysxxcx/xscjzbdy_cxGswjlx.html',
+      params,
+    )).replaceAll('"', '').trim();
     if (fileType.isEmpty) {
       throw RankException('教务没有返回证明文件类型');
     }
@@ -167,6 +170,9 @@ class RankApi {
     if (match == null) {
       return null;
     }
-    return (rank: int.parse(match.group(1)!), total: int.parse(match.group(2)!));
+    return (
+      rank: int.parse(match.group(1)!),
+      total: int.parse(match.group(2)!),
+    );
   }
 }

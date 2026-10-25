@@ -4,13 +4,21 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:project_usst/app_theme.dart';
 import 'package:project_usst/data/jwc/grade_api.dart';
 
-const String _detailHtml = '<table><tbody>'
+const String _detailHtml =
+    '<table><tbody>'
     '<tr><td valign="middle">【 平时 】</td><td valign="middle">40%</td><td valign="middle">85&nbsp;</td></tr>'
     '<tr><td valign="middle">【 期末 】</td><td valign="middle">60%</td><td valign="middle">78&nbsp;</td></tr>'
     '<tr><td valign="middle">【 总评 】</td><td valign="middle">&nbsp;</td><td valign="middle">81&nbsp;</td></tr>'
     '</tbody></table>';
 
-Grade _grade(String name, String term, double credit, double gpa, String score, double value) {
+Grade _grade(
+  String name,
+  String term,
+  double credit,
+  double gpa,
+  String score,
+  double value,
+) {
   return Grade(
     name: name,
     code: 'x',
@@ -48,8 +56,14 @@ void main() {
 
   group('Grade.detailOf', () {
     test('按关键字找分项', () {
-      final grade = _grade('高等数学', '2025-2026 第2学期', 4, 3.5, '88', 88)
-          .copyWith(details: GradeApi.parseDetail(_detailHtml));
+      final grade = _grade(
+        '高等数学',
+        '2025-2026 第2学期',
+        4,
+        3.5,
+        '88',
+        88,
+      ).copyWith(details: GradeApi.parseDetail(_detailHtml));
       expect(grade.hasDetail, isTrue);
       expect(grade.detailOf('平时')!.score, '85');
       expect(grade.detailOf('期末')!.score, '78');
@@ -92,8 +106,14 @@ void main() {
       final withDetail = GradeSnapshot(
         updatedAt: DateTime(2026, 10, 22, 8, 0),
         grades: <Grade>[
-          _grade('高等数学', '2025-2026 第2学期', 4, 3.5, '88', 88)
-              .copyWith(details: GradeApi.parseDetail(_detailHtml)),
+          _grade(
+            '高等数学',
+            '2025-2026 第2学期',
+            4,
+            3.5,
+            '88',
+            88,
+          ).copyWith(details: GradeApi.parseDetail(_detailHtml)),
         ],
       );
       final restored = GradeSnapshot.fromJson(withDetail.toJson());

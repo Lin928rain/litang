@@ -5,9 +5,7 @@ import 'package:project_usst/data/campus_shapes.dart';
 
 void main() {
   test('机械工程学院实验中心（二）两栋楼都能点中', () {
-    final list = kCampusPlaces
-        .where((p) => p.name == '机械工程学院实验中心（二）')
-        .toList();
+    final list = kCampusPlaces.where((p) => p.name == '机械工程学院实验中心（二）').toList();
     expect(list.length, 2, reason: '应该有两个锚点');
     for (final place in list) {
       final hit = placeAt(place.anchor);

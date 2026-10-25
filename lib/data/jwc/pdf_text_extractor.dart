@@ -38,7 +38,14 @@ class PdfTextExtractor {
     final out = <Uint8List>[];
     var cursor = 0;
     while (true) {
-      final start = _indexOf(data, const <int>[0x73, 0x74, 0x72, 0x65, 0x61, 0x6d], cursor); // stream
+      final start = _indexOf(data, const <int>[
+        0x73,
+        0x74,
+        0x72,
+        0x65,
+        0x61,
+        0x6d,
+      ], cursor); // stream
       if (start < 0) {
         break;
       }
@@ -51,7 +58,17 @@ class PdfTextExtractor {
       }
       final end = _indexOf(
         data,
-        const <int>[0x65, 0x6e, 0x64, 0x73, 0x74, 0x72, 0x65, 0x61, 0x6d], // endstream
+        const <int>[
+          0x65,
+          0x6e,
+          0x64,
+          0x73,
+          0x74,
+          0x72,
+          0x65,
+          0x61,
+          0x6d,
+        ], // endstream
         bodyStart,
       );
       if (end < 0) {
@@ -89,15 +106,21 @@ class PdfTextExtractor {
     if (!text.contains('beginbfchar') && !text.contains('beginbfrange')) {
       return;
     }
-    for (final block in RegExp(r'beginbfchar([\s\S]*?)endbfchar').allMatches(text)) {
-      for (final m
-          in RegExp(r'<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>').allMatches(block.group(1) ?? '')) {
+    for (final block in RegExp(
+      r'beginbfchar([\s\S]*?)endbfchar',
+    ).allMatches(text)) {
+      for (final m in RegExp(
+        r'<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>',
+      ).allMatches(block.group(1) ?? '')) {
         cmap[int.parse(m.group(1)!, radix: 16)] = _utf16(m.group(2)!);
       }
     }
-    for (final block in RegExp(r'beginbfrange([\s\S]*?)endbfrange').allMatches(text)) {
-      for (final m in RegExp(r'<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>')
-          .allMatches(block.group(1) ?? '')) {
+    for (final block in RegExp(
+      r'beginbfrange([\s\S]*?)endbfrange',
+    ).allMatches(text)) {
+      for (final m in RegExp(
+        r'<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>',
+      ).allMatches(block.group(1) ?? '')) {
         final from = int.parse(m.group(1)!, radix: 16);
         final to = int.parse(m.group(2)!, radix: 16);
         final base = int.parse(m.group(3)!, radix: 16);

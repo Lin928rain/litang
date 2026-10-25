@@ -30,7 +30,8 @@ void main() {
 
   group('CasTokens', () {
     test('解析 lt / execution / _eventId', () {
-      const html = '<input type="hidden" name="lt" value="LT-1"/>'
+      const html =
+          '<input type="hidden" name="lt" value="LT-1"/>'
           '<input type="hidden" name="execution" value="e1s1"/>'
           '<input type="hidden" name="_eventId" value="submit"/>';
       final tokens = CasTokens.parse(html);
@@ -104,6 +105,29 @@ void main() {
 
     test('没有匹配 cookie 时返回 null', () {
       final jar = CasCookieJar();
+      expect(jar.headerFor(Uri.parse('https://example.com/')), isNull);
+    });
+
+    test('Leading-dot cookie 要覆盖所有子域（考试答卷页靠它）', () {
+      final jar = CasCookieJar();
+      jar.absorbSetCookie(
+        Uri.parse('https://passport2.chaoxing.com/login'),
+        'UID=12345; Domain=.chaoxing.com; Path=/',
+      );
+      // 学习通答卷页在 stat2-ans.chaoxing.com，课程页在 mooc1.chaoxing.com，
+      // 两者都必须带上登录态，否则页面会显示“请登录”。
+      for (final host in <String>[
+        'stat2-ans.chaoxing.com',
+        'mooc1.chaoxing.com',
+        'chaoxing.com',
+      ]) {
+        expect(
+          jar.headerFor(Uri.parse('https://$host/study-knowledge/ans')),
+          contains('UID=12345'),
+          reason: host,
+        );
+      }
+      // 别的域不能带上
       expect(jar.headerFor(Uri.parse('https://example.com/')), isNull);
     });
   });

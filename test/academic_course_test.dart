@@ -14,7 +14,8 @@ void main() {
     });
 
     test('解析课程明细 JSON', () {
-      const raw = '['
+      const raw =
+          '['
           '{"KCMC":"高等数学(1)","KCH":"MATH1001","XF":"5.0","XDZT":"4",'
           '"CJ":"92","XNMC":"2025-2026","XQMMC":"1"},'
           '{"KCMC":"大学物理","KCH":"PHYS1001","XF":"3","XDZT":"1",'

@@ -19,7 +19,10 @@ void main() {
 
     test('头像候选非空且包含默认头像', () {
       expect(ProfileStore.avatars, isNotEmpty);
-      expect(ProfileStore.avatars.contains(UserProfile.fallback.avatar), isTrue);
+      expect(
+        ProfileStore.avatars.contains(UserProfile.fallback.avatar),
+        isTrue,
+      );
     });
   });
 }

@@ -92,7 +92,8 @@ class _GradesPageState extends State<GradesPage> {
     if (!mounted) {
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -128,7 +129,9 @@ class _GradesPageState extends State<GradesPage> {
 
   Widget _content(GradeSnapshot snapshot) {
     final summary = snapshot.summaryForTerm(_term);
-    final grades = _term == null ? snapshot.grades : snapshot.gradesInTerm(_term!);
+    final grades = _term == null
+        ? snapshot.grades
+        : snapshot.gradesInTerm(_term!);
     final grouped = <String, List<Grade>>{};
     for (final g in grades) {
       final key = g.termLabel.isEmpty ? '未知学期' : g.termLabel;
@@ -172,7 +175,11 @@ class _GradesPageState extends State<GradesPage> {
       ),
       child: Row(
         children: <Widget>[
-          const Icon(Icons.filter_list, size: 18, color: AppColors.textSecondary),
+          const Icon(
+            Icons.filter_list,
+            size: 18,
+            color: AppColors.textSecondary,
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: DropdownButtonHideUnderline(
@@ -180,17 +187,17 @@ class _GradesPageState extends State<GradesPage> {
                 isExpanded: true,
                 value: _term,
                 hint: const Text('全部学期'),
-                style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: AppColors.textPrimary,
+                ),
                 items: <DropdownMenuItem<String?>>[
                   const DropdownMenuItem<String?>(
                     value: null,
                     child: Text('全部学期（总绩点）'),
                   ),
                   for (final term in snapshot.terms)
-                    DropdownMenuItem<String?>(
-                      value: term,
-                      child: Text(term),
-                    ),
+                    DropdownMenuItem<String?>(value: term, child: Text(term)),
                 ],
                 onChanged: (value) => setState(() => _term = value),
               ),
@@ -250,7 +257,10 @@ class _GradesPageState extends State<GradesPage> {
                     const SizedBox(height: 4),
                     const Text(
                       '加权绩点',
-                      style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -271,7 +281,10 @@ class _GradesPageState extends State<GradesPage> {
                     const SizedBox(height: 4),
                     const Text(
                       '加权平均分',
-                      style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -295,7 +308,10 @@ class _GradesPageState extends State<GradesPage> {
           const SizedBox(width: 8),
           Text(
             '$count 门',
-            style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+            style: const TextStyle(
+              fontSize: 11,
+              color: AppColors.textSecondary,
+            ),
           ),
         ],
       ),
@@ -390,26 +406,26 @@ class _GradesPageState extends State<GradesPage> {
   }
 
   Widget _chip(String text, Color color) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-        decoration: BoxDecoration(
-          color: const Color(0xFFF4F4F6),
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Text(text, style: TextStyle(fontSize: 10, color: color)),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+    decoration: BoxDecoration(
+      color: const Color(0xFFF4F4F6),
+      borderRadius: BorderRadius.circular(5),
+    ),
+    child: Text(text, style: TextStyle(fontSize: 10, color: color)),
+  );
 
   Widget _empty() => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            JwglAuth.instance.isLoggedIn
-                ? (_loading ? '正在加载成绩…' : '还没有成绩数据，点右上角刷新')
-                : '登录后自动同步成绩',
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
-          ),
-        ),
-      );
+    child: Padding(
+      padding: const EdgeInsets.all(24),
+      child: Text(
+        JwglAuth.instance.isLoggedIn
+            ? (_loading ? '正在加载成绩…' : '还没有成绩数据，点右上角刷新')
+            : '登录后自动同步成绩',
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
+      ),
+    ),
+  );
 
   String _formatTime(DateTime time) {
     final m = time.month.toString().padLeft(2, '0');

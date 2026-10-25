@@ -44,8 +44,6 @@ class CalendarService {
     unawaited(_refreshRemote());
   }
 
-  Future<void> refresh() => _refreshRemote(force: true);
-
   Future<AcademicCalendar?> _readAsset() async {
     try {
       final raw = await rootBundle.loadString('assets/calendar.config');
@@ -74,7 +72,7 @@ class CalendarService {
     }
   }
 
-  Future<void> _refreshRemote({bool force = false}) async {
+  Future<void> _refreshRemote() async {
     final year = _academicYearForNow();
     final fileName = '$year.config';
     for (final url in <String>[

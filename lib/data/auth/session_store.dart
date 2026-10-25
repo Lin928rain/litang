@@ -25,7 +25,8 @@ class StoredSession {
 
   final DateTime savedAt;
 
-  bool get canAutoLogin => username.isNotEmpty && (password?.isNotEmpty ?? false);
+  bool get canAutoLogin =>
+      username.isNotEmpty && (password?.isNotEmpty ?? false);
 }
 
 /// 登录凭据存储。
@@ -43,12 +44,14 @@ class SessionStore {
     String? password,
   }) async {
     try {
-      final payload = encode(StoredSession(
-        cookies: client.jar.cookies,
-        username: username,
-        password: password,
-        savedAt: DateTime.now(),
-      ));
+      final payload = encode(
+        StoredSession(
+          cookies: client.jar.cookies,
+          username: username,
+          password: password,
+          savedAt: DateTime.now(),
+        ),
+      );
       await _storage.write(key: _key, value: payload);
     } catch (_) {
       // 存储失败不影响本次登录
@@ -77,11 +80,11 @@ class SessionStore {
 
   /// 序列化（独立成静态方法，方便单测）。
   static String encode(StoredSession session) => jsonEncode(<String, dynamic>{
-        'username': session.username,
-        'password': session.password,
-        'savedAt': session.savedAt.toIso8601String(),
-        'cookies': session.cookies.map((c) => c.toJson()).toList(),
-      });
+    'username': session.username,
+    'password': session.password,
+    'savedAt': session.savedAt.toIso8601String(),
+    'cookies': session.cookies.map((c) => c.toJson()).toList(),
+  });
 
   static StoredSession decode(Map<String, dynamic> map) {
     final cookies = (map['cookies'] as List<dynamic>? ?? <dynamic>[])

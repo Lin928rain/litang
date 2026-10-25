@@ -11,21 +11,21 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: SingleChildScrollView(
-          child: CourseWeekTable(
-            courses: const <Course>[
-              Course(
-                name: '高等数学',
-                day: 0,
-                start: 0,
-                span: 2,
-                room: '三教106',
-                teacher: '王老师',
-              ),
-            ],
-            week: 1,
-            onCourseDoubleTap: (course) => tapped = course,
+            child: CourseWeekTable(
+              courses: const <Course>[
+                Course(
+                  name: '高等数学',
+                  day: 0,
+                  start: 0,
+                  span: 2,
+                  room: '三教106',
+                  teacher: '王老师',
+                ),
+              ],
+              week: 1,
+              onCourseDoubleTap: (course) => tapped = course,
+            ),
           ),
-        ),
         ),
       ),
     );

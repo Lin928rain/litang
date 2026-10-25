@@ -316,9 +316,7 @@ class _ProfilePageState extends State<ProfilePage> {
       child: FutureBuilder<PackageInfo>(
         future: PackageInfo.fromPlatform(),
         builder: (context, snap) {
-          final version = snap.data == null
-              ? ''
-              : '当前版本 ${snap.data!.version} (${snap.data!.buildNumber})';
+          final version = snap.data == null ? '' : '当前版本 ${snap.data!.version}';
           return ListTile(
             leading: const Icon(
               Icons.system_update_alt,
@@ -626,7 +624,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _timetableSection() {
     final auth = JwglAuth.instance;
     final snapshot = _snapshot;
-    final updated = snapshot == null ? '' : _formatTime(snapshot.updatedAt);
     final calendarLabel = CalendarService.instance.termLabel;
     final termLabel = calendarLabel.isNotEmpty
         ? calendarLabel
@@ -667,8 +664,9 @@ class _ProfilePageState extends State<ProfilePage> {
             if (termLabel.isNotEmpty)
               Flexible(
                 child: Text(
-                  updated.isEmpty ? termLabel : '$termLabel · 更新于 $updated',
-                  overflow: TextOverflow.ellipsis,
+                  termLabel,
+                  maxLines: 2,
+                  softWrap: true,
                   style: const TextStyle(
                     fontSize: 11,
                     color: AppColors.textSecondary,
@@ -809,14 +807,6 @@ class _ProfilePageState extends State<ProfilePage> {
         style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
       ),
     );
-  }
-
-  String _formatTime(DateTime time) {
-    final h = time.hour.toString().padLeft(2, '0');
-    final m = time.minute.toString().padLeft(2, '0');
-    final month = time.month.toString().padLeft(2, '0');
-    final day = time.day.toString().padLeft(2, '0');
-    return '$month-$day $h:$m';
   }
 
   Widget _sectionTitle(String t) => Padding(

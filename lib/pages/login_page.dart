@@ -130,9 +130,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 48,
             child: FilledButton(
               onPressed: _busy ? null : _submit,
-              style: FilledButton.styleFrom(
-                backgroundColor: AppColors.usstRed,
-              ),
+              style: FilledButton.styleFrom(backgroundColor: AppColors.usstRed),
               child: _busy
                   ? const SizedBox(
                       width: 20,

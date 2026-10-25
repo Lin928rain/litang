@@ -2,7 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:project_usst/data/jwc/grade_api.dart';
 
-const String _page = '{'
+const String _page =
+    '{'
     '"totalCount": 3,'
     '"items": ['
     '{"kcmc": "高等数学", "kch": "1001", "xf": "4.0", "jd": "3.50", "bfzcj": "88", "cj": "88", '

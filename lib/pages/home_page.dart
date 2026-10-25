@@ -63,7 +63,11 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(24),
             boxShadow: const [
-              BoxShadow(color: Color(0x14000000), blurRadius: 8, offset: Offset(0, 2)),
+              BoxShadow(
+                color: Color(0x14000000),
+                blurRadius: 8,
+                offset: Offset(0, 2),
+              ),
             ],
           ),
           child: const Row(
@@ -73,7 +77,10 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: Text(
                   '问点什么，比如“寒假哪天才开始”',
-                  style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontSize: 14,
+                  ),
                 ),
               ),
               Icon(Icons.search, color: AppColors.textSecondary, size: 20),
@@ -94,10 +101,15 @@ class _HomePageState extends State<HomePage> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('搜索中心', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+            Text(
+              '搜索中心',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            ),
             SizedBox(height: 8),
-            Text('AI 智能问答 · 功能直达 · 历史通知检索',
-                style: TextStyle(color: AppColors.textSecondary)),
+            Text(
+              'AI 智能问答 · 功能直达 · 历史通知检索',
+              style: TextStyle(color: AppColors.textSecondary),
+            ),
             SizedBox(height: 16),
             Text(
               '（占位）接入 RAG 校园知识库后，可语义检索历史通知 / 校历 / 规章制度 / 培养计划，\n并支持自然语言直接问答。',
@@ -141,7 +153,8 @@ class _HomePageState extends State<HomePage> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       children: <Widget>[
-        for (final entry in groups.entries) _noticeModule(entry.key, entry.value),
+        for (final entry in groups.entries)
+          _noticeModule(entry.key, entry.value),
       ],
     );
   }
@@ -222,8 +235,11 @@ class _HomePageState extends State<HomePage> {
                 color: AppColors.textSecondary,
               ),
             ),
-            const Icon(Icons.chevron_right,
-                size: 16, color: AppColors.textSecondary),
+            const Icon(
+              Icons.chevron_right,
+              size: 16,
+              color: AppColors.textSecondary,
+            ),
           ],
         ),
       ),

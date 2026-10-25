@@ -2,7 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:project_usst/data/jwc/course_api.dart';
 
-const String _sample = '{'
+const String _sample =
+    '{'
     '"xsxx": {"XNM": "2026", "XQM": "3", "XNMC": "2026-2027", "XQMMC": "1"},'
     '"kbList": ['
     '{"kcmc": "高等数学", "xqj": "1", "jcs": "1-2", "cdmc": "一教146", "xm": "张三"},'
@@ -46,10 +47,7 @@ void main() {
 
     test('同一天同一段的重复课去重', () {
       final snapshot = CourseApi.parseKb(_sample);
-      expect(
-        snapshot.courses.where((c) => c.name == '高等数学').length,
-        1,
-      );
+      expect(snapshot.courses.where((c) => c.name == '高等数学').length, 1);
     });
   });
 }

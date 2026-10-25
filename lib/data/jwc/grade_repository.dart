@@ -1,42 +1,29 @@
-import 'dart:convert';
-
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
 import '../auth/cas_client.dart';
+import '../cache_store.dart';
 import 'grade_api.dart';
 
 /// 成绩本地缓存（加密存储），打开成绩页先用缓存再后台更新。
 class GradeRepository {
   static const String _key = 'usst_grade_snapshot_v1';
-  static const FlutterSecureStorage _storage = FlutterSecureStorage();
 
   static Future<GradeSnapshot?> loadCache() async {
+    final entry = await CacheStore.read(_key, secure: true);
+    final raw = entry?.data;
+    if (raw is! Map) {
+      return null;
+    }
     try {
-      final raw = await _storage.read(key: _key);
-      if (raw == null || raw.isEmpty) {
-        return null;
-      }
-      return GradeSnapshot.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      return GradeSnapshot.fromJson(raw.cast<String, dynamic>());
     } catch (_) {
       return null;
     }
   }
 
-  static Future<void> save(GradeSnapshot snapshot) async {
-    try {
-      await _storage.write(key: _key, value: jsonEncode(snapshot.toJson()));
-    } catch (_) {
-      // ignore
-    }
+  static Future<void> save(GradeSnapshot snapshot) {
+    return CacheStore.write(_key, snapshot.toJson(), secure: true);
   }
 
-  static Future<void> clear() async {
-    try {
-      await _storage.delete(key: _key);
-    } catch (_) {
-      // ignore
-    }
-  }
+  static Future<void> clear() => CacheStore.remove(_key, secure: true);
 
   static Future<GradeSnapshot> refresh(CasClient client) async {
     final snapshot = await GradeApi(client).fetchAll();

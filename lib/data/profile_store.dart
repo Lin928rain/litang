@@ -14,14 +14,14 @@ class UserProfile {
   static const UserProfile fallback = UserProfile(nickname: '', avatar: '🎓');
 
   Map<String, String> toJson() => <String, String>{
-        'nickname': nickname,
-        'avatar': avatar,
-      };
+    'nickname': nickname,
+    'avatar': avatar,
+  };
 
   static UserProfile fromJson(Map<String, dynamic> json) => UserProfile(
-        nickname: json['nickname'] as String? ?? '',
-        avatar: json['avatar'] as String? ?? '🎓',
-      );
+    nickname: json['nickname'] as String? ?? '',
+    avatar: json['avatar'] as String? ?? '🎓',
+  );
 }
 
 /// 个人资料存储（加密）。
@@ -30,7 +30,18 @@ class ProfileStore {
   static const FlutterSecureStorage _storage = FlutterSecureStorage();
 
   static const List<String> avatars = <String>[
-    '🎓', '🐱', '🐶', '🦊', '🐼', '🐰', '🍊', '🌙', '⭐', '🍀', '🎧', '🧋',
+    '🎓',
+    '🐱',
+    '🐶',
+    '🦊',
+    '🐼',
+    '🐰',
+    '🍊',
+    '🌙',
+    '⭐',
+    '🍀',
+    '🎧',
+    '🧋',
   ];
 
   static Future<UserProfile?> load() async {

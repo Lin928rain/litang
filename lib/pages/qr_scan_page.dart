@@ -58,10 +58,7 @@ class _QrScanPageState extends State<QrScanPage> {
       ),
       body: Stack(
         children: <Widget>[
-          MobileScanner(
-            controller: _controller,
-            onDetect: _onDetect,
-          ),
+          MobileScanner(controller: _controller, onDetect: _onDetect),
           Positioned(
             left: 0,
             right: 0,

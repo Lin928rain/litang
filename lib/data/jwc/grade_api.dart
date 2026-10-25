@@ -14,14 +14,17 @@ class GradeDetailItem {
   final String ratio;
   final String score;
 
-  Map<String, dynamic> toJson() =>
-      <String, dynamic>{'name': name, 'ratio': ratio, 'score': score};
+  Map<String, dynamic> toJson() => <String, dynamic>{
+    'name': name,
+    'ratio': ratio,
+    'score': score,
+  };
 
   static GradeDetailItem fromJson(Map<String, dynamic> json) => GradeDetailItem(
-        name: json['name'] as String? ?? '',
-        ratio: json['ratio'] as String? ?? '',
-        score: json['score'] as String? ?? '',
-      );
+    name: json['name'] as String? ?? '',
+    ratio: json['ratio'] as String? ?? '',
+    score: json['score'] as String? ?? '',
+  );
 }
 
 /// 一门课的成绩。
@@ -76,60 +79,60 @@ class Grade {
   }
 
   Grade copyWith({List<GradeDetailItem>? details}) => Grade(
-        name: name,
-        code: code,
-        termLabel: termLabel,
-        credit: credit,
-        gradePoint: gradePoint,
-        scoreText: scoreText,
-        scoreValue: scoreValue,
-        courseKind: courseKind,
-        teacher: teacher,
-        key: key,
-        kchId: kchId,
-        jxbId: jxbId,
-        xnm: xnm,
-        xqm: xqm,
-        details: details ?? this.details,
-      );
+    name: name,
+    code: code,
+    termLabel: termLabel,
+    credit: credit,
+    gradePoint: gradePoint,
+    scoreText: scoreText,
+    scoreValue: scoreValue,
+    courseKind: courseKind,
+    teacher: teacher,
+    key: key,
+    kchId: kchId,
+    jxbId: jxbId,
+    xnm: xnm,
+    xqm: xqm,
+    details: details ?? this.details,
+  );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'name': name,
-        'code': code,
-        'termLabel': termLabel,
-        'credit': credit,
-        'gradePoint': gradePoint,
-        'scoreText': scoreText,
-        'scoreValue': scoreValue,
-        'courseKind': courseKind,
-        'teacher': teacher,
-        'key': key,
-        'kchId': kchId,
-        'jxbId': jxbId,
-        'xnm': xnm,
-        'xqm': xqm,
-        'details': details.map((d) => d.toJson()).toList(),
-      };
+    'name': name,
+    'code': code,
+    'termLabel': termLabel,
+    'credit': credit,
+    'gradePoint': gradePoint,
+    'scoreText': scoreText,
+    'scoreValue': scoreValue,
+    'courseKind': courseKind,
+    'teacher': teacher,
+    'key': key,
+    'kchId': kchId,
+    'jxbId': jxbId,
+    'xnm': xnm,
+    'xqm': xqm,
+    'details': details.map((d) => d.toJson()).toList(),
+  };
 
   static Grade fromJson(Map<String, dynamic> json) => Grade(
-        name: json['name'] as String? ?? '',
-        code: json['code'] as String? ?? '',
-        termLabel: json['termLabel'] as String? ?? '',
-        credit: (json['credit'] as num?)?.toDouble(),
-        gradePoint: (json['gradePoint'] as num?)?.toDouble(),
-        scoreText: json['scoreText'] as String? ?? '',
-        scoreValue: (json['scoreValue'] as num?)?.toDouble(),
-        courseKind: json['courseKind'] as String? ?? '',
-        teacher: json['teacher'] as String? ?? '',
-        key: json['key'] as String? ?? '',
-        kchId: json['kchId'] as String? ?? '',
-        jxbId: json['jxbId'] as String? ?? '',
-        xnm: json['xnm'] as String? ?? '',
-        xqm: json['xqm'] as String? ?? '',
-        details: (json['details'] as List<dynamic>? ?? <dynamic>[])
-            .map((e) => GradeDetailItem.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
+    name: json['name'] as String? ?? '',
+    code: json['code'] as String? ?? '',
+    termLabel: json['termLabel'] as String? ?? '',
+    credit: (json['credit'] as num?)?.toDouble(),
+    gradePoint: (json['gradePoint'] as num?)?.toDouble(),
+    scoreText: json['scoreText'] as String? ?? '',
+    scoreValue: (json['scoreValue'] as num?)?.toDouble(),
+    courseKind: json['courseKind'] as String? ?? '',
+    teacher: json['teacher'] as String? ?? '',
+    key: json['key'] as String? ?? '',
+    kchId: json['kchId'] as String? ?? '',
+    jxbId: json['jxbId'] as String? ?? '',
+    xnm: json['xnm'] as String? ?? '',
+    xqm: json['xqm'] as String? ?? '',
+    details: (json['details'] as List<dynamic>? ?? <dynamic>[])
+        .map((e) => GradeDetailItem.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
 }
 
 /// 绩点汇总（按学分加权）。
@@ -218,22 +221,21 @@ class GradeSnapshot {
       term == null ? summary : GradeSummary.compute(gradesInTerm(term));
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'updatedAt': updatedAt.toIso8601String(),
-        'studentName': studentName,
-        'className': className,
-        'grades': grades.map((g) => g.toJson()).toList(),
-      };
+    'updatedAt': updatedAt.toIso8601String(),
+    'studentName': studentName,
+    'className': className,
+    'grades': grades.map((g) => g.toJson()).toList(),
+  };
 
   static GradeSnapshot fromJson(Map<String, dynamic> json) => GradeSnapshot(
-        updatedAt:
-            DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
-                DateTime.now(),
-        studentName: json['studentName'] as String? ?? '',
-        className: json['className'] as String? ?? '',
-        grades: (json['grades'] as List<dynamic>? ?? <dynamic>[])
-            .map((e) => Grade.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
+    updatedAt:
+        DateTime.tryParse(json['updatedAt'] as String? ?? '') ?? DateTime.now(),
+    studentName: json['studentName'] as String? ?? '',
+    className: json['className'] as String? ?? '',
+    grades: (json['grades'] as List<dynamic>? ?? <dynamic>[])
+        .map((e) => Grade.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
 }
 
 /// 正方成绩查询接口。
@@ -447,27 +449,29 @@ class GradeApi {
       final effectiveDailyRatio =
           dailyRatio ?? (finalRatio == null ? null : 100 - finalRatio);
       if (daily != null) {
-        details.add(GradeDetailItem(
-          name: dailyName,
-          ratio: effectiveDailyRatio == null
-              ? ''
-              : '${effectiveDailyRatio.round()}%',
-          score: _formatScore(daily),
-        ));
+        details.add(
+          GradeDetailItem(
+            name: dailyName,
+            ratio: effectiveDailyRatio == null
+                ? ''
+                : '${effectiveDailyRatio.round()}%',
+            score: _formatScore(daily),
+          ),
+        );
       }
       if (finalScore != null) {
-        details.add(GradeDetailItem(
-          name: '期末',
-          ratio: finalRatio == null ? '' : '${finalRatio.round()}%',
-          score: _formatScore(finalScore),
-        ));
+        details.add(
+          GradeDetailItem(
+            name: '期末',
+            ratio: finalRatio == null ? '' : '${finalRatio.round()}%',
+            score: _formatScore(finalScore),
+          ),
+        );
       }
       if (total != null) {
-        details.add(GradeDetailItem(
-          name: '总评',
-          ratio: '',
-          score: _formatScore(total),
-        ));
+        details.add(
+          GradeDetailItem(name: '总评', ratio: '', score: _formatScore(total)),
+        );
       }
       if (details.isNotEmpty) {
         out[jxbId] = details;
@@ -520,10 +524,12 @@ class GradeApi {
   }
 
   Future<List<GradeDetailItem>> fetchDetail(Grade grade) async {
-    final uri = Uri.parse('$_detailPath&kch_id=${Uri.encodeQueryComponent(grade.kchId)}'
-        '&jxb_id=${Uri.encodeQueryComponent(grade.jxbId)}'
-        '&xnm=${Uri.encodeQueryComponent(grade.xnm)}'
-        '&xqm=${Uri.encodeQueryComponent(grade.xqm)}');
+    final uri = Uri.parse(
+      '$_detailPath&kch_id=${Uri.encodeQueryComponent(grade.kchId)}'
+      '&jxb_id=${Uri.encodeQueryComponent(grade.jxbId)}'
+      '&xnm=${Uri.encodeQueryComponent(grade.xnm)}'
+      '&xqm=${Uri.encodeQueryComponent(grade.xqm)}',
+    );
     final resp = await client.getJson(uri);
     return parseDetail(resp.data ?? '');
   }
@@ -553,15 +559,17 @@ class GradeApi {
     if (raw == null) {
       return '';
     }
-    return raw
-        .replaceAll('&nbsp;', ' ')
-        .replaceAll(RegExp(r'\s+'), ' ')
-        .trim();
+    return raw.replaceAll('&nbsp;', ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
   }
 
   /// 解析一页成绩 JSON（字段名来自 2026-10 实测抓包）。
-  static ({List<Grade> grades, int totalCount, String studentName, String className})
-      parsePage(String raw) {
+  static ({
+    List<Grade> grades,
+    int totalCount,
+    String studentName,
+    String className,
+  })
+  parsePage(String raw) {
     final map = jsonDecode(raw) as Map<String, dynamic>;
     final items = (map['items'] as List<dynamic>? ?? <dynamic>[]);
     final grades = <Grade>[];
@@ -579,24 +587,27 @@ class GradeApi {
       final xqmmc = it['xqmmc']?.toString() ?? '';
       final termLabel = xnmmc.isEmpty ? '' : '$xnmmc 第$xqmmc学期';
       final scoreText = (it['cj']?.toString() ?? '').trim();
-      grades.add(Grade(
-        name: name,
-        code: it['kch']?.toString() ?? '',
-        termLabel: termLabel,
-        credit: double.tryParse('${it['xf']}'),
-        gradePoint: double.tryParse('${it['jd']}'),
-        scoreText: scoreText,
-        scoreValue: double.tryParse('${it['bfzcj']}'),
-        courseKind: it['kcxzmc']?.toString() ?? '',
-        teacher: it['jsxm']?.toString() ?? '',
-        key: it['key']?.toString() ?? '',
-        kchId: it['kch_id']?.toString() ?? '',
-        jxbId: it['jxb_id']?.toString() ?? '',
-        xnm: it['xnm']?.toString() ?? '',
-        xqm: it['xqm']?.toString() ?? '',
-      ));
+      grades.add(
+        Grade(
+          name: name,
+          code: it['kch']?.toString() ?? '',
+          termLabel: termLabel,
+          credit: double.tryParse('${it['xf']}'),
+          gradePoint: double.tryParse('${it['jd']}'),
+          scoreText: scoreText,
+          scoreValue: double.tryParse('${it['bfzcj']}'),
+          courseKind: it['kcxzmc']?.toString() ?? '',
+          teacher: it['jsxm']?.toString() ?? '',
+          key: it['key']?.toString() ?? '',
+          kchId: it['kch_id']?.toString() ?? '',
+          jxbId: it['jxb_id']?.toString() ?? '',
+          xnm: it['xnm']?.toString() ?? '',
+          xqm: it['xqm']?.toString() ?? '',
+        ),
+      );
     }
-    final total = int.tryParse('${map['totalCount'] ?? '0'}') ??
+    final total =
+        int.tryParse('${map['totalCount'] ?? '0'}') ??
         int.tryParse('${map['totalResult'] ?? '0'}') ??
         0;
     return (

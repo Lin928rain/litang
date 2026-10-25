@@ -19,7 +19,7 @@ class JwglWebPage extends StatefulWidget {
 class _JwglWebPageState extends State<JwglWebPage> {
   static final bool _supported =
       defaultTargetPlatform == TargetPlatform.android ||
-          defaultTargetPlatform == TargetPlatform.iOS;
+      defaultTargetPlatform == TargetPlatform.iOS;
 
   WebViewController? _controller;
   bool _loading = true;
@@ -101,7 +101,8 @@ class _JwglWebPageState extends State<JwglWebPage> {
           ? _message('网页版教务系统只能在手机 App 内打开')
           : Stack(
               children: <Widget>[
-                if (_controller != null) WebViewWidget(controller: _controller!),
+                if (_controller != null)
+                  WebViewWidget(controller: _controller!),
                 if (_loading) const LinearProgressIndicator(minHeight: 2),
                 if (_error != null)
                   Positioned.fill(
@@ -116,13 +117,13 @@ class _JwglWebPageState extends State<JwglWebPage> {
   }
 
   Widget _message(String text) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
-          ),
-        ),
-      );
+    child: Padding(
+      padding: const EdgeInsets.all(24),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
+      ),
+    ),
+  );
 }

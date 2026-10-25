@@ -191,19 +191,6 @@ class AcademicCalendar {
     return term.weekFor(DateTime.now());
   }
 
-  CalendarWeekType? get currentWeekType {
-    final term = currentTerm;
-    final week = currentWeek;
-    if (term == null || week == null) return null;
-    return term.typeForWeek(week);
-  }
-
-  bool get inVacation {
-    final term = currentTerm;
-    if (term == null) return false;
-    return term.isVacationDate(DateTime.now());
-  }
-
   /// 配置缺失时的学年学期兜底，例如 2026-10 -> 2026-2027-1。
   static String fallbackTermId(DateTime date) {
     final year = date.year;

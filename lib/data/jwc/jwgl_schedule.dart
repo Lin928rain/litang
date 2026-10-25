@@ -10,20 +10,20 @@ class JwglSchedule {
   /// 每节的起止时间（period 从 1 开始）。
   static const List<({int period, String start, String end})> periods =
       <({int period, String start, String end})>[
-    (period: 1, start: '08:00', end: '08:40'),
-    (period: 2, start: '08:45', end: '09:25'),
-    (period: 3, start: '09:45', end: '10:25'),
-    (period: 4, start: '10:30', end: '11:10'),
-    (period: 5, start: '11:15', end: '11:55'),
-    (period: 6, start: '13:00', end: '13:40'),
-    (period: 7, start: '13:45', end: '14:25'),
-    (period: 8, start: '14:45', end: '15:25'),
-    (period: 9, start: '15:30', end: '16:10'),
-    (period: 10, start: '16:15', end: '16:55'),
-    (period: 11, start: '18:00', end: '18:40'),
-    (period: 12, start: '18:45', end: '19:25'),
-    (period: 13, start: '19:30', end: '20:10'),
-  ];
+        (period: 1, start: '08:00', end: '08:40'),
+        (period: 2, start: '08:45', end: '09:25'),
+        (period: 3, start: '09:45', end: '10:25'),
+        (period: 4, start: '10:30', end: '11:10'),
+        (period: 5, start: '11:15', end: '11:55'),
+        (period: 6, start: '13:00', end: '13:40'),
+        (period: 7, start: '13:45', end: '14:25'),
+        (period: 8, start: '14:45', end: '15:25'),
+        (period: 9, start: '15:30', end: '16:10'),
+        (period: 10, start: '16:15', end: '16:55'),
+        (period: 11, start: '18:00', end: '18:40'),
+        (period: 12, start: '18:45', end: '19:25'),
+        (period: 13, start: '19:30', end: '20:10'),
+      ];
 
   static ({int period, String start, String end})? periodAt(int period) {
     for (final p in periods) {

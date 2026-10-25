@@ -21,7 +21,7 @@ class CourseWeekTable extends StatelessWidget {
   /// 双击课程时的回调（用于跳转地图定位教室楼栋）。
   final ValueChanged<Course>? onCourseDoubleTap;
 
-  static const double rowHeight = 54;
+  static const double rowHeight = 58;
   static const double dayWidth = 66;
   static const double periodWidth = 58;
   static const double headerHeight = 30;
@@ -152,70 +152,71 @@ class CourseWeekTable extends StatelessWidget {
   }
 
   Widget _courseBlock(BuildContext context, Course course, int index) {
-    final timeRange = JwglSchedule.rangeOf(course.start, course.span);
     final height = rowHeight * course.span - 4;
+    // 一格课只有 50px 高，名字和教师各占两行会挤出去，所以短块少显示一行。
+    final compact = course.span <= 1;
     return Positioned(
       left: course.day * dayWidth + 3,
       top: course.start * rowHeight + 2,
       width: dayWidth - 6,
       height: height,
       child: GestureDetector(
-        onTap: () => _showDetail(context, course),
+        // 单击不再弹详情面板（信息都摆在格子上了），双击仍可在地图上定位教室。
         onDoubleTap: onCourseDoubleTap == null
             ? null
             : () => onCourseDoubleTap!(course),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
           decoration: BoxDecoration(
             color: _colorFor(index),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: const Color(0x33A31C1C)),
           ),
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
+          // 不用 FittedBox：以前内容一长整块字都缩成小字，现在保持字号。
+          child: ClipRect(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
                   course.name,
-                  maxLines: 2,
+                  maxLines: compact ? 1 : 2,
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 11,
                     height: 1.2,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.usstRed,
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 if (course.room.isNotEmpty) ...<Widget>[
-                  const SizedBox(height: 3),
+                  const SizedBox(height: 1),
+                  // 教室必须完整显示（「公共实验楼100室」这种会被截断），
+                  // 所以允许换行，不再用省略号。
                   Text(
                     course.room,
+                    maxLines: compact ? 2 : 3,
+                    softWrap: true,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 9,
+                      height: 1.2,
                       color: AppColors.textSecondary,
                     ),
                   ),
                 ],
                 if (course.teacher != null &&
                     course.teacher!.isNotEmpty) ...<Widget>[
-                  const SizedBox(height: 2),
+                  const SizedBox(height: 1),
                   Text(
                     course.teacher!,
-                    maxLines: 1,
+                    maxLines: compact ? 1 : 2,
+                    softWrap: true,
                     overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 8,
-                      color: AppColors.textSecondary,
-                    ),
-                  ),
-                ],
-                if (timeRange != null) ...<Widget>[
-                  const SizedBox(height: 2),
-                  Text(
-                    '${course.start + 1}-${course.start + course.span}节 $timeRange',
-                    style: const TextStyle(
-                      fontSize: 8,
+                      fontSize: 8.5,
+                      height: 1.2,
                       color: AppColors.textSecondary,
                     ),
                   ),
@@ -237,80 +238,6 @@ class CourseWeekTable extends StatelessWidget {
       Color(0x1F6A4C93),
     ];
     return palette[index % palette.length];
-  }
-
-  void _showDetail(BuildContext context, Course course) {
-    final days = <String>['一', '二', '三', '四', '五', '六', '日'];
-    showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      builder: (_) => Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              course.name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              '周${days[course.day]} 第${course.start + 1}-${course.start + course.span}节'
-              '${course.room.isEmpty ? '' : ' · ${course.room}'}',
-              style: const TextStyle(
-                fontSize: 13,
-                color: AppColors.textSecondary,
-              ),
-            ),
-            if (course.teacher != null &&
-                course.teacher!.isNotEmpty) ...<Widget>[
-              const SizedBox(height: 6),
-              Text(
-                '教师：${course.teacher}',
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ],
-            if (course.weeksText.isNotEmpty) ...<Widget>[
-              const SizedBox(height: 6),
-              Text(
-                '周次：${course.weeksText}',
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ],
-            const SizedBox(height: 18),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              decoration: BoxDecoration(
-                color: AppColors.redTint,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Row(
-                children: <Widget>[
-                  Icon(Icons.map_outlined, size: 16, color: AppColors.usstRed),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      '双击课表里的课程，可以直接在地图上定位这栋楼',
-                      style: TextStyle(
-                        fontSize: 11.5,
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
 

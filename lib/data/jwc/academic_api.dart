@@ -35,26 +35,26 @@ class CreditCategory {
   double get progress => required <= 0 ? 1 : (earned / required).clamp(0, 1);
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id,
-        'parentId': parentId,
-        'name': name,
-        'earned': earned,
-        'required': required,
-        'passed': passed,
-        'children': children.map((c) => c.toJson()).toList(),
-      };
+    'id': id,
+    'parentId': parentId,
+    'name': name,
+    'earned': earned,
+    'required': required,
+    'passed': passed,
+    'children': children.map((c) => c.toJson()).toList(),
+  };
 
   static CreditCategory fromJson(Map<String, dynamic> json) => CreditCategory(
-        id: json['id'] as String? ?? '',
-        parentId: json['parentId'] as String? ?? '',
-        name: json['name'] as String? ?? '',
-        earned: (json['earned'] as num?)?.toDouble() ?? 0,
-        required: (json['required'] as num?)?.toDouble() ?? 0,
-        passed: json['passed'] as bool? ?? false,
-        children: (json['children'] as List<dynamic>? ?? <dynamic>[])
-            .map((e) => CreditCategory.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
+    id: json['id'] as String? ?? '',
+    parentId: json['parentId'] as String? ?? '',
+    name: json['name'] as String? ?? '',
+    earned: (json['earned'] as num?)?.toDouble() ?? 0,
+    required: (json['required'] as num?)?.toDouble() ?? 0,
+    passed: json['passed'] as bool? ?? false,
+    children: (json['children'] as List<dynamic>? ?? <dynamic>[])
+        .map((e) => CreditCategory.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
 }
 
 /// 学业情况快照（按培养方案树组织）。
@@ -80,19 +80,20 @@ class AcademicProgress {
   double get progress => required <= 0 ? 0 : (earned / required).clamp(0, 1);
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'majorName': majorName,
-        'earned': earned,
-        'required': required,
-        'updatedAt': updatedAt.toIso8601String(),
-        'categories': categories.map((c) => c.toJson()).toList(),
-      };
+    'majorName': majorName,
+    'earned': earned,
+    'required': required,
+    'updatedAt': updatedAt.toIso8601String(),
+    'categories': categories.map((c) => c.toJson()).toList(),
+  };
 
   static AcademicProgress fromJson(Map<String, dynamic> json) =>
       AcademicProgress(
         majorName: json['majorName'] as String? ?? '',
         earned: (json['earned'] as num?)?.toDouble() ?? 0,
         required: (json['required'] as num?)?.toDouble() ?? 0,
-        updatedAt: DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
+        updatedAt:
+            DateTime.tryParse(json['updatedAt'] as String? ?? '') ??
             DateTime.now(),
         categories: (json['categories'] as List<dynamic>? ?? <dynamic>[])
             .map((e) => CreditCategory.fromJson(e as Map<String, dynamic>))
@@ -126,39 +127,39 @@ class AcademicCourse {
   bool get notStarted => status == 'notStarted';
 
   String get statusLabel => switch (status) {
-        'passed' => '已修',
-        'inProgress' => '在修',
-        'failed' => '未过',
-        'notStarted' => '未修',
-        _ => '其他',
-      };
+    'passed' => '已修',
+    'inProgress' => '在修',
+    'failed' => '未过',
+    'notStarted' => '未修',
+    _ => '其他',
+  };
 
   /// 正方 XDZT：1=在修，2=未过，3=未修，4/21=已修。
   static String statusOf(String xdzt) => switch (xdzt) {
-        '1' => 'inProgress',
-        '2' => 'failed',
-        '3' => 'notStarted',
-        '4' || '21' => 'passed',
-        _ => 'other',
-      };
+    '1' => 'inProgress',
+    '2' => 'failed',
+    '3' => 'notStarted',
+    '4' || '21' => 'passed',
+    _ => 'other',
+  };
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'name': name,
-        'code': code,
-        'credits': credits,
-        'term': term,
-        'score': score,
-        'status': status,
-      };
+    'name': name,
+    'code': code,
+    'credits': credits,
+    'term': term,
+    'score': score,
+    'status': status,
+  };
 
   static AcademicCourse fromJson(Map<String, dynamic> json) => AcademicCourse(
-        name: json['name'] as String? ?? '',
-        code: json['code'] as String? ?? '',
-        credits: (json['credits'] as num?)?.toDouble() ?? 0,
-        term: json['term'] as String? ?? '',
-        score: json['score'] as String? ?? '',
-        status: json['status'] as String? ?? 'other',
-      );
+    name: json['name'] as String? ?? '',
+    code: json['code'] as String? ?? '',
+    credits: (json['credits'] as num?)?.toDouble() ?? 0,
+    term: json['term'] as String? ?? '',
+    score: json['score'] as String? ?? '',
+    status: json['status'] as String? ?? 'other',
+  );
 }
 
 /// 正方「学业情况」接口（培养方案树 + 课程明细）。
@@ -204,13 +205,8 @@ class AcademicApi {
   ) async {
     final resp = await client.postApi(
       Uri.parse('https://jwgl.usst.edu.cn$path'),
-      <String, String>{
-        'fromXh_id': '',
-        'xfyqjd_id': categoryId,
-        'xh_id': xhId,
-      },
-      referer:
-          'https://jwgl.usst.edu.cn/jwglxt/xsxy/xsxyqk_cxXsxyqkIndex.html?gnmkdm=N105515&layout=default',
+      <String, String>{'fromXh_id': '', 'xfyqjd_id': categoryId, 'xh_id': xhId},
+      referer: 'https://jwgl.usst.edu.cn/jwglxt/xsxy/xsxyqk_cxXsxyqkIndex.html?gnmkdm=N105515&layout=default',
     );
     return parseCourses(resp.data ?? '');
   }
@@ -251,9 +247,7 @@ class AcademicApi {
 
     final ordered = nodes.values.toList();
     // 根节点 = 要求学分最多的那个（培养方案总学分）
-    final root = ordered.reduce(
-      (a, b) => b.required > a.required ? b : a,
-    );
+    final root = ordered.reduce((a, b) => b.required > a.required ? b : a);
 
     // 建树：父节点不存在的挂到根上，避免丢数据
     final childMap = <String, List<CreditCategory>>{};
@@ -268,16 +262,16 @@ class AcademicApi {
     }
 
     CreditCategory attach(CreditCategory node) => CreditCategory(
-          id: node.id,
-          parentId: node.parentId,
-          name: node.name,
-          earned: node.earned,
-          required: node.required,
-          passed: node.passed,
-          children: (childMap[node.id] ?? const <CreditCategory>[])
-              .map(attach)
-              .toList(),
-        );
+      id: node.id,
+      parentId: node.parentId,
+      name: node.name,
+      earned: node.earned,
+      required: node.required,
+      passed: node.passed,
+      children: (childMap[node.id] ?? const <CreditCategory>[])
+          .map(attach)
+          .toList(),
+    );
 
     final rootNode = attach(root);
     return AcademicProgress(
@@ -322,14 +316,16 @@ class AcademicApi {
       }
       final xnm = (map['XNMC'] ?? '').toString().trim();
       final xqm = (map['XQMMC'] ?? '').toString().trim();
-      out.add(AcademicCourse(
-        name: name,
-        code: (map['KCH'] ?? '').toString().trim(),
-        credits: double.tryParse((map['XF'] ?? '').toString()) ?? 0,
-        term: '$xnm $xqm'.trim(),
-        score: (map['CJ'] ?? map['MAXCJ'] ?? '').toString().trim(),
-        status: AcademicCourse.statusOf((map['XDZT'] ?? '').toString()),
-      ));
+      out.add(
+        AcademicCourse(
+          name: name,
+          code: (map['KCH'] ?? '').toString().trim(),
+          credits: double.tryParse((map['XF'] ?? '').toString()) ?? 0,
+          term: '$xnm $xqm'.trim(),
+          score: (map['CJ'] ?? map['MAXCJ'] ?? '').toString().trim(),
+          status: AcademicCourse.statusOf((map['XDZT'] ?? '').toString()),
+        ),
+      );
     }
     return out;
   }
