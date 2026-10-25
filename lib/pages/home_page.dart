@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
 
   String? _college;
   bool _collegeFromJw = false;
+  bool _collegeOverridden = false;
   String _kind = '全部';
   bool _collegeOnly = false;
 
@@ -57,10 +58,15 @@ class _HomePageState extends State<HomePage> {
       final depts = <String>{for (final n in feed.notices) n.dept};
       final college = await NoticePrefs.resolve(depts);
       if (!mounted) return;
-      if (college.name == _college && college.fromJw == _collegeFromJw) return;
+      if (college.name == _college &&
+          college.fromJw == _collegeFromJw &&
+          college.overridden == _collegeOverridden) {
+        return;
+      }
       setState(() {
         _college = college.name;
         _collegeFromJw = college.fromJw;
+        _collegeOverridden = college.overridden;
         if (_college == null) _collegeOnly = false;
       });
       _recompute();
@@ -251,6 +257,10 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           _collegeChip(context),
           const SizedBox(width: 6),
+          if (_college != null) ...[
+            _collegeOnlyChip(),
+            const SizedBox(width: 6),
+          ],
           for (final k in chips)
             Padding(
               padding: const EdgeInsets.only(right: 6),
@@ -297,92 +307,64 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /// 「本院」按钮：点一下就能重新选（想改几次改几次）。
+  /// 选好之后旁边会多出一个「只看本院」的开关。
   Widget _collegeChip(BuildContext context) {
     final college = _college;
     // 已经知道是哪个学院了就不用把全称摆出来占地方
     final label = college == null ? '本院·未设置' : '本院';
     return GestureDetector(
-      onTap: () async {
-        if (college == null) {
-          await _pickCollege();
-          return;
-        }
-        setState(() => _collegeOnly = !_collegeOnly);
-        _recompute();
-      },
-      onLongPress: college == null ? _pickCollege : () => _showCollegeInfo(),
+      onTap: _pickCollege,
       child: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: _collegeOnly ? AppColors.usstRed : Colors.white,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: _collegeOnly ? AppColors.usstRed : const Color(0xFFE5E5E5),
-          ),
+          border: Border.all(color: const Color(0xFFE5E5E5)),
         ),
         child: Row(
           children: [
             Icon(
               Icons.school_outlined,
               size: 13,
-              color: _collegeOnly ? Colors.white : AppColors.textSecondary,
+              color: AppColors.textSecondary,
             ),
             const SizedBox(width: 4),
             Text(
               label,
-              style: TextStyle(
-                fontSize: 12.5,
-                color: _collegeOnly ? Colors.white : AppColors.textSecondary,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// 长按「本院」：只告诉你是哪个学院、从哪来的，改不改由你。
-  Future<void> _showCollegeInfo() async {
-    final college = _college;
-    if (college == null) return;
-    final fromJw = _collegeFromJw;
-    final action = await showModalBottomSheet<String>(
-      context: context,
-      showDragHandle: true,
-      builder: (ctx) => Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 28),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              '本院',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 10),
-            Text(college, style: const TextStyle(fontSize: 14)),
-            const SizedBox(height: 6),
-            Text(
-              fromJw ? '从教务账号读到的，换账号或转专业会自动更新' : '你自己设置的',
               style: const TextStyle(
-                fontSize: 12,
+                fontSize: 12.5,
                 color: AppColors.textSecondary,
               ),
             ),
-            const SizedBox(height: 12),
-            if (fromJw)
-              TextButton(
-                onPressed: () => Navigator.pop(ctx, 'manual'),
-                child: const Text('识别错了，手动指定'),
+            if (college != null) ...[
+              const SizedBox(width: 2),
+              const Icon(
+                Icons.expand_more,
+                size: 13,
+                color: AppColors.textSecondary,
               ),
+            ],
           ],
         ),
       ),
     );
-    if (action == 'manual' && mounted) await _pickCollege();
   }
 
+  /// 「只看本院」开关，只有设置了学院才出现。
+  Widget _collegeOnlyChip() {
+    return _chip(
+      label: '只看本院',
+      selected: _collegeOnly,
+      onTap: () {
+        setState(() => _collegeOnly = !_collegeOnly);
+        _recompute();
+      },
+    );
+  }
+
+  /// 选学院：随时可以点开重选，选过的以你为准（不会被教务覆盖）。
   Future<void> _pickCollege() async {
     final feed = _feed;
     if (feed == null) return;
@@ -408,11 +390,13 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 12),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
               child: Text(
-                '登录教务后会自动读取，这里只是手动兜底（长按顶部按钮可随时改）',
-                style: TextStyle(
+                _collegeFromJw && !_collegeOverridden
+                    ? '自动从教务读到的：${_college ?? '（无）'}。选别的会以你为准。'
+                    : '选过的以你为准；想让它重新跟教务走，点最下面的「恢复自动识别」',
+                style: const TextStyle(
                   fontSize: 12,
                   color: AppColors.textSecondary,
                 ),
@@ -421,6 +405,9 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: const Icon(Icons.clear, size: 20),
               title: const Text('不设置', style: TextStyle(fontSize: 14)),
+              trailing: _college == null
+                  ? const Icon(Icons.check, size: 18, color: AppColors.usstRed)
+                  : null,
               onTap: () => Navigator.pop(ctx, ''),
             ),
             for (final d in depts)
@@ -432,16 +419,53 @@ class _HomePageState extends State<HomePage> {
                     : null,
                 onTap: () => Navigator.pop(ctx, d),
               ),
+            if (_collegeOverridden)
+              ListTile(
+                leading: const Icon(Icons.autorenew, size: 20),
+                title: const Text(
+                  '恢复自动识别',
+                  style: TextStyle(fontSize: 14),
+                ),
+                subtitle: const Text(
+                  '下次按教务里的学院来',
+                  style: TextStyle(fontSize: 11),
+                ),
+                onTap: () => Navigator.pop(ctx, '__auto__'),
+              ),
           ],
         ),
       ),
     );
 
     if (picked == null || !mounted) return;
+
+    if (picked == '__auto__') {
+      await NoticePrefs.resetToAuto();
+      await _reloadCollege();
+      return;
+    }
+
     await NoticePrefs.setCollege(picked.isEmpty ? null : picked);
     setState(() {
       _college = picked.isEmpty ? null : picked;
       _collegeFromJw = false;
+      _collegeOverridden = true;
+      if (_college == null) _collegeOnly = false;
+    });
+    _recompute();
+  }
+
+  /// 重新解析一次本院（「恢复自动识别」之后用）。
+  Future<void> _reloadCollege() async {
+    final feed = _feed;
+    if (feed == null) return;
+    final depts = <String>{for (final n in feed.notices) n.dept};
+    final resolved = await NoticePrefs.resolve(depts);
+    if (!mounted) return;
+    setState(() {
+      _college = resolved.name;
+      _collegeFromJw = resolved.fromJw;
+      _collegeOverridden = resolved.overridden;
       if (_college == null) _collegeOnly = false;
     });
     _recompute();

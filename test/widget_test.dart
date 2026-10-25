@@ -165,9 +165,12 @@ void main() {
   group('首页筛选', () {
     testWidgets('筛出空结果时筛选条还在，不会卡死', (tester) async {
       // 复现：选本院 → 点竞赛 → 该学院没有竞赛 → 列表空
-      // 用 debugResolved 绕开安全存储（widget 测试里没有平台通道）
-      NoticePrefs.debugResolved = (name: 'B学院', fromJw: true);
-      addTearDown(() => NoticePrefs.debugResolved = null);
+      NoticePrefs.debugSkipStorage = true;
+      await NoticePrefs.setCollege('B学院');
+      addTearDown(() async {
+        await NoticePrefs.setCollege(null);
+        NoticePrefs.debugSkipStorage = false;
+      });
 
       final now = DateTime.now();
       await tester.pumpWidget(
@@ -198,9 +201,11 @@ void main() {
       expect(find.text('本院'), findsOneWidget);
       expect(find.text('本院优先'), findsNothing);
       expect(find.text('只看 B学院'), findsNothing);
+      // 有学院之后才会出现「只看本院」这个开关
+      expect(find.text('只看本院'), findsOneWidget);
 
       // 只看本院 → 只剩 B学院 那一条
-      await tester.tap(find.text('本院'));
+      await tester.tap(find.text('只看本院'));
       await tester.pumpAndSettle();
       expect(find.text('B学院的通知'), findsOneWidget);
       expect(find.text('A学院的竞赛通知'), findsNothing);
@@ -213,6 +218,7 @@ void main() {
       // 关键：筛选条不能跟着消失，否则回不去
       expect(find.text('全部'), findsOneWidget);
       expect(find.text('本院'), findsOneWidget);
+      expect(find.text('只看本院'), findsOneWidget);
       expect(find.text('清除筛选'), findsOneWidget);
 
       // 清除筛选后恢复
@@ -220,6 +226,72 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('B学院的通知'), findsOneWidget);
       expect(find.text('A学院的竞赛通知'), findsOneWidget);
+    });
+
+    testWidgets('本院可以反复改，改完以你为准', (tester) async {
+      NoticePrefs.debugSkipStorage = true;
+      await NoticePrefs.setCollege('B学院');
+      addTearDown(() async {
+        await NoticePrefs.setCollege(null);
+        NoticePrefs.debugSkipStorage = false;
+      });
+
+      final now = DateTime.now();
+      await tester.pumpWidget(
+        _wrap(
+          HomePage(
+            source: _FixedSource(<Notice>[
+              Notice(
+                dept: 'A学院',
+                kind: '竞赛',
+                scope: 'college',
+                title: 'A学院的竞赛通知',
+                publishedAt: now,
+              ),
+              Notice(
+                dept: 'B学院',
+                kind: '通知',
+                scope: 'college',
+                title: 'B学院的通知',
+                publishedAt: now,
+              ),
+            ]),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 点「本院」直接打开选择器（不是锁定，可以随时改）
+      await tester.tap(find.text('本院'));
+      await tester.pumpAndSettle();
+      expect(find.text('你所在的学院'), findsOneWidget);
+
+      // 换成 A学院
+      await tester.tap(find.text('A学院').last);
+      await tester.pumpAndSettle();
+      expect(find.text('你所在的学院'), findsNothing);
+
+      await tester.tap(find.text('只看本院'));
+      await tester.pumpAndSettle();
+      expect(find.text('A学院的竞赛通知'), findsOneWidget);
+      expect(find.text('B学院的通知'), findsNothing);
+
+      // 再改回 B学院，证明能反复选
+      await tester.tap(find.text('本院'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('B学院').last);
+      await tester.pumpAndSettle();
+      expect(find.text('B学院的通知'), findsOneWidget);
+      expect(find.text('A学院的竞赛通知'), findsNothing);
+
+      // 选「不设置」→ 开关消失
+      await tester.tap(find.text('本院'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('不设置'));
+      await tester.pumpAndSettle();
+      expect(find.text('只看本院'), findsNothing);
+      expect(find.text('本院·未设置'), findsOneWidget);
+      expect(find.text('B学院的通知'), findsOneWidget);
     });
   });
 }
