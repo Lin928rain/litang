@@ -2,7 +2,7 @@ name: sync-notices
 
 on:
   schedule:
-    # 每天 3 次（UTC）：早 8:00 / 午 13:00 / 晚 22:00 ≈ 北京时间 16:00 / 21:00 / 06:00
+    # 每天 3 次（UTC）：08:00 / 13:00 / 22:00 ≈ 北京时间 16:00 / 21:00 / 06:00
     - cron: '0 8 * * *'
     - cron: '0 13 * * *'
     - cron: '0 22 * * *'
@@ -27,7 +27,7 @@ jobs:
       - name: Fetch notices
         run: node tools/notice-sync/fetch.mjs
 
-      - name: Commit if changed
+      - name: Commit if changed (GitHub)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -39,21 +39,29 @@ jobs:
             git push
           fi
 
-      # 同步到 Gitee 作为国内备用源（配置了 secrets 才执行）
-      - name: Mirror to Gitee
-        if: ${{ env.GITEE_TOKEN != '' }}
+      # 同步到 Gitee 的 lit-Calendar 仓库（和校历放一起，作为国内数据源）
+      # 需要仓库 Secret: GITEE_TOKEN
+      - name: Mirror to Gitee (lit-Calendar)
         env:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        if: ${{ env.GITEE_TOKEN != '' }}
         run: |
-          cd "$RUNNER_TEMP"
-          git clone --depth 1 "https://oauth2:${GITEE_TOKEN}@gitee.com/extrisha/litang.git" gitee-mirror || exit 0
-          cp "${GITHUB_WORKSPACE}/tools/notice-sync/out/notices.json" gitee-mirror/tools/notice-sync/out/notices.json 2>/dev/null || {
-            mkdir -p gitee-mirror/tools/notice-sync/out
-            cp "${GITHUB_WORKSPACE}/tools/notice-sync/out/notices.json" gitee-mirror/tools/notice-sync/out/
-          }
-          cd gitee-mirror
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tools/notice-sync/out/notices.json
-          git diff --quiet --cached || git commit -m "chore(notices): sync from GitHub Actions"
-          git push || true
+          set -e
+          WORK="$RUNNER_TEMP/cal-mirror"
+          rm -rf "$WORK"
+          git clone --depth 1 "https://oauth2:${GITEE_TOKEN}@gitee.com/extrisha/lit-Calendar.git" "$WORK"
+
+          # 只替换通知数据，校历文件原样保留
+          cp "${GITHUB_WORKSPACE}/tools/notice-sync/out/notices.json" "$WORK/notices.json"
+
+          cd "$WORK"
+          git config user.name  "litang-bot"
+          git config user.email "extrisha@users.noreply.github.com"
+          git add notices.json
+          if git diff --quiet --cached; then
+            echo "Gitee 侧没有变化，跳过"
+          else
+            git commit -m "chore(notices): sync from GitHub Actions ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+            echo "✅ 已同步到 gitee:extrisha/lit-Calendar"
+          fi
