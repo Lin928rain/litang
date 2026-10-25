@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://jiankang.usst.edu.cn/",
   "homeArticles": 36,
-  "pagesProbed": 42,
+  "pagesProbed": 45,
   "columns": [
     {
       "url": "https://jiankang.usst.edu.cn/18043/list.htm",
@@ -25,6 +25,17 @@
       "articles": 14,
       "latest": "2026-10-23",
       "oldest": "2026-09-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiankang.usst.edu.cn/tzgg/list.htm",
+      "cid": "17320",
+      "name": "通知公告",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2025-10-21",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -80,6 +91,28 @@
       "articles": 14,
       "latest": "2026-10-15",
       "oldest": "2026-07-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiankang.usst.edu.cn/xsbg/list.htm",
+      "cid": "17321",
+      "name": "学术报告",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-14",
+      "oldest": "2025-03-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiankang.usst.edu.cn/kydt/list.htm",
+      "cid": "17322",
+      "name": "科研动态",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-09-29",
+      "oldest": "2025-11-09",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -309,22 +342,7 @@
       "cid": "9054",
       "sample": "/2025/0427/c9054a340046/page.htm",
       "date": "2025-04-27"
-    },
-    {
-      "cid": "17320",
-      "sample": "/2026/1023/c17320a372845/page.htm",
-      "date": "2026-10-23"
-    },
-    {
-      "cid": "17321",
-      "sample": "/2026/1014/c17321a371772/page.htm",
-      "date": "2026-10-14"
-    },
-    {
-      "cid": "17322",
-      "sample": "/2026/0929/c17322a371232/page.htm",
-      "date": "2026-09-29"
     }
   ],
-  "elapsedMs": 3843
+  "elapsedMs": 3143
 }

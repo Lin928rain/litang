@@ -4,7 +4,7 @@
   "group": "党群",
   "home": "https://gonghui.usst.edu.cn/",
   "homeArticles": 21,
-  "pagesProbed": 40,
+  "pagesProbed": 42,
   "columns": [
     {
       "url": "https://gonghui.usst.edu.cn/p1958c1958/list.htm",
@@ -25,6 +25,17 @@
       "articles": 6,
       "latest": "2026-06-16",
       "oldest": "2026-04-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1961/list.htm",
+      "cid": "1961",
+      "name": "退管工作",
+      "linkText": "退管工作",
+      "articles": 6,
+      "latest": "2026-05-27",
+      "oldest": "2025-09-05",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -129,5 +140,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 7045
+  "elapsedMs": 5997
 }

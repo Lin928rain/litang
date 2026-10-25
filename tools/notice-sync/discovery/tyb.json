@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://tyb.usst.edu.cn/",
   "homeArticles": 20,
-  "pagesProbed": 32,
+  "pagesProbed": 31,
   "columns": [
     {
       "url": "https://tyb.usst.edu.cn/2967/list.htm",
@@ -224,7 +224,7 @@
       "latest": "2012-05-15",
       "oldest": "2010-12-02",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://tyb.usst.edu.cn/2979/list.htm",
@@ -305,5 +305,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 1906
+  "elapsedMs": 2531
 }

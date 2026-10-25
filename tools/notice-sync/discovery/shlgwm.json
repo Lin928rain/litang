@@ -4,7 +4,7 @@
   "group": "宣传",
   "home": "https://shlgwm.usst.edu.cn/",
   "homeArticles": 25,
-  "pagesProbed": 51,
+  "pagesProbed": 55,
   "columns": [
     {
       "url": "https://shlgwm.usst.edu.cn/4764/list.htm",
@@ -73,6 +73,28 @@
       "foundVia": "home"
     },
     {
+      "url": "https://shlgwm.usst.edu.cn/_t246/4829/list.htm",
+      "cid": "4829",
+      "name": "特色二相关材料",
+      "linkText": "历史专区",
+      "articles": 5,
+      "latest": "2018-01-10",
+      "oldest": "2018-01-10",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://shlgwm.usst.edu.cn/_t246/4814/list.htm",
+      "cid": "4814",
+      "name": "生态校园相关材料",
+      "linkText": "历史专区",
+      "articles": 1,
+      "latest": "2018-01-09",
+      "oldest": "2018-01-09",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://shlgwm.usst.edu.cn/_t246/4797/list.htm",
       "cid": "4797",
       "name": "内部治理相关材料",
@@ -81,6 +103,28 @@
       "latest": "2018-01-08",
       "oldest": "2018-01-08",
       "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://shlgwm.usst.edu.cn/_t246/4834/list.htm",
+      "cid": "4834",
+      "name": "特色四相关材料",
+      "linkText": "历史专区",
+      "articles": 1,
+      "latest": "2018-01-05",
+      "oldest": "2018-01-05",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://shlgwm.usst.edu.cn/_t246/4776/list.htm",
+      "cid": "4776",
+      "name": "文明修身相关材料",
+      "linkText": "●历史专区",
+      "articles": 2,
+      "latest": "2018-01-04",
+      "oldest": "2018-01-04",
+      "hasPaging": false,
       "foundVia": "depth2"
     },
     {
@@ -168,5 +212,5 @@
       "date": "2023-04-06"
     }
   ],
-  "elapsedMs": 2286
+  "elapsedMs": 4133
 }

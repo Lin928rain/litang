@@ -4,7 +4,7 @@
   "group": "招生",
   "home": "https://zhaoban.usst.edu.cn/",
   "homeArticles": 18,
-  "pagesProbed": 12,
+  "pagesProbed": 15,
   "columns": [
     {
       "url": "https://zhaoban.usst.edu.cn/zsdt/list.htm",
@@ -117,6 +117,28 @@
       "foundVia": "home"
     },
     {
+      "url": "https://zhaoban.usst.edu.cn/11780/list.htm",
+      "cid": "11780",
+      "name": "上理纵览",
+      "linkText": "",
+      "articles": 9,
+      "latest": "2023-02-12",
+      "oldest": "2014-07-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11820/list.htm",
+      "cid": "11820",
+      "name": "上理印象",
+      "linkText": "上理印象",
+      "articles": 5,
+      "latest": "2023-02-12",
+      "oldest": "2019-01-22",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://zhaoban.usst.edu.cn/11815/list.htm",
       "cid": "11815",
       "name": "校园纵览",
@@ -126,8 +148,19 @@
       "oldest": "2014-07-17",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11821/list.htm",
+      "cid": "11821",
+      "name": "校园纵览",
+      "linkText": "校园纵览",
+      "articles": 4,
+      "latest": "2014-09-15",
+      "oldest": "2014-07-17",
+      "hasPaging": false,
+      "foundVia": "depth2"
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 1278
+  "elapsedMs": 1601
 }

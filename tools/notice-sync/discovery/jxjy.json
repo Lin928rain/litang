@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://jxjy.usst.edu.cn/",
   "homeArticles": 23,
-  "pagesProbed": 31,
+  "pagesProbed": 32,
   "columns": [
     {
       "url": "https://jxjy.usst.edu.cn/1249/list.htm",
@@ -40,9 +40,9 @@
       "foundVia": "home"
     },
     {
-      "url": "https://jxjy.usst.edu.cn/zy/list.htm",
+      "url": "https://jxjy.usst.edu.cn/fwdh/list.htm",
       "cid": "9211",
-      "name": "常规问题",
+      "name": "服务导航",
       "linkText": "",
       "articles": 9,
       "latest": "2025-08-30",
@@ -283,5 +283,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 1188
+  "elapsedMs": 1378
 }

@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://opic.usst.edu.cn/",
   "homeArticles": 33,
-  "pagesProbed": 20,
+  "pagesProbed": 15,
   "columns": [
     {
       "url": "https://opic.usst.edu.cn/14662/list.htm",
@@ -15,7 +15,7 @@
       "latest": "2026-10-22",
       "oldest": "2023-07-13",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://opic.usst.edu.cn/14661/list.htm",
@@ -26,7 +26,7 @@
       "latest": "2026-10-10",
       "oldest": "2024-10-26",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://opic.usst.edu.cn/sssds_14746/list.htm",
@@ -92,7 +92,7 @@
       "latest": "2025-10-21",
       "oldest": "2023-07-14",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://opic.usst.edu.cn/14665/list.htm",
@@ -103,7 +103,7 @@
       "latest": "2025-10-21",
       "oldest": "2023-07-14",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://opic.usst.edu.cn/xywj/list.htm",
@@ -125,7 +125,7 @@
       "latest": "2023-06-29",
       "oldest": "2023-06-22",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     }
   ],
   "unresolvedCids": [
@@ -140,5 +140,5 @@
       "date": "2023-06-29"
     }
   ],
-  "elapsedMs": 2052
+  "elapsedMs": 3377
 }

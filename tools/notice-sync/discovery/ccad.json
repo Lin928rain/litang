@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://ccad.usst.edu.cn/",
   "homeArticles": 60,
-  "pagesProbed": 51,
+  "pagesProbed": 64,
   "columns": [
     {
       "url": "https://ccad.usst.edu.cn/zzjs/list.htm",
@@ -29,6 +29,28 @@
       "foundVia": "home"
     },
     {
+      "url": "https://ccad.usst.edu.cn/xydt_11926/list.htm",
+      "cid": "11926",
+      "name": "学院动态",
+      "linkText": "学院动态",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2026-09-16",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/yjsjw/list.htm",
+      "cid": "11900",
+      "name": "研究生教务",
+      "linkText": "研究生教务",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2025-07-02",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://ccad.usst.edu.cn/ygxl/list.htm",
       "cid": "6942",
       "name": "阳光心理",
@@ -49,6 +71,17 @@
       "oldest": "2025-10-29",
       "hasPaging": true,
       "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/sywxydtwtj/list.htm",
+      "cid": "11897",
+      "name": "推荐动态",
+      "linkText": "推荐动态",
+      "articles": 2,
+      "latest": "2026-10-22",
+      "oldest": "2022-06-30",
+      "hasPaging": false,
+      "foundVia": "depth2"
     },
     {
       "url": "https://ccad.usst.edu.cn/gjxwcbskxszbqstybzzdsys/list.htm",
@@ -115,6 +148,28 @@
       "oldest": "2025-04-14",
       "hasPaging": true,
       "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xggg/list.htm",
+      "cid": "8945",
+      "name": "学工公告",
+      "linkText": "学工公告",
+      "articles": 12,
+      "latest": "2026-09-10",
+      "oldest": "2024-10-09",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/bkjw/list.htm",
+      "cid": "11899",
+      "name": "本科教务",
+      "linkText": "本科教务",
+      "articles": 12,
+      "latest": "2026-09-02",
+      "oldest": "2026-06-08",
+      "hasPaging": true,
+      "foundVia": "depth2"
     },
     {
       "url": "https://ccad.usst.edu.cn/qctx/list.htm",
@@ -205,6 +260,28 @@
       "foundVia": "home"
     },
     {
+      "url": "https://ccad.usst.edu.cn/xyxzzd/list.htm",
+      "cid": "11208",
+      "name": "学院行政制度",
+      "linkText": "学院行政制度",
+      "articles": 14,
+      "latest": "2026-03-31",
+      "oldest": "2023-04-19",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jxglgzzd/list.htm",
+      "cid": "11209",
+      "name": "教学管理规章制度",
+      "linkText": "教学管理规章制度",
+      "articles": 4,
+      "latest": "2026-03-30",
+      "oldest": "2021-12-31",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://ccad.usst.edu.cn/xygz/list.htm",
       "cid": "6952",
       "name": "校友工作",
@@ -225,6 +302,17 @@
       "oldest": "2023-12-13",
       "hasPaging": true,
       "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/kygg/list.htm",
+      "cid": "6918",
+      "name": "科研公告",
+      "linkText": "科研公告",
+      "articles": 5,
+      "latest": "2025-11-27",
+      "oldest": "2023-11-09",
+      "hasPaging": true,
+      "foundVia": "depth2"
     },
     {
       "url": "https://ccad.usst.edu.cn/jxysbwg/list.htm",
@@ -315,6 +403,17 @@
       "foundVia": "home"
     },
     {
+      "url": "https://ccad.usst.edu.cn/ztjy_14273/list.htm",
+      "cid": "14273",
+      "name": "主题教育",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2023-08-30",
+      "oldest": "2023-05-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
       "url": "https://ccad.usst.edu.cn/szdw/list.htm",
       "cid": "11916",
       "name": "师资队伍",
@@ -326,6 +425,17 @@
       "foundVia": "home"
     },
     {
+      "url": "https://ccad.usst.edu.cn/ztjy/list.htm",
+      "cid": "14272",
+      "name": "主题教育",
+      "linkText": "主题教育",
+      "articles": 2,
+      "latest": "2023-06-08",
+      "oldest": "2023-04-23",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://ccad.usst.edu.cn/zzyr/list.htm",
       "cid": "6941",
       "name": "资助育人",
@@ -335,6 +445,17 @@
       "oldest": "2021-04-20",
       "hasPaging": true,
       "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xngz/list.htm",
+      "cid": "8915",
+      "name": "校内规章",
+      "linkText": "校内规章",
+      "articles": 1,
+      "latest": "2022-12-19",
+      "oldest": "2022-12-19",
+      "hasPaging": false,
+      "foundVia": "depth2"
     },
     {
       "url": "https://ccad.usst.edu.cn/ssdjs/list.htm",
@@ -357,6 +478,17 @@
       "oldest": "2019-05-15",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xsglgzzd/list.htm",
+      "cid": "11210",
+      "name": "学生管理规章制度",
+      "linkText": "学生管理规章制度",
+      "articles": 1,
+      "latest": "2021-11-22",
+      "oldest": "2021-11-22",
+      "hasPaging": false,
+      "foundVia": "depth2"
     },
     {
       "url": "https://ccad.usst.edu.cn/zdjs/list.htm",
@@ -432,36 +564,6 @@
       "date": "2026-04-20"
     },
     {
-      "cid": "11900",
-      "sample": "/2025/1229/c11900a354753/page.htm",
-      "date": "2025-12-29"
-    },
-    {
-      "cid": "11897",
-      "sample": "/2026/1022/c11897a372721/page.htm",
-      "date": "2026-10-22"
-    },
-    {
-      "cid": "11926",
-      "sample": "/2026/1023/c11926a372827/page.htm",
-      "date": "2026-10-23"
-    },
-    {
-      "cid": "11899",
-      "sample": "/2026/0618/c11899a367249/page.htm",
-      "date": "2026-06-18"
-    },
-    {
-      "cid": "6918",
-      "sample": "/2025/1127/c6918a352842/page.htm",
-      "date": "2025-11-27"
-    },
-    {
-      "cid": "8945",
-      "sample": "/2026/0910/c8945a370231/page.htm",
-      "date": "2026-09-10"
-    },
-    {
       "cid": "11938",
       "sample": "/2025/1113/c11938a350823/page.htm",
       "date": "2025-11-13"
@@ -477,5 +579,5 @@
       "date": "2021-03-03"
     }
   ],
-  "elapsedMs": 3612
+  "elapsedMs": 5909
 }

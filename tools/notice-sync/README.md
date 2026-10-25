@@ -42,7 +42,7 @@ tools/notice-sync/
 ├── sites.json            # 全校站点清单（加站点只改这里）
 ├── discover-all.mjs      # 栏目发现：抓首页 → 探列表页 → 去侧栏干扰 → 写 discovery/
 ├── build-sources.mjs     # 由 discovery/ 生成 sources.json（分类、权重、启用开关）
-├── sources.json          # 抓取源配置（531 个栏目，启用 453 个，含 24 个「首页直链」兜底源）
+├── sources.json          # 抓取源配置（549 个栏目，启用 470 个，含若干「首页直链」兜底源）
 ├── fetch.mjs             # 抓取 + 解析 + 合并历史
 ├── fetch.test.mjs        # 解析器单测（实测到的 8 种模板/坑）
 ├── check-stats.mjs       # 看一眼产物的分布
@@ -100,7 +100,7 @@ node --test tools/notice-sync/fetch.test.mjs            # 单测
 {
   "schemaVersion": 2,
   "updatedAt": "2026-10-25T12:41:00.000Z",
-  "total": 7150,
+  "total": 7456,
   "notices": [
     {
       "dept": "基础学部",

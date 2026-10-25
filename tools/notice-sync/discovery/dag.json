@@ -4,7 +4,7 @@
   "group": "直属",
   "home": "https://dag.usst.edu.cn/",
   "homeArticles": 28,
-  "pagesProbed": 17,
+  "pagesProbed": 22,
   "columns": [
     {
       "url": "https://dag.usst.edu.cn/14228/list.htm",
@@ -51,6 +51,17 @@
       "foundVia": "home"
     },
     {
+      "url": "https://dag.usst.edu.cn/14245/list.htm",
+      "cid": "14245",
+      "name": "志愿服务",
+      "linkText": "志愿服务",
+      "articles": 9,
+      "latest": "2025-03-31",
+      "oldest": "2023-05-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
       "url": "https://dag.usst.edu.cn/14236/list.htm",
       "cid": "14236",
       "name": "常见问题",
@@ -69,6 +80,17 @@
       "articles": 3,
       "latest": "2023-06-01",
       "oldest": "2023-06-01",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14237/list.htm",
+      "cid": "14294",
+      "name": "查档须知",
+      "linkText": "查档平台",
+      "articles": 3,
+      "latest": "2023-06-01",
+      "oldest": "2018-05-25",
       "hasPaging": false,
       "foundVia": "home"
     },
@@ -117,6 +139,17 @@
       "foundVia": "home"
     },
     {
+      "url": "https://dag.usst.edu.cn/cyxz_18021/list.htm",
+      "cid": "18021",
+      "name": "常用下载",
+      "linkText": "常用下载",
+      "articles": 3,
+      "latest": "2021-05-31",
+      "oldest": "2018-05-30",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
       "url": "https://dag.usst.edu.cn/kz/list.htm",
       "cid": "14568",
       "name": "考证",
@@ -137,6 +170,17 @@
       "oldest": "2018-05-04",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/jzygfw/list.htm",
+      "cid": "14295",
+      "name": "查档流程",
+      "linkText": "查档流程",
+      "articles": 3,
+      "latest": "2018-04-26",
+      "oldest": "2018-04-25",
+      "hasPaging": false,
+      "foundVia": "depth2"
     },
     {
       "url": "https://dag.usst.edu.cn/bycg/list.htm",
@@ -168,5 +212,5 @@
       "date": "2023-05-24"
     }
   ],
-  "elapsedMs": 2509
+  "elapsedMs": 1954
 }

@@ -77,8 +77,10 @@ function analyzeArticles(html, baseUrl) {
 
 function extractColumns(html, baseUrl, host) {
   const cols = new Map();
+  // 链接文字要留够长度：不少站点写成「查看更多 <img …>」，80 字符会把整个 <a> 截断，
+  // 这类栏目（智能科技学院的「学院新闻」就是）会被整个漏掉
   const re =
-    /href=["']([^"']*(?:list\.(?:htm|psp)|list\d+\.(?:htm|psp)))["'][^>]*>([\s\S]{0,80}?)<\/a>/g;
+    /href=["']([^"']*(?:list\.(?:htm|psp)|list\d+\.(?:htm|psp)))["'][^>]*>([\s\S]{0,240}?)<\/a>/g;
   let m;
   while ((m = re.exec(html))) {
     const text = m[2]

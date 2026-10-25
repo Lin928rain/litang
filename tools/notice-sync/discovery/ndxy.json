@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://ndxy.usst.edu.cn/",
   "homeArticles": 41,
-  "pagesProbed": 66,
+  "pagesProbed": 69,
   "columns": [
     {
       "url": "https://ndxy.usst.edu.cn/xwsj/list.htm",
@@ -360,5 +360,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 2399
+  "elapsedMs": 3131
 }

@@ -4,8 +4,63 @@
   "group": "学院",
   "home": "https://saist.usst.edu.cn/",
   "homeArticles": 33,
-  "pagesProbed": 20,
+  "pagesProbed": 25,
   "columns": [
+    {
+      "url": "https://saist.usst.edu.cn/xyxw/list.htm",
+      "cid": "16113",
+      "name": "学院新闻",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-25",
+      "oldest": "2026-08-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/xshd/list.htm",
+      "cid": "16115",
+      "name": "学术活动",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2025-12-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/dqfc/list.htm",
+      "cid": "16117",
+      "name": "党群风采",
+      "linkText": "查看更多",
+      "articles": 12,
+      "latest": "2026-10-23",
+      "oldest": "2025-06-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/xshd_16116/list.htm",
+      "cid": "16116",
+      "name": "学生活动",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-21",
+      "oldest": "2025-12-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/tzgg/list.htm",
+      "cid": "16114",
+      "name": "通知公告",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-20",
+      "oldest": "2023-02-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
     {
       "url": "https://saist.usst.edu.cn/xxgk/list.htm",
       "cid": "16247",
@@ -177,32 +232,7 @@
       "cid": "16112",
       "sample": "/2026/0828/c16112a369833/page.htm",
       "date": "2026-08-28"
-    },
-    {
-      "cid": "16113",
-      "sample": "/2026/1025/c16113a372915/page.htm",
-      "date": "2026-10-25"
-    },
-    {
-      "cid": "16114",
-      "sample": "/2023/0220/c16114a321324/page.htm",
-      "date": "2023-02-20"
-    },
-    {
-      "cid": "16115",
-      "sample": "/2026/1023/c16115a372861/page.htm",
-      "date": "2026-10-23"
-    },
-    {
-      "cid": "16116",
-      "sample": "/2026/1021/c16116a372697/page.htm",
-      "date": "2026-10-21"
-    },
-    {
-      "cid": "16117",
-      "sample": "/2026/1023/c16117a372830/page.htm",
-      "date": "2026-10-23"
     }
   ],
-  "elapsedMs": 2151
+  "elapsedMs": 1656
 }

@@ -7,6 +7,17 @@
   "pagesProbed": 76,
   "columns": [
     {
+      "url": "https://www.usst.edu.cn/xjzbg/list.htm",
+      "cid": "1595",
+      "name": "讲座报名",
+      "linkText": "",
+      "articles": 12,
+      "latest": "2026-10-25",
+      "oldest": "2026-06-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
       "url": "https://www.usst.edu.cn/mtjz_930/list.htm",
       "cid": "965",
       "name": "传统媒体",
@@ -70,17 +81,6 @@
       "latest": "2026-10-23",
       "oldest": "2023-07-18",
       "hasPaging": true,
-      "foundVia": "depth2"
-    },
-    {
-      "url": "https://www.usst.edu.cn/xjzbg/list.htm",
-      "cid": "1595",
-      "name": "讲座报名",
-      "linkText": "讲座报名",
-      "articles": 12,
-      "latest": "2026-10-23",
-      "oldest": "2026-05-28",
-      "hasPaging": false,
       "foundVia": "depth2"
     },
     {
@@ -394,8 +394,8 @@
     },
     {
       "cid": "1045",
-      "sample": "/2026/1023/c1045a70708/page.htm",
-      "date": "2026-10-23"
+      "sample": "/2026/1025/c1045a70729/page.htm",
+      "date": "2026-10-25"
     },
     {
       "cid": "954",
@@ -438,5 +438,5 @@
       "date": "2023-05-18"
     }
   ],
-  "elapsedMs": 5077
+  "elapsedMs": 9127
 }

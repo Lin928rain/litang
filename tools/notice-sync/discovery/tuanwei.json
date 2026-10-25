@@ -4,7 +4,7 @@
   "group": "党群",
   "home": "https://tuanwei.usst.edu.cn/",
   "homeArticles": 80,
-  "pagesProbed": 42,
+  "pagesProbed": 41,
   "columns": [
     {
       "url": "https://tuanwei.usst.edu.cn/5178/list.htm",
@@ -345,7 +345,7 @@
       "latest": "2021-11-08",
       "oldest": "2021-05-28",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://tuanwei.usst.edu.cn/5174/list.htm",
@@ -399,5 +399,5 @@
       "date": "2019-02-27"
     }
   ],
-  "elapsedMs": 6970
+  "elapsedMs": 15378
 }

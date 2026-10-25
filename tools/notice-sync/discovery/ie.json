@@ -4,7 +4,7 @@
   "group": "机关",
   "home": "https://ie.usst.edu.cn/",
   "homeArticles": 11,
-  "pagesProbed": 26,
+  "pagesProbed": 23,
   "columns": [
     {
       "url": "https://ie.usst.edu.cn/8808/list.htm",
@@ -70,7 +70,7 @@
       "latest": "2026-10-09",
       "oldest": "2026-05-14",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://ie.usst.edu.cn/8764/list.htm",
@@ -81,7 +81,7 @@
       "latest": "2026-09-21",
       "oldest": "2026-04-27",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://ie.usst.edu.cn/slxy/list.htm",
@@ -136,7 +136,7 @@
       "latest": "2026-07-13",
       "oldest": "2024-05-07",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://ie.usst.edu.cn/8813/list.htm",
@@ -228,5 +228,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 7374
+  "elapsedMs": 2190
 }

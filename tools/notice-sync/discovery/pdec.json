@@ -4,7 +4,7 @@
   "group": "招生",
   "home": "https://pdec.usst.edu.cn/",
   "homeArticles": 35,
-  "pagesProbed": 31,
+  "pagesProbed": 37,
   "columns": [
     {
       "url": "https://pdec.usst.edu.cn/xwdt_17216/list.htm",
@@ -324,8 +324,41 @@
       "oldest": "2025-05-18",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://pdec.usst.edu.cn/13051/list.htm",
+      "cid": "13288",
+      "name": "项目介绍",
+      "linkText": "MF",
+      "articles": 5,
+      "latest": "2022-11-25",
+      "oldest": "2022-11-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://pdec.usst.edu.cn/13052/list.htm",
+      "cid": "13296",
+      "name": "项目介绍",
+      "linkText": "MIB",
+      "articles": 5,
+      "latest": "2022-01-18",
+      "oldest": "2022-01-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://pdec.usst.edu.cn/13053/list.htm",
+      "cid": "13302",
+      "name": "项目介绍",
+      "linkText": "MT",
+      "articles": 5,
+      "latest": "2022-01-18",
+      "oldest": "2022-01-18",
+      "hasPaging": false,
+      "foundVia": "home"
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 1752
+  "elapsedMs": 2976
 }

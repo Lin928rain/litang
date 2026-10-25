@@ -4,7 +4,7 @@
   "group": "招生",
   "home": "https://cz.usst.edu.cn/",
   "homeArticles": 28,
-  "pagesProbed": 6,
+  "pagesProbed": 7,
   "columns": [
     {
       "url": "https://cz.usst.edu.cn/zsxx/list.htm",
@@ -14,6 +14,17 @@
       "articles": 13,
       "latest": "2026-10-15",
       "oldest": "2023-07-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cz.usst.edu.cn/zszyxx/list.htm",
+      "cid": "6672",
+      "name": "招生主要信息",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2026-08-28",
+      "oldest": "2024-12-20",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -58,15 +69,10 @@
       "date": "2019-03-20"
     },
     {
-      "cid": "6672",
-      "sample": "/2026/0827/c6672a369794/page.htm",
-      "date": "2026-08-27"
-    },
-    {
       "cid": "6673",
       "sample": "/2019/0329/c6673a137477/page.htm",
       "date": "2019-03-29"
     }
   ],
-  "elapsedMs": 543
+  "elapsedMs": 507
 }

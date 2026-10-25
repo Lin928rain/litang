@@ -4,7 +4,7 @@
   "group": "直属",
   "home": "https://cec.usst.edu.cn/",
   "homeArticles": 25,
-  "pagesProbed": 22,
+  "pagesProbed": 26,
   "columns": [
     {
       "url": "https://cec.usst.edu.cn/syap/list.htm",
@@ -36,6 +36,17 @@
       "articles": 13,
       "latest": "2026-10-12",
       "oldest": "2026-07-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cec.usst.edu.cn/xwggzs/list.htm",
+      "cid": "6750",
+      "name": "新闻公告展示",
+      "linkText": "",
+      "articles": 13,
+      "latest": "2026-10-12",
+      "oldest": "2026-07-14",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -249,12 +260,6 @@
       "foundVia": "home"
     }
   ],
-  "unresolvedCids": [
-    {
-      "cid": "6750",
-      "sample": "/2019/0522/c6750a148123/page.htm",
-      "date": "2019-05-22"
-    }
-  ],
-  "elapsedMs": 1570
+  "unresolvedCids": [],
+  "elapsedMs": 2131
 }

@@ -4,7 +4,7 @@
   "group": "学院",
   "home": "https://bs.usst.edu.cn/",
   "homeArticles": 48,
-  "pagesProbed": 98,
+  "pagesProbed": 109,
   "columns": [
     {
       "url": "https://bs.usst.edu.cn/jxpy/list.htm",
@@ -106,17 +106,6 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/tzgg_6310/list.htm",
-      "cid": "6310",
-      "name": "学院公告",
-      "linkText": "学院公告",
-      "articles": 15,
-      "latest": "2026-10-19",
-      "oldest": "2023-12-07",
-      "hasPaging": true,
-      "foundVia": "depth2"
-    },
-    {
       "url": "https://bs.usst.edu.cn/xwsy/list.htm",
       "cid": "6097",
       "name": "学位授予",
@@ -128,28 +117,6 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/10767/list.htm",
-      "cid": "10767",
-      "name": "研究生教务",
-      "linkText": "研究生教务",
-      "articles": 16,
-      "latest": "2026-10-16",
-      "oldest": "2023-05-16",
-      "hasPaging": true,
-      "foundVia": "depth2"
-    },
-    {
-      "url": "https://bs.usst.edu.cn/10768/list.htm",
-      "cid": "10768",
-      "name": "学生工作",
-      "linkText": "学生工作",
-      "articles": 16,
-      "latest": "2026-10-15",
-      "oldest": "2019-10-23",
-      "hasPaging": true,
-      "foundVia": "depth2"
-    },
-    {
       "url": "https://bs.usst.edu.cn/10535/list.htm",
       "cid": "10605",
       "name": "党建动态",
@@ -157,17 +124,6 @@
       "articles": 16,
       "latest": "2026-10-13",
       "oldest": "2026-05-09",
-      "hasPaging": true,
-      "foundVia": "home"
-    },
-    {
-      "url": "https://bs.usst.edu.cn/10534/list.htm",
-      "cid": "10581",
-      "name": "公告",
-      "linkText": "校友工作",
-      "articles": 16,
-      "latest": "2026-09-28",
-      "oldest": "2019-10-23",
       "hasPaging": true,
       "foundVia": "home"
     },
@@ -183,6 +139,17 @@
       "foundVia": "home"
     },
     {
+      "url": "https://bs.usst.edu.cn/10534/list.htm",
+      "cid": "10581",
+      "name": "公告",
+      "linkText": "校友工作",
+      "articles": 16,
+      "latest": "2026-09-28",
+      "oldest": "2019-10-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
       "url": "https://bs.usst.edu.cn/10607/list.htm",
       "cid": "10607",
       "name": "党务公开",
@@ -191,7 +158,7 @@
       "latest": "2026-09-14",
       "oldest": "2023-02-14",
       "hasPaging": true,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/mtjj/list.htm",
@@ -214,6 +181,28 @@
       "oldest": "2023-08-21",
       "hasPaging": true,
       "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/10698/list.htm",
+      "cid": "10698",
+      "name": "学院办公室",
+      "linkText": "学院办公室",
+      "articles": 16,
+      "latest": "2026-07-14",
+      "oldest": "2020-07-24",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/10699/list.htm",
+      "cid": "10699",
+      "name": "学生工作办公室",
+      "linkText": "学生工作办公室",
+      "articles": 14,
+      "latest": "2026-07-13",
+      "oldest": "2020-07-24",
+      "hasPaging": false,
+      "foundVia": "depth2"
     },
     {
       "url": "https://bs.usst.edu.cn/ztjy/list.htm",
@@ -323,7 +312,7 @@
       "latest": "2026-04-27",
       "oldest": "2020-07-24",
       "hasPaging": false,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/10685/list.htm",
@@ -337,10 +326,10 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/10682/list.htm",
+      "url": "https://bs.usst.edu.cn/10574/list.htm",
       "cid": "10682",
       "name": "通知公告",
-      "linkText": "通知公告",
+      "linkText": "团学工作",
       "articles": 16,
       "latest": "2026-04-20",
       "oldest": "2020-05-18",
@@ -433,7 +422,7 @@
       "latest": "2025-12-05",
       "oldest": "2024-04-26",
       "hasPaging": false,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/10539/list.htm",
@@ -443,17 +432,6 @@
       "articles": 9,
       "latest": "2025-11-19",
       "oldest": "2021-03-25",
-      "hasPaging": false,
-      "foundVia": "home"
-    },
-    {
-      "url": "https://bs.usst.edu.cn/tzgg_17444/list.htm",
-      "cid": "17444",
-      "name": "通知公告",
-      "linkText": "通知公告",
-      "articles": 4,
-      "latest": "2025-10-22",
-      "oldest": "2024-05-20",
       "hasPaging": false,
       "foundVia": "home"
     },
@@ -469,10 +447,21 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/xxyd/list.htm",
+      "url": "https://bs.usst.edu.cn/tzgg_17444/list.htm",
+      "cid": "17444",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 4,
+      "latest": "2025-10-22",
+      "oldest": "2024-05-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/sdsfjs/list.htm",
       "cid": "17440",
       "name": "学习园地",
-      "linkText": "学习园地",
+      "linkText": "师德师风建设",
       "articles": 3,
       "latest": "2025-10-21",
       "oldest": "2025-10-21",
@@ -488,7 +477,7 @@
       "latest": "2025-10-19",
       "oldest": "2015-05-12",
       "hasPaging": true,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/gzdt_17441/list.htm",
@@ -502,17 +491,6 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/gjjl/list.htm",
-      "cid": "15255",
-      "name": "国际交流",
-      "linkText": "国际交流",
-      "articles": 16,
-      "latest": "2025-09-23",
-      "oldest": "2025-03-25",
-      "hasPaging": true,
-      "foundVia": "depth2"
-    },
-    {
       "url": "https://bs.usst.edu.cn/hdkz/list.htm",
       "cid": "17042",
       "name": "深入贯彻中央八项规定精神学习教育(2025))",
@@ -521,7 +499,7 @@
       "latest": "2025-07-01",
       "oldest": "2025-04-28",
       "hasPaging": true,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/10563/list.htm",
@@ -557,15 +535,15 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/10766/list.htm",
-      "cid": "10766",
-      "name": "本科生教务",
-      "linkText": "本科生教务",
+      "url": "https://bs.usst.edu.cn/djxxjy/list.htm",
+      "cid": "16121",
+      "name": "党纪学习教育(2024)",
+      "linkText": "党纪学习教育(2024)",
       "articles": 16,
-      "latest": "2024-10-29",
-      "oldest": "2022-06-17",
-      "hasPaging": true,
-      "foundVia": "depth2"
+      "latest": "2024-10-09",
+      "oldest": "2024-04-22",
+      "hasPaging": false,
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/jsfc/list.htm",
@@ -587,7 +565,7 @@
       "latest": "2024-06-18",
       "oldest": "2020-07-21",
       "hasPaging": false,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/10579/list.htm",
@@ -620,6 +598,39 @@
       "latest": "2024-05-31",
       "oldest": "2022-09-19",
       "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/10596/list.htm",
+      "cid": "10596",
+      "name": "交换生项目",
+      "linkText": "交换生项目",
+      "articles": 16,
+      "latest": "2024-04-15",
+      "oldest": "2024-01-02",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/AACSBrzdt/list.htm",
+      "cid": "6042",
+      "name": "认证动态",
+      "linkText": "认证动态",
+      "articles": 16,
+      "latest": "2023-11-09",
+      "oldest": "2017-07-26",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/xxgcxjpxsdzgtsshzysxztjy/list.htm",
+      "cid": "17041",
+      "name": "主题教育(2023)",
+      "linkText": "主题教育(2023)",
+      "articles": 16,
+      "latest": "2023-11-08",
+      "oldest": "2023-08-30",
+      "hasPaging": true,
       "foundVia": "home"
     },
     {
@@ -656,26 +667,15 @@
       "foundVia": "home"
     },
     {
-      "url": "https://bs.usst.edu.cn/kycg/list.htm",
+      "url": "https://bs.usst.edu.cn/fzzlzxwyh/list.htm",
       "cid": "12132",
-      "name": "科研成果",
-      "linkText": "科研成果",
+      "name": "发展战略咨询委员会",
+      "linkText": "发展战略咨询委员会",
       "articles": 1,
       "latest": "2021-05-12",
       "oldest": "2021-05-12",
       "hasPaging": false,
       "foundVia": "home"
-    },
-    {
-      "url": "https://bs.usst.edu.cn/10765/list.htm",
-      "cid": "10765",
-      "name": "科研动态",
-      "linkText": "科研动态",
-      "articles": 10,
-      "latest": "2020-12-07",
-      "oldest": "2020-08-03",
-      "hasPaging": false,
-      "foundVia": "depth2"
     },
     {
       "url": "https://bs.usst.edu.cn/10614/list.htm",
@@ -686,7 +686,7 @@
       "latest": "2020-07-21",
       "oldest": "2020-07-21",
       "hasPaging": false,
-      "foundVia": "depth2"
+      "foundVia": "home"
     },
     {
       "url": "https://bs.usst.edu.cn/10553/list.htm",
@@ -698,6 +698,28 @@
       "oldest": "2012-11-16",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/10597/list.htm",
+      "cid": "10597",
+      "name": "国际合作及项目",
+      "linkText": "国际合作及项目",
+      "articles": 3,
+      "latest": "2017-06-05",
+      "oldest": "2012-11-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bs.usst.edu.cn/AACSBrzbz/list.htm",
+      "cid": "6044",
+      "name": "认证标准",
+      "linkText": "认证标准",
+      "articles": 2,
+      "latest": "2013-05-29",
+      "oldest": "2012-11-08",
+      "hasPaging": false,
+      "foundVia": "depth2"
     }
   ],
   "unresolvedCids": [
@@ -707,5 +729,5 @@
       "date": "2018-05-02"
     }
   ],
-  "elapsedMs": 4473
+  "elapsedMs": 4625
 }

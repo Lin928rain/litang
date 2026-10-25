@@ -87,7 +87,7 @@
       "url": "https://jwc.usst.edu.cn/pyjh/list.htm",
       "cid": "10497",
       "name": "培养计划",
-      "linkText": "培养计划",
+      "linkText": "",
       "articles": 5,
       "latest": "2026-09-14",
       "oldest": "2010-05-12",
@@ -120,7 +120,7 @@
       "url": "https://jwc.usst.edu.cn/jxrl/list.htm",
       "cid": "10386",
       "name": "教学日历",
-      "linkText": "教学日历",
+      "linkText": "",
       "articles": 14,
       "latest": "2026-06-03",
       "oldest": "2011-06-07",
@@ -283,5 +283,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 2051
+  "elapsedMs": 2746
 }

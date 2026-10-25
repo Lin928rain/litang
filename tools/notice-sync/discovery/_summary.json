@@ -1,11 +1,569 @@
 [
   {
+    "dept": "管理学院",
+    "host": "bs",
+    "group": "学院",
+    "columns": 65,
+    "active": 36,
+    "unresolved": 1,
+    "elapsedMs": 4625
+  },
+  {
+    "dept": "出版学院",
+    "host": "ccad",
+    "group": "学院",
+    "columns": 50,
+    "active": 26,
+    "unresolved": 4,
+    "elapsedMs": 5909
+  },
+  {
+    "dept": "基础学部",
+    "host": "jcxb",
+    "group": "学院",
+    "columns": 29,
+    "active": 26,
+    "unresolved": 1,
+    "elapsedMs": 8892
+  },
+  {
+    "dept": "机械工程学院",
+    "host": "me",
+    "group": "学院",
+    "columns": 43,
+    "active": 25,
+    "unresolved": 0,
+    "elapsedMs": 6079
+  },
+  {
+    "dept": "外语学院",
+    "host": "waiyu",
+    "group": "学院",
+    "columns": 36,
+    "active": 23,
+    "unresolved": 0,
+    "elapsedMs": 3012
+  },
+  {
+    "dept": "教务处",
+    "host": "jwc",
+    "group": "机关",
+    "columns": 25,
+    "active": 20,
+    "unresolved": 0,
+    "elapsedMs": 2746
+  },
+  {
+    "dept": "能源与动力工程学院",
+    "host": "ndxy",
+    "group": "学院",
+    "columns": 32,
+    "active": 19,
+    "unresolved": 0,
+    "elapsedMs": 3131
+  },
+  {
+    "dept": "健康科学与工程学院",
+    "host": "jiankang",
+    "group": "学院",
+    "columns": 30,
+    "active": 19,
+    "unresolved": 1,
+    "elapsedMs": 3143
+  },
+  {
+    "dept": "光电信息与计算机工程学院",
+    "host": "oece",
+    "group": "学院",
+    "columns": 31,
+    "active": 19,
+    "unresolved": 1,
+    "elapsedMs": 13129
+  },
+  {
     "dept": "上海理工大学",
     "host": "www",
     "group": "校级",
     "columns": 34,
     "active": 18,
     "unresolved": 11,
-    "elapsedMs": 5077
+    "elapsedMs": 9127
+  },
+  {
+    "dept": "专业学位教育中心",
+    "host": "pdec",
+    "group": "招生",
+    "columns": 32,
+    "active": 17,
+    "unresolved": 0,
+    "elapsedMs": 2976
+  },
+  {
+    "dept": "国际交流处",
+    "host": "ie",
+    "group": "机关",
+    "columns": 20,
+    "active": 16,
+    "unresolved": 0,
+    "elapsedMs": 2190
+  },
+  {
+    "dept": "研究生院",
+    "host": "yjs",
+    "group": "机关",
+    "columns": 31,
+    "active": 15,
+    "unresolved": 1,
+    "elapsedMs": 2508
+  },
+  {
+    "dept": "环境与建筑学院",
+    "host": "sea",
+    "group": "学院",
+    "columns": 31,
+    "active": 15,
+    "unresolved": 2,
+    "elapsedMs": 2786
+  },
+  {
+    "dept": "材料与化学学院",
+    "host": "chxy",
+    "group": "学院",
+    "columns": 46,
+    "active": 15,
+    "unresolved": 1,
+    "elapsedMs": 5641
+  },
+  {
+    "dept": "中英国际学院",
+    "host": "sbc",
+    "group": "学院",
+    "columns": 50,
+    "active": 15,
+    "unresolved": 1,
+    "elapsedMs": 25775
+  },
+  {
+    "dept": "中德国际学院",
+    "host": "sgc",
+    "group": "学院",
+    "columns": 20,
+    "active": 13,
+    "unresolved": 1,
+    "elapsedMs": 2759
+  },
+  {
+    "dept": "校友总会",
+    "host": "alumni",
+    "group": "校友",
+    "columns": 24,
+    "active": 12,
+    "unresolved": 1,
+    "elapsedMs": 2286
+  },
+  {
+    "dept": "公利医院医疗技术学院",
+    "host": "glhospital",
+    "group": "学院",
+    "columns": 22,
+    "active": 11,
+    "unresolved": 1,
+    "elapsedMs": 1337
+  },
+  {
+    "dept": "学生处",
+    "host": "xsc",
+    "group": "机关",
+    "columns": 23,
+    "active": 10,
+    "unresolved": 2,
+    "elapsedMs": 3237
+  },
+  {
+    "dept": "智能科技学院",
+    "host": "saist",
+    "group": "学院",
+    "columns": 20,
+    "active": 10,
+    "unresolved": 1,
+    "elapsedMs": 1656
+  },
+  {
+    "dept": "共青团委员会",
+    "host": "tuanwei",
+    "group": "党群",
+    "columns": 35,
+    "active": 9,
+    "unresolved": 1,
+    "elapsedMs": 15378
+  },
+  {
+    "dept": "沪江学院",
+    "host": "hujiang",
+    "group": "学院",
+    "columns": 23,
+    "active": 9,
+    "unresolved": 1,
+    "elapsedMs": 2348
+  },
+  {
+    "dept": "马克思主义学院",
+    "host": "mksxy",
+    "group": "学院",
+    "columns": 23,
+    "active": 9,
+    "unresolved": 0,
+    "elapsedMs": 11610
+  },
+  {
+    "dept": "信息化办公室",
+    "host": "net",
+    "group": "直属",
+    "columns": 16,
+    "active": 8,
+    "unresolved": 0,
+    "elapsedMs": 1074
+  },
+  {
+    "dept": "人事处",
+    "host": "rsc",
+    "group": "机关",
+    "columns": 17,
+    "active": 8,
+    "unresolved": 2,
+    "elapsedMs": 1818
+  },
+  {
+    "dept": "计算中心",
+    "host": "cec",
+    "group": "直属",
+    "columns": 23,
+    "active": 8,
+    "unresolved": 0,
+    "elapsedMs": 2131
+  },
+  {
+    "dept": "本科招生网",
+    "host": "zhaoban",
+    "group": "招生",
+    "columns": 14,
+    "active": 8,
+    "unresolved": 0,
+    "elapsedMs": 1601
+  },
+  {
+    "dept": "研究生招生网",
+    "host": "yz",
+    "group": "招生",
+    "columns": 10,
+    "active": 8,
+    "unresolved": 2,
+    "elapsedMs": 1941
+  },
+  {
+    "dept": "教育发展基金会",
+    "host": "fund",
+    "group": "校友",
+    "columns": 10,
+    "active": 8,
+    "unresolved": 2,
+    "elapsedMs": 998
+  },
+  {
+    "dept": "保卫部（处）",
+    "host": "bwc",
+    "group": "机关",
+    "columns": 15,
+    "active": 7,
+    "unresolved": 0,
+    "elapsedMs": 1218
+  },
+  {
+    "dept": "教师发展中心",
+    "host": "cftd",
+    "group": "直属",
+    "columns": 16,
+    "active": 7,
+    "unresolved": 1,
+    "elapsedMs": 3411
+  },
+  {
+    "dept": "东方泛血管器械创新学院",
+    "host": "opic",
+    "group": "学院",
+    "columns": 11,
+    "active": 7,
+    "unresolved": 2,
+    "elapsedMs": 3377
+  },
+  {
+    "dept": "科技发展研究院",
+    "host": "kjc",
+    "group": "机关",
+    "columns": 20,
+    "active": 6,
+    "unresolved": 1,
+    "elapsedMs": 1990
+  },
+  {
+    "dept": "信息公开网",
+    "host": "xxgk",
+    "group": "校级",
+    "columns": 93,
+    "active": 6,
+    "unresolved": 0,
+    "elapsedMs": 5480
+  },
+  {
+    "dept": "图书馆",
+    "host": "library",
+    "group": "直属",
+    "columns": 8,
+    "active": 5,
+    "unresolved": 1,
+    "elapsedMs": 1856
+  },
+  {
+    "dept": "创新创业学院",
+    "host": "cxcy",
+    "group": "学院",
+    "columns": 9,
+    "active": 5,
+    "unresolved": 1,
+    "elapsedMs": 3713
+  },
+  {
+    "dept": "财务处",
+    "host": "cwc",
+    "group": "机关",
+    "columns": 6,
+    "active": 4,
+    "unresolved": 0,
+    "elapsedMs": 500
+  },
+  {
+    "dept": "纪检监察网",
+    "host": "jiwei",
+    "group": "党群",
+    "columns": 6,
+    "active": 4,
+    "unresolved": 2,
+    "elapsedMs": 1443
+  },
+  {
+    "dept": "档案馆",
+    "host": "dag",
+    "group": "直属",
+    "columns": 18,
+    "active": 4,
+    "unresolved": 1,
+    "elapsedMs": 1954
+  },
+  {
+    "dept": "工会",
+    "host": "gonghui",
+    "group": "党群",
+    "columns": 12,
+    "active": 4,
+    "unresolved": 0,
+    "elapsedMs": 5997
+  },
+  {
+    "dept": "后勤管理处",
+    "host": "zwc",
+    "group": "机关",
+    "columns": 15,
+    "active": 3,
+    "unresolved": 2,
+    "elapsedMs": 1965
+  },
+  {
+    "dept": "规划发展处",
+    "host": "ghc",
+    "group": "机关",
+    "columns": 4,
+    "active": 3,
+    "unresolved": 1,
+    "elapsedMs": 1813
+  },
+  {
+    "dept": "资产经营有限公司",
+    "host": "zcjy",
+    "group": "产业",
+    "columns": 8,
+    "active": 3,
+    "unresolved": 0,
+    "elapsedMs": 1138
+  },
+  {
+    "dept": "审计处",
+    "host": "sjc",
+    "group": "机关",
+    "columns": 12,
+    "active": 3,
+    "unresolved": 0,
+    "elapsedMs": 7839
+  },
+  {
+    "dept": "文明在线",
+    "host": "shlgwm",
+    "group": "宣传",
+    "columns": 18,
+    "active": 3,
+    "unresolved": 1,
+    "elapsedMs": 4133
+  },
+  {
+    "dept": "继续教育学院",
+    "host": "jxjy",
+    "group": "学院",
+    "columns": 25,
+    "active": 3,
+    "unresolved": 0,
+    "elapsedMs": 1378
+  },
+  {
+    "dept": "体育教学部",
+    "host": "tyb",
+    "group": "学院",
+    "columns": 27,
+    "active": 3,
+    "unresolved": 0,
+    "elapsedMs": 2531
+  },
+  {
+    "dept": "留学生办公室",
+    "host": "iso",
+    "group": "机关",
+    "columns": 6,
+    "active": 2,
+    "unresolved": 0,
+    "elapsedMs": 1486
+  },
+  {
+    "dept": "党委/校长办公室",
+    "host": "xb",
+    "group": "机关",
+    "columns": 11,
+    "active": 2,
+    "unresolved": 4,
+    "elapsedMs": 6866
+  },
+  {
+    "dept": "经济管理实验中心",
+    "host": "emlab",
+    "group": "直属",
+    "columns": 7,
+    "active": 2,
+    "unresolved": 1,
+    "elapsedMs": 1379
+  },
+  {
+    "dept": "继续教育学院招生网",
+    "host": "cz",
+    "group": "招生",
+    "columns": 5,
+    "active": 2,
+    "unresolved": 2,
+    "elapsedMs": 507
+  },
+  {
+    "dept": "非学历教育",
+    "host": "fxl",
+    "group": "招生",
+    "columns": 4,
+    "active": 2,
+    "unresolved": 1,
+    "elapsedMs": 1308
+  },
+  {
+    "dept": "本科生院",
+    "host": "bksy",
+    "group": "机关",
+    "columns": 1,
+    "active": 1,
+    "unresolved": 0,
+    "elapsedMs": 351
+  },
+  {
+    "dept": "人才招聘网",
+    "host": "rc",
+    "group": "直属",
+    "columns": 5,
+    "active": 1,
+    "unresolved": 2,
+    "elapsedMs": 2136
+  },
+  {
+    "dept": "留学生招生网",
+    "host": "isoe",
+    "group": "招生",
+    "columns": 5,
+    "active": 1,
+    "unresolved": 1,
+    "elapsedMs": 1570
+  },
+  {
+    "dept": "技术转移中心",
+    "host": "jszy",
+    "group": "直属",
+    "columns": 8,
+    "active": 0,
+    "unresolved": 2,
+    "elapsedMs": 4558
+  },
+  {
+    "dept": "基建处",
+    "host": "jjc",
+    "group": "机关",
+    "columns": 13,
+    "active": 0,
+    "unresolved": 0,
+    "elapsedMs": 7382
+  },
+  {
+    "dept": "就业信息服务网",
+    "host": "91",
+    "group": "就业",
+    "columns": 0,
+    "active": 0,
+    "unresolved": 0,
+    "elapsedMs": 31
+  },
+  {
+    "dept": "跨学科创新研究院",
+    "host": "xtcx",
+    "group": "科研",
+    "columns": 3,
+    "active": 0,
+    "unresolved": 1,
+    "elapsedMs": 706
+  },
+  {
+    "dept": "校报",
+    "host": "newspaper",
+    "group": "媒体",
+    "columns": 0,
+    "active": 0,
+    "unresolved": 0,
+    "elapsedMs": 303
+  },
+  {
+    "dept": "上理图集",
+    "host": "picture",
+    "group": "媒体",
+    "columns": 4,
+    "active": 0,
+    "unresolved": 0,
+    "elapsedMs": 321
+  },
+  {
+    "dept": "学生档案信息服务网",
+    "host": "sfile",
+    "group": "服务",
+    "columns": 0,
+    "active": 0,
+    "unresolved": 0,
+    "elapsedMs": 286
   }
 ]

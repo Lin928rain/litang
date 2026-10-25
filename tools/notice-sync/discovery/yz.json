@@ -4,7 +4,7 @@
   "group": "招生",
   "home": "https://yz.usst.edu.cn/",
   "homeArticles": 15,
-  "pagesProbed": 25,
+  "pagesProbed": 21,
   "columns": [
     {
       "url": "https://yz.usst.edu.cn/3394/list.htm",
@@ -15,7 +15,7 @@
       "latest": "2026-10-08",
       "oldest": "2025-07-02",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://yz.usst.edu.cn/3357/list.htm",
@@ -37,7 +37,7 @@
       "latest": "2026-09-20",
       "oldest": "2024-09-28",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://yz.usst.edu.cn/3391/list.htm",
@@ -48,7 +48,7 @@
       "latest": "2026-07-07",
       "oldest": "2026-06-15",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://yz.usst.edu.cn/3384/list.htm",
@@ -81,7 +81,7 @@
       "latest": "2026-05-22",
       "oldest": "2025-03-04",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://yz.usst.edu.cn/3387/list.htm",
@@ -129,5 +129,5 @@
       "date": "2021-09-18"
     }
   ],
-  "elapsedMs": 969
+  "elapsedMs": 1941
 }

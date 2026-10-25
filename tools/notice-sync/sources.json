@@ -3,8 +3,8 @@
   "updatedAt": "2026-10-25",
   "_note": "由 build-sources.mjs 从 discovery/ 自动生成。想加/减栏目改 discovery 结果或直接改本文件；enabled=false 的栏目会被 fetch.mjs 跳过。",
   "minDate": "2024-10-25",
-  "count": 531,
-  "enabledCount": 453,
+  "count": 549,
+  "enabledCount": 470,
   "sources": [
     {
       "id": "jwc-10242",
@@ -70,7 +70,7 @@
       "id": "jwc-10497",
       "dept": "教务处",
       "column": "培养计划",
-      "linkText": "培养计划",
+      "linkText": "",
       "category": "教学",
       "kind": "教学",
       "scope": "school",
@@ -100,7 +100,7 @@
       "id": "jwc-10386",
       "dept": "教务处",
       "column": "教学日历",
-      "linkText": "教学日历",
+      "linkText": "",
       "category": "教学",
       "kind": "教学",
       "scope": "school",
@@ -550,7 +550,7 @@
       "id": "www-1595",
       "dept": "上海理工大学",
       "column": "讲座报名",
-      "linkText": "讲座报名",
+      "linkText": "",
       "category": "讲座",
       "kind": "讲座",
       "scope": "school",
@@ -558,7 +558,7 @@
       "weight": 95,
       "enabled": true,
       "url": "https://www.usst.edu.cn/xjzbg/list.htm",
-      "latest": "2026-10-23",
+      "latest": "2026-10-25",
       "paging": false
     },
     {
@@ -715,14 +715,14 @@
       "id": "net-6853",
       "dept": "信息化办公室",
       "column": "安全公告",
-      "linkText": "安全公告",
+      "linkText": "网络安全",
       "category": "通知",
       "kind": "通知",
       "scope": "school",
       "group": "直属",
       "weight": 94,
       "enabled": true,
-      "url": "https://net.usst.edu.cn/aqgg/list.htm",
+      "url": "https://net.usst.edu.cn/wlaq/list.htm",
       "latest": "2026-01-13",
       "paging": false
     },
@@ -744,7 +744,7 @@
     {
       "id": "chxy-17117",
       "dept": "材料与化学学院",
-      "column": "人才培养",
+      "column": "人才培养（chxy-17117）",
       "linkText": "人才培养",
       "category": "教学",
       "kind": "教学",
@@ -754,6 +754,36 @@
       "enabled": true,
       "url": "https://chxy.usst.edu.cn/rcpy_17117/list.htm",
       "latest": "2025-09-03",
+      "paging": true
+    },
+    {
+      "id": "chxy-3632",
+      "dept": "材料与化学学院",
+      "column": "人才培养（chxy-3632）",
+      "linkText": "人才培养",
+      "category": "教学",
+      "kind": "教学",
+      "scope": "college",
+      "group": "学院",
+      "weight": 90,
+      "enabled": true,
+      "url": "https://chxy.usst.edu.cn/3632/list.htm",
+      "latest": "2025-09-03",
+      "paging": true
+    },
+    {
+      "id": "ccad-11900",
+      "dept": "出版学院",
+      "column": "研究生教务",
+      "linkText": "研究生教务",
+      "category": "教学",
+      "kind": "教学",
+      "scope": "college",
+      "group": "学院",
+      "weight": 90,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/yjsjw/list.htm",
+      "latest": "2026-10-23",
       "paging": true
     },
     {
@@ -785,6 +815,36 @@
       "url": "https://ccad.usst.edu.cn/jxdt/list.htm",
       "latest": "2026-10-08",
       "paging": true
+    },
+    {
+      "id": "ccad-11899",
+      "dept": "出版学院",
+      "column": "本科教务",
+      "linkText": "本科教务",
+      "category": "教学",
+      "kind": "教学",
+      "scope": "college",
+      "group": "学院",
+      "weight": 90,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/bkjw/list.htm",
+      "latest": "2026-09-02",
+      "paging": true
+    },
+    {
+      "id": "ccad-11209",
+      "dept": "出版学院",
+      "column": "教学管理规章制度",
+      "linkText": "教学管理规章制度",
+      "category": "教学",
+      "kind": "教学",
+      "scope": "college",
+      "group": "学院",
+      "weight": 90,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/jxglgzzd/list.htm",
+      "latest": "2026-03-30",
+      "paging": false
     },
     {
       "id": "ccad-6931",
@@ -877,21 +937,6 @@
       "paging": true
     },
     {
-      "id": "bs-10767",
-      "dept": "管理学院",
-      "column": "研究生教务",
-      "linkText": "研究生教务",
-      "category": "教学",
-      "kind": "教学",
-      "scope": "college",
-      "group": "学院",
-      "weight": 90,
-      "enabled": true,
-      "url": "https://bs.usst.edu.cn/10767/list.htm",
-      "latest": "2026-10-16",
-      "paging": true
-    },
-    {
       "id": "bs-6091",
       "dept": "管理学院",
       "column": "实践教学",
@@ -919,21 +964,6 @@
       "enabled": true,
       "url": "https://bs.usst.edu.cn/10531/list.htm",
       "latest": "2026-05-12",
-      "paging": true
-    },
-    {
-      "id": "bs-10766",
-      "dept": "管理学院",
-      "column": "本科生教务",
-      "linkText": "本科生教务",
-      "category": "教学",
-      "kind": "教学",
-      "scope": "college",
-      "group": "学院",
-      "weight": 90,
-      "enabled": true,
-      "url": "https://bs.usst.edu.cn/10766/list.htm",
-      "latest": "2024-10-29",
       "paging": true
     },
     {
@@ -1717,21 +1747,6 @@
       "paging": true
     },
     {
-      "id": "bs-6310",
-      "dept": "管理学院",
-      "column": "学院公告",
-      "linkText": "学院公告",
-      "category": "通知",
-      "kind": "通知",
-      "scope": "college",
-      "group": "学院",
-      "weight": 88,
-      "enabled": true,
-      "url": "https://bs.usst.edu.cn/tzgg_6310/list.htm",
-      "latest": "2026-10-19",
-      "paging": true
-    },
-    {
       "id": "bs-10581",
       "dept": "管理学院",
       "column": "公告（校友工作）",
@@ -1764,15 +1779,15 @@
     {
       "id": "bs-10682",
       "dept": "管理学院",
-      "column": "通知公告（bs-10682）",
-      "linkText": "通知公告",
+      "column": "通知公告（团学工作）",
+      "linkText": "团学工作",
       "category": "通知",
       "kind": "通知",
       "scope": "college",
       "group": "学院",
       "weight": 88,
       "enabled": true,
-      "url": "https://bs.usst.edu.cn/10682/list.htm",
+      "url": "https://bs.usst.edu.cn/10574/list.htm",
       "latest": "2026-04-20",
       "paging": true
     },
@@ -1792,21 +1807,6 @@
       "paging": false
     },
     {
-      "id": "bs-17444",
-      "dept": "管理学院",
-      "column": "通知公告（bs-17444）",
-      "linkText": "通知公告",
-      "category": "通知",
-      "kind": "通知",
-      "scope": "college",
-      "group": "学院",
-      "weight": 88,
-      "enabled": true,
-      "url": "https://bs.usst.edu.cn/tzgg_17444/list.htm",
-      "latest": "2025-10-22",
-      "paging": false
-    },
-    {
       "id": "bs-10686",
       "dept": "管理学院",
       "column": "通知公告（职业发展）",
@@ -1820,6 +1820,21 @@
       "url": "https://bs.usst.edu.cn/10575/list.htm",
       "latest": "2025-10-22",
       "paging": true
+    },
+    {
+      "id": "bs-17444",
+      "dept": "管理学院",
+      "column": "通知公告（bs-17444）",
+      "linkText": "通知公告",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "college",
+      "group": "学院",
+      "weight": 88,
+      "enabled": true,
+      "url": "https://bs.usst.edu.cn/tzgg_17444/list.htm",
+      "latest": "2025-10-22",
+      "paging": false
     },
     {
       "id": "oece-17674",
@@ -2077,6 +2092,21 @@
       "paging": false
     },
     {
+      "id": "cec-6750",
+      "dept": "计算中心",
+      "column": "新闻公告展示",
+      "linkText": "",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "school",
+      "group": "直属",
+      "weight": 88,
+      "enabled": true,
+      "url": "https://cec.usst.edu.cn/xwggzs/list.htm",
+      "latest": "2026-10-12",
+      "paging": true
+    },
+    {
       "id": "cec-6347",
       "dept": "计算中心",
       "column": "通知公告",
@@ -2154,7 +2184,7 @@
     {
       "id": "jiankang-18043",
       "dept": "健康科学与工程学院",
-      "column": "通知公告",
+      "column": "通知公告（研究生培养）",
       "linkText": "研究生培养",
       "category": "通知",
       "kind": "通知",
@@ -2163,6 +2193,21 @@
       "weight": 88,
       "enabled": true,
       "url": "https://jiankang.usst.edu.cn/18043/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
+    },
+    {
+      "id": "jiankang-17320",
+      "dept": "健康科学与工程学院",
+      "column": "通知公告（查看更多）",
+      "linkText": "查看更多",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "college",
+      "group": "学院",
+      "weight": 88,
+      "enabled": true,
+      "url": "https://jiankang.usst.edu.cn/tzgg/list.htm",
       "latest": "2026-10-23",
       "paging": true
     },
@@ -2617,6 +2662,21 @@
       "paging": true
     },
     {
+      "id": "saist-16114",
+      "dept": "智能科技学院",
+      "column": "通知公告",
+      "linkText": "查看更多",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "college",
+      "group": "学院",
+      "weight": 88,
+      "enabled": true,
+      "url": "https://saist.usst.edu.cn/tzgg/list.htm",
+      "latest": "2026-10-20",
+      "paging": true
+    },
+    {
       "id": "sgc-17852",
       "dept": "中德国际学院",
       "column": "公告一览",
@@ -2632,9 +2692,24 @@
       "paging": false
     },
     {
+      "id": "sbc-14853",
+      "dept": "中英国际学院",
+      "column": "通知公告（更多+）",
+      "linkText": "更多+",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "college",
+      "group": "学院",
+      "weight": 88,
+      "enabled": true,
+      "url": "https://www.sbc.usst.edu.cn/tzgg/list.htm",
+      "latest": "2026-09-29",
+      "paging": true
+    },
+    {
       "id": "sbc-14859",
       "dept": "中英国际学院",
-      "column": "通知公告",
+      "column": "通知公告（sbc-14859）",
       "linkText": "通知公告",
       "category": "通知",
       "kind": "通知",
@@ -2977,6 +3052,21 @@
       "paging": true
     },
     {
+      "id": "jiankang-17321",
+      "dept": "健康科学与工程学院",
+      "column": "学术报告",
+      "linkText": "查看更多",
+      "category": "讲座",
+      "kind": "讲座",
+      "scope": "college",
+      "group": "学院",
+      "weight": 85,
+      "enabled": true,
+      "url": "https://jiankang.usst.edu.cn/xsbg/list.htm",
+      "latest": "2026-10-14",
+      "paging": true
+    },
+    {
       "id": "mksxy-2753",
       "dept": "马克思主义学院",
       "column": "学术报告",
@@ -3035,6 +3125,21 @@
       "url": "https://xxgk.usst.edu.cn/sjsl/list.htm",
       "latest": "2024-10-28",
       "paging": false
+    },
+    {
+      "id": "saist-16115",
+      "dept": "智能科技学院",
+      "column": "学术活动",
+      "linkText": "查看更多",
+      "category": "讲座",
+      "kind": "讲座",
+      "scope": "college",
+      "group": "学院",
+      "weight": 85,
+      "enabled": true,
+      "url": "https://saist.usst.edu.cn/xshd/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
     },
     {
       "id": "pdec-17246",
@@ -3099,7 +3204,7 @@
     {
       "id": "chxy-17141",
       "dept": "材料与化学学院",
-      "column": "学工动态",
+      "column": "学工动态（chxy-17141）",
       "linkText": "学工动态",
       "category": "学工",
       "kind": "学工",
@@ -3108,6 +3213,21 @@
       "weight": 80,
       "enabled": true,
       "url": "https://chxy.usst.edu.cn/17141/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
+    },
+    {
+      "id": "chxy-3648",
+      "dept": "材料与化学学院",
+      "column": "学工动态（学生工作）",
+      "linkText": "学生工作",
+      "category": "学工",
+      "kind": "学工",
+      "scope": "college",
+      "group": "学院",
+      "weight": 80,
+      "enabled": true,
+      "url": "https://chxy.usst.edu.cn/3648/list.htm",
       "latest": "2026-10-23",
       "paging": true
     },
@@ -3124,6 +3244,21 @@
       "enabled": true,
       "url": "https://ccad.usst.edu.cn/ygxl/list.htm",
       "latest": "2026-10-22",
+      "paging": true
+    },
+    {
+      "id": "ccad-8945",
+      "dept": "出版学院",
+      "column": "学工公告",
+      "linkText": "学工公告",
+      "category": "学工",
+      "kind": "学工",
+      "scope": "college",
+      "group": "学院",
+      "weight": 80,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/xggg/list.htm",
+      "latest": "2026-09-10",
       "paging": true
     },
     {
@@ -3172,6 +3307,21 @@
       "paging": false
     },
     {
+      "id": "dag-14245",
+      "dept": "档案馆",
+      "column": "志愿服务",
+      "linkText": "志愿服务",
+      "category": "通知",
+      "kind": "通知",
+      "scope": "school",
+      "group": "直属",
+      "weight": 80,
+      "enabled": true,
+      "url": "https://dag.usst.edu.cn/14245/list.htm",
+      "latest": "2025-03-31",
+      "paging": false
+    },
+    {
       "id": "glhospital-17818",
       "dept": "公利医院医疗技术学院",
       "column": "学生工作",
@@ -3187,19 +3337,19 @@
       "paging": false
     },
     {
-      "id": "bs-10768",
+      "id": "bs-10699",
       "dept": "管理学院",
-      "column": "学生工作",
-      "linkText": "学生工作",
+      "column": "学生工作办公室",
+      "linkText": "学生工作办公室",
       "category": "学工",
       "kind": "学工",
       "scope": "college",
       "group": "学院",
       "weight": 80,
       "enabled": true,
-      "url": "https://bs.usst.edu.cn/10768/list.htm",
-      "latest": "2026-10-15",
-      "paging": true
+      "url": "https://bs.usst.edu.cn/10699/list.htm",
+      "latest": "2026-07-13",
+      "paging": false
     },
     {
       "id": "oece-17597",
@@ -3864,16 +4014,10 @@
       "type": "home",
       "onlyCids": [
         "10469",
-        "11900",
-        "11897",
-        "11926",
-        "11899",
-        "6918",
-        "8945",
         "11938"
       ],
       "url": "https://ccad.usst.edu.cn/",
-      "latest": "2026-10-23",
+      "latest": "2026-04-20",
       "paging": false
     },
     {
@@ -4049,25 +4193,6 @@
       "paging": false
     },
     {
-      "id": "cz-home",
-      "dept": "继续教育学院招生网",
-      "column": "首页直链",
-      "linkText": "",
-      "category": "通知",
-      "kind": "通知",
-      "scope": "school",
-      "group": "招生",
-      "weight": 70,
-      "enabled": true,
-      "type": "home",
-      "onlyCids": [
-        "6672"
-      ],
-      "url": "https://cz.usst.edu.cn/",
-      "latest": "2026-08-27",
-      "paging": false
-    },
-    {
       "id": "jiankang-home",
       "dept": "健康科学与工程学院",
       "column": "首页直链",
@@ -4080,13 +4205,10 @@
       "enabled": true,
       "type": "home",
       "onlyCids": [
-        "9054",
-        "17320",
-        "17321",
-        "17322"
+        "9054"
       ],
       "url": "https://jiankang.usst.edu.cn/",
-      "latest": "2026-10-23",
+      "latest": "2025-04-27",
       "paging": false
     },
     {
@@ -4186,21 +4308,6 @@
       "paging": false
     },
     {
-      "id": "www-52",
-      "dept": "上海理工大学",
-      "column": "科研",
-      "linkText": "科研",
-      "category": "科研",
-      "kind": "科研",
-      "scope": "school",
-      "group": "校级",
-      "weight": 70,
-      "enabled": true,
-      "url": "https://www.usst.edu.cn/ky/list.htm",
-      "latest": "2026-10-23",
-      "paging": true
-    },
-    {
       "id": "www-home",
       "dept": "上海理工大学",
       "column": "首页直链",
@@ -4223,8 +4330,23 @@
         "996"
       ],
       "url": "https://www.usst.edu.cn/",
-      "latest": "2026-10-23",
+      "latest": "2026-10-25",
       "paging": false
+    },
+    {
+      "id": "www-52",
+      "dept": "上海理工大学",
+      "column": "科研",
+      "linkText": "科研",
+      "category": "科研",
+      "kind": "科研",
+      "scope": "school",
+      "group": "校级",
+      "weight": 70,
+      "enabled": true,
+      "url": "https://www.usst.edu.cn/ky/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
     },
     {
       "id": "library-home",
@@ -4277,14 +4399,10 @@
       "enabled": true,
       "type": "home",
       "onlyCids": [
-        "16112",
-        "16113",
-        "16115",
-        "16116",
-        "16117"
+        "16112"
       ],
       "url": "https://saist.usst.edu.cn/",
-      "latest": "2026-10-25",
+      "latest": "2026-08-28",
       "paging": false
     },
     {
@@ -4319,10 +4437,7 @@
       "enabled": true,
       "type": "home",
       "onlyCids": [
-        "14837",
-        "14836",
-        "14853",
-        "14881"
+        "14837"
       ],
       "url": "https://www.sbc.usst.edu.cn/",
       "latest": "2026-10-23",
@@ -4372,6 +4487,36 @@
       "url": "https://chxy.usst.edu.cn/kycg/list.htm",
       "latest": "2025-09-10",
       "paging": false
+    },
+    {
+      "id": "chxy-3626",
+      "dept": "材料与化学学院",
+      "column": "学科科研",
+      "linkText": "学科科研",
+      "category": "科研",
+      "kind": "科研",
+      "scope": "college",
+      "group": "学院",
+      "weight": 60,
+      "enabled": true,
+      "url": "https://chxy.usst.edu.cn/3626/list.htm",
+      "latest": "2025-08-27",
+      "paging": true
+    },
+    {
+      "id": "ccad-6918",
+      "dept": "出版学院",
+      "column": "科研公告",
+      "linkText": "科研公告",
+      "category": "科研",
+      "kind": "科研",
+      "scope": "college",
+      "group": "学院",
+      "weight": 60,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/kygg/list.htm",
+      "latest": "2025-11-27",
+      "paging": true
     },
     {
       "id": "opic-18050",
@@ -4656,6 +4801,21 @@
       "enabled": true,
       "url": "https://jiankang.usst.edu.cn/17346/list.htm",
       "latest": "2026-10-15",
+      "paging": true
+    },
+    {
+      "id": "jiankang-17322",
+      "dept": "健康科学与工程学院",
+      "column": "科研动态",
+      "linkText": "查看更多",
+      "category": "科研",
+      "kind": "科研",
+      "scope": "college",
+      "group": "学院",
+      "weight": 60,
+      "enabled": true,
+      "url": "https://jiankang.usst.edu.cn/kydt/list.htm",
+      "latest": "2026-09-29",
       "paging": true
     },
     {
@@ -5154,6 +5314,21 @@
       "paging": true
     },
     {
+      "id": "cz-6672",
+      "dept": "继续教育学院招生网",
+      "column": "招生主要信息",
+      "linkText": "",
+      "category": "招生",
+      "kind": "招生",
+      "scope": "school",
+      "group": "招生",
+      "weight": 55,
+      "enabled": true,
+      "url": "https://cz.usst.edu.cn/zszyxx/list.htm",
+      "latest": "2026-08-28",
+      "paging": true
+    },
+    {
       "id": "iso-9514",
       "dept": "留学生办公室",
       "column": "招生专业目录",
@@ -5517,14 +5692,14 @@
       "id": "net-6849",
       "dept": "信息化办公室",
       "column": "部门新闻",
-      "linkText": "部门新闻",
+      "linkText": "信息公开",
       "category": "新闻",
       "kind": "新闻",
       "scope": "school",
       "group": "直属",
       "weight": 51,
       "enabled": true,
-      "url": "https://net.usst.edu.cn/bmxw/list.htm",
+      "url": "https://net.usst.edu.cn/xxfw/list.htm",
       "latest": "2026-09-24",
       "paging": true
     },
@@ -5602,6 +5777,36 @@
       "url": "https://chxy.usst.edu.cn/xyfc/list.htm",
       "latest": "2025-06-06",
       "paging": true
+    },
+    {
+      "id": "ccad-11926",
+      "dept": "出版学院",
+      "column": "学院动态",
+      "linkText": "学院动态",
+      "category": "新闻",
+      "kind": "新闻",
+      "scope": "college",
+      "group": "学院",
+      "weight": 45,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/xydt_11926/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
+    },
+    {
+      "id": "ccad-11897",
+      "dept": "出版学院",
+      "column": "推荐动态",
+      "linkText": "推荐动态",
+      "category": "新闻",
+      "kind": "新闻",
+      "scope": "college",
+      "group": "学院",
+      "weight": 45,
+      "enabled": true,
+      "url": "https://ccad.usst.edu.cn/sywxydtwtj/list.htm",
+      "latest": "2026-10-22",
+      "paging": false
     },
     {
       "id": "ccad-6946",
@@ -6849,6 +7054,36 @@
       "paging": true
     },
     {
+      "id": "saist-16113",
+      "dept": "智能科技学院",
+      "column": "学院新闻",
+      "linkText": "查看更多",
+      "category": "新闻",
+      "kind": "新闻",
+      "scope": "college",
+      "group": "学院",
+      "weight": 45,
+      "enabled": true,
+      "url": "https://saist.usst.edu.cn/xyxw/list.htm",
+      "latest": "2026-10-25",
+      "paging": true
+    },
+    {
+      "id": "saist-16117",
+      "dept": "智能科技学院",
+      "column": "党群风采",
+      "linkText": "查看更多",
+      "category": "新闻",
+      "kind": "新闻",
+      "scope": "college",
+      "group": "学院",
+      "weight": 45,
+      "enabled": true,
+      "url": "https://saist.usst.edu.cn/dqfc/list.htm",
+      "latest": "2026-10-23",
+      "paging": true
+    },
+    {
       "id": "sgc-5816",
       "dept": "中德国际学院",
       "column": "学院新闻",
@@ -6927,7 +7162,7 @@
       "id": "zwc-16034",
       "dept": "后勤管理处",
       "column": "后勤党支部建设与精神文明创建",
-      "linkText": "MORE+",
+      "linkText": "",
       "category": "党群",
       "kind": "党群",
       "scope": "school",
@@ -7687,6 +7922,21 @@
       "url": "https://ccad.usst.edu.cn/xzzx_11941/list.htm",
       "latest": "2026-09-24",
       "paging": false
+    },
+    {
+      "id": "ccad-11208",
+      "dept": "出版学院",
+      "column": "学院行政制度",
+      "linkText": "学院行政制度",
+      "category": "下载",
+      "kind": "下载",
+      "scope": "college",
+      "group": "学院",
+      "weight": 15,
+      "enabled": false,
+      "url": "https://ccad.usst.edu.cn/xyxzzd/list.htm",
+      "latest": "2026-03-31",
+      "paging": true
     },
     {
       "id": "opic-18288",

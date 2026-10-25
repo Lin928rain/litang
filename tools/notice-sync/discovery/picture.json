@@ -4,7 +4,7 @@
   "group": "媒体",
   "home": "https://picture.usst.edu.cn/",
   "homeArticles": 28,
-  "pagesProbed": 8,
+  "pagesProbed": 4,
   "columns": [
     {
       "url": "https://picture.usst.edu.cn/4348/list.htm",
@@ -15,7 +15,7 @@
       "latest": "2015-05-11",
       "oldest": "2014-07-17",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://picture.usst.edu.cn/4342/list.htm",
@@ -26,7 +26,7 @@
       "latest": "2015-05-11",
       "oldest": "2014-07-17",
       "hasPaging": true,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://picture.usst.edu.cn/4345/list.htm",
@@ -37,7 +37,7 @@
       "latest": "2014-09-15",
       "oldest": "2014-07-17",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     },
     {
       "url": "https://picture.usst.edu.cn/4344/list.htm",
@@ -48,9 +48,9 @@
       "latest": "2014-07-17",
       "oldest": "2014-07-17",
       "hasPaging": false,
-      "foundVia": "orphan"
+      "foundVia": "home"
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 281
+  "elapsedMs": 321
 }

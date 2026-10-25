@@ -18,10 +18,10 @@
       "foundVia": "home"
     },
     {
-      "url": "https://net.usst.edu.cn/bmxw/list.htm",
+      "url": "https://net.usst.edu.cn/xxfw/list.htm",
       "cid": "6849",
       "name": "部门新闻",
-      "linkText": "部门新闻",
+      "linkText": "信息公开",
       "articles": 14,
       "latest": "2026-09-24",
       "oldest": "2025-11-14",
@@ -84,10 +84,10 @@
       "foundVia": "home"
     },
     {
-      "url": "https://net.usst.edu.cn/aqgg/list.htm",
+      "url": "https://net.usst.edu.cn/wlaq/list.htm",
       "cid": "6853",
       "name": "安全公告",
-      "linkText": "安全公告",
+      "linkText": "网络安全",
       "articles": 8,
       "latest": "2026-01-13",
       "oldest": "2019-05-08",
@@ -95,10 +95,10 @@
       "foundVia": "home"
     },
     {
-      "url": "https://net.usst.edu.cn/swzn/list.htm",
+      "url": "https://net.usst.edu.cn/ITfw/list.htm",
       "cid": "7453",
       "name": "上网指南",
-      "linkText": "上网指南",
+      "linkText": "IT服务",
       "articles": 14,
       "latest": "2025-12-12",
       "oldest": "2008-06-03",
@@ -184,5 +184,5 @@
     }
   ],
   "unresolvedCids": [],
-  "elapsedMs": 894
+  "elapsedMs": 1074
 }

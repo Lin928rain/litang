@@ -4,7 +4,7 @@
   "group": "直属",
   "home": "https://library.usst.edu.cn/",
   "homeArticles": 12,
-  "pagesProbed": 47,
+  "pagesProbed": 51,
   "columns": [
     {
       "url": "https://library.usst.edu.cn/17697/list.htm",
@@ -82,6 +82,17 @@
       "oldest": "2025-12-15",
       "hasPaging": false,
       "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/_t58/1426/list.htm",
+      "cid": "1490",
+      "name": "科研辅助与统一检索平台",
+      "linkText": "电子文献查询",
+      "articles": 8,
+      "latest": "2014-09-09",
+      "oldest": "2009-09-23",
+      "hasPaging": false,
+      "foundVia": "depth2"
     }
   ],
   "unresolvedCids": [
@@ -91,5 +102,5 @@
       "date": "2025-12-15"
     }
   ],
-  "elapsedMs": 1682
+  "elapsedMs": 1856
 }
