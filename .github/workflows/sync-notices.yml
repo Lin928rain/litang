@@ -10,7 +10,8 @@ on:
   # 改了抓取配置/脚本就立刻跑一次，不用等定时任务
   push:
     paths:
-      - 'tools/notice-sync/**'
+      - 'tools/notice-sync/*.mjs'
+      - 'tools/notice-sync/*.json'
       - '.github/workflows/sync-notices.yml'
 
 permissions:

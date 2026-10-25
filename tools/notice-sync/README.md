@@ -90,6 +90,7 @@ node --test tools/notice-sync/fetch.test.mjs            # 单测
 ## 自动化
 
 `.github/workflows/sync-notices.yml`：每天 3 次定时抓取（UTC 08/13/22），
+改了 `tools/notice-sync/` 下的脚本或配置也会立刻跑一次；
 跑完自动提交 `out/notices.json`；配了 `GITEE_TOKEN` secret 时还会镜像到
 `gitee:extrisha/lit-Calendar`（国内加速用）。
 
