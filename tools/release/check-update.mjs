@@ -59,21 +59,27 @@ for (const url of manifests) {
 
 console.log('\n=== 安装包地址 ===');
 const local = JSON.parse(await readFile(join(ROOT, 'update.json'), 'utf8'));
-const urls = [local.apk_github, local.apk_gitee].filter(Boolean);
+const primary = [local.apk_github, local.apk_gitee].filter(Boolean);
+let primaryOk = false;
 
-// 和 App 里 candidateUrls 一样，把 tag 的 v 前缀换一种再试一次
+for (const url of primary) {
+  const r = await head(url);
+  const size = r.size ? ` ${(Number(r.size) / 1048576).toFixed(1)}MB` : '';
+  console.log(`${ok(r.status) ? '✅' : '❌'} ${r.status}${size}  ${url}`);
+  if (ok(r.status)) primaryOk = true;
+  else failed++;
+}
+
+// tag 的 v 前缀是客户端会自动兜底的写法，主地址通了就不算问题
 const m = /\/download\/([^/]+)\//.exec(local.apk_gitee ?? '');
 if (m) {
   const tag = m[1];
   const alt = tag.startsWith('v') ? tag.slice(1) : `v${tag}`;
-  urls.push(local.apk_gitee.replace(m[0], `/download/${alt}/`));
-}
-
-for (const url of urls) {
-  const r = await head(url);
-  const size = r.size ? ` ${(Number(r.size) / 1048576).toFixed(1)}MB` : '';
-  console.log(`${ok(r.status) ? '✅' : '❌'} ${r.status}${size}  ${url}`);
-  if (!ok(r.status)) failed++;
+  const altUrl = local.apk_gitee.replace(m[0], `/download/${alt}/`);
+  const r = await head(altUrl);
+  const label = ok(r.status) ? '✅' : primaryOk ? '➖' : '❌';
+  console.log(`${label} ${r.status}  ${altUrl}   ← 备选写法（客户端会自动试）`);
+  if (!ok(r.status) && !primaryOk) failed++;
 }
 
 console.log('\n=== 最新 Release ===');
@@ -83,12 +89,15 @@ try {
     { headers: { 'User-Agent': UA, Accept: 'application/vnd.github+json' } },
   );
   const list = await res.json();
-  for (const rel of list) {
+  // 只要求「最新那个」有附件：latest 就是指向它，老版本空着无所谓
+  list.forEach((rel, index) => {
     const assets = (rel.assets ?? []).map((a) => a.name).join(', ');
-    const mark = (rel.assets ?? []).length > 0 ? '✅' : '❌';
-    console.log(`${mark} ${rel.tag_name}  ${assets || '（没有附件，latest 会 404）'}`);
-    if ((rel.assets ?? []).length === 0 && rel === list[0]) failed++;
-  }
+    const hasAsset = (rel.assets ?? []).length > 0;
+    const mark = hasAsset ? '✅' : index === 0 ? '❌' : '➖';
+    const note = hasAsset ? '' : index === 0 ? '（没有附件，latest 会 404）' : '（历史版本，忽略）';
+    console.log(`${mark} ${rel.tag_name}  ${assets || '（无）'}${note}`);
+    if (!hasAsset && index === 0) failed++;
+  });
 } catch (e) {
   console.log(`❌ 查询 Release 失败：${e.message}`);
   failed++;
