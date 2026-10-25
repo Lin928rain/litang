@@ -19,9 +19,13 @@ const UA =
   '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
 /** 历史保留上限（条数） */
-const MAX_HISTORY = 800;
+const MAX_HISTORY = 1200;
 /** 每条源最多取多少条 */
-const PER_SITE_LIMIT = 40;
+const PER_SITE_LIMIT = 200;
+/** 每个源最多翻多少页（防止改版后无限翻页） */
+const MAX_PAGES = 8;
+/** 只保留近 N 年的通知 */
+const KEEP_YEARS = 2;
 
 const args = process.argv.slice(2);
 const dry = args.includes('--dry');
@@ -66,18 +70,26 @@ function absoluteUrl(href, base) {
   }
 }
 
-/** 解析多种日期写法，统一成 YYYY-MM-DD；失败返回 null */
-export function parseDate(raw) {
+/** 解析多种日期写法，统一成 YYYY-MM-DD；失败返回 null
+ *  @param yearHint 只有「月-日」时用于补年份（通常从文章 URL 里的 /2026/1022/ 推断）
+ */
+export function parseDate(raw, yearHint = null) {
   if (!raw) return null;
   const text = String(raw).trim();
   let m = text.match(/(\d{4})[-./年]\s*(\d{1,2})[-./月]\s*(\d{1,2})/);
   if (m) return normalize(m[1], m[2], m[3]);
-  // 只有 月-日：补当前年
+  // 只有 月-日：用传入的年份，没有再退回当前年
   m = text.match(/^(\d{1,2})[-./](\d{1,2})$/);
-  if (m) return normalize(String(new Date().getFullYear()), m[1], m[2]);
+  if (m) return normalize(String(yearHint ?? new Date().getFullYear()), m[1], m[2]);
   m = text.match(/(\d{1,2})[-./](\d{1,2})/);
-  if (m) return normalize(String(new Date().getFullYear()), m[1], m[2]);
+  if (m) return normalize(String(yearHint ?? new Date().getFullYear()), m[1], m[2]);
   return null;
+}
+
+/** 从文章链接里取年份：/2026/1022/c... → 2026 */
+export function yearFromUrl(url) {
+  const m = String(url).match(/\/(\d{4})\/\d{2}\d{2}\//);
+  return m ? Number(m[1]) : null;
 }
 
 function normalize(y, mo, d) {
@@ -167,20 +179,35 @@ export function parseList(html, source) {
 
     seen.add(url);
 
-    // 日期：优先链接内部，其次链接前后各 400 字符的窗口
+    // 文章 URL 里带年份：/2026/1022/c10239a372764/page.htm
+    // 列表页只写「10-22」时，用这个年份补全，避免把 2018 年的通知当成今年的。
+    const yearHint = yearFromUrl(url);
+
+    // 日期：优先链接内部，其次紧邻的父容器（而不是整个前后窗口，
+    // 否则会把相邻条目的日期当成自己的）
     let date = null;
     const innerDate = innerHtml.match(/(\d{4}[-./]\d{1,2}[-./]\d{1,2})/);
     if (innerDate) {
-      date = parseDate(innerDate[1]);
+      date = parseDate(innerDate[1], yearHint);
     } else {
-      const start = Math.max(0, m.index - 400);
-      const end = Math.min(html.length, (closeIdx > 0 ? closeIdx : anchorRe.lastIndex) + 400);
-      const window = html.slice(start, end);
-      const dateMatch = window.match(
-        /(\d{4}[-./]\d{1,2}[-./]\d{1,2})|(\d{1,2}[-./]\d{1,2})(?!\d)/,
-      );
-      date = parseDate(dateMatch ? dateMatch[1] ?? dateMatch[2] : null);
+      // 往后取到本条结束（通常是 </li> / </div> / </tr>），最多 260 字符。
+      // 不能再往前找：往前会把上一条通知的日期当成自己的。
+      const tailStart = closeIdx > 0 ? closeIdx : anchorRe.lastIndex;
+      const tail = html.slice(tailStart, Math.min(html.length, tailStart + 260));
+      // 截到本条真正结束的位置，避免跨到下一 <li>
+      const endTag = tail.search(/<\/li>|<\/tr>/i);
+      const after = endTag > 0 ? tail.slice(0, endTag) : tail;
+
+      let dm = after.match(/(\d{4}[-./]\d{1,2}[-./]\d{1,2})/);
+      if (dm) {
+        date = parseDate(dm[1], yearHint);
+      } else {
+        const sm = after.match(/(?<!\d)(\d{1,2})[-./](\d{1,2})(?!\d)/);
+        if (sm) date = parseDate(`${sm[1]}-${sm[2]}`, yearHint);
+      }
     }
+    // 日期明显晚于今天（比如把文章里的未来日期当成了发布日）就不采信
+    if (date && date > new Date().toISOString().slice(0, 10)) date = null;
 
     items.push({
       id: `${source.id}:${url}`,
@@ -199,33 +226,81 @@ export function parseList(html, source) {
 // ---------------------------------------------------------------- 抓取
 
 async function fetchSite(source, timeoutMs = 25000) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-  try {
-    // 部分站点会 302 跳到 https 或新路径，跟随 8 次
-    const resp = await fetch(source.url, {
-      headers: { 'User-Agent': UA, Accept: 'text/html,*/*' },
-      redirect: 'follow',
-      signal: ctrl.signal,
-    });
-    if (!resp.ok) {
-      throw new Error(`HTTP ${resp.status}`);
+  const collected = [];
+  const seenUrls = new Set();
+  let lastError = null;
+  let pages = 0;
+
+  // webplus 翻页：list.htm → list2.htm → list3.htm …
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    const url = pageUrl(source.url, page);
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const resp = await fetch(url, {
+        headers: { 'User-Agent': UA, Accept: 'text/html,*/*' },
+        redirect: 'follow',
+        signal: ctrl.signal,
+      });
+      // 第 2 页起 404 = 没有更多页，正常结束
+      if (!resp.ok) {
+        if (page > 1) break;
+        throw new Error(`HTTP ${resp.status}`);
+      }
+      const html = Buffer.from(await resp.arrayBuffer()).toString('utf8');
+
+      let added = 0;
+      for (const item of parseList(html, source)) {
+        if (seenUrls.has(item.url)) continue;
+        seenUrls.add(item.url);
+        collected.push(item);
+        added++;
+      }
+      pages++;
+
+      // 本页没有新内容 = 到底了
+      if (added === 0) break;
+      if (!hasNextPage(html)) break;
+    } catch (e) {
+      lastError = e;
+      if (page === 1) {
+        return {
+          source,
+          items: [],
+          pages: 0,
+          status: 'error',
+          error: e.name === 'AbortError' ? 'timeout' : String(e.message || e),
+        };
+      }
+      break; // 后续页失败就停，已抓到的保留
+    } finally {
+      clearTimeout(timer);
     }
-    const buf = Buffer.from(await resp.arrayBuffer());
-    // 学校站点多为 UTF-8；个别老的 GBK 页面这里会乱码，但实测都能解
-    const html = buf.toString('utf8');
-    const items = parseList(html, source);
-    return { source, items, status: 'ok' };
-  } catch (e) {
-    return {
-      source,
-      items: [],
-      status: 'error',
-      error: e.name === 'AbortError' ? 'timeout' : String(e.message || e),
-    };
-  } finally {
-    clearTimeout(timer);
   }
+
+  return {
+    source,
+    items: collected,
+    pages,
+    status: collected.length > 0 ? 'ok' : 'error',
+    error:
+      collected.length === 0
+        ? String(lastError?.message ?? '无数据')
+        : undefined,
+  };
+}
+
+/** webplus 翻页地址：list.htm → list2.htm */
+function pageUrl(base, page) {
+  if (page === 1) return base;
+  return base.replace(/list(\d*)\.htm(\?.*)?$/i, `list${page}.htm$2`);
+}
+
+/** 页面是否还有下一页 */
+function hasNextPage(html) {
+  // 明确的分页链接（list2.htm / list3.htm …）
+  if (/href=["'][^"']*list\d+\.htm["']/i.test(html)) return true;
+  return false;
 }
 
 // ---------------------------------------------------------------- 合并
@@ -294,11 +369,21 @@ async function main() {
 
   let failed = 0;
   const fresh = [];
+  const cutoff = twoYearsAgo();
+  let dropped = 0;
   for (const r of results) {
-    const count = r.items.length;
+    const all = r.items;
+    // 按近两年截断：无日期的保留（可能只是解析不到，不该丢）
+    const kept = all.filter((n) => !n.date || n.date >= cutoff);
+    dropped += all.length - kept.length;
+
     if (r.status === 'ok') {
-      console.log(`  ✅ ${r.source.dept} / ${r.source.category}  ${count} 条`);
-      fresh.push(...r.items.slice(0, perSiteLimit));
+      console.log(
+        `  ✅ ${r.source.dept} / ${r.source.category}  ${kept.length} 条` +
+          (all.length !== kept.length ? `（过滤 ${all.length - kept.length} 条旧数据）` : '') +
+          `  翻页 ${r.pages} 页`,
+      );
+      fresh.push(...kept.slice(0, perSiteLimit));
     } else {
       failed++;
       console.log(`  ❌ ${r.source.dept} / ${r.source.category}  ${r.error}`);
@@ -312,6 +397,10 @@ async function main() {
   } catch {
     /* 首次运行 */
   }
+  // 历史里也把超过两年的老数据清掉
+  const beforePrune = previous.length;
+  previous = previous.filter((n) => !n.date || n.date >= cutoff);
+  const pruned = beforePrune - previous.length;
 
   const merged = dedupe(merge(previous, fresh));
   const payload = {
@@ -323,9 +412,12 @@ async function main() {
 
   const elapsed = ((Date.now() - started) / 1000).toFixed(1);
   console.log(
-    `\n抓取完成：${fresh.length} 条新数据，合并后 ${merged.length} 条，` +
+    `\n抓取完成：${fresh.length} 条，合并后 ${merged.length} 条，` +
       `失败 ${failed} 个源，耗时 ${elapsed}s`,
   );
+  if (dropped || pruned) {
+    console.log(`（超出 ${KEEP_YEARS} 年的旧数据：本次过滤 ${dropped} 条，历史清理 ${pruned} 条）`);
+  }
 
   if (dry) {
     console.log('\n--- 前 5 条 ---');
@@ -344,6 +436,14 @@ async function main() {
   if (failed > 0) {
     process.exitCode = 0; // 部分失败可以接受，不让整个 CI 变红
   }
+}
+
+/** 近 N 年的起始日期（YYYY-MM-DD） */
+function twoYearsAgo() {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() - KEEP_YEARS);
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 // 只在直接运行时执行（被 import 做单测时不跑）

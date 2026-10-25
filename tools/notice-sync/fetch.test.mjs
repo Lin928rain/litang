@@ -1,7 +1,7 @@
 // 解析器单测：用实测到的 5 种模板结构做 fixture
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseList, parseDate } from './fetch.mjs';
+import { parseList, parseDate, yearFromUrl } from './fetch.mjs';
 
 const SOURCE = {
   id: 'test',
@@ -119,4 +119,44 @@ test('过短的文本不当标题（导航项过滤）', () => {
 
 test('空页面返回空数组', () => {
   assert.deepEqual(parseList('<html><body>暂无内容</body></html>', SOURCE), []);
+});
+
+test('只有月-日时用文章 URL 的年份补全（避免 2018 年通知被当成今年）', () => {
+  const html = `
+    <li class="news n1">
+      <div class="news_title"><a href="/2018/1024/c10682a136228/page.htm">关于开展征文活动的通知</a></div>
+      <div class="news_date">10-24</div>
+    </li>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].date, '2018-10-24');
+});
+
+test('从 URL 提取年份', () => {
+  assert.equal(yearFromUrl('https://a.edu.cn/2026/1022/c1a2/page.htm'), 2026);
+  assert.equal(
+    yearFromUrl('https://a.edu.cn/2018/0502/c6309a133217/page.htm'),
+    2018,
+  );
+  assert.equal(yearFromUrl('https://a.edu.cn/xyz/page.htm'), null);
+});
+
+test('日期窗口不侵占相邻条目的日期', () => {
+  // 第一条没有日期，第二条有。第一条不能把第二条的日期当自己的。
+  const html = `
+    <li class="news n1">
+      <a href="/2026/0101/c1a1/page.htm">第一条没有日期的通知</a>
+    </li>
+    <li class="news n2">
+      <div class="news_title"><a href="/2026/0202/c1a2/page.htm">第二条有日期的通知</a></div>
+      <div class="news_date">2026-02-02</div>
+    </li>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 2);
+  const first = items.find((i) => i.title.includes('第一条'));
+  assert.notEqual(
+    first.date,
+    '2026-02-02',
+    '第一条不应拿到第二条的日期',
+  );
 });

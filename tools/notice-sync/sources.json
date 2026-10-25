@@ -1,6 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "updatedAt": null,
+  "_note": "栏目 URL 必须以「首页上最新文章所在的栏目」为准；只认导航名容易选到停更的老栏目。",
   "sites": [
     {
       "id": "jwc",
@@ -21,14 +22,28 @@
       "dept": "光电信息与计算机工程学院",
       "category": "公告信息",
       "scope": "college",
-      "url": "https://oece.usst.edu.cn/11992/list.htm"
+      "url": "https://oece.usst.edu.cn/gdgg/list.htm"
+    },
+    {
+      "id": "oece-news",
+      "dept": "光电信息与计算机工程学院",
+      "category": "学院新闻",
+      "scope": "college",
+      "url": "https://oece.usst.edu.cn/gdxw/list.htm"
     },
     {
       "id": "bs",
       "dept": "管理学院",
-      "category": "通知公告",
+      "category": "公告",
       "scope": "college",
-      "url": "https://bs.usst.edu.cn/10682/list.htm"
+      "url": "https://bs.usst.edu.cn/10537/list.htm"
+    },
+    {
+      "id": "bs-jxpy",
+      "dept": "管理学院",
+      "category": "教学培养",
+      "scope": "college",
+      "url": "https://bs.usst.edu.cn/jxpy/list.htm"
     },
     {
       "id": "sea",
@@ -68,30 +83,44 @@
     {
       "id": "me",
       "dept": "机械工程学院",
-      "category": "公告公示",
+      "category": "通知公告",
       "scope": "college",
-      "url": "https://me.usst.edu.cn/gggs/list.htm"
+      "url": "https://me.usst.edu.cn/tzgg_12289/list.htm"
+    },
+    {
+      "id": "me-news",
+      "dept": "机械工程学院",
+      "category": "学院新闻",
+      "scope": "college",
+      "url": "https://me.usst.edu.cn/xyxw/list.htm"
     },
     {
       "id": "jcxb",
       "dept": "基础学部",
-      "category": "通知公告",
+      "category": "教学运行",
       "scope": "college",
-      "url": "https://jcxb.usst.edu.cn/18194/list.htm"
+      "url": "https://jcxb.usst.edu.cn/18132/list.htm"
+    },
+    {
+      "id": "jcxb-bw",
+      "dept": "基础学部",
+      "category": "部务信息",
+      "scope": "college",
+      "url": "https://jcxb.usst.edu.cn/18131/list.htm"
     },
     {
       "id": "ccad",
       "dept": "出版印刷与艺术设计学院",
-      "category": "通知公告",
+      "category": "职业领航",
       "scope": "college",
-      "url": "https://ccad.usst.edu.cn/gjjlxmtz/list.htm"
+      "url": "https://ccad.usst.edu.cn/zylh/list.htm"
     },
     {
-      "id": "tyb",
-      "dept": "体育教学部",
-      "category": "信息公告",
-      "scope": "school",
-      "url": "https://tyb.usst.edu.cn/2967/list.htm"
+      "id": "ccad-hz",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "产学研合作",
+      "scope": "college",
+      "url": "https://ccad.usst.edu.cn/ppxwcxyhz/list.htm"
     }
   ]
 }
