@@ -108,21 +108,20 @@ void main() {
       expect(jar.headerFor(Uri.parse('https://example.com/')), isNull);
     });
 
-    test('Leading-dot cookie 要覆盖所有子域（考试答卷页靠它）', () {
+    test('Leading-dot cookie 要覆盖所有子域', () {
       final jar = CasCookieJar();
       jar.absorbSetCookie(
-        Uri.parse('https://passport2.chaoxing.com/login'),
-        'UID=12345; Domain=.chaoxing.com; Path=/',
+        Uri.parse('https://passport.example.com/login'),
+        'UID=12345; Domain=.example.com; Path=/',
       );
-      // 学习通答卷页在 stat2-ans.chaoxing.com，课程页在 mooc1.chaoxing.com，
-      // 两者都必须带上登录态，否则页面会显示“请登录”。
+      // 子域（a.example.com / b.example.com）都必须带上这条登录态
       for (final host in <String>[
-        'stat2-ans.chaoxing.com',
-        'mooc1.chaoxing.com',
-        'chaoxing.com',
+        'a.example.com',
+        'b.example.com',
+        'example.com',
       ]) {
         expect(
-          jar.headerFor(Uri.parse('https://$host/study-knowledge/ans')),
+          jar.headerFor(Uri.parse('https://$host/')),
           contains('UID=12345'),
           reason: host,
         );
