@@ -84,8 +84,6 @@ flutter:
     - assets/map/
     - assets/calendar.config
     - assets/emblem.webp
-    - assets/sources/tronclass_tab.png
-    - assets/sources/chaoxing_tab.png
 
 
   # To add assets to your application, add an assets section, like this:
