@@ -1,0 +1,1393 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-25T11:54:57.323Z",
+  "total": 154,
+  "notices": [
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1025/c14380a372908/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "能动学院师生应邀参观第十三届中国（上海）国际流体机械展",
+      "url": "https://ndxy.usst.edu.cn/2026/1025/c14380a372908/page.htm",
+      "date": "2026-10-25"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/1023/c17378a372809/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【本科教学】材料与化学学院2027届本科毕业设计工作预安排",
+      "url": "https://chxy.usst.edu.cn/2026/1023/c17378a372809/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1022/c10239a372764/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于公布2026-2027学年第一学期坐班答疑和自习辅导安排的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1022/c10239a372764/page.htm",
+      "date": "2026-10-22"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1020/c10239a372567/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于做好2026-2027学年第一学期理论类课程期末考核准备工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1020/c10239a372567/page.htm",
+      "date": "2026-10-22"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1020/c10239a372583/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026上海市高等学校信息技术水平考试模拟考试的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1020/c10239a372583/page.htm",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1021/c14380a372698/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "聚焦前沿领域，启迪科研思路 — 刘少帅研究员做客 “之航讲堂”",
+      "url": "https://ndxy.usst.edu.cn/2026/1021/c14380a372698/page.htm",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1019/c10239a372483/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于做好2026-2027学年第二学期本科教学任务落实、排课和选课工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1019/c10239a372483/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1020/c17918a372550/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于2026年度上海高校市级重点课程申报的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/1020/c17918a372550/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1020/c14380a372620/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "校企前沿课程《高等燃烧学》师生走进上海齐耀环保与上海锅炉厂 开展现场教学",
+      "url": "https://ndxy.usst.edu.cn/2026/1020/c14380a372620/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1020/c14380a372562/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "上海理工大学颗粒多相流智能测量与计算研究中心周骛教授团队赴盛美半导体设备（上海）股份有限公司交流",
+      "url": "https://ndxy.usst.edu.cn/2026/1020/c14380a372562/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1020/c14380a372561/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "上海理工大学颗粒多相流智能测量与计算研究中心周骛教授团队赴丹东百特仪器有限公司交流",
+      "url": "https://ndxy.usst.edu.cn/2026/1020/c14380a372561/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1020/c14380a372560/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "校领导带队走访青岛校友企业",
+      "url": "https://ndxy.usst.edu.cn/2026/1020/c14380a372560/page.htm",
+      "date": "2026-10-20"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1016/c10239a371979/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于公布2026年10月结转毕学历学位证书发放安排的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1016/c10239a371979/page.htm",
+      "date": "2026-10-19"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1019/c17918a372525/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院\"新匠星\"创新创业培育计划 项目路演选拔活动方案",
+      "url": "https://jiankang.usst.edu.cn/2026/1019/c17918a372525/page.htm",
+      "date": "2026-10-19"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1013/c10239a371714/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026年入学新生自查核实学信网学籍信息的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1013/c10239a371714/page.htm",
+      "date": "2026-10-16"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/1021/c10239a372635/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于调整校园上下课铃声的通知",
+      "url": "https://jwc.usst.edu.cn/2026/1021/c10239a372635/page.htm",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0930/c10239a371292/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于办理2026年插班生学分认定工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0930/c10239a371292/page.htm",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1010/c17918a371558/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于“新匠星”创新创业培育项目的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/1010/c17918a371558/page.htm",
+      "date": "2026-10-10"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1008/c17918a371446/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2027届健康科学与工程学院本科毕业论文（设计）工作预安排",
+      "url": "https://jiankang.usst.edu.cn/2026/1008/c17918a371446/page.htm",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1008/c17918a371439/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于专业级虚拟仿真平台的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/1008/c17918a371439/page.htm",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/1008/c17918a371437/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于虚拟仿真实验平台培育项目的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/1008/c17918a371437/page.htm",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1008/c14380a371497/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "上海理工大学能源与动力工程学院“低碳转化”学术沙龙品牌发布会暨首场报告举行",
+      "url": "https://ndxy.usst.edu.cn/2026/1008/c14380a371497/page.htm",
+      "date": "2026-10-08"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0923/c10239a371024/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026-2027学年第一学期辅修专业退选、缴费相关事宜的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0923/c10239a371024/page.htm",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0929/c17918a371237/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院2026年度面向产业的共建教材和共建数字教材的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/0929/c17918a371237/page.htm",
+      "date": "2026-09-29"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0929/c14380a371283/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "我院与西华大学流体及动力机械教育部重点实验室共建 “流体机械多相流动与材料侵蚀联合研究中心",
+      "url": "https://ndxy.usst.edu.cn/2026/0929/c14380a371283/page.htm",
+      "date": "2026-09-29"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0928/c17918a371213/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于培育本科实践教学工程案例的公示",
+      "url": "https://jiankang.usst.edu.cn/2026/0928/c17918a371213/page.htm",
+      "date": "2026-09-28"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0924/c14380a371139/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "沪浔协同 科创赋能",
+      "url": "https://ndxy.usst.edu.cn/2026/0924/c14380a371139/page.htm",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0922/c10239a370927/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "2026年9月本科生申请结业转毕业与学士学位的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0922/c10239a370927/page.htm",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0920/c10239a370847/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026-2027学年第一学期微专业退选事宜的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0920/c10239a370847/page.htm",
+      "date": "2026-09-22"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0920/c10239a370825/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026-2027学年第一学期补（缓）考成绩录入安排的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0920/c10239a370825/page.htm",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0916/c10239a370611/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于启动2026年秋季学期“国际化拔尖创新人才培养计划”选课工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0916/c10239a370611/page.htm",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0920/c17918a370783/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于开展 “新匠星” 创新创业培育计划项目选拔的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0920/c17918a370783/page.htm",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0920/c14380a370784/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "深化中蒙国际教育合作 共筑卓越人才培养高地——蒙古科技大学代表团到访能动学院洽谈交流",
+      "url": "https://ndxy.usst.edu.cn/2026/0920/c14380a370784/page.htm",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0919/c17918a370771/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于申报2026年度面向产业的共建教材和共建数字教材的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0919/c17918a370771/page.htm",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0919/c17918a370763/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于建设专业级虚拟仿真平台的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0919/c17918a370763/page.htm",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0919/c17918a370762/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于开展虚拟仿真实验平台培育项目申报的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0919/c17918a370762/page.htm",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0921/c17378a370915/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【学科竞赛】国际大学生新材料创新创意大赛暨第十三届上海市大学生新材料创新创意大赛决赛通知",
+      "url": "https://chxy.usst.edu.cn/2026/0921/c17378a370915/page.htm",
+      "date": "2026-09-19"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0918/c17918a370745/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "健康科学与工程学院关于培育本科实践教学工程案例的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0918/c17918a370745/page.htm",
+      "date": "2026-09-18"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0918/c14380a370746/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "广州博世空调来访高效环保制冷低温系统及装备研究中心开展技术交流",
+      "url": "https://ndxy.usst.edu.cn/2026/0918/c14380a370746/page.htm",
+      "date": "2026-09-18"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0917/c14380a370678/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "深化校企交流 推进产教融合——我院与中化学华谊装备科技有限公司开展互访交流",
+      "url": "https://ndxy.usst.edu.cn/2026/0917/c14380a370678/page.htm",
+      "date": "2026-09-17"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0917/c14380a370671/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "全链条轮岗实习：把课本公式搬进车间，以产教融合深化教育综合改革",
+      "url": "https://ndxy.usst.edu.cn/2026/0917/c14380a370671/page.htm",
+      "date": "2026-09-17"
+    },
+    {
+      "id": "jwc:https://jwc.usst.edu.cn/2026/0902/c10239a369943/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于开展2026-2027学年第一学期通识外语类课程学分认定工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0902/c10239a369943/page.htm",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "ndxy:https://ndxy.usst.edu.cn/2026/0915/c14380a370560/page.htm",
+      "dept": "能源与动力工程学院",
+      "category": "新闻动态",
+      "scope": "college",
+      "title": "赓续百廿薪火 共启研途新章——能源与动力工程学院举办研究生开学典礼暨新生第一课",
+      "url": "https://ndxy.usst.edu.cn/2026/0915/c14380a370560/page.htm",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2026/0911/c10494a370300/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于开展2026级全日制本科生学籍图像采集工作的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0911/c10494a370300/page.htm",
+      "date": "2026-09-11"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2026/1020/c10494a372618/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "2026-2027学年第一学期教务工作（预）安排表",
+      "url": "https://jwc.usst.edu.cn/2026/1020/c10494a372618/page.htm",
+      "date": "2026-09-11"
+    },
+    {
+      "id": "jiankang:https://jiankang.usst.edu.cn/2026/0910/c17918a370266/page.htm",
+      "dept": "健康科学与工程学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于健康科学与工程学院2026年本科生国家、上海市、国家励志奖学金评选工作的通知",
+      "url": "https://jiankang.usst.edu.cn/2026/0910/c17918a370266/page.htm",
+      "date": "2026-09-10"
+    },
+    {
+      "id": "jwc-zygg:https://zcjy.usst.edu.cn/2026/0902/c4094a369925/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026-2027学年第一学期教材领取的通知",
+      "url": "https://zcjy.usst.edu.cn/2026/0902/c4094a369925/page.htm",
+      "date": "2026-09-04"
+    },
+    {
+      "id": "jwc-zygg:https://zcjy.usst.edu.cn/2026/0809/c4094a369416/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "2026-2027学年第一学期本科生教材征订通知",
+      "url": "https://zcjy.usst.edu.cn/2026/0809/c4094a369416/page.htm",
+      "date": "2026-09-02"
+    },
+    {
+      "id": "sea:https://sea.usst.edu.cn/2026/0827/c1669a369777/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "JES-上海理工大学合作论坛：深耕交叉学科创新，筑牢全域环境安全",
+      "url": "https://sea.usst.edu.cn/2026/0827/c1669a369777/page.htm",
+      "date": "2026-08-27"
+    },
+    {
+      "id": "sea:https://sea.usst.edu.cn/2026/0702/c1669a367928/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "校庆专刊征稿启事",
+      "url": "https://sea.usst.edu.cn/2026/0702/c1669a367928/page.htm",
+      "date": "2026-08-27"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2026/0121/c956a67405/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于2026年度国家自然科学基金项目申请有关事项的通告",
+      "url": "https://www.usst.edu.cn/2026/0121/c956a67405/page.htm",
+      "date": "2026-08-27"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0629/c17378a369969/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【短学期安排】材料与化学学院2026-2027-1学期短学期课程安排通知",
+      "url": "https://chxy.usst.edu.cn/2026/0629/c17378a369969/page.htm",
+      "date": "2026-08-24"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0821/c17378a369648/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "关于国际大学生新材料创新创意大赛暨第十三届上海市大学生新材料创新创意大赛初赛报名延期的通知",
+      "url": "https://chxy.usst.edu.cn/2026/0821/c17378a369648/page.htm",
+      "date": "2026-08-20"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2026/0511/c10494a361336/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2026年非上海生源应届普通高校毕业生进沪就业落户申请办理“学习成绩评定”相关事宜的通知",
+      "url": "https://jwc.usst.edu.cn/2026/0511/c10494a361336/page.htm",
+      "date": "2026-08-10"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0717/c17378a368877/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【学科竞赛】国际大学生新材料创新创意大赛暨第十三届上海市大学生新材料创新创意大赛",
+      "url": "https://chxy.usst.edu.cn/2026/0717/c17378a368877/page.htm",
+      "date": "2026-07-15"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0708/c17378a368379/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【教学竞赛】第十三届材料与化学学院青年教师教学竞赛通知",
+      "url": "https://chxy.usst.edu.cn/2026/0708/c17378a368379/page.htm",
+      "date": "2026-07-06"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0629/c17378a367720/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【短学期安排】材料与化学学院2025-2026-2学期短学期课程安排通知",
+      "url": "https://chxy.usst.edu.cn/2026/0629/c17378a367720/page.htm",
+      "date": "2026-06-29"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0403/c17378a367339/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【学分认定】材化学院关于2025-2026学年第二学期第二批创新创业大作业学分认定的通知",
+      "url": "https://chxy.usst.edu.cn/2026/0403/c17378a367339/page.htm",
+      "date": "2026-06-19"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0611/c17378a366561/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "2026年材料与化学学院本科微专业招生通知",
+      "url": "https://chxy.usst.edu.cn/2026/0611/c17378a366561/page.htm",
+      "date": "2026-06-09"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2026/0605/c5567a363317/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院研究生转正公示",
+      "url": "https://waiyu.usst.edu.cn/2026/0605/c5567a363317/page.htm",
+      "date": "2026-06-05"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2026/0605/c5567a363313/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院本科生预备党员转正公示",
+      "url": "https://waiyu.usst.edu.cn/2026/0605/c5567a363313/page.htm",
+      "date": "2026-06-05"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2026/0430/c5567a360952/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院教工发展对象公示",
+      "url": "https://waiyu.usst.edu.cn/2026/0430/c5567a360952/page.htm",
+      "date": "2026-06-05"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2026/0429/c5567a360874/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院2023级本科生发展对象公示",
+      "url": "https://waiyu.usst.edu.cn/2026/0429/c5567a360874/page.htm",
+      "date": "2026-06-05"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0529/c17378a362503/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "2026届材料与化学学院本科生毕业论文（设计）资料归档的通知",
+      "url": "https://chxy.usst.edu.cn/2026/0529/c17378a362503/page.htm",
+      "date": "2026-05-25"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0522/c17378a362046/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "2026届材料与化学学院本科毕业设计（论文）答辩安排",
+      "url": "https://chxy.usst.edu.cn/2026/0522/c17378a362046/page.htm",
+      "date": "2026-05-22"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0515/c17378a361572/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "2025-2026-2学期第一批创新创业大作业学分认定最终公示",
+      "url": "https://chxy.usst.edu.cn/2026/0515/c17378a361572/page.htm",
+      "date": "2026-05-15"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2026/0305/c10494a356965/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "2025-2026学年第二学期教务工作（预）安排表（学生版）",
+      "url": "https://jwc.usst.edu.cn/2026/0305/c10494a356965/page.htm",
+      "date": "2026-05-11"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0511/c17378a361345/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【毕业设计查重检查】关于2026届本科毕业论文(设计)重合率检测与延缓答辩申请的通知",
+      "url": "https://chxy.usst.edu.cn/2026/0511/c17378a361345/page.htm",
+      "date": "2026-05-11"
+    },
+    {
+      "id": "chxy:https://chxy.usst.edu.cn/2026/0509/c17378a361248/page.htm",
+      "dept": "材料与化学学院",
+      "category": "通知",
+      "scope": "college",
+      "title": "【本科教学培训】材料与化学学院AI赋能教育教学能力提升培训活动通知",
+      "url": "https://chxy.usst.edu.cn/2026/0509/c17378a361248/page.htm",
+      "date": "2026-05-09"
+    },
+    {
+      "id": "me:http://me.usst.edu.cn/2020/0528/c9012a222362/page.htm",
+      "dept": "机械工程学院",
+      "category": "公告公示",
+      "scope": "college",
+      "title": "学位评定委员...",
+      "url": "http://me.usst.edu.cn/2020/0528/c9012a222362/page.htm",
+      "date": "2026-05-01"
+    },
+    {
+      "id": "me:https://me.usst.edu.cn/2026/0430/c12254a360965/page.htm",
+      "dept": "机械工程学院",
+      "category": "公告公示",
+      "scope": "college",
+      "title": "上海理工大学发展对象公示",
+      "url": "https://me.usst.edu.cn/2026/0430/c12254a360965/page.htm",
+      "date": "2026-04-30"
+    },
+    {
+      "id": "me:https://me.usst.edu.cn/2025/0509/c12254a341035/page.htm",
+      "dept": "机械工程学院",
+      "category": "公告公示",
+      "scope": "college",
+      "title": "关于调整学院党委委员分工的通知",
+      "url": "https://me.usst.edu.cn/2025/0509/c12254a341035/page.htm",
+      "date": "2026-04-30"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2026/0429/c5567a360871/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院2024级本科生发展对象公示",
+      "url": "https://waiyu.usst.edu.cn/2026/0429/c5567a360871/page.htm",
+      "date": "2026-04-29"
+    },
+    {
+      "id": "me:http://me.usst.edu.cn/2020/0528/c9012a222363/page.htm",
+      "dept": "机械工程学院",
+      "category": "公告公示",
+      "scope": "college",
+      "title": "学术委员会",
+      "url": "http://me.usst.edu.cn/2020/0528/c9012a222363/page.htm",
+      "date": "2026-04-04"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2026/0420/c10682a360140/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2025-2026学年优秀团员标兵、校优秀团员、优秀团干部和先进班集体候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2026/0420/c10682a360140/page.htm",
+      "date": "2026-03-24"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2026/0420/c10682a360144/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2024-2025学年校优秀学生、优秀学生干部和先进班集体候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2026/0420/c10682a360144/page.htm",
+      "date": "2026-03-24"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2026/0305/c10494a356964/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "2025-2026学年第二学期教务工作（预）安排表",
+      "url": "https://jwc.usst.edu.cn/2026/0305/c10494a356964/page.htm",
+      "date": "2026-03-05"
+    },
+    {
+      "id": "jwc-zygg:https://webpro.usst.edu.cn/_s71/2026/0114/c4094a355676/page.psp",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "转发2025-2026学年第二学期教材征订通知",
+      "url": "https://webpro.usst.edu.cn/_s71/2026/0114/c4094a355676/page.psp",
+      "date": "2026-03-05"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0919/c956a64941/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于发布2025年度上海市白玉兰人才计划浦江项目申请指南的通知",
+      "url": "https://www.usst.edu.cn/2025/0919/c956a64941/page.htm",
+      "date": "2026-01-22"
+    },
+    {
+      "id": "jwc-zygg:https://zcjy.usst.edu.cn/2025/0918/c4094a346638/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于学生领取及选购2025-2026学年第一学期教材的通知",
+      "url": "https://zcjy.usst.edu.cn/2025/0918/c4094a346638/page.htm",
+      "date": "2026-01-14"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2025/1231/c11992a354948/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院第六届第二次教职工代表大会胜利召开",
+      "url": "https://oece.usst.edu.cn/2025/1231/c11992a354948/page.htm",
+      "date": "2025-12-31"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2025/1223/c11992a354449/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院开展2026年“献爱心、一日捐”活动的通知",
+      "url": "https://oece.usst.edu.cn/2025/1223/c11992a354449/page.htm",
+      "date": "2025-12-31"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2024/1210/c11992a331558/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院开展2025年“献爱心、一日捐”活动的通知",
+      "url": "https://oece.usst.edu.cn/2024/1210/c11992a331558/page.htm",
+      "date": "2025-12-23"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2025/1030/c5567a349689/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院本科生发展对象公示",
+      "url": "https://waiyu.usst.edu.cn/2025/1030/c5567a349689/page.htm",
+      "date": "2025-12-10"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2025/1030/c5567a349685/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院研究生发展对象公示",
+      "url": "https://waiyu.usst.edu.cn/2025/1030/c5567a349685/page.htm",
+      "date": "2025-12-09"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2026/0420/c10682a360143/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2023-2024学年校优秀学生、优秀学生干部和先进班集体候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2026/0420/c10682a360143/page.htm",
+      "date": "2025-10-31"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2025/0610/c5567a343041/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院2021级预备党员转正公示",
+      "url": "https://waiyu.usst.edu.cn/2025/0610/c5567a343041/page.htm",
+      "date": "2025-10-28"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0712/c956a64367/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于开展2025年东方英才计划拔尖、青年项目（科技平台）申报工作的通知",
+      "url": "https://www.usst.edu.cn/2025/0712/c956a64367/page.htm",
+      "date": "2025-09-19"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2025/0518/c10494a341534/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "本科生新版教务系统升级维护通知",
+      "url": "https://jwc.usst.edu.cn/2025/0518/c10494a341534/page.htm",
+      "date": "2025-09-18"
+    },
+    {
+      "id": "jwc-zygg:https://jwc.usst.edu.cn/2025/0512/c10494a341148/page.htm",
+      "dept": "教务处",
+      "category": "通知",
+      "scope": "school",
+      "title": "关于2025年非上海生源应届普通高校毕业生进沪就业落户申请办理“学习成绩评定”相关事宜的通知",
+      "url": "https://jwc.usst.edu.cn/2025/0512/c10494a341148/page.htm",
+      "date": "2025-09-18"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0710/c956a64319/page.psp",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "2025年上海市东方英才计划拔尖、青年项目城乡治理平台（乡村振兴领域）申报通知",
+      "url": "https://www.usst.edu.cn/2025/0710/c956a64319/page.psp",
+      "date": "2025-07-14"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0710/c956a64324/page.psp",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "2025年上海市东方英才计划拔尖、青年项 目城乡治理平台（城市治理领域）申报通知",
+      "url": "https://www.usst.edu.cn/2025/0710/c956a64324/page.psp",
+      "date": "2025-07-10"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0704/c956a64227/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于征集2024年机械工业科技创新成果应用典型案例的通知",
+      "url": "https://www.usst.edu.cn/2025/0704/c956a64227/page.htm",
+      "date": "2025-07-10"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0630/c956a64124/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "上海市教育委员会上海市教育发展基金会关于做好2025年度“曙光计划”项目申报工作的通知",
+      "url": "https://www.usst.edu.cn/2025/0630/c956a64124/page.htm",
+      "date": "2025-07-04"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0610/c956a63657/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "上海理工大学关于鼓励科研项目聘用2025届毕业生担任科研助理的通知",
+      "url": "https://www.usst.edu.cn/2025/0610/c956a63657/page.htm",
+      "date": "2025-06-30"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0603/c956a63553/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于开展上海理工大学尚理晨曦社科专项项目验收工作的通知",
+      "url": "https://www.usst.edu.cn/2025/0603/c956a63553/page.htm",
+      "date": "2025-06-11"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0522/c956a63339/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "关于发布国家重点研发计划“氢能技术”“储能与智能电网技术”重点专项2025年度项目申报，以及“工程科学与综合交叉”重点专",
+      "url": "https://www.usst.edu.cn/2025/0522/c956a63339/page.htm",
+      "date": "2025-06-04"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0522/c956a63337/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "上海市科学技术委员会关于发布2025年度关键技术研发计划“新能源”项目申报指南的通知",
+      "url": "https://www.usst.edu.cn/2025/0522/c956a63337/page.htm",
+      "date": "2025-05-23"
+    },
+    {
+      "id": "sea:https://www.usst.edu.cn/2025/0521/c956a63328/page.htm",
+      "dept": "环境与建筑学院",
+      "category": "科研通知",
+      "scope": "college",
+      "title": "上海市教育委员会关于组织申报2026年度上海市教育科学研究项目的通知",
+      "url": "https://www.usst.edu.cn/2025/0521/c956a63328/page.htm",
+      "date": "2025-05-23"
+    },
+    {
+      "id": "jcxb:https://jcxb.usst.edu.cn/2025/0320/c18194a364185/page.htm",
+      "dept": "基础学部",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于2025届理学院研究生优秀毕业生评选结果公示",
+      "url": "https://jcxb.usst.edu.cn/2025/0320/c18194a364185/page.htm",
+      "date": "2025-03-27"
+    },
+    {
+      "id": "jcxb:https://jcxb.usst.edu.cn/2025/0304/c18194a364192/page.htm",
+      "dept": "基础学部",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于评选2025年度上海理工大学理学院优秀毕业研究生的通知",
+      "url": "https://jcxb.usst.edu.cn/2025/0304/c18194a364192/page.htm",
+      "date": "2025-03-20"
+    },
+    {
+      "id": "jcxb:https://jcxb.usst.edu.cn/2025/0219/c18194a364194/page.htm",
+      "dept": "基础学部",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于评定理学院2023级全日制研究生（硕博）第二阶段奖学金的通知",
+      "url": "https://jcxb.usst.edu.cn/2025/0219/c18194a364194/page.htm",
+      "date": "2025-03-04"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2023/1224/c11992a313786/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院开展2024年“献爱心、一日捐”活动的通知",
+      "url": "https://oece.usst.edu.cn/2023/1224/c11992a313786/page.htm",
+      "date": "2024-12-10"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2024/0320/c10682a316920/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2023年度管理学院校优秀团员、优秀团干部候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2024/0320/c10682a316920/page.htm",
+      "date": "2024-10-22"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2023/1024/c10682a309509/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2022-2023学年上海理工大学优秀学生、优秀学生干部、先进班集体管理学院候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2023/1024/c10682a309509/page.htm",
+      "date": "2024-03-20"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2023/1007/c11992a307542/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院工会主席贾宏志主持召开学院2023年退休教师座谈会",
+      "url": "https://oece.usst.edu.cn/2023/1007/c11992a307542/page.htm",
+      "date": "2023-12-24"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2023/0406/c10682a290983/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2022年度管理学院校优秀团员标兵、优秀团员、优秀团干部候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2023/0406/c10682a290983/page.htm",
+      "date": "2023-10-24"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2023/0302/c11992a286900/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院工会召开2023年工会工作会议",
+      "url": "https://oece.usst.edu.cn/2023/0302/c11992a286900/page.htm",
+      "date": "2023-10-07"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2023/0329/c10682a289337/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2022-2023学年第一学期管理学院 “青年大学习”网上主题团课先进团支部、先进个人候选名单",
+      "url": "https://bs.usst.edu.cn/2023/0329/c10682a289337/page.htm",
+      "date": "2023-04-06"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2022/1102/c10682a282025/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2021-2022学年上海理工大学优秀学生、优秀学生干部管理学院候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2022/1102/c10682a282025/page.htm",
+      "date": "2023-03-29"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2022/1220/c11992a285001/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院第五届第二次教代会顺利召开",
+      "url": "https://oece.usst.edu.cn/2022/1220/c11992a285001/page.htm",
+      "date": "2023-03-02"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2022/0307/c11992a266510/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "喜报！我院医用光学影像团队荣获上海市教育系统“三八红旗集体”",
+      "url": "https://oece.usst.edu.cn/2022/0307/c11992a266510/page.htm",
+      "date": "2022-12-20"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2022/0420/c10682a268680/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2021年度管理学院校优秀团员标兵、优秀团员、优秀团干部候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2022/0420/c10682a268680/page.htm",
+      "date": "2022-11-02"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2021/1102/c10682a258331/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2020-2021学年上海理工大学优秀学生、优秀学生干部、先进班集体管理学院候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2021/1102/c10682a258331/page.htm",
+      "date": "2022-04-19"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2022/0303/c11992a266221/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院工会开展新年第一次工会委员工作会议",
+      "url": "https://oece.usst.edu.cn/2022/0303/c11992a266221/page.htm",
+      "date": "2022-03-09"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2021/0513/c11992a247265/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院召开第五届第一次教师代表大会",
+      "url": "https://oece.usst.edu.cn/2021/0513/c11992a247265/page.htm",
+      "date": "2022-03-03"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2021/0420/c10682a245710/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2020年度管理学院校优秀团员标兵、优秀团员、优秀团干部候选名单（本科）",
+      "url": "https://bs.usst.edu.cn/2021/0420/c10682a245710/page.htm",
+      "date": "2021-11-02"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2021/0419/c11992a245613/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院第五届教代会代表名单",
+      "url": "https://oece.usst.edu.cn/2021/0419/c11992a245613/page.htm",
+      "date": "2021-05-13"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2020/1102/c10682a232531/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于继续开展上海理工大学“沪杏杯”第六届电子商务企业调研大赛的通知",
+      "url": "https://bs.usst.edu.cn/2020/1102/c10682a232531/page.htm",
+      "date": "2021-04-20"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2021/0411/c11992a245139/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院工会开展工作座谈会",
+      "url": "https://oece.usst.edu.cn/2021/0411/c11992a245139/page.htm",
+      "date": "2021-04-19"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2021/0411/c11992a245138/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院“工会模范小家”顺利通过验收",
+      "url": "https://oece.usst.edu.cn/2021/0411/c11992a245138/page.htm",
+      "date": "2020-12-22"
+    },
+    {
+      "id": "oece:https://oece.usst.edu.cn/2018/1205/c11992a203026/page.htm",
+      "dept": "光电信息与计算机工程学院",
+      "category": "公告信息",
+      "scope": "college",
+      "title": "光电学院第四届教职工代表大会代表名单",
+      "url": "https://oece.usst.edu.cn/2018/1205/c11992a203026/page.htm",
+      "date": "2020-12-10"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2020/1022/c10682a231751/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "管理学院2019-2020学年优秀学生、优秀学生干部、先进班集体候选名单公示（本科）",
+      "url": "https://bs.usst.edu.cn/2020/1022/c10682a231751/page.htm",
+      "date": "2020-11-02"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2020/0703/c10682a224858/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "管理学院2019级经贸类专业2019-2020学年综合表现评定结果公示",
+      "url": "https://bs.usst.edu.cn/2020/0703/c10682a224858/page.htm",
+      "date": "2020-10-22"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2020/0523/c10682a220890/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "第13周管理学院团委学生会活动日程安排表",
+      "url": "https://bs.usst.edu.cn/2020/0523/c10682a220890/page.htm",
+      "date": "2020-07-03"
+    },
+    {
+      "id": "bs:https://bs.usst.edu.cn/2020/0518/c10682a220208/page.htm",
+      "dept": "管理学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "管理学院2019级经贸类专业2019-2020学年第一学期综合表现评定结果公示",
+      "url": "https://bs.usst.edu.cn/2020/0518/c10682a220208/page.htm",
+      "date": "2020-05-24"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2020/0522/c6945a220805/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2020法国南特大西洋设计学院交流项目的通知",
+      "url": "https://ccad.usst.edu.cn/2020/0522/c6945a220805/page.htm",
+      "date": "2020-05-22"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0603/c6945a150738/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "出版印刷与艺术设计学院2019法国南特大西洋设计学院交流项目入选名单公示",
+      "url": "https://ccad.usst.edu.cn/2019/0603/c6945a150738/page.htm",
+      "date": "2020-05-22"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0603/c6945a150733/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2019法国南特大西洋设计学院交流项目的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0603/c6945a150733/page.htm",
+      "date": "2019-04-19"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0604/c6945a150829/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2019年德国汉堡应用科技大学交流项目（秋季）的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0604/c6945a150829/page.htm",
+      "date": "2019-04-08"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155917/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2019美国罗切斯特理工大学联合培养项目的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155917/page.htm",
+      "date": "2019-03-18"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155923/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2019年年德国汉堡应用科技大学项目入选名单公示",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155923/page.htm",
+      "date": "2018-12-14"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155921/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2019年德国汉堡应用科技大学交流项目（春季）的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155921/page.htm",
+      "date": "2018-09-30"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155919/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "转发国际交流处关于奥地利福拉贝尔格应用技术大学2019年春季交换项目的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155919/page.htm",
+      "date": "2018-09-30"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155928/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "出版印刷与艺术设计学院2018法国南特大西洋设计学院交流项目入选名单公示",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155928/page.htm",
+      "date": "2018-09-30"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155932/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2018年法国南特大西洋设计学院交流项目的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155932/page.htm",
+      "date": "2018-04-12"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155931/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2018年德国汉堡应用科技大学交流项目（秋季）的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155931/page.htm",
+      "date": "2018-04-02"
+    },
+    {
+      "id": "ccad:https://ccad.usst.edu.cn/2019/0619/c6945a155933/page.htm",
+      "dept": "出版印刷与艺术设计学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "关于推荐优秀学生参加2018年日本冈山大学交流项目的通知",
+      "url": "https://ccad.usst.edu.cn/2019/0619/c6945a155933/page.htm",
+      "date": "2018-04-02"
+    },
+    {
+      "id": "waiyu:https://waiyu.usst.edu.cn/2025/1210/c5567a353694/page.htm",
+      "dept": "外语学院",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "外语学院2022级预备党员转正公示",
+      "url": "https://waiyu.usst.edu.cn/2025/1210/c5567a353694/page.htm",
+      "date": null
+    },
+    {
+      "id": "jcxb:https://jcxb.usst.edu.cn/2025/0327/c18194a364184/page.htm",
+      "dept": "基础学部",
+      "category": "通知公告",
+      "scope": "college",
+      "title": "2025年上海理工大学学生”科创先锋“理学院提名候选人名单公示",
+      "url": "https://jcxb.usst.edu.cn/2025/0327/c18194a364184/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/1019/c2967a372453/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "2026年上海市学生阳光体育大联赛-保龄球比赛 赛事运营服务比选公告",
+      "url": "https://tyb.usst.edu.cn/2026/1019/c2967a372453/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/1016/c2967a371973/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "上海高校市级重点课程申报推荐公示",
+      "url": "https://tyb.usst.edu.cn/2026/1016/c2967a371973/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/1015/c2967a371877/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "智慧体育管理系统二期项目比选结果公告",
+      "url": "https://tyb.usst.edu.cn/2026/1015/c2967a371877/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0929/c2967a371250/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "关于智慧体育管理系统二期项目三方比价的通知",
+      "url": "https://tyb.usst.edu.cn/2026/0929/c2967a371250/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0920/c2967a370816/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "关于2026-2027（1）第一周体育教学场地安排的通知",
+      "url": "https://tyb.usst.edu.cn/2026/0920/c2967a370816/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0915/c2967a370538/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "体测设备比选结果公告",
+      "url": "https://tyb.usst.edu.cn/2026/0915/c2967a370538/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0911/c2967a370330/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "上海理工大学本科生体育类课程选课指南",
+      "url": "https://tyb.usst.edu.cn/2026/0911/c2967a370330/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0909/c2967a370202/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "学生体质测试设备比选公告",
+      "url": "https://tyb.usst.edu.cn/2026/0909/c2967a370202/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0408/c2967a359418/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "2025年体育类奖学金获奖情况公示",
+      "url": "https://tyb.usst.edu.cn/2026/0408/c2967a359418/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0407/c2967a359307/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "车辆租用服务比选结果公告",
+      "url": "https://tyb.usst.edu.cn/2026/0407/c2967a359307/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0407/c2967a359306/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "2025-2026学年上海市大学生腰旗橄榄球锦标赛赛事运营服务 比选公告",
+      "url": "https://tyb.usst.edu.cn/2026/0407/c2967a359306/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0401/c2967a358998/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "车辆租用服务比选公告",
+      "url": "https://tyb.usst.edu.cn/2026/0401/c2967a358998/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0327/c2967a358629/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "2026 年度体育教学部“四类”项目推荐公示",
+      "url": "https://tyb.usst.edu.cn/2026/0327/c2967a358629/page.htm",
+      "date": null
+    },
+    {
+      "id": "tyb:https://tyb.usst.edu.cn/2026/0325/c2967a358158/page.htm",
+      "dept": "体育教学部",
+      "category": "信息公告",
+      "scope": "school",
+      "title": "关于 2025 年体育类奖学金申报评审的通知",
+      "url": "https://tyb.usst.edu.cn/2026/0325/c2967a358158/page.htm",
+      "date": null
+    }
+  ]
+}

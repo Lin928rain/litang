@@ -1,0 +1,59 @@
+name: sync-notices
+
+on:
+  schedule:
+    # 每天 3 次（UTC）：早 8:00 / 午 13:00 / 晚 22:00 ≈ 北京时间 16:00 / 21:00 / 06:00
+    - cron: '0 8 * * *'
+    - cron: '0 13 * * *'
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run parser unit tests
+        run: node --test tools/notice-sync/fetch.test.mjs
+
+      - name: Fetch notices
+        run: node tools/notice-sync/fetch.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tools/notice-sync/out/notices.json
+          if git diff --quiet --cached; then
+            echo "没有变化，跳过提交"
+          else
+            git commit -m "chore(notices): sync $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
+      # 同步到 Gitee 作为国内备用源（配置了 secrets 才执行）
+      - name: Mirror to Gitee
+        if: ${{ env.GITEE_TOKEN != '' }}
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          cd "$RUNNER_TEMP"
+          git clone --depth 1 "https://oauth2:${GITEE_TOKEN}@gitee.com/extrisha/litang.git" gitee-mirror || exit 0
+          cp "${GITHUB_WORKSPACE}/tools/notice-sync/out/notices.json" gitee-mirror/tools/notice-sync/out/notices.json 2>/dev/null || {
+            mkdir -p gitee-mirror/tools/notice-sync/out
+            cp "${GITHUB_WORKSPACE}/tools/notice-sync/out/notices.json" gitee-mirror/tools/notice-sync/out/
+          }
+          cd gitee-mirror
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tools/notice-sync/out/notices.json
+          git diff --quiet --cached || git commit -m "chore(notices): sync from GitHub Actions"
+          git push || true
