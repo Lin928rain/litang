@@ -121,10 +121,7 @@ class UpdateService {
     UpdateInfo info, {
     void Function(double progress)? onProgress,
   }) async {
-    final urls = <String>[
-      if (info.githubUrl.isNotEmpty) info.githubUrl,
-      if (info.giteeUrl.isNotEmpty) info.giteeUrl,
-    ];
+    final urls = candidateUrls(info);
     Object? lastError;
     for (var i = 0; i < urls.length; i++) {
       try {
@@ -141,6 +138,36 @@ class UpdateService {
       }
     }
     throw Exception('下载失败：${lastError ?? '没有可用的下载地址'}');
+  }
+
+  /// 候选下载地址（按顺序试）。
+  ///
+  /// Gitee 的地址里写死了 release tag，而 tag 有没有 `v` 前缀是靠人记的
+  /// （历史上 v0.2.x / v0.3.0 带 v，0.4.x 不带），写错就是 404。
+  /// 所以这里把两种写法都排进去，谁通用谁。
+  static List<String> candidateUrls(UpdateInfo info) {
+    final out = <String>[];
+    void add(String url) {
+      if (url.isNotEmpty && !out.contains(url)) out.add(url);
+    }
+
+    add(info.githubUrl);
+    add(info.giteeUrl);
+    for (final url in _tagVariants(info.giteeUrl)) {
+      add(url);
+    }
+    return out;
+  }
+
+  /// 把 `/download/<tag>/` 里的 tag 在「带 v」和「不带 v」之间来回换。
+  static List<String> _tagVariants(String url) {
+    if (url.isEmpty) return const <String>[];
+    final match = RegExp(r'/download/([^/]+)/').firstMatch(url);
+    if (match == null) return const <String>[];
+    final tag = match.group(1)!;
+    final alt = tag.startsWith('v') ? tag.substring(1) : 'v$tag';
+    if (alt.isEmpty) return const <String>[];
+    return <String>[url.replaceFirst(match.group(0)!, '/download/$alt/')];
   }
 
   static Future<String> _downloadOne(

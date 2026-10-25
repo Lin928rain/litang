@@ -66,4 +66,54 @@ void main() {
       expect(info.withMandatory(false).mandatory, isFalse);
     });
   });
+
+  group('下载地址候选', () {
+    UpdateInfo info(String gitee) => UpdateInfo(
+      version: '0.4.2',
+      versionCode: 16,
+      notes: '',
+      githubUrl: 'https://github.com/o/r/releases/latest/download/app-release.apk',
+      giteeUrl: gitee,
+      sha256: 'x',
+    );
+
+    test('Gitee tag 不带 v 时，额外补一个带 v 的备选', () {
+      final urls = UpdateService.candidateUrls(
+        info('https://gitee.com/o/r/releases/download/0.4.2/app-release.apk'),
+      );
+      expect(urls.length, 3);
+      expect(urls[0], contains('latest/download'));
+      expect(urls[1], contains('/download/0.4.2/'));
+      expect(urls[2], contains('/download/v0.4.2/'));
+    });
+
+    test('Gitee tag 带 v 时，反过来补一个不带 v 的', () {
+      final urls = UpdateService.candidateUrls(
+        info('https://gitee.com/o/r/releases/download/v0.4.2/app-release.apk'),
+      );
+      expect(urls.length, 3);
+      expect(urls[2], contains('/download/0.4.2/'));
+      expect(urls[2], isNot(contains('v0.4.2')));
+    });
+
+    test('没有 download 段的地址不会凭空造备选', () {
+      final urls = UpdateService.candidateUrls(info('https://example.com/a.apk'));
+      expect(urls.length, 2);
+    });
+
+    test('空地址只留下有值的那些', () {
+      final urls = UpdateService.candidateUrls(
+        const UpdateInfo(
+          version: '1',
+          versionCode: 1,
+          notes: '',
+          githubUrl: '',
+          giteeUrl: 'https://gitee.com/o/r/releases/download/1.0/a.apk',
+          sha256: '',
+        ),
+      );
+      expect(urls.first, contains('gitee.com'));
+      expect(urls.every((u) => u.isNotEmpty), isTrue);
+    });
+  });
 }
