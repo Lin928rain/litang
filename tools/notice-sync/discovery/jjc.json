@@ -1,0 +1,155 @@
+{
+  "dept": "基建处",
+  "host": "jjc",
+  "group": "机关",
+  "home": "https://jjc.usst.edu.cn/",
+  "homeArticles": 45,
+  "pagesProbed": 22,
+  "columns": [
+    {
+      "url": "https://jjc.usst.edu.cn/1987/list.htm",
+      "cid": "1987",
+      "name": "基建新闻",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2025-05-12",
+      "oldest": "2023-05-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/2002/list.htm",
+      "cid": "2003",
+      "name": "学校管理规定",
+      "linkText": "规章制度",
+      "articles": 14,
+      "latest": "2025-04-08",
+      "oldest": "2015-11-10",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/2004/list.htm",
+      "cid": "2004",
+      "name": "部门管理规定",
+      "linkText": "部门管理规定",
+      "articles": 4,
+      "latest": "2024-04-09",
+      "oldest": "2022-08-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1994/list.htm",
+      "cid": "1994",
+      "name": "公告通知",
+      "linkText": "+更多",
+      "articles": 8,
+      "latest": "2022-12-21",
+      "oldest": "2018-01-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1984/list.htm",
+      "cid": "1984",
+      "name": "结果公示",
+      "linkText": "+更多",
+      "articles": 14,
+      "latest": "2021-12-31",
+      "oldest": "2021-11-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1982/list.htm",
+      "cid": "1982",
+      "name": "招标公告",
+      "linkText": "+更多",
+      "articles": 14,
+      "latest": "2021-12-23",
+      "oldest": "2021-11-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/2001/list.htm",
+      "cid": "2001",
+      "name": "上海市地方性法律法规",
+      "linkText": "地方法律法规",
+      "articles": 4,
+      "latest": "2021-09-17",
+      "oldest": "2021-05-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/2007/list.htm",
+      "cid": "2007",
+      "name": "基建知识",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2017-12-08",
+      "oldest": "2016-12-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1988/list.htm",
+      "cid": "1988",
+      "name": "下载专区",
+      "linkText": "下载专区",
+      "articles": 11,
+      "latest": "2016-08-03",
+      "oldest": "2009-03-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1999/list.htm",
+      "cid": "2000",
+      "name": "国家法律法规",
+      "linkText": "政策法规",
+      "articles": 7,
+      "latest": "2016-04-12",
+      "oldest": "2015-10-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1989/list.htm",
+      "cid": "1989",
+      "name": "校园风貌",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2016-03-02",
+      "oldest": "2016-03-02",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/2005/list.htm",
+      "cid": "2005",
+      "name": "工程概况",
+      "linkText": "",
+      "articles": 4,
+      "latest": "2015-10-23",
+      "oldest": "2009-04-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jjc.usst.edu.cn/1983/list.htm",
+      "cid": "1983",
+      "name": "招标文件",
+      "linkText": "+更多",
+      "articles": 7,
+      "latest": "2014-06-19",
+      "oldest": "2014-06-06",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 3207
+}

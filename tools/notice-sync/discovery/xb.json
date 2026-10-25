@@ -1,0 +1,154 @@
+{
+  "dept": "党委/校长办公室",
+  "host": "xb",
+  "group": "机关",
+  "home": "https://xb.usst.edu.cn/",
+  "homeArticles": 21,
+  "pagesProbed": 14,
+  "columns": [
+    {
+      "url": "https://xb.usst.edu.cn/gzdt/list.htm",
+      "cid": "8594",
+      "name": "工作动态",
+      "linkText": "工作动态",
+      "articles": 14,
+      "latest": "2026-10-24",
+      "oldest": "2026-09-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/yzhyap/list.htm",
+      "cid": "8648",
+      "name": "一周会议安排",
+      "linkText": "一周会议安排",
+      "articles": 14,
+      "latest": "2026-10-24",
+      "oldest": "2026-06-05",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/flsw/list.htm",
+      "cid": "8601",
+      "name": "合同管理",
+      "linkText": "法律事务",
+      "articles": 2,
+      "latest": "2024-06-05",
+      "oldest": "2019-08-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/gfxwjgl/list.htm",
+      "cid": "8602",
+      "name": "规范性文件管理",
+      "linkText": "",
+      "articles": 2,
+      "latest": "2024-06-05",
+      "oldest": "2019-08-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/cyxz/list.htm",
+      "cid": "8624",
+      "name": "常用下载",
+      "linkText": "常用下载",
+      "articles": 3,
+      "latest": "2024-05-14",
+      "oldest": "2019-08-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/zbjs/list.htm",
+      "cid": "8608",
+      "name": "支部动态",
+      "linkText": "支部建设",
+      "articles": 2,
+      "latest": "2024-04-19",
+      "oldest": "2021-11-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/gzdt_8615/list.htm",
+      "cid": "8615",
+      "name": "校助动态",
+      "linkText": "校助动态",
+      "articles": 4,
+      "latest": "2024-03-13",
+      "oldest": "2023-04-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/bmdt/list.htm",
+      "cid": "8583",
+      "name": "部门动态",
+      "linkText": "更多+",
+      "articles": 3,
+      "latest": "2023-09-26",
+      "oldest": "2020-03-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/slyx/list.htm",
+      "cid": "8587",
+      "name": "上理映像",
+      "linkText": "更多+",
+      "articles": 6,
+      "latest": "2019-07-19",
+      "oldest": "2019-07-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/sjzy/list.htm",
+      "cid": "8595",
+      "name": "书记主页",
+      "linkText": "书记主页",
+      "articles": 4,
+      "latest": "2019-07-18",
+      "oldest": "2019-07-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xb.usst.edu.cn/xzzy/list.htm",
+      "cid": "8596",
+      "name": "校长主页",
+      "linkText": "校长主页",
+      "articles": 4,
+      "latest": "2019-07-18",
+      "oldest": "2019-07-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "9023",
+      "sample": "/2020/0630/c9023a224383/page.htm",
+      "date": "2020-06-30"
+    },
+    {
+      "cid": "9024",
+      "sample": "/2023/0925/c9024a307001/page.htm",
+      "date": "2023-09-25"
+    },
+    {
+      "cid": "9025",
+      "sample": "/2023/0926/c9025a307074/page.htm",
+      "date": "2023-09-26"
+    },
+    {
+      "cid": "9026",
+      "sample": "/2020/0630/c9026a224386/page.htm",
+      "date": "2020-06-30"
+    }
+  ],
+  "elapsedMs": 5772
+}

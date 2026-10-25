@@ -1,0 +1,172 @@
+{
+  "dept": "档案馆",
+  "host": "dag",
+  "group": "直属",
+  "home": "https://dag.usst.edu.cn/",
+  "homeArticles": 28,
+  "pagesProbed": 17,
+  "columns": [
+    {
+      "url": "https://dag.usst.edu.cn/14228/list.htm",
+      "cid": "14228",
+      "name": "新闻动态",
+      "linkText": "MORE+",
+      "articles": 14,
+      "latest": "2026-10-21",
+      "oldest": "2026-04-27",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14219/list.htm",
+      "cid": "18284",
+      "name": "百廿上理",
+      "linkText": "校史研究",
+      "articles": 9,
+      "latest": "2026-10-08",
+      "oldest": "2026-06-22",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14235/list.htm",
+      "cid": "14235",
+      "name": "专题展览",
+      "linkText": "MORE+",
+      "articles": 5,
+      "latest": "2026-06-12",
+      "oldest": "2020-04-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14230/list.htm",
+      "cid": "14230",
+      "name": "通知公告",
+      "linkText": "MORE+",
+      "articles": 10,
+      "latest": "2026-06-01",
+      "oldest": "2024-10-13",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14236/list.htm",
+      "cid": "14236",
+      "name": "常见问题",
+      "linkText": "MORE+",
+      "articles": 7,
+      "latest": "2023-06-07",
+      "oldest": "2023-04-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/zt/list.htm",
+      "cid": "14569",
+      "name": "专题",
+      "linkText": "专题",
+      "articles": 3,
+      "latest": "2023-06-01",
+      "oldest": "2023-06-01",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14222/list.htm",
+      "cid": "14551",
+      "name": "国家法律",
+      "linkText": "法规制度",
+      "articles": 2,
+      "latest": "2023-05-30",
+      "oldest": "2019-01-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/xzfg/list.htm",
+      "cid": "14552",
+      "name": "行政法规",
+      "linkText": "行政法规",
+      "articles": 3,
+      "latest": "2023-05-30",
+      "oldest": "2019-01-21",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/bmgz/list.htm",
+      "cid": "14553",
+      "name": "部门规章",
+      "linkText": "部门规章",
+      "articles": 1,
+      "latest": "2023-05-30",
+      "oldest": "2023-05-30",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/14233/list.htm",
+      "cid": "14233",
+      "name": "文博场馆",
+      "linkText": "MORE+",
+      "articles": 3,
+      "latest": "2023-04-12",
+      "oldest": "2023-04-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/kz/list.htm",
+      "cid": "14568",
+      "name": "考证",
+      "linkText": "考证",
+      "articles": 2,
+      "latest": "2018-09-14",
+      "oldest": "2014-04-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/cyxz/list.htm",
+      "cid": "14562",
+      "name": "常用下载",
+      "linkText": "常用下载",
+      "articles": 2,
+      "latest": "2018-05-30",
+      "oldest": "2018-05-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/bycg/list.htm",
+      "cid": "14414",
+      "name": "人物",
+      "linkText": "人物",
+      "articles": 2,
+      "latest": "2013-05-07",
+      "oldest": "2013-05-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://dag.usst.edu.cn/dffg/list.htm",
+      "cid": "14364",
+      "name": "地方法规",
+      "linkText": "地方法规",
+      "articles": 1,
+      "latest": "2008-06-02",
+      "oldest": "2008-06-02",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "14227",
+      "sample": "/2023/0524/c14227a298567/page.htm",
+      "date": "2023-05-24"
+    }
+  ],
+  "elapsedMs": 2509
+}

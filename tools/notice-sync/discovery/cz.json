@@ -1,0 +1,72 @@
+{
+  "dept": "继续教育学院招生网",
+  "host": "cz",
+  "group": "招生",
+  "home": "https://cz.usst.edu.cn/",
+  "homeArticles": 28,
+  "pagesProbed": 6,
+  "columns": [
+    {
+      "url": "https://cz.usst.edu.cn/zsxx/list.htm",
+      "cid": "6612",
+      "name": "招生信息",
+      "linkText": "招生信息",
+      "articles": 13,
+      "latest": "2026-10-15",
+      "oldest": "2023-07-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cz.usst.edu.cn/zyjs/list.htm",
+      "cid": "6613",
+      "name": "专业介绍",
+      "linkText": "专业介绍",
+      "articles": 13,
+      "latest": "2025-07-18",
+      "oldest": "2020-03-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cz.usst.edu.cn/jxdjs/list.htm",
+      "cid": "6614",
+      "name": "教学点介绍",
+      "linkText": "教学点介绍",
+      "articles": 11,
+      "latest": "2025-07-18",
+      "oldest": "2011-03-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cz.usst.edu.cn/xygk/list.htm",
+      "cid": "6615",
+      "name": "学院概况",
+      "linkText": "学院概况",
+      "articles": 1,
+      "latest": "2019-03-28",
+      "oldest": "2019-03-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "6623",
+      "sample": "/2019/0320/c6623a137166/page.htm",
+      "date": "2019-03-20"
+    },
+    {
+      "cid": "6672",
+      "sample": "/2026/0827/c6672a369794/page.htm",
+      "date": "2026-08-27"
+    },
+    {
+      "cid": "6673",
+      "sample": "/2019/0329/c6673a137477/page.htm",
+      "date": "2019-03-29"
+    }
+  ],
+  "elapsedMs": 543
+}

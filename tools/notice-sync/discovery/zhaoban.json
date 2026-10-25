@@ -1,0 +1,133 @@
+{
+  "dept": "本科招生网",
+  "host": "zhaoban",
+  "group": "招生",
+  "home": "https://zhaoban.usst.edu.cn/",
+  "homeArticles": 18,
+  "pagesProbed": 12,
+  "columns": [
+    {
+      "url": "https://zhaoban.usst.edu.cn/zsdt/list.htm",
+      "cid": "6166",
+      "name": "最新动态",
+      "linkText": "最新动态",
+      "articles": 10,
+      "latest": "2026-10-23",
+      "oldest": "2026-04-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/qjzs/list.htm",
+      "cid": "6173",
+      "name": "秋季招生",
+      "linkText": "秋季招生",
+      "articles": 2,
+      "latest": "2026-07-06",
+      "oldest": "2026-05-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/zszc/list.htm",
+      "cid": "6165",
+      "name": "招生政策",
+      "linkText": "招生政策",
+      "articles": 8,
+      "latest": "2026-06-09",
+      "oldest": "2024-12-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11849/list.htm",
+      "cid": "11849",
+      "name": "港澳台生",
+      "linkText": "港澳台生",
+      "articles": 3,
+      "latest": "2026-06-09",
+      "oldest": "2025-06-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/gats/list.htm",
+      "cid": "6177",
+      "name": "港澳台生",
+      "linkText": "港澳台生",
+      "articles": 3,
+      "latest": "2026-06-09",
+      "oldest": "2025-06-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/cbs/list.htm",
+      "cid": "6176",
+      "name": "插班生",
+      "linkText": "插班生",
+      "articles": 7,
+      "latest": "2026-06-06",
+      "oldest": "2026-02-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/zsb/list.htm",
+      "cid": "6175",
+      "name": "专升本",
+      "linkText": "专升本",
+      "articles": 7,
+      "latest": "2026-04-20",
+      "oldest": "2025-12-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/zslx/list.htm",
+      "cid": "6180",
+      "name": "春季招生",
+      "linkText": "招生类型",
+      "articles": 5,
+      "latest": "2026-03-07",
+      "oldest": "2025-12-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11842/list.htm",
+      "cid": "11842",
+      "name": "春季招生",
+      "linkText": "春季招生",
+      "articles": 1,
+      "latest": "2025-12-16",
+      "oldest": "2025-12-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11814/list.htm",
+      "cid": "11814",
+      "name": "上理印象",
+      "linkText": "上理印象",
+      "articles": 5,
+      "latest": "2023-02-12",
+      "oldest": "2019-01-22",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zhaoban.usst.edu.cn/11815/list.htm",
+      "cid": "11815",
+      "name": "校园纵览",
+      "linkText": "校园纵览",
+      "articles": 4,
+      "latest": "2014-09-15",
+      "oldest": "2014-07-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 1278
+}

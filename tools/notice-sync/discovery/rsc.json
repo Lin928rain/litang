@@ -1,0 +1,210 @@
+{
+  "dept": "人事处",
+  "host": "rsc",
+  "group": "机关",
+  "home": "https://rsc.usst.edu.cn/",
+  "homeArticles": 26,
+  "pagesProbed": 30,
+  "columns": [
+    {
+      "url": "https://rsc.usst.edu.cn/2816/list.htm",
+      "cid": "2816",
+      "name": "公告公示",
+      "linkText": "更多+",
+      "articles": 14,
+      "latest": "2026-10-21",
+      "oldest": "2026-06-12",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2857/list.htm",
+      "cid": "2857",
+      "name": "教师资格证",
+      "linkText": "更多+",
+      "articles": 3,
+      "latest": "2026-09-22",
+      "oldest": "2024-09-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/11765/list.htm",
+      "cid": "11765",
+      "name": "岗位聘任",
+      "linkText": "更多+",
+      "articles": 2,
+      "latest": "2026-09-17",
+      "oldest": "2026-08-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/11758/list.htm",
+      "cid": "11758",
+      "name": "新闻公告",
+      "linkText": "新闻公告",
+      "articles": 8,
+      "latest": "2026-09-08",
+      "oldest": "2025-05-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2818/list.htm",
+      "cid": "2818",
+      "name": "最新动态",
+      "linkText": "更多+",
+      "articles": 6,
+      "latest": "2026-09-08",
+      "oldest": "2026-06-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2853/list.htm",
+      "cid": "2853",
+      "name": "职务晋升",
+      "linkText": "更多+",
+      "articles": 4,
+      "latest": "2026-08-04",
+      "oldest": "2025-02-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2833/list.htm",
+      "cid": "2833",
+      "name": "表格下载",
+      "linkText": "下载专区",
+      "articles": 12,
+      "latest": "2026-05-29",
+      "oldest": "2022-12-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2841/list.htm",
+      "cid": "2841",
+      "name": "相关公告",
+      "linkText": "博士后",
+      "articles": 6,
+      "latest": "2026-01-16",
+      "oldest": "2019-06-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2846/list.htm",
+      "cid": "2846",
+      "name": "图片新闻",
+      "linkText": "",
+      "articles": 4,
+      "latest": "2025-09-23",
+      "oldest": "2025-05-29",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2828/list.htm",
+      "cid": "2828",
+      "name": "校内文件",
+      "linkText": "校内文件",
+      "articles": 14,
+      "latest": "2024-11-15",
+      "oldest": "2022-09-26",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2829/list.htm",
+      "cid": "12010",
+      "name": "人事办公室",
+      "linkText": "办事指南",
+      "articles": 8,
+      "latest": "2023-03-30",
+      "oldest": "2021-04-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/xcflbgs/list.htm",
+      "cid": "12007",
+      "name": "薪酬福利办公室",
+      "linkText": "薪酬福利办公室",
+      "articles": 4,
+      "latest": "2021-11-24",
+      "oldest": "2021-04-07",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/szbgs/list.htm",
+      "cid": "12008",
+      "name": "师资办公室",
+      "linkText": "师资办公室",
+      "articles": 6,
+      "latest": "2021-04-28",
+      "oldest": "2021-04-27",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/zhbgs_12012/list.htm",
+      "cid": "12012",
+      "name": "综合办公室",
+      "linkText": "综合办公室",
+      "articles": 2,
+      "latest": "2021-04-27",
+      "oldest": "2021-04-25",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/zhbgs_12006/list.htm",
+      "cid": "12006",
+      "name": "人才交流中心",
+      "linkText": "人才交流中心",
+      "articles": 3,
+      "latest": "2021-04-09",
+      "oldest": "2021-04-02",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/2826/list.htm",
+      "cid": "2827",
+      "name": "政府文件",
+      "linkText": "规章制度",
+      "articles": 14,
+      "latest": "2019-09-30",
+      "oldest": "2011-08-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rsc.usst.edu.cn/zhbgs/list.htm",
+      "cid": "2851",
+      "name": "综合办公室（人才交流中心合署）",
+      "linkText": "综合办公室（人才交流中心合署）",
+      "articles": 1,
+      "latest": "2011-11-08",
+      "oldest": "2011-11-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "11766",
+      "sample": "/2020/1231/c11766a240524/page.htm",
+      "date": "2020-12-31"
+    },
+    {
+      "cid": "2819",
+      "sample": "/2024/1118/c2819a330105/page.htm",
+      "date": "2024-11-18"
+    }
+  ],
+  "elapsedMs": 1049
+}

@@ -1,0 +1,260 @@
+{
+  "dept": "公利医院医疗技术学院",
+  "host": "glhospital",
+  "group": "学院",
+  "home": "https://glhospital.usst.edu.cn/",
+  "homeArticles": 28,
+  "pagesProbed": 22,
+  "columns": [
+    {
+      "url": "https://glhospital.usst.edu.cn/djgz/list.htm",
+      "cid": "14100",
+      "name": "科学研究",
+      "linkText": "科学研究",
+      "articles": 11,
+      "latest": "2026-10-12",
+      "oldest": "2023-03-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xwdt/list.htm",
+      "cid": "14109",
+      "name": "新闻动态",
+      "linkText": "更多+",
+      "articles": 14,
+      "latest": "2026-10-12",
+      "oldest": "2026-02-02",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14128/list.htm",
+      "cid": "14128",
+      "name": "就业工作",
+      "linkText": "就业工作",
+      "articles": 4,
+      "latest": "2026-10-10",
+      "oldest": "2025-11-10",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xsgz_17818/list.htm",
+      "cid": "17818",
+      "name": "学生工作",
+      "linkText": "学生工作",
+      "articles": 13,
+      "latest": "2026-09-28",
+      "oldest": "2024-09-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/tzgg/list.htm",
+      "cid": "14110",
+      "name": "通知公告",
+      "linkText": "更多+",
+      "articles": 14,
+      "latest": "2026-09-28",
+      "oldest": "2024-09-12",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14126/list.htm",
+      "cid": "14126",
+      "name": "培养工作",
+      "linkText": "培养工作",
+      "articles": 14,
+      "latest": "2026-09-10",
+      "oldest": "2024-11-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/gldj/list.htm",
+      "cid": "17819",
+      "name": "党建工作",
+      "linkText": "党建工作",
+      "articles": 14,
+      "latest": "2026-06-01",
+      "oldest": "2025-01-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xxgg/list.htm",
+      "cid": "14154",
+      "name": "信息公告",
+      "linkText": "信息公告",
+      "articles": 14,
+      "latest": "2026-05-11",
+      "oldest": "2023-10-04",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14127/list.htm",
+      "cid": "14127",
+      "name": "学位工作",
+      "linkText": "学位工作",
+      "articles": 2,
+      "latest": "2026-04-08",
+      "oldest": "2023-08-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/zjjs/list.htm",
+      "cid": "14113",
+      "name": "专家介绍",
+      "linkText": "更多+",
+      "articles": 6,
+      "latest": "2026-02-06",
+      "oldest": "2023-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xsgz/list.htm",
+      "cid": "14104",
+      "name": "党群工作",
+      "linkText": "党群工作",
+      "articles": 14,
+      "latest": "2026-02-02",
+      "oldest": "2023-03-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14134/list.htm",
+      "cid": "14134",
+      "name": "招生宣传",
+      "linkText": "招生宣传",
+      "articles": 8,
+      "latest": "2025-12-29",
+      "oldest": "2023-03-21",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14129/list.htm",
+      "cid": "14129",
+      "name": "研究生管理",
+      "linkText": "研究生管理",
+      "articles": 14,
+      "latest": "2025-12-08",
+      "oldest": "2023-09-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14131/list.htm",
+      "cid": "14131",
+      "name": "招生目录",
+      "linkText": "招生目录",
+      "articles": 4,
+      "latest": "2025-07-03",
+      "oldest": "2023-03-21",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/jxgz/list.htm",
+      "cid": "14102",
+      "name": "教育教学",
+      "linkText": "教育教学",
+      "articles": 8,
+      "latest": "2025-06-08",
+      "oldest": "2023-03-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14125/list.htm",
+      "cid": "14125",
+      "name": "招生工作",
+      "linkText": "招生工作",
+      "articles": 3,
+      "latest": "2025-03-22",
+      "oldest": "2023-12-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/yjsjy/list.htm",
+      "cid": "14101",
+      "name": "招生就业",
+      "linkText": "招生就业",
+      "articles": 3,
+      "latest": "2024-12-30",
+      "oldest": "2023-12-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xzzq/list.htm",
+      "cid": "14112",
+      "name": "文件下载",
+      "linkText": "更多+",
+      "articles": 8,
+      "latest": "2024-12-04",
+      "oldest": "2023-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14130/list.htm",
+      "cid": "14130",
+      "name": "招生简章",
+      "linkText": "招生简章",
+      "articles": 3,
+      "latest": "2023-10-04",
+      "oldest": "2023-03-21",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/14132/list.htm",
+      "cid": "14132",
+      "name": "专业介绍",
+      "linkText": "专业介绍",
+      "articles": 10,
+      "latest": "2023-07-13",
+      "oldest": "2023-03-21",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xygk/list.htm",
+      "cid": "14098",
+      "name": "学院概况",
+      "linkText": "学院概况",
+      "articles": 2,
+      "latest": "2023-03-30",
+      "oldest": "2023-03-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://glhospital.usst.edu.cn/xsjl/list.htm",
+      "cid": "14111",
+      "name": "合作交流",
+      "linkText": "更多+",
+      "articles": 3,
+      "latest": "2023-03-19",
+      "oldest": "2023-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "14108",
+      "sample": "/2026/0105/c14108a355151/page.htm",
+      "date": "2026-01-05"
+    }
+  ],
+  "elapsedMs": 685
+}

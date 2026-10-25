@@ -1,0 +1,95 @@
+{
+  "dept": "经济管理实验中心",
+  "host": "emlab",
+  "group": "直属",
+  "home": "https://emlab.usst.edu.cn/",
+  "homeArticles": 22,
+  "pagesProbed": 11,
+  "columns": [
+    {
+      "url": "https://emlab.usst.edu.cn/5349/list.htm",
+      "cid": "5350",
+      "name": "新闻资讯",
+      "linkText": "新闻资讯",
+      "articles": 14,
+      "latest": "2026-09-30",
+      "oldest": "2025-03-26",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/5351/list.htm",
+      "cid": "5351",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 14,
+      "latest": "2026-09-29",
+      "oldest": "2019-09-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/jwjx/list.htm",
+      "cid": "17015",
+      "name": "实验短视频",
+      "linkText": "教务教学",
+      "articles": 3,
+      "latest": "2025-12-24",
+      "oldest": "2025-03-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/5366/list.htm",
+      "cid": "5366",
+      "name": "成果与荣誉",
+      "linkText": "成果与荣誉",
+      "articles": 7,
+      "latest": "2024-12-11",
+      "oldest": "2024-03-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/5364/list.htm",
+      "cid": "5365",
+      "name": "学生竞赛",
+      "linkText": "创新创业",
+      "articles": 5,
+      "latest": "2024-06-11",
+      "oldest": "2024-03-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/aqgl/list.htm",
+      "cid": "16028",
+      "name": "安全管理",
+      "linkText": "安全管理",
+      "articles": 4,
+      "latest": "2023-03-13",
+      "oldest": "2023-03-13",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://emlab.usst.edu.cn/5358/list.htm",
+      "cid": "5359",
+      "name": "课件下载",
+      "linkText": "资源下载",
+      "articles": 5,
+      "latest": "2018-10-19",
+      "oldest": "2018-10-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "16029",
+      "sample": "/2023/0313/c16029a287815/page.htm",
+      "date": "2023-03-13"
+    }
+  ],
+  "elapsedMs": 736
+}

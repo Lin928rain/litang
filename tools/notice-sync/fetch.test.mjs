@@ -160,3 +160,57 @@ test('日期窗口不侵占相邻条目的日期', () => {
     '第一条不应拿到第二条的日期',
   );
 });
+
+test('title 属性里又塞了一整段 <a>（研究生院那种畸形模板）', () => {
+  // 实测 yjs.usst.edu.cn：外层 <a> 的 title 属性值本身是 HTML
+  const html = `
+    <table class="wp_article_list_table"><tr><td>
+      <span class="time fr">2026-09-30</span>
+      <a href="/2026/0930/c11872a371339/page.htm" title="<a href='/2026/0930/c11872a371339/page.htm' target='_blank' title='关于组织申报来华留学研究生全英（外）文授课培养项目建设典型案例的通知'>关于组织申报来华留学研究生全英（外）文授课培养项目建设典型案...</a>"><a href='/2026/0930/c11872a371339/page.htm' target='_blank' title='关于组织申报来华留学研究生全英（外）文授课培养项目建设典型案例的通知'>关于组织申报来华留学研究生全英（外）文授课培养项目建设典型案...</a></a>
+    </td></tr></table>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 1);
+  assert.equal(
+    items[0].title,
+    '关于组织申报来华留学研究生全英（外）文授课培养项目建设典型案例的通知',
+    '不能把 <a href= 当成标题，也不能用被省略号截断的展示文案',
+  );
+  assert.equal(items[0].date, '2026-09-30');
+});
+
+test('摘要里写了截止日期时，用列表里的发布日期', () => {
+  // 摘要正文常写「截止时间 2026-10-13」，不能盖掉真正的发布日
+  const html = `
+    <li class="news n3 clearfix">
+      <div class="news_wz">
+        <div class="news_title"><a href='/2026/0914/c18415a370397/page.htm' title='统计建模大赛获奖名单公告'>统计建模大赛获奖名单公告</a></div>
+        <div class="news_text"><a href='/2026/0914/c18415a370397/page.htm'>本次大赛于 2026-10-13 截止报名，现将名单公示如下，请相互转告并及时核对信息。</a></div>
+        <div class="news_meta">2026-09-14</div>
+      </div>
+    </li>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].date, '2026-09-14');
+});
+
+test('列表页没有日期时用文章 URL 里的归档日期兜底', () => {
+  const html = `
+    <li class="news n1">
+      <div class="news_title"><a href="/2026/0320/c18415a364360/page.htm">第二轮报名通知</a></div>
+    </li>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].date, '2026-03-20');
+});
+
+test('整行塞进一个 <a>（日期 + 标题 + 浏览量）时只留标题', () => {
+  // 实测 fund.usst.edu.cn：<a>2026-10-22 名单公示 10</a>
+  const html = `
+    <tr>
+      <td><a href="/2026/1022/c1234a567/page.htm">2026-10-22 2025-2026学年外语学院华贞助学奖学金名单公示 10</a></td>
+    </tr>`;
+  const items = parseList(html, SOURCE);
+  assert.equal(items.length, 1);
+  assert.equal(items[0].title, '2025-2026学年外语学院华贞助学奖学金名单公示');
+  assert.equal(items[0].date, '2026-10-22');
+});

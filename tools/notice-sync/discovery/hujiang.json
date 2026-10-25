@@ -1,0 +1,271 @@
+{
+  "dept": "沪江学院",
+  "host": "hujiang",
+  "group": "学院",
+  "home": "https://hujiang.usst.edu.cn/",
+  "homeArticles": 42,
+  "pagesProbed": 49,
+  "columns": [
+    {
+      "url": "https://hujiang.usst.edu.cn/11150/list.htm",
+      "cid": "11150",
+      "name": "学院新闻",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-10-25",
+      "oldest": "2026-09-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11152/list.htm",
+      "cid": "11152",
+      "name": "教学教研",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-10-20",
+      "oldest": "2026-04-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11153/list.htm",
+      "cid": "11153",
+      "name": "留学生&校友工作",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-10-20",
+      "oldest": "2026-07-10",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11151/list.htm",
+      "cid": "11151",
+      "name": "信息发布栏",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2026-10-12",
+      "oldest": "2017-12-22",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11154/list.htm",
+      "cid": "11154",
+      "name": "美育在线",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-09-02",
+      "oldest": "2020-09-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11155/list.htm",
+      "cid": "11155",
+      "name": "沪江风采",
+      "linkText": "",
+      "articles": 12,
+      "latest": "2026-06-01",
+      "oldest": "2020-12-23",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11146/list.htm",
+      "cid": "11166",
+      "name": "教学科研",
+      "linkText": "教学科研",
+      "articles": 14,
+      "latest": "2026-05-11",
+      "oldest": "2024-11-25",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11391/list.htm",
+      "cid": "11391",
+      "name": "工会活动",
+      "linkText": "工会活动",
+      "articles": 14,
+      "latest": "2026-04-01",
+      "oldest": "2020-11-26",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11161/list.htm",
+      "cid": "11161",
+      "name": "现任领导",
+      "linkText": "现任领导",
+      "articles": 3,
+      "latest": "2026-03-16",
+      "oldest": "2023-09-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11290/list.htm",
+      "cid": "11290",
+      "name": "学生管理",
+      "linkText": "学生管理",
+      "articles": 7,
+      "latest": "2025-11-05",
+      "oldest": "2021-06-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11283/list.htm",
+      "cid": "11283",
+      "name": "党建动态",
+      "linkText": "党建动态",
+      "articles": 14,
+      "latest": "2025-06-25",
+      "oldest": "2023-10-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11149/list.htm",
+      "cid": "11289",
+      "name": "活动风采",
+      "linkText": "学生工作",
+      "articles": 14,
+      "latest": "2025-06-10",
+      "oldest": "2024-05-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11284/list.htm",
+      "cid": "11390",
+      "name": "民主管理",
+      "linkText": "工会之家",
+      "articles": 7,
+      "latest": "2024-03-18",
+      "oldest": "2020-07-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11280/list.htm",
+      "cid": "11280",
+      "name": "音乐系",
+      "linkText": "音乐系",
+      "articles": 8,
+      "latest": "2023-11-23",
+      "oldest": "2020-07-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11285/list.htm",
+      "cid": "11285",
+      "name": "理论学习",
+      "linkText": "理论学习",
+      "articles": 5,
+      "latest": "2022-12-09",
+      "oldest": "2017-12-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11170/list.htm",
+      "cid": "11170",
+      "name": "课程内容",
+      "linkText": "课程内容",
+      "articles": 4,
+      "latest": "2022-03-09",
+      "oldest": "2017-12-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/ywgk/list.htm",
+      "cid": "11387",
+      "name": "院务公开",
+      "linkText": "院务公开",
+      "articles": 7,
+      "latest": "2021-11-18",
+      "oldest": "2019-11-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/dwgz/list.htm",
+      "cid": "11158",
+      "name": "党务公开",
+      "linkText": "党务工作",
+      "articles": 2,
+      "latest": "2020-11-24",
+      "oldest": "2020-11-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11163/list.htm",
+      "cid": "11279",
+      "name": "文化素质教研部",
+      "linkText": "师资队伍",
+      "articles": 9,
+      "latest": "2020-07-03",
+      "oldest": "2020-07-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11281/list.htm",
+      "cid": "11281",
+      "name": "对外汉语教研部",
+      "linkText": "对外汉语教研部",
+      "articles": 4,
+      "latest": "2020-07-03",
+      "oldest": "2020-07-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/jyzd/list.htm",
+      "cid": "11445",
+      "name": "就业指导",
+      "linkText": "就业指导",
+      "articles": 6,
+      "latest": "2017-12-21",
+      "oldest": "2017-12-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11165/list.htm",
+      "cid": "11165",
+      "name": "文件下载",
+      "linkText": "文件下载",
+      "articles": 2,
+      "latest": "2017-12-20",
+      "oldest": "2017-12-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://hujiang.usst.edu.cn/11148/list.htm",
+      "cid": "11168",
+      "name": "汉语言预科",
+      "linkText": "招生就业",
+      "articles": 2,
+      "latest": "2015-04-28",
+      "oldest": "2015-04-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "11159",
+      "sample": "/2026/0601/c11159a362722/page.htm",
+      "date": "2026-06-01"
+    }
+  ],
+  "elapsedMs": 1590
+}

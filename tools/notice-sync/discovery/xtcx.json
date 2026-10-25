@@ -1,0 +1,51 @@
+{
+  "dept": "跨学科创新研究院",
+  "host": "xtcx",
+  "group": "科研",
+  "home": "https://xtcx.usst.edu.cn/",
+  "homeArticles": 8,
+  "pagesProbed": 3,
+  "columns": [
+    {
+      "url": "https://xtcx.usst.edu.cn/14558/list.htm",
+      "cid": "14558",
+      "name": "医工交叉",
+      "linkText": "医工交叉",
+      "articles": 3,
+      "latest": "2024-12-23",
+      "oldest": "2023-05-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xtcx.usst.edu.cn/14559/list.htm",
+      "cid": "14559",
+      "name": "科艺融合",
+      "linkText": "科艺融合",
+      "articles": 4,
+      "latest": "2024-12-23",
+      "oldest": "2023-05-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xtcx.usst.edu.cn/xwjx/list.htm",
+      "cid": "16122",
+      "name": "新闻简讯",
+      "linkText": "新闻简讯",
+      "articles": 1,
+      "latest": "2024-05-13",
+      "oldest": "2024-05-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "3922",
+      "sample": "/2024/0508/c3922a319836/page.htm",
+      "date": "2024-05-08"
+    }
+  ],
+  "elapsedMs": 257
+}

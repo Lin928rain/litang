@@ -1,0 +1,144 @@
+{
+  "dept": "审计处",
+  "host": "sjc",
+  "group": "机关",
+  "home": "https://sjc.usst.edu.cn/",
+  "homeArticles": 18,
+  "pagesProbed": 13,
+  "columns": [
+    {
+      "url": "https://sjc.usst.edu.cn/13351/list.htm",
+      "cid": "13351",
+      "name": "工作动态",
+      "linkText": "工作动态",
+      "articles": 14,
+      "latest": "2026-06-08",
+      "oldest": "2025-04-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/sjgk/list.htm",
+      "cid": "13357",
+      "name": "审计公开",
+      "linkText": "审计公开",
+      "articles": 14,
+      "latest": "2026-06-08",
+      "oldest": "2025-12-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13377/list.htm",
+      "cid": "13377",
+      "name": "工程审计",
+      "linkText": "工程审计",
+      "articles": 14,
+      "latest": "2026-06-08",
+      "oldest": "2025-12-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13376/list.htm",
+      "cid": "13376",
+      "name": "管理审计",
+      "linkText": "管理审计",
+      "articles": 8,
+      "latest": "2025-06-11",
+      "oldest": "2019-05-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13389/list.htm",
+      "cid": "13389",
+      "name": "部门建设",
+      "linkText": "部门建设",
+      "articles": 14,
+      "latest": "2025-03-10",
+      "oldest": "2019-03-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13353/list.htm",
+      "cid": "13353",
+      "name": "法规制度",
+      "linkText": "法规制度",
+      "articles": 14,
+      "latest": "2025-02-24",
+      "oldest": "2022-04-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13390/list.htm",
+      "cid": "13390",
+      "name": "法规文件",
+      "linkText": "法规文件",
+      "articles": 14,
+      "latest": "2025-02-24",
+      "oldest": "2019-05-10",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13387/list.htm",
+      "cid": "13387",
+      "name": "工作研究",
+      "linkText": "工作研究",
+      "articles": 8,
+      "latest": "2025-02-24",
+      "oldest": "2022-04-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13391/list.htm",
+      "cid": "13391",
+      "name": "学校制度",
+      "linkText": "学校制度",
+      "articles": 6,
+      "latest": "2025-02-20",
+      "oldest": "2022-04-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13355/list.htm",
+      "cid": "13388",
+      "name": "理论学习",
+      "linkText": "党建引领",
+      "articles": 14,
+      "latest": "2025-02-20",
+      "oldest": "2022-04-14",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/3855/list.htm",
+      "cid": "3855",
+      "name": "审计要闻",
+      "linkText": "审计要闻",
+      "articles": 14,
+      "latest": "2025-01-13",
+      "oldest": "2023-02-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sjc.usst.edu.cn/13386/list.htm",
+      "cid": "13386",
+      "name": "要闻动态",
+      "linkText": "要闻动态",
+      "articles": 14,
+      "latest": "2025-01-13",
+      "oldest": "2023-02-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 3208
+}

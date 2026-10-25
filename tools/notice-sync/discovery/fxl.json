@@ -1,0 +1,62 @@
+{
+  "dept": "非学历教育",
+  "host": "fxl",
+  "group": "招生",
+  "home": "https://fxl.usst.edu.cn/",
+  "homeArticles": 5,
+  "pagesProbed": 6,
+  "columns": [
+    {
+      "url": "https://fxl.usst.edu.cn/4464/list.htm",
+      "cid": "4464",
+      "name": "项目公示",
+      "linkText": "项目公示",
+      "articles": 3,
+      "latest": "2026-09-01",
+      "oldest": "2025-01-02",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fxl.usst.edu.cn/4465/list.htm",
+      "cid": "4465",
+      "name": "培训动态",
+      "linkText": "培训动态",
+      "articles": 1,
+      "latest": "2026-01-22",
+      "oldest": "2026-01-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fxl.usst.edu.cn/fgwj/list.htm",
+      "cid": "12675",
+      "name": "法规文件",
+      "linkText": "法规文件",
+      "articles": 9,
+      "latest": "2025-01-14",
+      "oldest": "2021-11-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fxl.usst.edu.cn/4471/list.htm",
+      "cid": "4471",
+      "name": "资料下载",
+      "linkText": "资料下载",
+      "articles": 14,
+      "latest": "2024-05-07",
+      "oldest": "2021-04-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "12721",
+      "sample": "/2021/1009/c12721a256053/page.htm",
+      "date": "2021-10-09"
+    }
+  ],
+  "elapsedMs": 508
+}

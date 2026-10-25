@@ -1,0 +1,78 @@
+{
+  "dept": "人才招聘网",
+  "host": "rc",
+  "group": "直属",
+  "home": "https://rc.usst.edu.cn/",
+  "homeArticles": 21,
+  "pagesProbed": 5,
+  "columns": [
+    {
+      "url": "https://rc.usst.edu.cn/xgfw/list.htm",
+      "cid": "12646",
+      "name": "相关服务",
+      "linkText": "更多++",
+      "articles": 3,
+      "latest": "2026-05-12",
+      "oldest": "2021-09-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rc.usst.edu.cn/12209/list.htm",
+      "cid": "12209",
+      "name": "办事指南",
+      "linkText": "办事指南",
+      "articles": 4,
+      "latest": "2025-04-02",
+      "oldest": "2021-09-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rc.usst.edu.cn/kyldzjs/list.htm",
+      "cid": "9310",
+      "name": "科研流动站介绍",
+      "linkText": "博士后",
+      "articles": 2,
+      "latest": "2023-03-30",
+      "oldest": "2012-03-05",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://rc.usst.edu.cn/jlmzl/list.htm",
+      "cid": "12834",
+      "name": "旧栏目整理",
+      "linkText": "旧栏目整理",
+      "articles": 3,
+      "latest": "2021-11-16",
+      "oldest": "2021-11-16",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://rc.usst.edu.cn/12210/list.htm",
+      "cid": "12210",
+      "name": "在线下载",
+      "linkText": "更多++",
+      "articles": 14,
+      "latest": "2021-10-28",
+      "oldest": "2021-09-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "11771",
+      "sample": "/2021/0104/c11771a241031/page.htm",
+      "date": "2021-01-04"
+    },
+    {
+      "cid": "8947",
+      "sample": "/2026/0923/c8947a370984/page.htm",
+      "date": "2026-09-23"
+    }
+  ],
+  "elapsedMs": 1280
+}

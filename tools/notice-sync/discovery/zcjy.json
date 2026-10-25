@@ -1,0 +1,100 @@
+{
+  "dept": "资产经营有限公司",
+  "host": "zcjy",
+  "group": "产业",
+  "home": "https://zcjy.usst.edu.cn/",
+  "homeArticles": 24,
+  "pagesProbed": 11,
+  "columns": [
+    {
+      "url": "https://zcjy.usst.edu.cn/4093/list.htm",
+      "cid": "4094",
+      "name": "通知公告",
+      "linkText": "信息平台",
+      "articles": 20,
+      "latest": "2026-09-02",
+      "oldest": "2016-12-12",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/4095/list.htm",
+      "cid": "4095",
+      "name": "新闻报道",
+      "linkText": "新闻报道",
+      "articles": 20,
+      "latest": "2026-06-29",
+      "oldest": "2024-03-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/ddjs/list.htm",
+      "cid": "18365",
+      "name": "组织生活",
+      "linkText": "党的建设",
+      "articles": 7,
+      "latest": "2026-06-29",
+      "oldest": "2016-06-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/4104/list.htm",
+      "cid": "4104",
+      "name": "规章制度",
+      "linkText": "更多→",
+      "articles": 8,
+      "latest": "2025-12-29",
+      "oldest": "2021-12-13",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/4096/list.htm",
+      "cid": "4096",
+      "name": "产业动态",
+      "linkText": "产业动态",
+      "articles": 3,
+      "latest": "2022-08-22",
+      "oldest": "2020-09-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/18366/list.htm",
+      "cid": "18366",
+      "name": "学习园地",
+      "linkText": "学习园地",
+      "articles": 7,
+      "latest": "2016-05-20",
+      "oldest": "2016-05-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/4105/list.htm",
+      "cid": "4106",
+      "name": "国家政策",
+      "linkText": "政策法规",
+      "articles": 5,
+      "latest": "2013-12-26",
+      "oldest": "2013-12-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zcjy.usst.edu.cn/4108/list.htm",
+      "cid": "4108",
+      "name": "地方政策",
+      "linkText": "地方政策",
+      "articles": 3,
+      "latest": "2013-12-26",
+      "oldest": "2013-12-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 769
+}

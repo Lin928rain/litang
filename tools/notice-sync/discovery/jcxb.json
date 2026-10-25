@@ -1,0 +1,337 @@
+{
+  "dept": "基础学部",
+  "host": "jcxb",
+  "group": "学院",
+  "home": "https://jcxb.usst.edu.cn/",
+  "homeArticles": 52,
+  "pagesProbed": 36,
+  "columns": [
+    {
+      "url": "https://jcxb.usst.edu.cn/djdt/list.htm",
+      "cid": "18181",
+      "name": "党建动态",
+      "linkText": "党建动态",
+      "articles": 2,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18117/list.htm",
+      "cid": "18117",
+      "name": "新闻动态",
+      "linkText": "",
+      "articles": 3,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18120/list.htm",
+      "cid": "18120",
+      "name": "通知公告",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18133/list.htm",
+      "cid": "18133",
+      "name": "学生工作",
+      "linkText": "学生工作",
+      "articles": 6,
+      "latest": "2026-10-23",
+      "oldest": "2026-09-24",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18121/list.htm",
+      "cid": "18121",
+      "name": "党建动态",
+      "linkText": "",
+      "articles": 2,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-23",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/ghgz/list.htm",
+      "cid": "18182",
+      "name": "工会工作",
+      "linkText": "工会工作",
+      "articles": 4,
+      "latest": "2026-10-22",
+      "oldest": "2026-03-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18186/list.htm",
+      "cid": "18186",
+      "name": "研究生教育",
+      "linkText": "研究生教育",
+      "articles": 6,
+      "latest": "2026-10-22",
+      "oldest": "2026-06-10",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18132/list.htm",
+      "cid": "18132",
+      "name": "教学运行",
+      "linkText": "教学运行",
+      "articles": 6,
+      "latest": "2026-10-22",
+      "oldest": "2026-10-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18119/list.htm",
+      "cid": "18119",
+      "name": "讲座活动",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-10-14",
+      "oldest": "2026-09-24",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18131/list.htm",
+      "cid": "18131",
+      "name": "部务信息",
+      "linkText": "部务信息",
+      "articles": 6,
+      "latest": "2026-10-14",
+      "oldest": "2026-05-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18195/list.htm",
+      "cid": "18195",
+      "name": "学工动态",
+      "linkText": "学工动态",
+      "articles": 1,
+      "latest": "2026-09-29",
+      "oldest": "2026-09-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18197/list.htm",
+      "cid": "18197",
+      "name": "规章制度",
+      "linkText": "规章制度",
+      "articles": 6,
+      "latest": "2026-09-23",
+      "oldest": "2026-06-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18134/list.htm",
+      "cid": "18134",
+      "name": "招生就业",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-09-22",
+      "oldest": "2026-05-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18196/list.htm",
+      "cid": "18196",
+      "name": "工作动态",
+      "linkText": "安全专栏",
+      "articles": 6,
+      "latest": "2026-09-21",
+      "oldest": "2026-01-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/cxcy/list.htm",
+      "cid": "18415",
+      "name": "创新创业",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-09-15",
+      "oldest": "2026-05-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18188/list.htm",
+      "cid": "18188",
+      "name": "科研动态",
+      "linkText": "科研动态",
+      "articles": 6,
+      "latest": "2026-09-01",
+      "oldest": "2025-12-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18118/list.htm",
+      "cid": "18118",
+      "name": "科研速递",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-08-14",
+      "oldest": "2026-07-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18095/list.htm",
+      "cid": "18185",
+      "name": "本科生教育",
+      "linkText": "人才培养",
+      "articles": 6,
+      "latest": "2026-07-24",
+      "oldest": "2026-06-04",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18110/list.htm",
+      "cid": "18110",
+      "name": "新生专栏",
+      "linkText": "",
+      "articles": 1,
+      "latest": "2026-07-24",
+      "oldest": "2026-07-24",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18190/list.htm",
+      "cid": "18190",
+      "name": "硕士招生",
+      "linkText": "硕士招生",
+      "articles": 6,
+      "latest": "2026-07-02",
+      "oldest": "2026-06-04",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18200/list.htm",
+      "cid": "18200",
+      "name": "常用下载",
+      "linkText": "常用下载",
+      "articles": 2,
+      "latest": "2026-07-02",
+      "oldest": "2026-04-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18104/list.htm",
+      "cid": "18155",
+      "name": "栏目18155",
+      "linkText": "",
+      "articles": 16,
+      "latest": "2026-06-13",
+      "oldest": "2026-06-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18198/list.htm",
+      "cid": "18198",
+      "name": "资料下载",
+      "linkText": "资料下载",
+      "articles": 6,
+      "latest": "2026-06-11",
+      "oldest": "2026-06-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18097/list.htm",
+      "cid": "18189",
+      "name": "博士招生",
+      "linkText": "招生就业",
+      "articles": 6,
+      "latest": "2026-06-10",
+      "oldest": "2026-05-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18096/list.htm",
+      "cid": "18187",
+      "name": "科研成果",
+      "linkText": "科学研究",
+      "articles": 6,
+      "latest": "2026-05-14",
+      "oldest": "2026-02-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18094/list.htm",
+      "cid": "18180",
+      "name": "党务公开",
+      "linkText": "党群工作",
+      "articles": 3,
+      "latest": "2026-04-29",
+      "oldest": "2025-12-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18192/list.htm",
+      "cid": "18192",
+      "name": "就业工作",
+      "linkText": "就业工作",
+      "articles": 6,
+      "latest": "2025-12-11",
+      "oldest": "2024-11-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18201/list.htm",
+      "cid": "18201",
+      "name": "常见问答",
+      "linkText": "常见问答",
+      "articles": 4,
+      "latest": "2025-04-27",
+      "oldest": "2025-03-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jcxb.usst.edu.cn/18194/list.htm",
+      "cid": "18194",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 4,
+      "latest": "2025-03-27",
+      "oldest": "2025-02-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "18111",
+      "sample": "/2026/0604/c18111a363136/page.htm",
+      "date": "2026-06-04"
+    }
+  ],
+  "elapsedMs": 3163
+}

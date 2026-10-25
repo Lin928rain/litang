@@ -1,0 +1,276 @@
+{
+  "dept": "学生处",
+  "host": "xsc",
+  "group": "机关",
+  "home": "https://xsc.usst.edu.cn/",
+  "homeArticles": 89,
+  "pagesProbed": 29,
+  "columns": [
+    {
+      "url": "https://xsc.usst.edu.cn/12850/list.htm",
+      "cid": "12861",
+      "name": "学工新闻/公告",
+      "linkText": "学工新闻/公告",
+      "articles": 15,
+      "latest": "2026-10-22",
+      "oldest": "2025-04-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12862/list.htm",
+      "cid": "12862",
+      "name": "学工公告",
+      "linkText": "学工公告",
+      "articles": 15,
+      "latest": "2026-10-22",
+      "oldest": "2025-09-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12853/list.htm",
+      "cid": "12853",
+      "name": "学生资助",
+      "linkText": "学生资助",
+      "articles": 15,
+      "latest": "2026-10-19",
+      "oldest": "2026-06-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12873/list.htm",
+      "cid": "12873",
+      "name": "奖学金",
+      "linkText": "奖学金",
+      "articles": 15,
+      "latest": "2026-10-19",
+      "oldest": "2022-03-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12855/list.htm",
+      "cid": "12855",
+      "name": "心理健康教育与咨询",
+      "linkText": "心理健康教育与咨询",
+      "articles": 15,
+      "latest": "2026-10-19",
+      "oldest": "2026-04-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12874/list.htm",
+      "cid": "12874",
+      "name": "帮困助学",
+      "linkText": "帮困助学",
+      "articles": 15,
+      "latest": "2026-09-18",
+      "oldest": "2023-02-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12876/list.htm",
+      "cid": "12876",
+      "name": "赋能筑梦",
+      "linkText": "赋能筑梦",
+      "articles": 10,
+      "latest": "2026-07-09",
+      "oldest": "2022-03-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12851/list.htm",
+      "cid": "12863",
+      "name": "队伍风采",
+      "linkText": "辅导员队伍建设",
+      "articles": 15,
+      "latest": "2026-06-23",
+      "oldest": "2025-10-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12865/list.htm",
+      "cid": "13214",
+      "name": "工作室新闻",
+      "linkText": "辅导员工作室",
+      "articles": 8,
+      "latest": "2026-06-18",
+      "oldest": "2022-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/13216/list.htm",
+      "cid": "13216",
+      "name": "新闻",
+      "linkText": "新闻",
+      "articles": 7,
+      "latest": "2026-06-18",
+      "oldest": "2022-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/13217/list.htm",
+      "cid": "13217",
+      "name": "德育纵览",
+      "linkText": "德育纵览",
+      "articles": 4,
+      "latest": "2025-10-11",
+      "oldest": "2014-09-02",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12854/list.htm",
+      "cid": "12877",
+      "name": "生涯教育",
+      "linkText": "大学生职业发展",
+      "articles": 10,
+      "latest": "2025-03-03",
+      "oldest": "2025-02-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12859/list.htm",
+      "cid": "12859",
+      "name": "视频/社会媒体报道",
+      "linkText": "第四届“新时代·中国说”大学生...",
+      "articles": 15,
+      "latest": "2024-12-15",
+      "oldest": "2024-11-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12871/list.htm",
+      "cid": "12871",
+      "name": "特色活动展示",
+      "linkText": "特色活动展示",
+      "articles": 4,
+      "latest": "2024-06-13",
+      "oldest": "2023-12-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12869/list.htm",
+      "cid": "12869",
+      "name": "学业发展中心",
+      "linkText": "学业发展中心",
+      "articles": 15,
+      "latest": "2023-06-28",
+      "oldest": "2023-03-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12866/list.htm",
+      "cid": "12866",
+      "name": "青思协会",
+      "linkText": "青思协会",
+      "articles": 2,
+      "latest": "2023-05-22",
+      "oldest": "2023-04-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12858/list.htm",
+      "cid": "12858",
+      "name": "大图切换",
+      "linkText": "",
+      "articles": 1,
+      "latest": "2023-03-24",
+      "oldest": "2023-03-24",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12852/list.htm",
+      "cid": "12868",
+      "name": "日常思政教育",
+      "linkText": "日常思政教育",
+      "articles": 15,
+      "latest": "2022-11-27",
+      "oldest": "2022-11-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12875/list.htm",
+      "cid": "12875",
+      "name": "慈善公益",
+      "linkText": "慈善公益",
+      "articles": 12,
+      "latest": "2022-08-26",
+      "oldest": "2022-03-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12878/list.htm",
+      "cid": "12878",
+      "name": "就业政策",
+      "linkText": "就业政策",
+      "articles": 2,
+      "latest": "2022-03-19",
+      "oldest": "2022-03-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12881/list.htm",
+      "cid": "12881",
+      "name": "心理咨询",
+      "linkText": "心理咨询",
+      "articles": 4,
+      "latest": "2022-03-18",
+      "oldest": "2022-03-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/13215/list.htm",
+      "cid": "13215",
+      "name": "工作室介绍",
+      "linkText": "工作室介绍",
+      "articles": 4,
+      "latest": "2020-12-17",
+      "oldest": "2020-04-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://xsc.usst.edu.cn/12867/list.htm",
+      "cid": "12867",
+      "name": "规章制度",
+      "linkText": "规章制度",
+      "articles": 2,
+      "latest": "2018-05-04",
+      "oldest": "2014-04-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "12872",
+      "sample": "/2022/0320/c12872a267002/page.htm",
+      "date": "2022-03-20"
+    },
+    {
+      "cid": "12882",
+      "sample": "/2022/0318/c12882a266829/page.htm",
+      "date": "2022-03-18"
+    }
+  ],
+  "elapsedMs": 1374
+}

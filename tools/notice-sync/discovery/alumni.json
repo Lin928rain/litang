@@ -1,0 +1,282 @@
+{
+  "dept": "校友总会",
+  "host": "alumni",
+  "group": "校友",
+  "home": "https://alumni.usst.edu.cn/",
+  "homeArticles": 33,
+  "pagesProbed": 26,
+  "columns": [
+    {
+      "url": "https://alumni.usst.edu.cn/xwzx/list.htm",
+      "cid": "17879",
+      "name": "新闻中心",
+      "linkText": "新闻中心",
+      "articles": 12,
+      "latest": "2026-10-22",
+      "oldest": "2026-09-15",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2397/list.htm",
+      "cid": "2398",
+      "name": "光电信息与计算机工程学院校友会",
+      "linkText": "光电信息与计算机工程学院校友会",
+      "articles": 12,
+      "latest": "2026-10-17",
+      "oldest": "2024-09-29",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/xyfc/list.htm",
+      "cid": "17894",
+      "name": "校友风采",
+      "linkText": "校友风采",
+      "articles": 12,
+      "latest": "2026-10-12",
+      "oldest": "2026-05-25",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/tzgg/list.htm",
+      "cid": "17880",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 10,
+      "latest": "2026-09-23",
+      "oldest": "2025-04-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2415/list.htm",
+      "cid": "2416",
+      "name": "新闻",
+      "linkText": "健康科学与工程学院校友会",
+      "articles": 12,
+      "latest": "2026-09-17",
+      "oldest": "2018-12-07",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2409/list.htm",
+      "cid": "2410",
+      "name": "新闻",
+      "linkText": "环境与建筑学院校友会",
+      "articles": 12,
+      "latest": "2026-09-16",
+      "oldest": "2020-12-21",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2400/list.htm",
+      "cid": "2400",
+      "name": "管理学院校友会",
+      "linkText": "管理学院校友会",
+      "articles": 3,
+      "latest": "2026-05-20",
+      "oldest": "2026-05-15",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/zsxxxyh/list.htm",
+      "cid": "17629",
+      "name": "新闻",
+      "linkText": "终身学习校友会",
+      "articles": 4,
+      "latest": "2026-04-14",
+      "oldest": "2025-11-19",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/yxxy/list.htm",
+      "cid": "17893",
+      "name": "优秀校友",
+      "linkText": "优秀校友",
+      "articles": 12,
+      "latest": "2026-03-30",
+      "oldest": "2026-03-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2412/list.htm",
+      "cid": "2413",
+      "name": "新闻",
+      "linkText": "出版学院校友会",
+      "articles": 12,
+      "latest": "2026-01-22",
+      "oldest": "2021-10-22",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2403/list.htm",
+      "cid": "2404",
+      "name": "新闻",
+      "linkText": "机械学院校友会",
+      "articles": 12,
+      "latest": "2026-01-21",
+      "oldest": "2019-11-14",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/zyxyxyhwcw/list.htm",
+      "cid": "5763",
+      "name": "新闻",
+      "linkText": "中英国际学院校友会",
+      "articles": 12,
+      "latest": "2026-01-21",
+      "oldest": "2020-03-13",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2406/list.htm",
+      "cid": "2407",
+      "name": "新闻",
+      "linkText": "外语学院校友会",
+      "articles": 12,
+      "latest": "2025-12-03",
+      "oldest": "2022-01-19",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2418/list.htm",
+      "cid": "2419",
+      "name": "新闻",
+      "linkText": "理学院校友会",
+      "articles": 12,
+      "latest": "2025-11-05",
+      "oldest": "2021-07-08",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2421/list.htm",
+      "cid": "2422",
+      "name": "新闻",
+      "linkText": "中德学院校友会",
+      "articles": 12,
+      "latest": "2024-12-23",
+      "oldest": "2020-12-21",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2430/list.htm",
+      "cid": "2431",
+      "name": "马克思主义学院校友会新闻",
+      "linkText": "马克思主义学院校友会",
+      "articles": 12,
+      "latest": "2024-11-01",
+      "oldest": "2017-10-18",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/yxxyh/list.htm",
+      "cid": "2395",
+      "name": "新闻",
+      "linkText": "院系校友会",
+      "articles": 12,
+      "latest": "2024-09-29",
+      "oldest": "2020-12-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2424/list.htm",
+      "cid": "2425",
+      "name": "新闻",
+      "linkText": "材料与化学学院校友会",
+      "articles": 12,
+      "latest": "2021-11-12",
+      "oldest": "2019-07-31",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/MEMxyh/list.htm",
+      "cid": "12825",
+      "name": "MEM校友会",
+      "linkText": "MEM校友会",
+      "articles": 2,
+      "latest": "2021-11-05",
+      "oldest": "2021-11-04",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/MBAxyh/list.htm",
+      "cid": "12828",
+      "name": "MBA校友会",
+      "linkText": "MBA校友会",
+      "articles": 4,
+      "latest": "2020-11-26",
+      "oldest": "2019-09-09",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/xyxyh_17885/list.htm",
+      "cid": "12827",
+      "name": "医疗器械行业校友会",
+      "linkText": "行业校友会",
+      "articles": 8,
+      "latest": "2020-07-31",
+      "oldest": "2019-07-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/MPAxyh/list.htm",
+      "cid": "12829",
+      "name": "MPA校友会",
+      "linkText": "MPA校友会",
+      "articles": 2,
+      "latest": "2019-11-19",
+      "oldest": "2017-11-08",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/2427/list.htm",
+      "cid": "2428",
+      "name": "新闻",
+      "linkText": "工程科技学院校友会",
+      "articles": 12,
+      "latest": "2016-11-02",
+      "oldest": "2012-12-17",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://alumni.usst.edu.cn/jcxy/list.htm",
+      "cid": "17892",
+      "name": "杰出校友",
+      "linkText": "杰出校友",
+      "articles": 12,
+      "latest": "2009-10-22",
+      "oldest": "2009-10-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "17898",
+      "sample": "/2026/0605/c17898a363556/page.htm",
+      "date": "2026-06-05"
+    }
+  ],
+  "elapsedMs": 1554
+}

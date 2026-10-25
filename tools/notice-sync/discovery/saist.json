@@ -1,0 +1,208 @@
+{
+  "dept": "智能科技学院",
+  "host": "saist",
+  "group": "学院",
+  "home": "https://saist.usst.edu.cn/",
+  "homeArticles": 33,
+  "pagesProbed": 20,
+  "columns": [
+    {
+      "url": "https://saist.usst.edu.cn/xxgk/list.htm",
+      "cid": "16247",
+      "name": "院务公开",
+      "linkText": "院务公开",
+      "articles": 14,
+      "latest": "2026-10-16",
+      "oldest": "2025-12-31",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/ghhd/list.htm",
+      "cid": "18488",
+      "name": "工会活动",
+      "linkText": "工会活动",
+      "articles": 7,
+      "latest": "2026-09-11",
+      "oldest": "2025-03-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/xssw/list.htm",
+      "cid": "16242",
+      "name": "学生事务",
+      "linkText": "学生事务",
+      "articles": 9,
+      "latest": "2026-07-15",
+      "oldest": "2024-09-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/xygz/list.htm",
+      "cid": "17902",
+      "name": "校友印记",
+      "linkText": "校友工作",
+      "articles": 3,
+      "latest": "2026-06-24",
+      "oldest": "2026-03-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/bkspy/list.htm",
+      "cid": "16237",
+      "name": "本科生培养",
+      "linkText": "本科生培养",
+      "articles": 9,
+      "latest": "2026-06-16",
+      "oldest": "2023-06-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/ywgk/list.htm",
+      "cid": "16246",
+      "name": "院务公开",
+      "linkText": "院务公开",
+      "articles": 3,
+      "latest": "2025-12-31",
+      "oldest": "2025-12-31",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/rcpy/list.htm",
+      "cid": "16235",
+      "name": "博士生培养",
+      "linkText": "人才培养",
+      "articles": 4,
+      "latest": "2025-12-29",
+      "oldest": "2022-12-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/gjhz/list.htm",
+      "cid": "16245",
+      "name": "国际合作",
+      "linkText": "国际合作",
+      "articles": 5,
+      "latest": "2025-06-20",
+      "oldest": "2024-11-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/jlhz/list.htm",
+      "cid": "16244",
+      "name": "工业界合作",
+      "linkText": "交流合作",
+      "articles": 3,
+      "latest": "2025-06-18",
+      "oldest": "2025-04-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/xyld/list.htm",
+      "cid": "17286",
+      "name": "管理团队",
+      "linkText": "管理团队",
+      "articles": 1,
+      "latest": "2025-05-27",
+      "oldest": "2025-05-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/dwgz/list.htm",
+      "cid": "16238",
+      "name": "党务工作",
+      "linkText": "党务工作",
+      "articles": 3,
+      "latest": "2024-10-21",
+      "oldest": "2023-03-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/szdw/list.htm",
+      "cid": "16779",
+      "name": "院士风采",
+      "linkText": "师资队伍",
+      "articles": 1,
+      "latest": "2023-02-24",
+      "oldest": "2023-02-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/jcrc/list.htm",
+      "cid": "16781",
+      "name": "杰出人才",
+      "linkText": "杰出人才",
+      "articles": 1,
+      "latest": "2023-02-24",
+      "oldest": "2023-02-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/kyry/list.htm",
+      "cid": "16589",
+      "name": "教师名录",
+      "linkText": "教师名录",
+      "articles": 1,
+      "latest": "2023-02-24",
+      "oldest": "2023-02-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://saist.usst.edu.cn/ssspy/list.htm",
+      "cid": "16236",
+      "name": "硕士生培养",
+      "linkText": "硕士生培养",
+      "articles": 1,
+      "latest": "2023-02-23",
+      "oldest": "2023-02-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "16112",
+      "sample": "/2026/0828/c16112a369833/page.htm",
+      "date": "2026-08-28"
+    },
+    {
+      "cid": "16113",
+      "sample": "/2026/1025/c16113a372915/page.htm",
+      "date": "2026-10-25"
+    },
+    {
+      "cid": "16114",
+      "sample": "/2023/0220/c16114a321324/page.htm",
+      "date": "2023-02-20"
+    },
+    {
+      "cid": "16115",
+      "sample": "/2026/1023/c16115a372861/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "cid": "16116",
+      "sample": "/2026/1021/c16116a372697/page.htm",
+      "date": "2026-10-21"
+    },
+    {
+      "cid": "16117",
+      "sample": "/2026/1023/c16117a372830/page.htm",
+      "date": "2026-10-23"
+    }
+  ],
+  "elapsedMs": 2151
+}

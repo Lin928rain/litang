@@ -1,0 +1,359 @@
+{
+  "dept": "光电信息与计算机工程学院",
+  "host": "oece",
+  "group": "学院",
+  "home": "https://oece.usst.edu.cn/",
+  "homeArticles": 18,
+  "pagesProbed": 36,
+  "columns": [
+    {
+      "url": "https://oece.usst.edu.cn/9459/list.htm",
+      "cid": "9459",
+      "name": "党务动态",
+      "linkText": "党务动态",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2025-12-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/gdxw/list.htm",
+      "cid": "17589",
+      "name": "光电新闻",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2026-08-26",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/gdjt/list.htm",
+      "cid": "17602",
+      "name": "光电讲坛",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-22",
+      "oldest": "2025-12-02",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/gdgg/list.htm",
+      "cid": "17593",
+      "name": "院务",
+      "linkText": "查看更多",
+      "articles": 14,
+      "latest": "2026-10-21",
+      "oldest": "2026-04-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/xyxw/list.htm",
+      "cid": "9140",
+      "name": "校友动态",
+      "linkText": "校友动态",
+      "articles": 14,
+      "latest": "2026-10-17",
+      "oldest": "2025-06-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/bj/list.htm",
+      "cid": "17594",
+      "name": "本教",
+      "linkText": "本教",
+      "articles": 8,
+      "latest": "2026-10-17",
+      "oldest": "2024-03-25",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/xg/list.htm",
+      "cid": "17597",
+      "name": "学工",
+      "linkText": "学工",
+      "articles": 14,
+      "latest": "2026-10-15",
+      "oldest": "2022-09-19",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/yj/list.htm",
+      "cid": "17596",
+      "name": "研教",
+      "linkText": "研教",
+      "articles": 14,
+      "latest": "2026-10-13",
+      "oldest": "2025-11-12",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/kxyj/list.htm",
+      "cid": "9127",
+      "name": "科学动态",
+      "linkText": "科学动态",
+      "articles": 14,
+      "latest": "2026-09-29",
+      "oldest": "2024-08-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/ky/list.htm",
+      "cid": "17595",
+      "name": "科研",
+      "linkText": "科研",
+      "articles": 11,
+      "latest": "2026-09-29",
+      "oldest": "2025-06-10",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/11993/list.htm",
+      "cid": "11993",
+      "name": "多彩活动",
+      "linkText": "多彩活动",
+      "articles": 14,
+      "latest": "2026-09-14",
+      "oldest": "2021-04-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/xxgk/list.htm",
+      "cid": "17674",
+      "name": "学院文件",
+      "linkText": "信息公开",
+      "articles": 14,
+      "latest": "2026-06-18",
+      "oldest": "2025-10-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/yjszs/list.htm",
+      "cid": "9135",
+      "name": "研究生招生",
+      "linkText": "研究生招生",
+      "articles": 8,
+      "latest": "2026-06-15",
+      "oldest": "2024-05-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/jcdj/list.htm",
+      "cid": "9458",
+      "name": "基层党建",
+      "linkText": "基层党建",
+      "articles": 14,
+      "latest": "2026-06-03",
+      "oldest": "2024-03-21",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/gjjl_17598/list.htm",
+      "cid": "17598",
+      "name": "国际交流",
+      "linkText": "国际交流",
+      "articles": 14,
+      "latest": "2026-06-02",
+      "oldest": "2020-11-05",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/xsgz/list.htm",
+      "cid": "9281",
+      "name": "学生工作",
+      "linkText": "学生工作",
+      "articles": 14,
+      "latest": "2026-03-24",
+      "oldest": "2023-09-15",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/8996/list.htm",
+      "cid": "8996",
+      "name": "校友之家",
+      "linkText": "校友之家",
+      "articles": 5,
+      "latest": "2026-03-23",
+      "oldest": "2023-06-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/8994/list.htm",
+      "cid": "9131",
+      "name": "本科专业",
+      "linkText": "人才培养",
+      "articles": 3,
+      "latest": "2026-03-09",
+      "oldest": "2013-06-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/khwj/list.htm",
+      "cid": "17675",
+      "name": "考核文件",
+      "linkText": "考核文件",
+      "articles": 14,
+      "latest": "2026-01-26",
+      "oldest": "2020-03-27",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/ghgz/list.htm",
+      "cid": "11992",
+      "name": "公告信息",
+      "linkText": "工会工作",
+      "articles": 14,
+      "latest": "2025-12-31",
+      "oldest": "2018-12-05",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/8995/list.htm",
+      "cid": "9136",
+      "name": "国际交流动态",
+      "linkText": "国际交流",
+      "articles": 4,
+      "latest": "2025-11-21",
+      "oldest": "2023-03-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/kjtd/list.htm",
+      "cid": "17592",
+      "name": "快捷通道",
+      "linkText": "查看更多",
+      "articles": 2,
+      "latest": "2025-11-15",
+      "oldest": "2025-11-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/9283/list.htm",
+      "cid": "9283",
+      "name": "学工动态",
+      "linkText": "学工动态",
+      "articles": 14,
+      "latest": "2025-11-02",
+      "oldest": "2025-02-25",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/jswyh/list.htm",
+      "cid": "9111",
+      "name": "学术委员会",
+      "linkText": "学术委员会",
+      "articles": 2,
+      "latest": "2025-10-16",
+      "oldest": "2020-03-10",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/kycg/list.htm",
+      "cid": "9129",
+      "name": "科研成果",
+      "linkText": "科研成果",
+      "articles": 6,
+      "latest": "2025-10-14",
+      "oldest": "2024-05-13",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/9463/list.htm",
+      "cid": "9463",
+      "name": "党风廉政",
+      "linkText": "党风廉政",
+      "articles": 9,
+      "latest": "2025-10-14",
+      "oldest": "2016-10-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/ywgk_17676/list.htm",
+      "cid": "17676",
+      "name": "院务公开",
+      "linkText": "院务公开",
+      "articles": 4,
+      "latest": "2024-07-18",
+      "oldest": "2020-09-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/11994/list.htm",
+      "cid": "11994",
+      "name": "组织福利",
+      "linkText": "组织福利",
+      "articles": 14,
+      "latest": "2023-03-23",
+      "oldest": "2010-01-06",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/xygj/list.htm",
+      "cid": "9156",
+      "name": "学院构架",
+      "linkText": "学院构架",
+      "articles": 2,
+      "latest": "2021-03-04",
+      "oldest": "2020-12-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/9460/list.htm",
+      "cid": "9460",
+      "name": "党员发展",
+      "linkText": "党员发展",
+      "articles": 1,
+      "latest": "2020-06-08",
+      "oldest": "2020-06-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://oece.usst.edu.cn/kyzc/list.htm",
+      "cid": "9128",
+      "name": "科研政策",
+      "linkText": "科研政策",
+      "articles": 9,
+      "latest": "2016-04-18",
+      "oldest": "2013-06-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "17588",
+      "sample": "/2025/1117/c17588a351547/page.htm",
+      "date": "2025-11-17"
+    }
+  ],
+  "elapsedMs": 2830
+}

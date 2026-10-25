@@ -1,0 +1,117 @@
+{
+  "dept": "创新创业学院",
+  "host": "cxcy",
+  "group": "学院",
+  "home": "https://cxcy.usst.edu.cn/",
+  "homeArticles": 29,
+  "pagesProbed": 13,
+  "columns": [
+    {
+      "url": "https://cxcy.usst.edu.cn/xwgg/list.htm",
+      "cid": "16854",
+      "name": "新闻公告",
+      "linkText": "新闻公告",
+      "articles": 14,
+      "latest": "2026-09-29",
+      "oldest": "2023-04-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/tzgg/list.htm",
+      "cid": "16856",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 14,
+      "latest": "2026-09-29",
+      "oldest": "2023-04-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/xwdt/list.htm",
+      "cid": "16855",
+      "name": "新闻动态",
+      "linkText": "新闻动态",
+      "articles": 13,
+      "latest": "2026-09-21",
+      "oldest": "2026-01-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/xygg/list.htm",
+      "cid": "16857",
+      "name": "学院公告",
+      "linkText": "学院公告",
+      "articles": 14,
+      "latest": "2026-09-16",
+      "oldest": "2023-04-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/jstz/list.htm",
+      "cid": "16859",
+      "name": "竞赛通知",
+      "linkText": "竞赛通知",
+      "articles": 14,
+      "latest": "2026-08-28",
+      "oldest": "2026-06-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/zhfw/list.htm",
+      "cid": "16874",
+      "name": "综合服务",
+      "linkText": "综合服务",
+      "articles": 10,
+      "latest": "2025-10-31",
+      "oldest": "2021-11-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/wjxz/list.htm",
+      "cid": "16875",
+      "name": "文件下载",
+      "linkText": "文件下载",
+      "articles": 10,
+      "latest": "2025-10-31",
+      "oldest": "2021-11-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/bmgk/list.htm",
+      "cid": "16846",
+      "name": "部门概况",
+      "linkText": "部门概况",
+      "articles": 3,
+      "latest": "2025-02-19",
+      "oldest": "2019-05-10",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://cxcy.usst.edu.cn/cxcy/list.htm",
+      "cid": "16860",
+      "name": "创新创业",
+      "linkText": "创新创业",
+      "articles": 2,
+      "latest": "2025-02-17",
+      "oldest": "2021-04-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "16879",
+      "sample": "/2025/1020/c16879a348740/page.htm",
+      "date": "2025-10-20"
+    }
+  ],
+  "elapsedMs": 1089
+}

@@ -1,0 +1,56 @@
+{
+  "dept": "上理图集",
+  "host": "picture",
+  "group": "媒体",
+  "home": "https://picture.usst.edu.cn/",
+  "homeArticles": 28,
+  "pagesProbed": 8,
+  "columns": [
+    {
+      "url": "https://picture.usst.edu.cn/4348/list.htm",
+      "cid": "4348",
+      "name": "最新",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2015-05-11",
+      "oldest": "2014-07-17",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://picture.usst.edu.cn/4342/list.htm",
+      "cid": "4342",
+      "name": "图片新闻",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2015-05-11",
+      "oldest": "2014-07-17",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://picture.usst.edu.cn/4345/list.htm",
+      "cid": "4345",
+      "name": "建筑风景",
+      "linkText": "",
+      "articles": 8,
+      "latest": "2014-09-15",
+      "oldest": "2014-07-17",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://picture.usst.edu.cn/4344/list.htm",
+      "cid": "4344",
+      "name": "文化活动",
+      "linkText": "",
+      "articles": 2,
+      "latest": "2014-07-17",
+      "oldest": "2014-07-17",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 281
+}

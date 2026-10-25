@@ -1,0 +1,144 @@
+{
+  "dept": "东方泛血管器械创新学院",
+  "host": "opic",
+  "group": "学院",
+  "home": "https://opic.usst.edu.cn/",
+  "homeArticles": 33,
+  "pagesProbed": 20,
+  "columns": [
+    {
+      "url": "https://opic.usst.edu.cn/14662/list.htm",
+      "cid": "14662",
+      "name": "通知公告",
+      "linkText": "",
+      "articles": 10,
+      "latest": "2026-10-22",
+      "oldest": "2023-07-13",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14661/list.htm",
+      "cid": "14661",
+      "name": "新闻简讯",
+      "linkText": "",
+      "articles": 20,
+      "latest": "2026-10-10",
+      "oldest": "2024-10-26",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/sssds_14746/list.htm",
+      "cid": "14746",
+      "name": "硕士研究生导师",
+      "linkText": "硕士研究生导师",
+      "articles": 3,
+      "latest": "2026-09-22",
+      "oldest": "2026-07-08",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/jxkyry/list.htm",
+      "cid": "18288",
+      "name": "教师名录",
+      "linkText": "教师名录",
+      "articles": 8,
+      "latest": "2026-07-08",
+      "oldest": "2026-07-02",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14646/list.htm",
+      "cid": "14745",
+      "name": "博士生导师",
+      "linkText": "人才培养",
+      "articles": 20,
+      "latest": "2026-07-03",
+      "oldest": "2023-07-18",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/xyld/list.htm",
+      "cid": "14684",
+      "name": "发展历程",
+      "linkText": "发展历程",
+      "articles": 3,
+      "latest": "2026-06-24",
+      "oldest": "2026-06-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14647/list.htm",
+      "cid": "18050",
+      "name": "科研团队",
+      "linkText": "科学研究",
+      "articles": 5,
+      "latest": "2026-05-18",
+      "oldest": "2026-05-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14664/list.htm",
+      "cid": "14664",
+      "name": "创新成果",
+      "linkText": "",
+      "articles": 2,
+      "latest": "2025-10-21",
+      "oldest": "2023-07-14",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14665/list.htm",
+      "cid": "14665",
+      "name": "学生活动",
+      "linkText": "",
+      "articles": 4,
+      "latest": "2025-10-21",
+      "oldest": "2023-07-14",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/xywj/list.htm",
+      "cid": "16260",
+      "name": "2024年文件",
+      "linkText": "学院文件",
+      "articles": 2,
+      "latest": "2024-05-27",
+      "oldest": "2024-05-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://opic.usst.edu.cn/14667/list.htm",
+      "cid": "14667",
+      "name": "合作伙伴",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2023-06-29",
+      "oldest": "2023-06-22",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "14652",
+      "sample": "/2023/0629/c14652a302506/page.htm",
+      "date": "2023-06-29"
+    },
+    {
+      "cid": "14731",
+      "sample": "/2023/0629/c14731a302487/page.htm",
+      "date": "2023-06-29"
+    }
+  ],
+  "elapsedMs": 2052
+}

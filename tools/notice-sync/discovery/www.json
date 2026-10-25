@@ -1,0 +1,442 @@
+{
+  "dept": "上海理工大学",
+  "host": "www",
+  "group": "校级",
+  "home": "https://www.usst.edu.cn/",
+  "homeArticles": 80,
+  "pagesProbed": 76,
+  "columns": [
+    {
+      "url": "https://www.usst.edu.cn/mtjz_930/list.htm",
+      "cid": "965",
+      "name": "传统媒体",
+      "linkText": "媒体矩阵",
+      "articles": 20,
+      "latest": "2026-10-25",
+      "oldest": "2026-09-30",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/slyw/list.htm",
+      "cid": "921",
+      "name": "上理要闻",
+      "linkText": "上理要闻",
+      "articles": 14,
+      "latest": "2026-10-24",
+      "oldest": "2026-10-13",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xwsd/list.htm",
+      "cid": "934",
+      "name": "新闻简讯",
+      "linkText": "新闻简讯",
+      "articles": 14,
+      "latest": "2026-10-24",
+      "oldest": "2026-10-20",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/rdxwly/list.htm",
+      "cid": "1615",
+      "name": "热点新闻来源",
+      "linkText": "热点新闻来源",
+      "articles": 11,
+      "latest": "2026-10-24",
+      "oldest": "2026-10-21",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/tzgg/list.htm",
+      "cid": "36",
+      "name": "通知公告",
+      "linkText": "",
+      "articles": 9,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-14",
+      "hasPaging": true,
+      "foundVia": "seed"
+    },
+    {
+      "url": "https://www.usst.edu.cn/qb_1017/list.htm",
+      "cid": "1017",
+      "name": "全部",
+      "linkText": "通知公告",
+      "articles": 10,
+      "latest": "2026-10-23",
+      "oldest": "2023-07-18",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xjzbg/list.htm",
+      "cid": "1595",
+      "name": "讲座报名",
+      "linkText": "讲座报名",
+      "articles": 12,
+      "latest": "2026-10-23",
+      "oldest": "2026-05-28",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/ky/list.htm",
+      "cid": "52",
+      "name": "科研",
+      "linkText": "科研",
+      "articles": 11,
+      "latest": "2026-10-23",
+      "oldest": "2023-07-18",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/zb/list.htm",
+      "cid": "54",
+      "name": "招标",
+      "linkText": "招标",
+      "articles": 11,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-09",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/qb/list.htm",
+      "cid": "479",
+      "name": "校务",
+      "linkText": "校务",
+      "articles": 11,
+      "latest": "2026-10-22",
+      "oldest": "2026-09-18",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/1652/list.htm",
+      "cid": "1652",
+      "name": "上理教师",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2026-10-19",
+      "oldest": "2025-11-12",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://www.usst.edu.cn/kjzc/list.htm",
+      "cid": "929",
+      "name": "科教之窗",
+      "linkText": "科教之窗",
+      "articles": 14,
+      "latest": "2026-10-16",
+      "oldest": "2026-07-28",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/1654/list.htm",
+      "cid": "1654",
+      "name": "上理校友",
+      "linkText": "",
+      "articles": 10,
+      "latest": "2026-10-12",
+      "oldest": "2025-10-17",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://www.usst.edu.cn/1653/list.htm",
+      "cid": "1653",
+      "name": "上理学生",
+      "linkText": "",
+      "articles": 10,
+      "latest": "2026-09-30",
+      "oldest": "2025-10-20",
+      "hasPaging": true,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xwwhsjbmdwfwsjhz/list.htm",
+      "cid": "912",
+      "name": "校务",
+      "linkText": "校务-寒暑假部门对外服务时间汇总",
+      "articles": 11,
+      "latest": "2026-07-15",
+      "oldest": "2026-01-14",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xrld/list.htm",
+      "cid": "475",
+      "name": "现任领导",
+      "linkText": "现任领导",
+      "articles": 12,
+      "latest": "2026-06-24",
+      "oldest": "2018-03-05",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xxgk/list.htm",
+      "cid": "989",
+      "name": "学校概况",
+      "linkText": "学校概况",
+      "articles": 5,
+      "latest": "2026-06-15",
+      "oldest": "2026-04-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.usst.edu.cn/slbs/list.htm",
+      "cid": "1039",
+      "name": "上理标识",
+      "linkText": "快速链接",
+      "articles": 2,
+      "latest": "2026-04-29",
+      "oldest": "2013-10-22",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/tjyd1/list.htm",
+      "cid": "1647",
+      "name": "推荐阅读",
+      "linkText": "推荐阅读",
+      "articles": 4,
+      "latest": "2025-12-03",
+      "oldest": "2025-11-14",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/bxgdjsxxjy/list.htm",
+      "cid": "1644",
+      "name": "深入贯彻中央八项规定精神学习教育",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2025-07-11",
+      "oldest": "2025-06-25",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.usst.edu.cn/dqll/list.htm",
+      "cid": "1627",
+      "name": "党旗猎猎",
+      "linkText": "党旗猎猎",
+      "articles": 9,
+      "latest": "2024-12-20",
+      "oldest": "2024-12-16",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/djxxjy/list.htm",
+      "cid": "1626",
+      "name": "党纪学习教育",
+      "linkText": "党纪学习教育",
+      "articles": 11,
+      "latest": "2024-07-12",
+      "oldest": "2024-06-21",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/ztjyjxs/list.htm",
+      "cid": "1616",
+      "name": "主题教育进行时",
+      "linkText": "主题教育进行时",
+      "articles": 11,
+      "latest": "2023-08-25",
+      "oldest": "2023-06-26",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/esd/list.htm",
+      "cid": "1612",
+      "name": "党的二十大精神·学习进行时",
+      "linkText": "党的二十大精神·学习进行时",
+      "articles": 12,
+      "latest": "2023-04-08",
+      "oldest": "2022-12-07",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/esd_1613/list.htm",
+      "cid": "1614",
+      "name": "党的二十大精神·学习进行时",
+      "linkText": "二十大",
+      "articles": 9,
+      "latest": "2023-03-11",
+      "oldest": "2022-10-25",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/zt/list.htm",
+      "cid": "974",
+      "name": "文化上理",
+      "linkText": "文化上理-视频",
+      "articles": 3,
+      "latest": "2023-02-22",
+      "oldest": "2023-02-22",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/jzrz2_1045/list.htm",
+      "cid": "1583",
+      "name": "讲座日志",
+      "linkText": "讲座日志",
+      "articles": 219,
+      "latest": "2022-10-20",
+      "oldest": "2018-03-02",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/ywtb/list.htm",
+      "cid": "1598",
+      "name": "教学日历",
+      "linkText": "我的常用",
+      "articles": 1,
+      "latest": "2022-08-26",
+      "oldest": "2022-08-26",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/bnxf/list.htm",
+      "cid": "999",
+      "name": "百年学府",
+      "linkText": "百年学府",
+      "articles": 28,
+      "latest": "2022-08-13",
+      "oldest": "2022-07-26",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/gzzy/list.htm",
+      "cid": "1032",
+      "name": "文化地标",
+      "linkText": "文化地标",
+      "articles": 3,
+      "latest": "2022-08-02",
+      "oldest": "2022-08-02",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/dlyjy/list.htm",
+      "cid": "975",
+      "name": "独立研究院",
+      "linkText": "独立研究院",
+      "articles": 5,
+      "latest": "2022-07-19",
+      "oldest": "2022-07-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.usst.edu.cn/kxyj_938/list.htm",
+      "cid": "938",
+      "name": "科学研究",
+      "linkText": "科学研究",
+      "articles": 2,
+      "latest": "2022-07-14",
+      "oldest": "2022-07-14",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.usst.edu.cn/_s7/_t64/xysp/list.psp",
+      "cid": "41",
+      "name": "校园视频",
+      "linkText": "宣传片",
+      "articles": 11,
+      "latest": "2022-06-17",
+      "oldest": "2020-11-02",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.usst.edu.cn/xyVPN/list.htm",
+      "cid": "489",
+      "name": "校园VPN",
+      "linkText": "校园VPN",
+      "articles": 2,
+      "latest": "2019-06-06",
+      "oldest": "2019-06-06",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "925",
+      "sample": "/2023/0210/c925a52062/page.htm",
+      "date": "2023-02-10"
+    },
+    {
+      "cid": "926",
+      "sample": "/2026/0414/c926a68073/page.htm",
+      "date": "2026-04-14"
+    },
+    {
+      "cid": "1045",
+      "sample": "/2026/1023/c1045a70708/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "cid": "954",
+      "sample": "/2026/1022/c954a70678/page.htm",
+      "date": "2026-10-22"
+    },
+    {
+      "cid": "956",
+      "sample": "/2023/0718/c956a54422/page.htm",
+      "date": "2023-07-18"
+    },
+    {
+      "cid": "957",
+      "sample": "/2026/1023/c957a70684/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "cid": "1620",
+      "sample": "/2024/1219/c1620a61099/page.htm",
+      "date": "2024-12-19"
+    },
+    {
+      "cid": "995",
+      "sample": "/2026/1013/c995a70459/page.htm",
+      "date": "2026-10-13"
+    },
+    {
+      "cid": "1049",
+      "sample": "/2026/0717/c1049a69571/page.htm",
+      "date": "2026-07-17"
+    },
+    {
+      "cid": "996",
+      "sample": "/2026/0508/c996a68453/page.htm",
+      "date": "2026-05-08"
+    },
+    {
+      "cid": "969",
+      "sample": "/2023/0518/c969a53559/page.htm",
+      "date": "2023-05-18"
+    }
+  ],
+  "elapsedMs": 5077
+}

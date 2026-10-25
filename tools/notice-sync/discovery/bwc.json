@@ -1,0 +1,177 @@
+{
+  "dept": "保卫部（处）",
+  "host": "bwc",
+  "group": "机关",
+  "home": "https://bwc.usst.edu.cn/",
+  "homeArticles": 22,
+  "pagesProbed": 16,
+  "columns": [
+    {
+      "url": "https://bwc.usst.edu.cn/2790/list.htm",
+      "cid": "2790",
+      "name": "重要通知",
+      "linkText": "重要通知",
+      "articles": 14,
+      "latest": "2026-10-15",
+      "oldest": "2026-04-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2808/list.htm",
+      "cid": "2808",
+      "name": "工作动态",
+      "linkText": "更多++",
+      "articles": 6,
+      "latest": "2026-10-08",
+      "oldest": "2026-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2803/list.htm",
+      "cid": "2803",
+      "name": "招标公告",
+      "linkText": "招标公告",
+      "articles": 14,
+      "latest": "2026-09-20",
+      "oldest": "2026-05-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/aqxc/list.htm",
+      "cid": "12212",
+      "name": "安全宣传",
+      "linkText": "更多++",
+      "articles": 14,
+      "latest": "2026-07-01",
+      "oldest": "2024-01-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/wfzjlwzszm/list.htm",
+      "cid": "18343",
+      "name": "无犯罪记录、政审证明",
+      "linkText": "无犯罪记录、政审证明",
+      "articles": 3,
+      "latest": "2026-06-29",
+      "oldest": "2026-01-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/12160/list.htm",
+      "cid": "12160",
+      "name": "办事指南",
+      "linkText": "办事指南",
+      "articles": 5,
+      "latest": "2026-03-18",
+      "oldest": "2021-06-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/hjfw/list.htm",
+      "cid": "12203",
+      "name": "户籍业务指南",
+      "linkText": "户籍业务指南",
+      "articles": 4,
+      "latest": "2026-03-18",
+      "oldest": "2021-06-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2811/list.htm",
+      "cid": "2811",
+      "name": "视频专题图片",
+      "linkText": "视频专题图片",
+      "articles": 9,
+      "latest": "2025-11-26",
+      "oldest": "2023-04-14",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2800/list.htm",
+      "cid": "2800",
+      "name": "校内规章",
+      "linkText": "校内规章",
+      "articles": 9,
+      "latest": "2025-05-20",
+      "oldest": "2020-06-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2799/list.htm",
+      "cid": "2799",
+      "name": "法律法规",
+      "linkText": "法律法规",
+      "articles": 14,
+      "latest": "2024-07-25",
+      "oldest": "2020-06-30",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/xfyaqsc/list.htm",
+      "cid": "12205",
+      "name": "消防与安全生产",
+      "linkText": "消防与安全生产",
+      "articles": 5,
+      "latest": "2023-05-11",
+      "oldest": "2021-06-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2802/list.htm",
+      "cid": "2802",
+      "name": "文档下载",
+      "linkText": "文档下载",
+      "articles": 8,
+      "latest": "2023-04-10",
+      "oldest": "2021-06-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/jsaqyffl/list.htm",
+      "cid": "14215",
+      "name": "技术安全与防范类",
+      "linkText": "技术安全与防范类",
+      "articles": 2,
+      "latest": "2023-04-10",
+      "oldest": "2023-04-10",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2805/list.htm",
+      "cid": "2805",
+      "name": "联系方式",
+      "linkText": "联系方式",
+      "articles": 4,
+      "latest": "2022-03-03",
+      "oldest": "2010-05-28",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://bwc.usst.edu.cn/2789/list.htm",
+      "cid": "2789",
+      "name": "机构设置",
+      "linkText": "机构设置",
+      "articles": 6,
+      "latest": "2010-09-01",
+      "oldest": "2010-05-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 934
+}

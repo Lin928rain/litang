@@ -1,0 +1,188 @@
+{
+  "dept": "后勤管理处",
+  "host": "zwc",
+  "group": "机关",
+  "home": "https://zwc.usst.edu.cn/",
+  "homeArticles": 23,
+  "pagesProbed": 19,
+  "columns": [
+    {
+      "url": "https://zwc.usst.edu.cn/hqbz/list.htm",
+      "cid": "16025",
+      "name": "通知公告",
+      "linkText": "后勤动态",
+      "articles": 6,
+      "latest": "2026-10-09",
+      "oldest": "2026-01-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/1334/list.htm",
+      "cid": "1335",
+      "name": "常用文件",
+      "linkText": "下载中心",
+      "articles": 2,
+      "latest": "2026-10-09",
+      "oldest": "2021-12-22",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/tzgg/list.htm",
+      "cid": "15587",
+      "name": "通知公告",
+      "linkText": "MORE+",
+      "articles": 6,
+      "latest": "2026-10-09",
+      "oldest": "2026-01-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/hqfc/list.htm",
+      "cid": "15585",
+      "name": "后勤风采",
+      "linkText": "MORE+",
+      "articles": 4,
+      "latest": "2025-12-29",
+      "oldest": "2023-10-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/gzzd/list.htm",
+      "cid": "15581",
+      "name": "规章制度",
+      "linkText": "规章制度",
+      "articles": 14,
+      "latest": "2025-12-26",
+      "oldest": "2024-04-02",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/hqdt/list.htm",
+      "cid": "16773",
+      "name": "后勤地图",
+      "linkText": "后勤地图",
+      "articles": 3,
+      "latest": "2025-12-12",
+      "oldest": "2024-10-08",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/hqdj/list.htm",
+      "cid": "16034",
+      "name": "后勤党支部建设与精神文明创建",
+      "linkText": "MORE+",
+      "articles": 11,
+      "latest": "2025-10-29",
+      "oldest": "2019-03-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/xnjy/list.htm",
+      "cid": "15936",
+      "name": "医疗服务",
+      "linkText": "医疗服务",
+      "articles": 2,
+      "latest": "2024-07-12",
+      "oldest": "2024-03-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/sjsl/list.htm",
+      "cid": "16269",
+      "name": "四季上理",
+      "linkText": "四季上理",
+      "articles": 4,
+      "latest": "2024-06-17",
+      "oldest": "2024-06-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/fwyr/list.htm",
+      "cid": "16039",
+      "name": "服务育人",
+      "linkText": "服务育人",
+      "articles": 1,
+      "latest": "2024-06-15",
+      "oldest": "2024-06-15",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/slwg/list.htm",
+      "cid": "16036",
+      "name": "上理微光",
+      "linkText": "上理微光",
+      "articles": 1,
+      "latest": "2024-04-30",
+      "oldest": "2024-04-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/hsts/list.htm",
+      "cid": "15898",
+      "name": "宿舍服务",
+      "linkText": "宿舍服务",
+      "articles": 8,
+      "latest": "2024-03-27",
+      "oldest": "2024-02-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/bszn/list.htm",
+      "cid": "15891",
+      "name": "报修服务",
+      "linkText": "办事指南",
+      "articles": 2,
+      "latest": "2024-02-28",
+      "oldest": "2024-02-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/smfw/list.htm",
+      "cid": "15896",
+      "name": "校园商贸",
+      "linkText": "校园商贸",
+      "articles": 1,
+      "latest": "2024-02-28",
+      "oldest": "2024-02-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://zwc.usst.edu.cn/ljtf/list.htm",
+      "cid": "15902",
+      "name": "垃圾投放",
+      "linkText": "垃圾投放",
+      "articles": 2,
+      "latest": "2024-02-28",
+      "oldest": "2024-02-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "15582",
+      "sample": "/2025/1029/c15582a349588/page.htm",
+      "date": "2025-10-29"
+    },
+    {
+      "cid": "16757",
+      "sample": "/2024/0904/c16757a325807/page.htm",
+      "date": "2024-09-04"
+    }
+  ],
+  "elapsedMs": 1515
+}

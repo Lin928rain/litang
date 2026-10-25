@@ -1,0 +1,23 @@
+{
+  "dept": "本科生院",
+  "host": "bksy",
+  "group": "机关",
+  "home": "https://bksy.usst.edu.cn/",
+  "homeArticles": 4,
+  "pagesProbed": 1,
+  "columns": [
+    {
+      "url": "https://bksy.usst.edu.cn/11451/list.htm",
+      "cid": "11451",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2026-10-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 355
+}

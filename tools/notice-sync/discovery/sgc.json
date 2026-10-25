@@ -1,0 +1,238 @@
+{
+  "dept": "中德国际学院",
+  "host": "sgc",
+  "group": "学院",
+  "home": "https://sgc.usst.edu.cn/",
+  "homeArticles": 46,
+  "pagesProbed": 21,
+  "columns": [
+    {
+      "url": "https://sgc.usst.edu.cn/xyxw/list.htm",
+      "cid": "5816",
+      "name": "学院新闻",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-10-25",
+      "oldest": "2025-12-12",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/tpxw/list.htm",
+      "cid": "5818",
+      "name": "图片新闻",
+      "linkText": "",
+      "articles": 14,
+      "latest": "2026-10-20",
+      "oldest": "2026-05-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17854/list.htm",
+      "cid": "17854",
+      "name": "院务工作",
+      "linkText": "ViewMore+",
+      "articles": 14,
+      "latest": "2026-10-16",
+      "oldest": "2024-05-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/txgz/list.htm",
+      "cid": "10133",
+      "name": "团学工作",
+      "linkText": "团学工作",
+      "articles": 12,
+      "latest": "2026-10-15",
+      "oldest": "2020-05-19",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17857/list.htm",
+      "cid": "17857",
+      "name": "教务工作",
+      "linkText": "ViewMore+",
+      "articles": 14,
+      "latest": "2026-10-15",
+      "oldest": "2021-04-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17852/list.htm",
+      "cid": "17852",
+      "name": "公告一览",
+      "linkText": "公告一览",
+      "articles": 2,
+      "latest": "2026-09-21",
+      "oldest": "2026-06-01",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17856/list.htm",
+      "cid": "17856",
+      "name": "学生工作",
+      "linkText": "ViewMore+",
+      "articles": 14,
+      "latest": "2026-05-20",
+      "oldest": "2024-09-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17849/list.htm",
+      "cid": "17849",
+      "name": "风采展示",
+      "linkText": "",
+      "articles": 8,
+      "latest": "2026-05-14",
+      "oldest": "2026-03-05",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17842/list.htm",
+      "cid": "17842",
+      "name": "党建工作",
+      "linkText": "党建工作",
+      "articles": 14,
+      "latest": "2026-04-27",
+      "oldest": "2021-06-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17844/list.htm",
+      "cid": "17844",
+      "name": "校友之家",
+      "linkText": "校友之家",
+      "articles": 14,
+      "latest": "2026-03-28",
+      "oldest": "2019-11-01",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/xsgz/list.htm",
+      "cid": "5795",
+      "name": "学生工作",
+      "linkText": "学生工作",
+      "articles": 14,
+      "latest": "2026-03-20",
+      "oldest": "2024-09-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/18005/list.htm",
+      "cid": "18005",
+      "name": "党务公开",
+      "linkText": "党务公开",
+      "articles": 14,
+      "latest": "2026-02-27",
+      "oldest": "2019-11-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17855/list.htm",
+      "cid": "17855",
+      "name": "党务工作",
+      "linkText": "ViewMore+",
+      "articles": 14,
+      "latest": "2026-02-27",
+      "oldest": "2019-11-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/18007/list.htm",
+      "cid": "18007",
+      "name": "专题活动",
+      "linkText": "专题活动",
+      "articles": 8,
+      "latest": "2025-11-03",
+      "oldest": "2023-04-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/17853/list.htm",
+      "cid": "17853",
+      "name": "常用下载",
+      "linkText": "",
+      "articles": 3,
+      "latest": "2023-11-10",
+      "oldest": "2020-05-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/18009/list.htm",
+      "cid": "18009",
+      "name": "专题活动",
+      "linkText": "专题活动",
+      "articles": 3,
+      "latest": "2022-12-02",
+      "oldest": "2022-12-01",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/xyld/list.htm",
+      "cid": "9219",
+      "name": "学院领导",
+      "linkText": "学院领导",
+      "articles": 3,
+      "latest": "2021-06-10",
+      "oldest": "2019-10-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/18006/list.htm",
+      "cid": "18008",
+      "name": "工会小家",
+      "linkText": "群团工作",
+      "articles": 10,
+      "latest": "2020-10-15",
+      "oldest": "2019-12-05",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/hzyx/list.htm",
+      "cid": "5821",
+      "name": "德方合作高校",
+      "linkText": "",
+      "articles": 4,
+      "latest": "2019-01-04",
+      "oldest": "2018-11-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://sgc.usst.edu.cn/zysz_5802/list.htm",
+      "cid": "5802",
+      "name": "专业设置",
+      "linkText": "专业设置",
+      "articles": 6,
+      "latest": "2018-11-19",
+      "oldest": "2018-11-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "17845",
+      "sample": "/2026/0921/c17845a370876/page.htm",
+      "date": "2026-09-21"
+    }
+  ],
+  "elapsedMs": 1262
+}

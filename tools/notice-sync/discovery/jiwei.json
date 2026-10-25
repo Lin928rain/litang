@@ -1,0 +1,89 @@
+{
+  "dept": "纪检监察网",
+  "host": "jiwei",
+  "group": "党群",
+  "home": "https://jiwei.usst.edu.cn/",
+  "homeArticles": 25,
+  "pagesProbed": 6,
+  "columns": [
+    {
+      "url": "https://jiwei.usst.edu.cn/1786/list.htm",
+      "cid": "1786",
+      "name": "廉政要闻",
+      "linkText": "廉政要闻",
+      "articles": 14,
+      "latest": "2026-10-22",
+      "oldest": "2024-05-31",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiwei.usst.edu.cn/1787/list.htm",
+      "cid": "1787",
+      "name": "工作动态",
+      "linkText": "更多+",
+      "articles": 14,
+      "latest": "2026-07-06",
+      "oldest": "2024-06-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiwei.usst.edu.cn/wslwlz/list.htm",
+      "cid": "10628",
+      "name": "“尚理”廉政",
+      "linkText": "“尚理”廉政",
+      "articles": 14,
+      "latest": "2026-05-19",
+      "oldest": "2020-06-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiwei.usst.edu.cn/1792/list.htm",
+      "cid": "1792",
+      "name": "巡察工作",
+      "linkText": "巡察工作",
+      "articles": 6,
+      "latest": "2026-04-20",
+      "oldest": "2023-07-13",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiwei.usst.edu.cn/1784/list.htm",
+      "cid": "1784",
+      "name": "政策法规",
+      "linkText": "政策法规",
+      "articles": 14,
+      "latest": "2024-05-17",
+      "oldest": "2017-03-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jiwei.usst.edu.cn/1785/list.htm",
+      "cid": "1785",
+      "name": "制度建设",
+      "linkText": "制度建设",
+      "articles": 14,
+      "latest": "2024-05-17",
+      "oldest": "2020-06-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "13613",
+      "sample": "/2022/0915/c13613a279683/page.htm",
+      "date": "2022-09-15"
+    },
+    {
+      "cid": "17184",
+      "sample": "/2025/1205/c17184a353332/page.htm",
+      "date": "2025-12-05"
+    }
+  ],
+  "elapsedMs": 2408
+}

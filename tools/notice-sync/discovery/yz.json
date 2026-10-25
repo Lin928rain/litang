@@ -1,0 +1,133 @@
+{
+  "dept": "研究生招生网",
+  "host": "yz",
+  "group": "招生",
+  "home": "https://yz.usst.edu.cn/",
+  "homeArticles": 15,
+  "pagesProbed": 25,
+  "columns": [
+    {
+      "url": "https://yz.usst.edu.cn/3394/list.htm",
+      "cid": "3394",
+      "name": "硕士招生",
+      "linkText": "",
+      "articles": 11,
+      "latest": "2026-10-08",
+      "oldest": "2025-07-02",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3357/list.htm",
+      "cid": "3357",
+      "name": "硕士招生",
+      "linkText": "硕士招生",
+      "articles": 4,
+      "latest": "2026-10-01",
+      "oldest": "2023-09-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3397/list.htm",
+      "cid": "3397",
+      "name": "推免生招生",
+      "linkText": "",
+      "articles": 3,
+      "latest": "2026-09-20",
+      "oldest": "2024-09-28",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3391/list.htm",
+      "cid": "3391",
+      "name": "博士招生",
+      "linkText": "",
+      "articles": 3,
+      "latest": "2026-07-07",
+      "oldest": "2026-06-15",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3384/list.htm",
+      "cid": "3385",
+      "name": "博士",
+      "linkText": "下载专区",
+      "articles": 4,
+      "latest": "2026-06-24",
+      "oldest": "2011-10-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3358/list.htm",
+      "cid": "3358",
+      "name": "港澳台招生",
+      "linkText": "港澳台招生",
+      "articles": 4,
+      "latest": "2026-05-22",
+      "oldest": "2022-01-17",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3396/list.htm",
+      "cid": "3396",
+      "name": "港澳台招生",
+      "linkText": "",
+      "articles": 2,
+      "latest": "2026-05-22",
+      "oldest": "2025-03-04",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3387/list.htm",
+      "cid": "3387",
+      "name": "硕士",
+      "linkText": "硕士",
+      "articles": 2,
+      "latest": "2026-05-15",
+      "oldest": "2011-10-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3354/list.htm",
+      "cid": "3355",
+      "name": "博士招生",
+      "linkText": "招生简章",
+      "articles": 6,
+      "latest": "2025-12-29",
+      "oldest": "2020-11-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://yz.usst.edu.cn/3366/list.htm",
+      "cid": "3366",
+      "name": "管理规定",
+      "linkText": "管理规定",
+      "articles": 7,
+      "latest": "2025-10-11",
+      "oldest": "2021-11-10",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "3402",
+      "sample": "/2011/1026/c3402a58667/page.htm",
+      "date": "2011-10-26"
+    },
+    {
+      "cid": "3388",
+      "sample": "/2021/0918/c3388a254966/page.htm",
+      "date": "2021-09-18"
+    }
+  ],
+  "elapsedMs": 969
+}

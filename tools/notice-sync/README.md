@@ -1,53 +1,113 @@
 # 通知抓取（服务端）
 
-把各学院站点的通知列表抓成一个统一的 `notices.json`，App 只拉这个文件，
-不再让每台设备各自去爬学校站点。
+把全校各站点（学院 + 机关 + 直属单位，共 63 个二级站点）的通知/新闻抓成
+一个统一的 `notices.json`，App 只拉这个文件，不再让每台设备各自去爬学校站点。
+
+## 流程
+
+```
+sites.json          ← 手工维护：全校 63 个站点的域名 / 部门名
+      │
+      ▼  discover-all.mjs    （本地跑，几分钟）
+discovery/<host>.json      ← 每个站点发现了哪些栏目、有多少文章、最新日期
+      │
+      ▼  build-sources.mjs   （本地跑，秒级）
+sources.json        ← 栏目级配置：分类(kind)、权重、是否启用
+      │
+      ▼  fetch.mjs           （CI 每天 3 次）
+out/notices.json    ← App 拉取的产物
+```
+
+只有 `fetch.mjs` 会在 CI 里跑；`discover` / `build-sources` 是改版或想扩源时才在本地重跑。
+
+## 为什么不能"按导航名字配源"
+
+踩过的坑，都写进代码了：
+
+1. **栏目名像通知 ≠ 活跃栏目**。正确做法是从首页文章链接里的 `c<栏目id>a<文章id>` 反推活跃栏目，
+   再验证 `list.htm` 非空。
+2. **学院站点每页侧栏都挂"学院新闻"**。如果按"本页出现最多的 cid"判断栏目 id，
+   所有栏目会塌缩成一个 —— 所以先统计跨页面高频出现的 cid 并剔除。
+3. **首页"孤儿栏目"多半有列表页**。首页只链文章、不给"更多"链接而已，
+   探一下 `/<cid>/list.htm` 基本都能出来（主站 www 例外，它只认命名目录，所以用 `seeds` 手工补）。
+4. **少数栏目连列表页都没有**（`/<cid>/list.htm` 返回"提示信息"）。
+   这类用 `type: "home"` 的"首页直链"源兜底：把首页当列表页，只收指定 cid 的文章。
+5. **主站 www 的导航是 JS 渲染的**，首页 HTML 里根本没有"通知公告"的链接，
+   所以在 `sites.json` 里用 `seeds` 手工补了 `/tzgg/list.htm`。
 
 ## 目录
 
 ```
 tools/notice-sync/
-├── sources.json        # 抓取源配置（加源只改这里）
-├── fetch.mjs           # 抓取 + 解析 + 合并历史
-├── fetch.test.mjs      # 解析器单测（5 种实测模板）
-├── debug.mjs           # 排查用：打印站点真实结构（随时可删）
-└── out/notices.json    # 产物（CI 自动提交）
+├── sites.json            # 全校站点清单（加站点只改这里）
+├── discover-all.mjs      # 栏目发现：抓首页 → 探列表页 → 去侧栏干扰 → 写 discovery/
+├── build-sources.mjs     # 由 discovery/ 生成 sources.json（分类、权重、启用开关）
+├── sources.json          # 抓取源配置（531 个栏目，启用 453 个，含 24 个「首页直链」兜底源）
+├── fetch.mjs             # 抓取 + 解析 + 合并历史
+├── fetch.test.mjs        # 解析器单测（实测到的 8 种模板/坑）
+├── check-stats.mjs       # 看一眼产物的分布
+├── discovery/<host>.json # 每站点的栏目发现结果（可作为"有没有漏"的审计底稿）
+└── out/notices.json      # 产物（CI 自动提交）
 ```
 
 ## 本地运行
 
 ```bash
-# 只预览不写文件
-node tools/notice-sync/fetch.mjs --dry
+# 1) 重新发现栏目（可选，改版了才需要；全量约 4 分钟）
+node tools/notice-sync/discover-all.mjs                 # 全部站点，并发 6
+node tools/notice-sync/discover-all.mjs me jcxb www     # 只跑指定站点
 
-# 正式抓取并写入 out/notices.json
-node tools/notice-sync/fetch.mjs
+# 2) 重新生成源配置
+node tools/notice-sync/build-sources.mjs --dry          # 先看分类统计
+node tools/notice-sync/build-sources.mjs                # 写入 sources.json
 
-# 跑解析器单测
-node --test tools/notice-sync/fetch.test.mjs
+# 3) 抓取
+node tools/notice-sync/fetch.mjs --dry                  # 只预览
+node tools/notice-sync/fetch.mjs                        # 写入 out/notices.json（约 20 秒）
+node --test tools/notice-sync/fetch.test.mjs            # 单测
 ```
+
+## 分类（kind）
+
+`sources.json` 里每个栏目有一个 `kind`，决定 App 怎么展示、以及要不要默认启用：
+
+| kind | 说明 | 权重 | 默认启用 |
+|---|---|---|---|
+| `竞赛` | 学科竞赛、创新创业、大创 | 95 | ✅ |
+| `教学` | 教学运行、考务、培养计划、教材 | 90 | ✅ |
+| `通知` | 通知公告、公示、部务信息 | 88 | ✅ |
+| `讲座` | 讲座、论坛、学术报告 | 85 | ✅ |
+| `学工` | 学生工作、奖助、宿舍、迎新 | 80 | ✅ |
+| `就业` | 就业、招聘、实习 | 75 | ✅ |
+| `科研` | 科研动态、项目申报、成果 | 60 | ✅ |
+| `招生` | 本科/研究生/留学生招生 | 55 | ✅ |
+| `新闻` | 学院新闻、要闻、快讯 | 45 | ✅ |
+| `党群` | 党建、工会、团委、纪检 | 25 | ❌ |
+| `下载` | 资料下载、规章制度 | 15 | ❌ |
+
+`教务处 / 本科生院 / 研究生院` 的栏目额外 +12 权重，主站 +10。
 
 ## 自动化
 
-`.github/workflows/sync-notices.yml`：每天 3 次定时抓取，跑完自动提交
-`out/notices.json`；如果配置了 `GITEE_TOKEN` secret，还会顺带同步到 Gitee。
+`.github/workflows/sync-notices.yml`：每天 3 次定时抓取（UTC 08/13/22），
+跑完自动提交 `out/notices.json`；配了 `GITEE_TOKEN` secret 时还会镜像到
+`gitee:extrisha/lit-Calendar`（国内加速用）。
 
 ## 数据结构
 
 ```json
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-10-25T11:54:57.323Z",
-  "total": 154,
+  "schemaVersion": 2,
+  "updatedAt": "2026-10-25T12:41:00.000Z",
+  "total": 7150,
   "notices": [
     {
-      "id": "ndxy:https://ndxy.usst.edu.cn/2026/1025/c14380a372908/page.htm",
-      "dept": "能源与动力工程学院",
-      "category": "新闻动态",
+      "dept": "基础学部",
+      "kind": "竞赛",
       "scope": "college",
-      "title": "能动学院师生应邀参观第十三届中国（上海）国际流体机械展",
-      "url": "https://ndxy.usst.edu.cn/2026/1025/c14380a372908/page.htm",
-      "date": "2026-10-25"
+      "title": "【统计建模】2026年（第十二届）全国大学生统计建模大赛上海理工大学校赛获奖名单公告",
+      "url": "https://jcxb.usst.edu.cn/2026/0914/c18415a370397/page.htm",
+      "date": "2026-09-14"
     }
   ]
 }
@@ -55,24 +115,36 @@ node --test tools/notice-sync/fetch.test.mjs
 
 | 字段 | 说明 |
 |---|---|
-| `id` | `源ID:url`，也是跨次抓取的唯一键（用于合并历史） |
 | `dept` | 发布部门 / 学院 |
-| `category` | 栏目名（通知公告 / 科研通知 / 新闻动态…） |
-| `scope` | `school` 全校级 / `college` 学院级，用于「本院优先」排序 |
-| `date` | `YYYY-MM-DD`，解析不出时为 `null` |
+| `kind` | 见上面的分类表 |
+| `scope` | `school` 全校级 / `college` 学院级，用于"本院优先"排序 |
+| `title` | 标题（已去掉摘要、导航词） |
+| `url` | 原文地址 |
+| `date` | `YYYY-MM-DD`；列表页没写日期时用文章 URL 里的归档日期兜底 |
+
+文件不缩进（`JSON.stringify` 无空格），同样的内容能省 30% 体积（7.7k 条约 1.7 MB）。
 
 ## 维护
 
-- **加一个源**：往 `sources.json` 的 `sites` 里加一条即可，不用改代码。
-- **学院改版**：先跑 `node tools/notice-sync/debug.mjs` 看新结构，
-  再在 `fetch.test.mjs` 里补一个该结构的 fixture，最后调 `parseList`。
-- **历史**：每次抓取都会和 `out/notices.json` 里已有的数据合并，按 `id` 去重，
-  最多保留 800 条，老通知不会因为翻页消失。
+- **加站点**：`sites.json` 加一条 → 跑 `discover-all.mjs <host>` → 跑 `build-sources.mjs`。
+- **加栏目**：如果只是某个命名目录没被发现，在 `sites.json` 对应站点加 `seeds: ["...list.htm"]`。
+- **临时关掉某个源**：把 `sources.json` 里那条的 `enabled` 改成 `false`。
+- **学院改版**：先手动 `curl` 看新结构，再在 `fetch.test.mjs` 补 fixture，最后调 `parseList`。
+- **历史**：每次抓取和 `out/notices.json` 合并（按 URL 去重、按标题去重），
+  只保留近 2 年、最多 25000 条。
+
+## 抓取节奏
+
+- 同一站点内部串行、站点之间并发 8 个，避免把某个站点打爆。
+- 每个源最多翻 12 页（新闻/党群 5 页、科研 6 页）；没有"下一页"链接就停。
+- 全量 453 个源约 20 秒抓完（本地网络），CI 里因为跨境一般 3~8 分钟。
 
 ## 已知情况
 
 | 站点 | 状态 |
 |---|---|
-| 中德国际学院 | 首页可达但导航里没有独立通知栏目，暂未接入 |
-| 中英国际学院 | 站点返回 502 / 不可达，暂未接入 |
-| 机械工程学院 | 公告公示栏目内容较少（约 4 条） |
+| 就业信息服务网 `91.usst.edu.cn` | SPA（数智就业平台），没有 webplus 列表页，抓不到 |
+| 校报 `newspaper.usst.edu.cn` | 独立 CMS，不是 `cXXXaYYY` 结构，暂未接入 |
+| 学生档案 `sfile.usst.edu.cn` | 同上，且内容以查询服务为主 |
+| 中英国际学院 | `sbc.usst.edu.cn` 502，实际站点在 `www.sbc.usst.edu.cn`（已接入） |
+| 计算中心/基建处/技术转移 | 站点本身近两年几乎没更新 |

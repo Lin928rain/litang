@@ -1,0 +1,481 @@
+{
+  "dept": "出版学院",
+  "host": "ccad",
+  "group": "学院",
+  "home": "https://ccad.usst.edu.cn/",
+  "homeArticles": 60,
+  "pagesProbed": 51,
+  "columns": [
+    {
+      "url": "https://ccad.usst.edu.cn/zzjs/list.htm",
+      "cid": "6926",
+      "name": "组织建设",
+      "linkText": "组织建设",
+      "articles": 14,
+      "latest": "2026-10-23",
+      "oldest": "2026-05-09",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/ppxwcxyhz/list.htm",
+      "cid": "16922",
+      "name": "产学研合作",
+      "linkText": "产学研合作",
+      "articles": 13,
+      "latest": "2026-10-23",
+      "oldest": "2026-05-25",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/ygxl/list.htm",
+      "cid": "6942",
+      "name": "阳光心理",
+      "linkText": "阳光心理",
+      "articles": 14,
+      "latest": "2026-10-22",
+      "oldest": "2022-05-04",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/zylh/list.htm",
+      "cid": "6951",
+      "name": "职业领航",
+      "linkText": "职业领航",
+      "articles": 14,
+      "latest": "2026-10-22",
+      "oldest": "2025-10-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/gjxwcbskxszbqstybzzdsys/list.htm",
+      "cid": "12198",
+      "name": "实验室",
+      "linkText": "国家新闻出版署可信数字版权生态与标准重点实验室",
+      "articles": 3,
+      "latest": "2026-10-20",
+      "oldest": "2021-06-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/dwjl/list.htm",
+      "cid": "6946",
+      "name": "国际交流动态",
+      "linkText": "对外交流",
+      "articles": 12,
+      "latest": "2026-10-16",
+      "oldest": "2023-10-26",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/tzgg/list.htm",
+      "cid": "6911",
+      "name": "院务公告",
+      "linkText": "通知公告",
+      "articles": 14,
+      "latest": "2026-10-14",
+      "oldest": "2025-05-29",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jxdt/list.htm",
+      "cid": "6933",
+      "name": "教学动态",
+      "linkText": "教学动态",
+      "articles": 14,
+      "latest": "2026-10-08",
+      "oldest": "2025-12-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xzzx_11941/list.htm",
+      "cid": "11941",
+      "name": "下载中心",
+      "linkText": "下载中心",
+      "articles": 6,
+      "latest": "2026-09-24",
+      "oldest": "2023-11-30",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/yjsy/list.htm",
+      "cid": "6943",
+      "name": "研究生苑",
+      "linkText": "研究生苑",
+      "articles": 13,
+      "latest": "2026-09-20",
+      "oldest": "2025-04-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/qctx/list.htm",
+      "cid": "6939",
+      "name": "青春团学",
+      "linkText": "青春团学",
+      "articles": 14,
+      "latest": "2026-08-25",
+      "oldest": "2022-11-21",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/whcycyxy/list.htm",
+      "cid": "16923",
+      "name": "文化创意产业学院",
+      "linkText": "文化创意产业学院",
+      "articles": 13,
+      "latest": "2026-08-24",
+      "oldest": "2024-10-31",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/dtgz/list.htm",
+      "cid": "6925",
+      "name": "思想建设",
+      "linkText": "党团工作",
+      "articles": 14,
+      "latest": "2026-07-02",
+      "oldest": "2025-09-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/11/list.htm",
+      "cid": "11544",
+      "name": "硕士生导师",
+      "linkText": "硕士生导师",
+      "articles": 14,
+      "latest": "2026-07-02",
+      "oldest": "2019-07-04",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/zm/list.htm",
+      "cid": "11934",
+      "name": "知明",
+      "linkText": "知明",
+      "articles": 13,
+      "latest": "2026-06-05",
+      "oldest": "2019-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/ysxl/list.htm",
+      "cid": "11933",
+      "name": "艺术心理",
+      "linkText": "艺术心理",
+      "articles": 8,
+      "latest": "2026-05-25",
+      "oldest": "2021-03-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xsgz/list.htm",
+      "cid": "6937",
+      "name": "辅导员工作室",
+      "linkText": "学生工作",
+      "articles": 14,
+      "latest": "2026-05-20",
+      "oldest": "2025-10-15",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/mt/list.htm",
+      "cid": "11932",
+      "name": "美谈",
+      "linkText": "美谈",
+      "articles": 10,
+      "latest": "2026-04-24",
+      "oldest": "2021-03-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xygz/list.htm",
+      "cid": "6952",
+      "name": "校友工作",
+      "linkText": "校友工作",
+      "articles": 12,
+      "latest": "2026-03-17",
+      "oldest": "2023-10-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jgzj/list.htm",
+      "cid": "6916",
+      "name": "教工之家",
+      "linkText": "教工之家",
+      "articles": 14,
+      "latest": "2025-12-24",
+      "oldest": "2023-12-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jxysbwg/list.htm",
+      "cid": "11936",
+      "name": "机械艺术博物馆",
+      "linkText": "机械艺术博物馆",
+      "articles": 6,
+      "latest": "2025-11-11",
+      "oldest": "2021-03-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/zsjy/list.htm",
+      "cid": "6948",
+      "name": "招生信息",
+      "linkText": "招生就业",
+      "articles": 13,
+      "latest": "2025-10-30",
+      "oldest": "2024-05-29",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xydwzd/list.htm",
+      "cid": "11207",
+      "name": "学院党委制度",
+      "linkText": "规章制度",
+      "articles": 14,
+      "latest": "2025-10-22",
+      "oldest": "2021-09-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jsfc/list.htm",
+      "cid": "6915",
+      "name": "教师风采",
+      "linkText": "教师风采",
+      "articles": 13,
+      "latest": "2025-10-14",
+      "oldest": "2023-11-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/rcpy/list.htm",
+      "cid": "6931",
+      "name": "本科生培养",
+      "linkText": "人才培养",
+      "articles": 13,
+      "latest": "2025-05-06",
+      "oldest": "2020-03-31",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/bssds/list.htm",
+      "cid": "16905",
+      "name": "博士生导师",
+      "linkText": "博士生导师",
+      "articles": 14,
+      "latest": "2025-04-30",
+      "oldest": "2019-07-04",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/sszl/list.htm",
+      "cid": "11935",
+      "name": "理物研究所",
+      "linkText": "理物研究所",
+      "articles": 2,
+      "latest": "2024-12-09",
+      "oldest": "2021-03-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/xydt/list.htm",
+      "cid": "6910",
+      "name": "学院动态",
+      "linkText": "学院动态",
+      "articles": 3,
+      "latest": "2023-11-27",
+      "oldest": "2020-10-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/szdw/list.htm",
+      "cid": "11916",
+      "name": "师资队伍",
+      "linkText": "师资队伍",
+      "articles": 21,
+      "latest": "2023-07-06",
+      "oldest": "2019-07-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/zzyr/list.htm",
+      "cid": "6941",
+      "name": "资助育人",
+      "linkText": "资助育人",
+      "articles": 14,
+      "latest": "2023-05-22",
+      "oldest": "2021-04-20",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/ssdjs/list.htm",
+      "cid": "11545",
+      "name": "硕士点介绍",
+      "linkText": "硕士点介绍",
+      "articles": 9,
+      "latest": "2022-08-22",
+      "oldest": "2019-06-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/ywgk/list.htm",
+      "cid": "6912",
+      "name": "院务公开",
+      "linkText": "院务公开",
+      "articles": 12,
+      "latest": "2021-12-24",
+      "oldest": "2019-05-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/zdjs/list.htm",
+      "cid": "6927",
+      "name": "制度建设",
+      "linkText": "制度建设",
+      "articles": 3,
+      "latest": "2021-09-16",
+      "oldest": "2019-12-27",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/kydt/list.htm",
+      "cid": "6922",
+      "name": "科研动态",
+      "linkText": "研究机构",
+      "articles": 13,
+      "latest": "2021-09-07",
+      "oldest": "2019-06-03",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/cxsjxly/list.htm",
+      "cid": "6938",
+      "name": "创新实践训练营",
+      "linkText": "创业实践训练营",
+      "articles": 14,
+      "latest": "2021-09-01",
+      "oldest": "2020-10-30",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/gjjlxmtz/list.htm",
+      "cid": "6945",
+      "name": "国际交流项目通知",
+      "linkText": "国际交流项目通知",
+      "articles": 14,
+      "latest": "2020-05-22",
+      "oldest": "2019-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/lwzx/list.htm",
+      "cid": "6920",
+      "name": "论文撰写",
+      "linkText": "论文撰写",
+      "articles": 2,
+      "latest": "2019-06-19",
+      "oldest": "2019-06-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://ccad.usst.edu.cn/jgsz/list.htm",
+      "cid": "6909",
+      "name": "机构设置",
+      "linkText": "机构设置",
+      "articles": 12,
+      "latest": "2019-05-15",
+      "oldest": "2019-05-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "10469",
+      "sample": "/2026/0420/c10469a360104/page.htm",
+      "date": "2026-04-20"
+    },
+    {
+      "cid": "11900",
+      "sample": "/2025/1229/c11900a354753/page.htm",
+      "date": "2025-12-29"
+    },
+    {
+      "cid": "11897",
+      "sample": "/2026/1022/c11897a372721/page.htm",
+      "date": "2026-10-22"
+    },
+    {
+      "cid": "11926",
+      "sample": "/2026/1023/c11926a372827/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "cid": "11899",
+      "sample": "/2026/0618/c11899a367249/page.htm",
+      "date": "2026-06-18"
+    },
+    {
+      "cid": "6918",
+      "sample": "/2025/1127/c6918a352842/page.htm",
+      "date": "2025-11-27"
+    },
+    {
+      "cid": "8945",
+      "sample": "/2026/0910/c8945a370231/page.htm",
+      "date": "2026-09-10"
+    },
+    {
+      "cid": "11938",
+      "sample": "/2025/1113/c11938a350823/page.htm",
+      "date": "2025-11-13"
+    },
+    {
+      "cid": "11910",
+      "sample": "/2021/0303/c11910a242627/page.htm",
+      "date": "2021-03-03"
+    },
+    {
+      "cid": "11911",
+      "sample": "/2021/0303/c11911a242640/page.htm",
+      "date": "2021-03-03"
+    }
+  ],
+  "elapsedMs": 3612
+}

@@ -1,0 +1,133 @@
+{
+  "dept": "教育发展基金会",
+  "host": "fund",
+  "group": "校友",
+  "home": "https://fund.usst.edu.cn/",
+  "homeArticles": 22,
+  "pagesProbed": 10,
+  "columns": [
+    {
+      "url": "https://fund.usst.edu.cn/tzgg/list.htm",
+      "cid": "17971",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 6,
+      "latest": "2026-10-22",
+      "oldest": "2026-10-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/xwzx/list.htm",
+      "cid": "17970",
+      "name": "新闻中心",
+      "linkText": "新闻中心",
+      "articles": 6,
+      "latest": "2026-10-19",
+      "oldest": "2026-08-11",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/cjwt/list.htm",
+      "cid": "17986",
+      "name": "常见问题",
+      "linkText": "常见问题",
+      "articles": 6,
+      "latest": "2026-06-01",
+      "oldest": "2026-06-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/gzbg/list.htm",
+      "cid": "18016",
+      "name": "工作报告",
+      "linkText": "工作报告",
+      "articles": 6,
+      "latest": "2026-04-02",
+      "oldest": "2021-04-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/sjbg_18015/list.htm",
+      "cid": "18015",
+      "name": "审计报告",
+      "linkText": "审计报告",
+      "articles": 6,
+      "latest": "2026-04-02",
+      "oldest": "2021-04-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/njbg_18017/list.htm",
+      "cid": "18017",
+      "name": "年检报告",
+      "linkText": "年检报告",
+      "articles": 6,
+      "latest": "2026-04-02",
+      "oldest": "2021-04-08",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/xmgs_18018/list.htm",
+      "cid": "18018",
+      "name": "项目公示",
+      "linkText": "项目公示",
+      "articles": 6,
+      "latest": "2026-03-23",
+      "oldest": "2026-01-14",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/jzgs_18064/list.htm",
+      "cid": "18064",
+      "name": "捐赠公示",
+      "linkText": "捐赠公示",
+      "articles": 4,
+      "latest": "2026-03-04",
+      "oldest": "2023-02-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/zlgh_18063/list.htm",
+      "cid": "18063",
+      "name": "战略规划",
+      "linkText": "战略规划",
+      "articles": 2,
+      "latest": "2025-04-15",
+      "oldest": "2020-11-03",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://fund.usst.edu.cn/glzd/list.htm",
+      "cid": "17967",
+      "name": "管理制度",
+      "linkText": "管理制度",
+      "articles": 6,
+      "latest": "2020-11-04",
+      "oldest": "2020-11-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "17961",
+      "sample": "/2026/0605/c17961a363559/page.htm",
+      "date": "2026-06-05"
+    },
+    {
+      "cid": "18061",
+      "sample": "/2026/0525/c18061a362108/page.htm",
+      "date": "2026-05-25"
+    }
+  ],
+  "elapsedMs": 758
+}

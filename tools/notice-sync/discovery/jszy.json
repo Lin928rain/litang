@@ -1,0 +1,111 @@
+{
+  "dept": "技术转移中心",
+  "host": "jszy",
+  "group": "直属",
+  "home": "https://jszy.usst.edu.cn/",
+  "homeArticles": 30,
+  "pagesProbed": 12,
+  "columns": [
+    {
+      "url": "https://jszy.usst.edu.cn/4248/list.htm",
+      "cid": "4249",
+      "name": "新闻快讯",
+      "linkText": "通知公告",
+      "articles": 14,
+      "latest": "2025-05-21",
+      "oldest": "2019-04-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/xgzcwj/list.htm",
+      "cid": "13401",
+      "name": "相关政策文件",
+      "linkText": "相关政策文件",
+      "articles": 4,
+      "latest": "2025-04-16",
+      "oldest": "2022-04-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/4250/list.htm",
+      "cid": "4250",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 13,
+      "latest": "2024-10-21",
+      "oldest": "2020-05-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/4275/list.htm",
+      "cid": "6331",
+      "name": "技术需求",
+      "linkText": "技术需求",
+      "articles": 14,
+      "latest": "2023-05-30",
+      "oldest": "2019-09-17",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/4296/list.htm",
+      "cid": "10214",
+      "name": "知识产权转让相关文档",
+      "linkText": "文档下载",
+      "articles": 12,
+      "latest": "2023-03-01",
+      "oldest": "2020-04-28",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/zxns/list.htm",
+      "cid": "6335",
+      "name": "招贤纳士",
+      "linkText": "招贤纳士",
+      "articles": 2,
+      "latest": "2021-01-11",
+      "oldest": "2019-03-04",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/xmzj/list.htm",
+      "cid": "6334",
+      "name": "项目征集",
+      "linkText": "项目征集",
+      "articles": 2,
+      "latest": "2019-12-09",
+      "oldest": "2019-03-11",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://jszy.usst.edu.cn/4267/list.htm",
+      "cid": "4269",
+      "name": "历年科技成果汇编",
+      "linkText": "科技成果",
+      "articles": 1,
+      "latest": "2014-01-14",
+      "oldest": "2014-01-14",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "13400",
+      "sample": "/2023/0530/c13400a298984/page.htm",
+      "date": "2023-05-30"
+    },
+    {
+      "cid": "13403",
+      "sample": "/2022/0422/c13403a268791/page.htm",
+      "date": "2022-04-22"
+    }
+  ],
+  "elapsedMs": 1447
+}

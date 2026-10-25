@@ -1,0 +1,374 @@
+{
+  "dept": "中英国际学院",
+  "host": "sbc",
+  "group": "学院",
+  "home": "https://www.sbc.usst.edu.cn/",
+  "homeArticles": 26,
+  "pagesProbed": 46,
+  "columns": [
+    {
+      "url": "https://www.sbc.usst.edu.cn/tzgg_14859/list.htm",
+      "cid": "14859",
+      "name": "通知公告",
+      "linkText": "通知公告",
+      "articles": 1,
+      "latest": "2026-09-29",
+      "oldest": "2026-09-29",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14812/list.htm",
+      "cid": "14812",
+      "name": "学生管理部",
+      "linkText": "学生管理部",
+      "articles": 5,
+      "latest": "2026-09-17",
+      "oldest": "2023-09-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/15838/list.htm",
+      "cid": "15838",
+      "name": "学生管理部通知公告",
+      "linkText": "学生管理部通知公告",
+      "articles": 2,
+      "latest": "2026-09-17",
+      "oldest": "2025-09-02",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14823/list.htm",
+      "cid": "14823",
+      "name": "教学日历",
+      "linkText": "教学日历",
+      "articles": 3,
+      "latest": "2026-09-02",
+      "oldest": "2025-07-29",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/15164/list.htm",
+      "cid": "15164",
+      "name": "学术动态",
+      "linkText": "学术动态",
+      "articles": 6,
+      "latest": "2026-08-07",
+      "oldest": "2023-09-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/kjSBC/list.htm",
+      "cid": "14872",
+      "name": "看见SBC",
+      "linkText": "更多+",
+      "articles": 9,
+      "latest": "2026-07-30",
+      "oldest": "2023-09-20",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/SBCxyhd/list.htm",
+      "cid": "14870",
+      "name": "SBC校园活动",
+      "linkText": "更多+",
+      "articles": 8,
+      "latest": "2026-07-30",
+      "oldest": "2025-07-31",
+      "hasPaging": true,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/cjwt/list.htm",
+      "cid": "16691",
+      "name": "常见问题",
+      "linkText": "常见问题",
+      "articles": 7,
+      "latest": "2026-07-24",
+      "oldest": "2024-07-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14787/list.htm",
+      "cid": "15056",
+      "name": "自主招生",
+      "linkText": "自主招生",
+      "articles": 3,
+      "latest": "2026-04-09",
+      "oldest": "2023-04-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/gjxx/list.htm",
+      "cid": "17002",
+      "name": "国际夏校",
+      "linkText": "国际夏校",
+      "articles": 3,
+      "latest": "2026-03-09",
+      "oldest": "2025-03-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14827/list.htm",
+      "cid": "14827",
+      "name": "下载",
+      "linkText": "下载",
+      "articles": 2,
+      "latest": "2026-03-02",
+      "oldest": "2023-09-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14788/list.htm",
+      "cid": "14864",
+      "name": "国际预科名校项目招生",
+      "linkText": "",
+      "articles": 1,
+      "latest": "2025-12-23",
+      "oldest": "2025-12-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14825/list.htm",
+      "cid": "14825",
+      "name": "教师",
+      "linkText": "教师",
+      "articles": 1,
+      "latest": "2025-05-30",
+      "oldest": "2025-05-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/wjxz/list.htm",
+      "cid": "14890",
+      "name": "常用下载",
+      "linkText": "常用下载",
+      "articles": 2,
+      "latest": "2024-11-25",
+      "oldest": "2024-11-25",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14776/list.htm",
+      "cid": "14776",
+      "name": "教育教学",
+      "linkText": "教育教学",
+      "articles": 4,
+      "latest": "2024-10-23",
+      "oldest": "2024-10-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14777/list.htm",
+      "cid": "14811",
+      "name": "学生支持",
+      "linkText": "教务部",
+      "articles": 10,
+      "latest": "2024-07-24",
+      "oldest": "2020-02-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/15055/list.htm",
+      "cid": "15055",
+      "name": "招生流程",
+      "linkText": "招生流程",
+      "articles": 1,
+      "latest": "2024-01-15",
+      "oldest": "2024-01-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/zslc/list.htm",
+      "cid": "15057",
+      "name": "招生流程",
+      "linkText": "招生流程",
+      "articles": 1,
+      "latest": "2024-01-15",
+      "oldest": "2024-01-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14814/list.htm",
+      "cid": "14814",
+      "name": "信息技术部",
+      "linkText": "信息技术部",
+      "articles": 6,
+      "latest": "2023-10-23",
+      "oldest": "2023-09-19",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14775/list.htm",
+      "cid": "14796",
+      "name": "管理学院",
+      "linkText": "院系设置",
+      "articles": 1,
+      "latest": "2023-10-12",
+      "oldest": "2023-10-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/zyfzb/list.htm",
+      "cid": "15506",
+      "name": "职业发展部",
+      "linkText": "职业发展部",
+      "articles": 3,
+      "latest": "2023-10-12",
+      "oldest": "2023-10-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14820/list.htm",
+      "cid": "14820",
+      "name": "学生社团",
+      "linkText": "学生社团",
+      "articles": 2,
+      "latest": "2023-10-12",
+      "oldest": "2023-10-12",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/xwfl/list.htm",
+      "cid": "15248",
+      "name": "学位授予",
+      "linkText": "学位授予",
+      "articles": 1,
+      "latest": "2023-09-18",
+      "oldest": "2023-09-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/lxwm_14858/list.htm",
+      "cid": "14858",
+      "name": "联系我们",
+      "linkText": "联系我们",
+      "articles": 19,
+      "latest": "2023-09-12",
+      "oldest": "2023-09-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/gsglwrywxs/list.htm",
+      "cid": "14877",
+      "name": "工商管理专业理学学士学位",
+      "linkText": "工商管理专业理学学士学位",
+      "articles": 8,
+      "latest": "2023-09-08",
+      "oldest": "2023-09-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14813/list.htm",
+      "cid": "14813",
+      "name": "海外服务部",
+      "linkText": "海外服务部",
+      "articles": 3,
+      "latest": "2023-09-07",
+      "oldest": "2023-09-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14815/list.htm",
+      "cid": "14815",
+      "name": "学习资源中心",
+      "linkText": "学习资源中心",
+      "articles": 2,
+      "latest": "2023-09-07",
+      "oldest": "2023-09-07",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/zsgg/list.htm",
+      "cid": "14865",
+      "name": "招生公告",
+      "linkText": "招生公告",
+      "articles": 1,
+      "latest": "2023-04-24",
+      "oldest": "2023-04-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/xymxp/list.htm",
+      "cid": "14871",
+      "name": "校园明信片",
+      "linkText": "更多+",
+      "articles": 5,
+      "latest": "2020-03-07",
+      "oldest": "2020-03-07",
+      "hasPaging": false,
+      "foundVia": "depth2"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/9syghzdx/list.htm",
+      "cid": "14888",
+      "name": "英国合作大学",
+      "linkText": "英国合作大学",
+      "articles": 7,
+      "latest": "2019-06-20",
+      "oldest": "2019-06-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://www.sbc.usst.edu.cn/14791/list.htm",
+      "cid": "14799",
+      "name": "工程与计算学院",
+      "linkText": "工程与计算学院",
+      "articles": 1,
+      "latest": "2019-06-18",
+      "oldest": "2019-06-18",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "14837",
+      "sample": "/2026/1023/c14837a372867/page.htm",
+      "date": "2026-10-23"
+    },
+    {
+      "cid": "14836",
+      "sample": "/2026/0916/c14836a370636/page.htm",
+      "date": "2026-09-16"
+    },
+    {
+      "cid": "14853",
+      "sample": "/2026/0929/c14853a371246/page.htm",
+      "date": "2026-09-29"
+    },
+    {
+      "cid": "14881",
+      "sample": "/2026/1013/c14881a371738/page.htm",
+      "date": "2026-10-13"
+    }
+  ],
+  "elapsedMs": 7517
+}

@@ -19,13 +19,18 @@ const UA =
   '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
 /** 历史保留上限（条数） */
-const MAX_HISTORY = 1200;
+const MAX_HISTORY = 25000;
 /** 每条源最多取多少条 */
 const PER_SITE_LIMIT = 200;
-/** 每个源最多翻多少页（防止改版后无限翻页） */
-const MAX_PAGES = 8;
+/** 每个源最多翻多少页（防止改版后无限翻页）
+ *  实测只有十来个「大栏目」真的会翻到 10 页以上，其余一页就没「下一页」了。
+ *  跟学生关系不大的分类（新闻 / 党群）少翻几页，别把人家服务器打爆。 */
+const MAX_PAGES = 12;
+const MAX_PAGES_BY_KIND = { 新闻: 5, 党群: 5, 科研: 6 };
 /** 只保留近 N 年的通知 */
 const KEEP_YEARS = 2;
+/** 同时抓多少个站点（同一站点内部串行，避免把人家服务器打爆） */
+const HOST_CONCURRENCY = 8;
 
 const args = process.argv.slice(2);
 const dry = args.includes('--dry');
@@ -62,6 +67,32 @@ function stripTags(html) {
     .trim();
 }
 
+/** 清洗候选标题：有的站点把整段 <a> 塞进了 title 属性，需要再剥一层 */
+function cleanTitle(raw) {
+  let s = String(raw ?? '');
+  // title="<a href='...' title='真正的标题'>...</a>" —— 取内层 title
+  const nested = s.match(/title\s*=\s*['"]([^'"]{4,})['"]/i);
+  if (nested) s = nested[1];
+  s = stripTags(s);
+  // 剥完还有尖括号说明是残缺标签，宁可丢掉
+  return /[<>]/.test(s) ? '' : s;
+}
+
+/** 有些模板把「日期 + 标题 + 浏览量」全塞进一个 <a> 里，标题会被带上日期和数字 */
+function tidyTitle(raw) {
+  let s = String(raw ?? '').trim();
+  const hadDate = /^\d{4}[-./年]\d{1,2}[-./月]\d{1,2}日?\s+/.test(s);
+  if (hadDate) {
+    s = s.replace(/^\d{4}[-./年]\d{1,2}[-./月]\d{1,2}日?\s+/, '');
+    // 同一行里的浏览量
+    s = s.replace(/\s+\d{1,6}$/, '');
+  }
+  // 标题后面跟着摘要时，摘要常以「 10月22日上午…」开头，空格 + 日期是很强的分界信号
+  const cut = s.replace(/\s+(?=\d{1,2}月\d{1,2}日|\d{4}年).*$/s, '');
+  if (cut.length >= 8 && cut.length < s.length) s = cut;
+  return s.trim();
+}
+
 function absoluteUrl(href, base) {
   try {
     return new URL(href, base).toString();
@@ -90,6 +121,15 @@ export function parseDate(raw, yearHint = null) {
 export function yearFromUrl(url) {
   const m = String(url).match(/\/(\d{4})\/\d{2}\d{2}\//);
   return m ? Number(m[1]) : null;
+}
+
+/** 从文章链接里直接取发布日期：/2026/0914/c18415a370397/page.htm → 2026-09-14
+ *  webplus 的归档路径就是发布日期，列表页解析失败时这是最可靠的兜底。
+ */
+export function dateFromUrl(url) {
+  const m = String(url).match(/\/(\d{4})\/(\d{2})(\d{2})\/c\d+a\d+/);
+  if (!m) return null;
+  return normalize(m[1], m[2], m[3]);
 }
 
 function normalize(y, mo, d) {
@@ -153,29 +193,33 @@ export function parseList(html, source) {
       /class="[^"]*(?:news_title|ItemTitle|article_title)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|p|h\d|span)>/i,
     );
     if (titleEl) {
-      const candidate = stripTags(titleEl[1]);
+      const candidate = cleanTitle(titleEl[1]);
       // 必须包含链接内文本，才认定是这条的标题（避免拿到相邻条目的标题）
       if (candidate && (innerText.length < 4 || candidate.includes(innerText) || innerText.includes(candidate))) {
         title = candidate;
       }
     }
     if (!title) {
-      const titleAttr = attrs.match(/title\s*=\s*["']([^"']{4,})["']/i);
-      if (titleAttr) title = stripTags(titleAttr[1]);
+      // 注意：有的站点 title 属性里又塞了一整段 <a>（单双引号混用），
+      // 所以引号要成对匹配，不能写成 [^"']
+      const titleAttr = attrs.match(/\btitle\s*=\s*(?:"([^"]*)"|'([^']*)')/i);
+      const raw = titleAttr ? (titleAttr[1] ?? titleAttr[2]) : null;
+      if (raw) title = cleanTitle(raw);
     }
     if (!title && innerText.length >= 4) {
-      title = innerText
-        .replace(/\s*\d{4}[-./]\d{1,2}[-./]\d{1,2}\s*$/, '')
-        .trim();
+      title = cleanTitle(
+        innerText.replace(/\s*\d{4}[-./]\d{1,2}[-./]\d{1,2}\s*$/, ''),
+      );
     }
     if (!title || title.length < 4) continue;
+    title = tidyTitle(title);
     // 兜底截断：标题后面被拼进摘要时，按句号/省略号/长度截
     if (title.length > 60) {
       const cut = title.search(/[。！？；]|\.\.\./);
       title = (cut > 10 ? title.slice(0, cut) : title.slice(0, 60)).trim();
     }
     // 过滤导航类短词
-    if (/^(更多|查看更多|ViewMore|阅读全文|详细|next|prev)/i.test(title)) continue;
+    if (/^(更多|查看更多|ViewMore|阅读全文|详细|详见|查看详情|详情|点击查看|next|prev)/i.test(title)) continue;
 
     seen.add(url);
 
@@ -190,22 +234,41 @@ export function parseList(html, source) {
     if (innerDate) {
       date = parseDate(innerDate[1], yearHint);
     } else {
-      // 往后取到本条结束（通常是 </li> / </div> / </tr>），最多 260 字符。
-      // 不能再往前找：往前会把上一条通知的日期当成自己的。
       const tailStart = closeIdx > 0 ? closeIdx : anchorRe.lastIndex;
-      const tail = html.slice(tailStart, Math.min(html.length, tailStart + 260));
-      // 截到本条真正结束的位置，避免跨到下一 <li>
-      const endTag = tail.search(/<\/li>|<\/tr>/i);
-      const after = endTag > 0 ? tail.slice(0, endTag) : tail;
-
-      let dm = after.match(/(\d{4}[-./]\d{1,2}[-./]\d{1,2})/);
+      const window = html.slice(tailStart, Math.min(html.length, tailStart + 4000));
+      // 截到本条真正结束的位置（</li> / </tr>），避免跨到下一条
+      const endTag = window.search(/<\/li>|<\/tr>/i);
+      let after;
+      if (endTag >= 0) {
+        after = window.slice(0, endTag);
+      } else {
+        // 没有 li/tr 的模板：切到「下一条文章链接」之前。
+        // 紧邻自己的那条摘要链接要跳过，所以取第 2 个匹配位置。
+        const re = /<a\b[^>]*href=["'][^"']*\/c\d+a\d+/gi;
+        let k = 0;
+        let cut = -1;
+        let mm;
+        while ((mm = re.exec(window))) {
+          if (++k === 2) {
+            cut = mm.index;
+            break;
+          }
+        }
+        after = cut > 0 ? window.slice(0, cut) : window.slice(0, 1200);
+      }
+      // 去掉本条内部的摘要链接：摘要正文里常写到「截止时间 2026-10-13」，
+      // 直接正则会把截止日期当成发布日期
+      const noAnchors = after.replace(/<a\b[\s\S]*?<\/a>/gi, ' ');
+      let dm = noAnchors.match(/(\d{4}[-./]\d{1,2}[-./]\d{1,2})/);
       if (dm) {
         date = parseDate(dm[1], yearHint);
       } else {
-        const sm = after.match(/(?<!\d)(\d{1,2})[-./](\d{1,2})(?!\d)/);
+        const sm = noAnchors.match(/(?<!\d)(\d{1,2})[-./](\d{1,2})(?!\d)/);
         if (sm) date = parseDate(`${sm[1]}-${sm[2]}`, yearHint);
       }
     }
+    // 兜底：webplus 的归档路径 /2026/0914/c... 就是发布日期
+    if (!date) date = dateFromUrl(url);
     // 日期明显晚于今天（比如把文章里的未来日期当成了发布日）就不采信
     if (date && date > new Date().toISOString().slice(0, 10)) date = null;
 
@@ -213,7 +276,10 @@ export function parseList(html, source) {
       id: `${source.id}:${url}`,
       dept: source.dept,
       category: source.category,
+      kind: source.kind ?? source.category,
+      column: source.column,
       scope: source.scope,
+      weight: source.weight ?? 50,
       title,
       url,
       date,
@@ -232,7 +298,8 @@ async function fetchSite(source, timeoutMs = 25000) {
   let pages = 0;
 
   // webplus 翻页：list.htm → list2.htm → list3.htm …
-  for (let page = 1; page <= MAX_PAGES; page++) {
+  const maxPages = MAX_PAGES_BY_KIND[source.kind] ?? MAX_PAGES;
+  for (let page = 1; page <= maxPages; page++) {
     const url = pageUrl(source.url, page);
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -252,6 +319,11 @@ async function fetchSite(source, timeoutMs = 25000) {
       let added = 0;
       for (const item of parseList(html, source)) {
         if (seenUrls.has(item.url)) continue;
+        // 「首页直链」类型的源只收指定栏目的文章（学院首页上那些没有列表页的栏目）
+        if (source.onlyCids?.length) {
+          const cid = (item.url.match(/\/c(\d+)a\d+\//) || [])[1];
+          if (!cid || !source.onlyCids.includes(cid)) continue;
+        }
         seenUrls.add(item.url);
         collected.push(item);
         added++;
@@ -317,12 +389,12 @@ function loadPrevious(raw) {
 }
 
 function merge(previous, fresh) {
-  const byId = new Map();
-  // 新的优先
-  for (const n of fresh) byId.set(n.id, n);
-  for (const n of previous) if (!byId.has(n.id)) byId.set(n.id, n);
+  // 按 URL 去重（一篇文章一个 URL），新的优先
+  const byUrl = new Map();
+  for (const n of fresh) byUrl.set(n.url, n);
+  for (const n of previous) if (n.url && !byUrl.has(n.url)) byUrl.set(n.url, n);
 
-  const all = [...byId.values()];
+  const all = [...byUrl.values()];
   // 排序：有日期的按日期倒序，没日期的排后面
   all.sort((a, b) => {
     if (a.date && b.date) return b.date.localeCompare(a.date);
@@ -360,17 +432,25 @@ function dedupe(list) {
 async function main() {
   const sourcesPath = join(__dirname, 'sources.json');
   const config = JSON.parse(await readFile(sourcesPath, 'utf8'));
-  const sites = config.sites ?? [];
+  // schemaVersion 3：sources 数组 + enabled 开关；旧版是 sites
+  const all = config.sources ?? config.sites ?? [];
+  const sites = all.filter((s) => s.enabled !== false);
 
-  console.log(`开始抓取 ${sites.length} 个源…`);
+  console.log(
+    `开始抓取 ${sites.length} 个源` +
+      (all.length !== sites.length ? `（另有 ${all.length - sites.length} 个未启用）` : '') +
+      `，并发 ${HOST_CONCURRENCY} 个站点…`,
+  );
   const started = Date.now();
 
-  const results = await Promise.all(sites.map((s) => fetchSite(s)));
+  const results = await runByHost(sites);
 
   let failed = 0;
   const fresh = [];
   const cutoff = twoYearsAgo();
   let dropped = 0;
+  const byKind = new Map();
+  const failures = [];
   for (const r of results) {
     const all = r.items;
     // 按近两年截断：无日期的保留（可能只是解析不到，不该丢）
@@ -378,16 +458,26 @@ async function main() {
     dropped += all.length - kept.length;
 
     if (r.status === 'ok') {
-      console.log(
-        `  ✅ ${r.source.dept} / ${r.source.category}  ${kept.length} 条` +
-          (all.length !== kept.length ? `（过滤 ${all.length - kept.length} 条旧数据）` : '') +
-          `  翻页 ${r.pages} 页`,
-      );
+      const k = r.source.kind ?? r.source.category ?? '其他';
+      const s = byKind.get(k) ?? { sources: 0, items: 0 };
+      s.sources++;
+      s.items += kept.length;
+      byKind.set(k, s);
       fresh.push(...kept.slice(0, perSiteLimit));
     } else {
       failed++;
-      console.log(`  ❌ ${r.source.dept} / ${r.source.category}  ${r.error}`);
+      failures.push(`${r.source.dept} / ${r.source.column ?? r.source.category}  ${r.error}`);
     }
+  }
+
+  console.log('\n按分类统计：');
+  for (const [k, s] of [...byKind].sort((a, b) => b[1].items - a[1].items)) {
+    console.log(`  ${k.padEnd(4)} ${String(s.sources).padStart(3)} 个源  ${String(s.items).padStart(5)} 条`);
+  }
+  if (failures.length) {
+    console.log(`\n失败的源（${failures.length} 个，通常是站点改版或临时不可达）：`);
+    for (const f of failures.slice(0, 40)) console.log(`  ❌ ${f}`);
+    if (failures.length > 40) console.log(`  …另有 ${failures.length - 40} 个`);
   }
 
   // 读历史
@@ -403,11 +493,23 @@ async function main() {
   const pruned = beforePrune - previous.length;
 
   const merged = dedupe(merge(previous, fresh));
+  // 输出只留 App 需要的字段：字段名越短、文件越小，手机上拉得越快
+  const notices = merged.map((n) => {
+    const o = {
+      dept: n.dept,
+      kind: n.kind || n.category || '通知',
+      scope: n.scope || 'school',
+      title: n.title,
+      url: n.url,
+      date: n.date || null,
+    };
+    return o;
+  });
   const payload = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     updatedAt: new Date().toISOString(),
-    total: merged.length,
-    notices: merged,
+    total: notices.length,
+    notices,
   };
 
   const elapsed = ((Date.now() - started) / 1000).toFixed(1);
@@ -429,13 +531,46 @@ async function main() {
   }
 
   await mkdir(OUT_DIR, { recursive: true });
-  await writeFile(OUT_FILE, JSON.stringify(payload, null, 2), 'utf8');
+  // 不缩进：这份文件是给 App 读的，缩进白占 30% 体积
+  await writeFile(OUT_FILE, JSON.stringify(payload), 'utf8');
   console.log(`\n已写入 ${OUT_FILE}`);
 
   // 有源失败时用退出码提醒 CI，但不影响已生成的结果
   if (failed > 0) {
     process.exitCode = 0; // 部分失败可以接受，不让整个 CI 变红
   }
+}
+
+/** 按站点分组：同一站点串行抓，站点之间并发 */
+async function runByHost(sources) {
+  const byHost = new Map();
+  for (const s of sources) {
+    let host;
+    try {
+      host = new URL(s.url).host;
+    } catch {
+      host = s.url;
+    }
+    if (!byHost.has(host)) byHost.set(host, []);
+    byHost.get(host).push(s);
+  }
+
+  const queues = [...byHost.values()];
+  const results = [];
+  let i = 0;
+  async function worker() {
+    while (i < queues.length) {
+      const q = queues[i++];
+      for (const s of q) results.push(await fetchSite(s));
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(HOST_CONCURRENCY, queues.length) }, worker),
+  );
+  // 保持与配置相同的顺序，日志好读
+  const order = new Map(sources.map((s, k) => [s.id, k]));
+  results.sort((a, b) => (order.get(a.source.id) ?? 0) - (order.get(b.source.id) ?? 0));
+  return results;
 }
 
 /** 近 N 年的起始日期（YYYY-MM-DD） */

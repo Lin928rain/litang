@@ -1,0 +1,188 @@
+{
+  "dept": "信息化办公室",
+  "host": "net",
+  "group": "直属",
+  "home": "https://net.usst.edu.cn/",
+  "homeArticles": 37,
+  "pagesProbed": 19,
+  "columns": [
+    {
+      "url": "https://net.usst.edu.cn/bmgg/list.htm",
+      "cid": "6850",
+      "name": "部门公告",
+      "linkText": "部门公告",
+      "articles": 12,
+      "latest": "2026-10-25",
+      "oldest": "2025-10-24",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/bmxw/list.htm",
+      "cid": "6849",
+      "name": "部门新闻",
+      "linkText": "部门新闻",
+      "articles": 14,
+      "latest": "2026-09-24",
+      "oldest": "2025-11-14",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/aqjs/list.htm",
+      "cid": "6855",
+      "name": "安全建设",
+      "linkText": "安全建设",
+      "articles": 11,
+      "latest": "2026-09-15",
+      "oldest": "2019-05-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/tjgj/list.htm",
+      "cid": "6856",
+      "name": "推荐工具",
+      "linkText": "推荐工具",
+      "articles": 6,
+      "latest": "2026-07-23",
+      "oldest": "2019-05-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/dqgz/list.htm",
+      "cid": "6833",
+      "name": "党群工作",
+      "linkText": "党群工作",
+      "articles": 14,
+      "latest": "2026-06-26",
+      "oldest": "2024-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/gzzd/list.htm",
+      "cid": "6852",
+      "name": "规章制度",
+      "linkText": "规章制度",
+      "articles": 10,
+      "latest": "2026-06-12",
+      "oldest": "2014-05-06",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/yyyjcfw/list.htm",
+      "cid": "6844",
+      "name": "应用与集成服务",
+      "linkText": "应用与集成",
+      "articles": 8,
+      "latest": "2026-04-23",
+      "oldest": "2013-12-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/aqgg/list.htm",
+      "cid": "6853",
+      "name": "安全公告",
+      "linkText": "安全公告",
+      "articles": 8,
+      "latest": "2026-01-13",
+      "oldest": "2019-05-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/swzn/list.htm",
+      "cid": "7453",
+      "name": "上网指南",
+      "linkText": "上网指南",
+      "articles": 14,
+      "latest": "2025-12-12",
+      "oldest": "2008-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/aqzd/list.htm",
+      "cid": "6854",
+      "name": "安全制度",
+      "linkText": "安全制度",
+      "articles": 9,
+      "latest": "2023-12-22",
+      "oldest": "2019-05-08",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/wlfw/list.htm",
+      "cid": "6843",
+      "name": "网络服务",
+      "linkText": "网络服务",
+      "articles": 9,
+      "latest": "2023-04-14",
+      "oldest": "2014-03-05",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/aqfw/list.htm",
+      "cid": "6846",
+      "name": "安全服务",
+      "linkText": "安全服务",
+      "articles": 5,
+      "latest": "2022-02-18",
+      "oldest": "2019-06-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/xmgl/list.htm",
+      "cid": "6848",
+      "name": "项目管理服务",
+      "linkText": "项目管理服务",
+      "articles": 2,
+      "latest": "2021-10-15",
+      "oldest": "2019-09-09",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/jxzcfw/list.htm",
+      "cid": "6845",
+      "name": "教学支持服务",
+      "linkText": "教学支持服务",
+      "articles": 3,
+      "latest": "2020-03-12",
+      "oldest": "2019-05-28",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/xykfw/list.htm",
+      "cid": "6847",
+      "name": "校园卡服务",
+      "linkText": "校园卡服务",
+      "articles": 4,
+      "latest": "2019-07-02",
+      "oldest": "2019-06-20",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://net.usst.edu.cn/gzjb/list.htm",
+      "cid": "6851",
+      "name": "工作简报",
+      "linkText": "工作简报",
+      "articles": 14,
+      "latest": "2018-10-22",
+      "oldest": "2017-05-22",
+      "hasPaging": true,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 894
+}

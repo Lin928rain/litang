@@ -1,0 +1,133 @@
+{
+  "dept": "工会",
+  "host": "gonghui",
+  "group": "党群",
+  "home": "https://gonghui.usst.edu.cn/",
+  "homeArticles": 21,
+  "pagesProbed": 40,
+  "columns": [
+    {
+      "url": "https://gonghui.usst.edu.cn/p1958c1958/list.htm",
+      "cid": "1958",
+      "name": "新闻栏目",
+      "linkText": "",
+      "articles": 12,
+      "latest": "2026-10-09",
+      "oldest": "2026-06-03",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/p1959c1959/list.htm",
+      "cid": "1959",
+      "name": "通知公告",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-06-16",
+      "oldest": "2026-04-16",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/p1960c1960/list.htm",
+      "cid": "1960",
+      "name": "常用下载",
+      "linkText": "",
+      "articles": 6,
+      "latest": "2026-04-10",
+      "oldest": "2021-03-10",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1943/list.htm",
+      "cid": "1944",
+      "name": "教代会",
+      "linkText": "民主管理",
+      "articles": 13,
+      "latest": "2025-04-18",
+      "oldest": "2009-08-31",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1951/list.htm",
+      "cid": "1951",
+      "name": "协会风采",
+      "linkText": "协会风采",
+      "articles": 6,
+      "latest": "2024-12-06",
+      "oldest": "2009-11-30",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1952/list.htm",
+      "cid": "1952",
+      "name": "文体活动",
+      "linkText": "文体活动",
+      "articles": 2,
+      "latest": "2023-11-22",
+      "oldest": "2018-11-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1953/list.htm",
+      "cid": "1954",
+      "name": "校内文件",
+      "linkText": "校内文件",
+      "articles": 13,
+      "latest": "2023-11-01",
+      "oldest": "2017-12-01",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1950/list.htm",
+      "cid": "1950",
+      "name": "校园文化",
+      "linkText": "校园文化",
+      "articles": 2,
+      "latest": "2018-11-26",
+      "oldest": "2018-11-26",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1948/list.htm",
+      "cid": "1948",
+      "name": "帮困",
+      "linkText": "帮困",
+      "articles": 3,
+      "latest": "2017-12-13",
+      "oldest": "2009-05-05",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1956/list.htm",
+      "cid": "1956",
+      "name": "建功立业",
+      "linkText": "建功立业",
+      "articles": 6,
+      "latest": "2017-11-08",
+      "oldest": "2009-04-23",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://gonghui.usst.edu.cn/1942/list.htm",
+      "cid": "1942",
+      "name": "历任领导",
+      "linkText": "",
+      "articles": 1,
+      "latest": "2017-11-08",
+      "oldest": "2017-11-08",
+      "hasPaging": false,
+      "foundVia": "orphan"
+    }
+  ],
+  "unresolvedCids": [],
+  "elapsedMs": 7045
+}

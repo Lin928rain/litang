@@ -1,0 +1,95 @@
+{
+  "dept": "图书馆",
+  "host": "library",
+  "group": "直属",
+  "home": "https://library.usst.edu.cn/",
+  "homeArticles": 12,
+  "pagesProbed": 47,
+  "columns": [
+    {
+      "url": "https://library.usst.edu.cn/17697/list.htm",
+      "cid": "17697",
+      "name": "新闻公告",
+      "linkText": "MORE+",
+      "articles": 14,
+      "latest": "2026-10-14",
+      "oldest": "2026-03-13",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/17698/list.htm",
+      "cid": "17698",
+      "name": "资源动态",
+      "linkText": "MORE+",
+      "articles": 14,
+      "latest": "2026-07-01",
+      "oldest": "2025-11-07",
+      "hasPaging": true,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/17712/list.htm",
+      "cid": "17714",
+      "name": "入馆须知",
+      "linkText": "规章制度",
+      "articles": 10,
+      "latest": "2026-06-08",
+      "oldest": "2019-05-24",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/17711/list.htm",
+      "cid": "17711",
+      "name": "场馆介绍",
+      "linkText": "场馆介绍",
+      "articles": 3,
+      "latest": "2026-04-23",
+      "oldest": "2026-04-23",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/17722/list.htm",
+      "cid": "17732",
+      "name": "空间分布导览",
+      "linkText": "空间服务",
+      "articles": 7,
+      "latest": "2026-04-21",
+      "oldest": "2026-04-21",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/sjkzy/list.htm",
+      "cid": "17706",
+      "name": "数据库资源",
+      "linkText": "数据库导航",
+      "articles": 1,
+      "latest": "2025-12-16",
+      "oldest": "2025-12-16",
+      "hasPaging": false,
+      "foundVia": "home"
+    },
+    {
+      "url": "https://library.usst.edu.cn/bgjs/list.htm",
+      "cid": "17700",
+      "name": "领导介绍",
+      "linkText": "本馆介绍",
+      "articles": 2,
+      "latest": "2025-12-15",
+      "oldest": "2025-12-15",
+      "hasPaging": false,
+      "foundVia": "home"
+    }
+  ],
+  "unresolvedCids": [
+    {
+      "cid": "18205",
+      "sample": "/2025/1215/c18205a366333/page.htm",
+      "date": "2025-12-15"
+    }
+  ],
+  "elapsedMs": 1682
+}
