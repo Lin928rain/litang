@@ -1,24 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';
 import 'data/calendar/calendar_service.dart';
+import 'data/chaoxing/chaoxing_client.dart';
+import 'data/lms/todo_api.dart';
 import 'data/map_focus.dart';
 import 'data/notice_source.dart';
+import 'pages/chaoxing_homework_page.dart';
 import 'pages/home_page.dart';
+import 'pages/homework_page.dart';
 import 'pages/update_page.dart';
+import 'services/reminder_service.dart';
 import 'services/update_service.dart';
 import 'pages/life_page.dart';
 import 'pages/map_page.dart';
 import 'pages/forum_page.dart';
 import 'pages/profile_page.dart';
 
-/// 全局导航 key（保留给以后的深链用）。
+/// 全局导航 key：点通知时要能从任意位置跳转。
 final GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CalendarService.instance.load();
   runApp(const CampusApp());
+  // 启动后在后台静默同步一次作业提醒（不阻塞首屏，6 小时内不会重复跑）
+  unawaited(ReminderService.instance.syncInBackground());
 }
 
 class CampusApp extends StatelessWidget {
@@ -53,6 +62,11 @@ class _RootScaffoldState extends State<RootScaffold> {
   void initState() {
     super.initState();
     MapFocus.target.addListener(_onMapFocus);
+    ReminderService.pendingTarget.addListener(_onReminderTap);
+    // App 是被通知点开的：首帧之后补一次跳转
+    if (ReminderService.pendingTarget.value != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _onReminderTap());
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (_checkedUpdate || !mounted) return;
       _checkedUpdate = true;
@@ -66,12 +80,60 @@ class _RootScaffoldState extends State<RootScaffold> {
   @override
   void dispose() {
     MapFocus.target.removeListener(_onMapFocus);
+    ReminderService.pendingTarget.removeListener(_onReminderTap);
     super.dispose();
   }
 
   void _onMapFocus() {
     if (MapFocus.target.value != null && _index != 1) {
       setState(() => _index = 1);
+    }
+  }
+
+  /// 点了提醒通知：直接跳到对应作业详情。
+  void _onReminderTap() {
+    final target = ReminderService.pendingTarget.value;
+    if (target == null || !mounted) return;
+    ReminderService.pendingTarget.value = null;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final page = _pageForReminder(target);
+      if (page == null) return;
+      Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => page));
+    });
+  }
+
+  Widget? _pageForReminder(Map<String, dynamic> target) {
+    switch ('${target['kind']}') {
+      case 'tron':
+        final id = (target['id'] as num?)?.toInt() ?? 0;
+        if (id <= 0) return null;
+        return HomeworkPage(
+          todo: LmsTodo(
+            id: id,
+            courseId: (target['courseId'] as num?)?.toInt() ?? 0,
+            title: '${target['title'] ?? ''}',
+            courseName: '${target['courseName'] ?? ''}',
+            type: 'homework',
+            deadline: null,
+          ),
+        );
+      case 'cx':
+        final taskUrl = '${target['taskUrl'] ?? ''}';
+        if (taskUrl.isEmpty) return null;
+        return ChaoxingHomeworkPage(
+          work: ChaoxingWork(
+            workId: '${target['workId'] ?? ''}',
+            title: '${target['title'] ?? ''}',
+            courseName: '${target['courseName'] ?? ''}',
+            statusText: '${target['statusText'] ?? ''}',
+            deadline: '${target['deadline'] ?? ''}',
+            expired: target['expired'] == true,
+            taskUrl: taskUrl,
+          ),
+        );
+      default:
+        return null;
     }
   }
 

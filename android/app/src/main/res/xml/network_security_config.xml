@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 全部业务接口均走 HTTPS，不需要明文访问。 -->
+<!-- 一网畅学已改为原生接口（https://1906.usst.edu.cn），不再需要明文访问。 -->
 <network-security-config>
     <base-config cleartextTrafficPermitted="false" />
 </network-security-config>

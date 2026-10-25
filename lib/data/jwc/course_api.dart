@@ -125,7 +125,6 @@ class CourseApi {
   /// 抓当前学期课表；先不传学期参数让教务返回默认学期，
   /// 拿不到再按当前日期推算的学年学期兜底。
   /// 从教务首页用户信息里取学院/班级，如「健康科学与工程学院 康复25291002班」。
-  /// 注意「基础学部」「体育教学部」不带「学院」两个字，别只认学院。
   static ({String college, String className})? parseUserInfo(String html) {
     final match = RegExp(
       r'<p>([^<]*(?:学院|学部|教学部))\s*([^<]*)</p>',

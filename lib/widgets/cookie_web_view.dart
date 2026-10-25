@@ -76,8 +76,8 @@ class CookieWebViewState extends State<CookieWebView> {
         final host = target.host;
         for (final cookie in widget.cookies) {
           // 每条 cookie 按「它自己适用的 host」注入：
-          //   - 带前导点的（.example.com）→ 当前页面的 host；
-          //   - host-only 的（a.example.com）→ 它自己的域名。
+          //   - 带前导点的（.chaoxing.com）→ 当前页面的 host；
+          //   - host-only 的（mooc1.chaoxing.com）→ 它自己的域名。
           // 这样万一页面中途跳到别的子域，那边的登录态也在。
           final String targetUrl;
           if (cookie.domain.startsWith('.')) {
