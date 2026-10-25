@@ -497,7 +497,7 @@ async function main() {
   const notices = merged.map((n) => {
     const o = {
       dept: n.dept,
-      kind: n.kind || n.category || '通知',
+      kind: normalizeKind(n.kind || n.category),
       scope: n.scope || 'school',
       title: n.title,
       url: n.url,
@@ -573,8 +573,30 @@ async function runByHost(sources) {
   return results;
 }
 
-/** 近 N 年的起始日期（YYYY-MM-DD） */
-function twoYearsAgo() {
+/** 老数据里存的是栏目名（category），统一归一成 App 认识的 kind */
+const KIND_ALIASES = {
+  公告信息: '通知',
+  公告公示: '通知',
+  通知公告: '通知',
+  公告: '通知',
+  学院新闻: '新闻',
+  新闻动态: '新闻',
+  要闻: '新闻',
+  教学培养: '教学',
+  科研通知: '科研',
+  产学研合作: '科研',
+  职业领航: '就业',
+  部务信息: '通知',
+  学工动态: '学工',
+};
+
+function normalizeKind(raw) {
+  const k = String(raw ?? '').trim();
+  if (!k) return '通知';
+  return KIND_ALIASES[k] ?? k;
+}
+
+/** 近 N 年的起始日期（YYYY-MM-DD） */function twoYearsAgo() {
   const d = new Date();
   d.setFullYear(d.getFullYear() - KEEP_YEARS);
   const pad = (n) => String(n).padStart(2, '0');
