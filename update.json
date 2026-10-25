@@ -1,7 +1,7 @@
 {
   "version": "0.3.0",
   "versionCode": 13,
-  "notes": "统一缓存层（课程/课表/成绩/排名/培养计划）、作业截止提醒、考试与讨论详情页、作业历史提交回看、课表教室完整显示",
+  "notes": "统一缓存层；作业截止提醒（可单条开关、点通知直达详情）；考试/讨论详情页；历史提交回看；课表教室完整显示",
   "apk_github": "https://github.com/extrisha/litang/releases/download/v0.3.0/app-release.apk",
   "apk_gitee": "https://gitee.com/extrisha/litang/releases/download/v0.3.0/app-release.apk",
   "sha256": "9b87fd13b4bc3dbf32f4ce166d21632750e6f99e4ba79caf16a90ff56119cd5e"
