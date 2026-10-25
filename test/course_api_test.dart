@@ -40,6 +40,15 @@ void main() {
       expect(info.className, '康复25291002班');
     });
 
+    test('「学部 / 教学部」这种不带「学院」的也要认', () {
+      final jcxb = CourseApi.parseUserInfo('<p>基础学部 工科试验26200001班</p>');
+      expect(jcxb?.college, '基础学部');
+      expect(jcxb?.className, '工科试验26200001班');
+
+      final tyb = CourseApi.parseUserInfo('<p>体育教学部 社体25291001班</p>');
+      expect(tyb?.college, '体育教学部');
+    });
+
     test('没有学院信息时返回 null', () {
       expect(CourseApi.parseUserInfo('<p>你好</p>'), isNull);
       expect(CourseApi.parseUserInfo(''), isNull);

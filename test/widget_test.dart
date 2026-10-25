@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:project_usst/app_theme.dart';
 import 'package:project_usst/data/models.dart';
+import 'package:project_usst/data/notice_prefs.dart';
 import 'package:project_usst/data/notice_source.dart';
 import 'package:project_usst/pages/home_page.dart';
 import 'package:project_usst/pages/map_page.dart';
@@ -160,6 +161,67 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+
+  group('首页筛选', () {
+    testWidgets('筛出空结果时筛选条还在，不会卡死', (tester) async {
+      // 复现：选本院 → 点竞赛 → 该学院没有竞赛 → 列表空
+      // 用 debugResolved 绕开安全存储（widget 测试里没有平台通道）
+      NoticePrefs.debugResolved = (name: 'B学院', fromJw: true);
+      addTearDown(() => NoticePrefs.debugResolved = null);
+
+      final now = DateTime.now();
+      await tester.pumpWidget(
+        _wrap(
+          HomePage(
+            source: _FixedSource(<Notice>[
+              Notice(
+                dept: 'A学院',
+                kind: '竞赛',
+                scope: 'college',
+                title: 'A学院的竞赛通知',
+                publishedAt: now,
+              ),
+              Notice(
+                dept: 'B学院',
+                kind: '通知',
+                scope: 'college',
+                title: 'B学院的通知',
+                publishedAt: now,
+              ),
+            ]),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // 已经知道学院了，按钮上就不该再出现学院全称
+      expect(find.text('本院'), findsOneWidget);
+      expect(find.text('本院优先'), findsNothing);
+      expect(find.text('只看 B学院'), findsNothing);
+
+      // 只看本院 → 只剩 B学院 那一条
+      await tester.tap(find.text('本院'));
+      await tester.pumpAndSettle();
+      expect(find.text('B学院的通知'), findsOneWidget);
+      expect(find.text('A学院的竞赛通知'), findsNothing);
+
+      // 再筛「竞赛」→ 空
+      await tester.tap(find.text('竞赛').first);
+      await tester.pumpAndSettle();
+      expect(find.text('B学院的通知'), findsNothing);
+
+      // 关键：筛选条不能跟着消失，否则回不去
+      expect(find.text('全部'), findsOneWidget);
+      expect(find.text('本院'), findsOneWidget);
+      expect(find.text('清除筛选'), findsOneWidget);
+
+      // 清除筛选后恢复
+      await tester.tap(find.text('清除筛选'));
+      await tester.pumpAndSettle();
+      expect(find.text('B学院的通知'), findsOneWidget);
+      expect(find.text('A学院的竞赛通知'), findsOneWidget);
+    });
+  });
 }
 
 /// 用本地产物当数据源，避免 widget 测试里发网络请求。
@@ -171,4 +233,15 @@ class _FileSource implements NoticeSource {
   @override
   Future<NoticeFeed> fetch({bool force = false}) async =>
       RemoteNoticeSource.parseFeed(file.readAsStringSync())!;
+}
+
+/// 固定几条数据，用来构造边界场景（比如筛出空结果）。
+class _FixedSource implements NoticeSource {
+  _FixedSource(this.notices);
+
+  final List<Notice> notices;
+
+  @override
+  Future<NoticeFeed> fetch({bool force = false}) async =>
+      NoticeFeed(notices: notices);
 }

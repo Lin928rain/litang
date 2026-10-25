@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:project_usst/data/models.dart';
+import 'package:project_usst/data/notice_prefs.dart';
 import 'package:project_usst/data/notice_rank.dart';
 import 'package:project_usst/data/notice_source.dart';
 
@@ -240,6 +241,35 @@ void main() {
 
     test('没有 updatedAt 时当作可用，不至于整条链路失败', () {
       expect(RemoteNoticeSource.isFreshEnough(feed(null), now), isTrue);
+    });
+  });
+
+  group('本院识别', () {
+    const depts = <String>[
+      '基础学部',
+      '出版学院',
+      '健康科学与工程学院',
+      '光电信息与计算机工程学院',
+      '外语学院',
+    ];
+
+    test('教务写的就是站点名时直接对上', () {
+      expect(NoticePrefs.matchCollege('健康科学与工程学院', depts), '健康科学与工程学院');
+      expect(NoticePrefs.matchCollege(' 外语学院 ', depts), '外语学院');
+    });
+
+    test('教务用的旧名靠开头两个字兜底（出版印刷与艺术设计学院 → 出版学院）', () {
+      expect(NoticePrefs.matchCollege('出版印刷与艺术设计学院', depts), '出版学院');
+    });
+
+    test('对不上或撞车时返回 null，不乱认', () {
+      expect(NoticePrefs.matchCollege('机械工程学院', depts), isNull);
+      expect(NoticePrefs.matchCollege('', depts), isNull);
+      // 「学院」两个字开头太泛，多个候选并列时应放弃
+      expect(
+        NoticePrefs.matchCollege('学院路校区', const ['学院甲', '学院乙']),
+        isNull,
+      );
     });
   });
 
