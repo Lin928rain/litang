@@ -72,7 +72,12 @@ class _RootScaffoldState extends State<RootScaffold> {
       _checkedUpdate = true;
       final info = await UpdateService.check();
       if (info != null && mounted) {
-        await showUpdateDialog(context, info, startup: true);
+        await showUpdateDialog(
+          context,
+          info,
+          startup: true,
+          mandatory: info.mandatory,
+        );
       }
     });
   }

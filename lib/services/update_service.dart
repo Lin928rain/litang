@@ -16,6 +16,8 @@ class UpdateInfo {
     required this.githubUrl,
     required this.giteeUrl,
     required this.sha256,
+    this.minVersionCode = 0,
+    this.mandatory = false,
   });
 
   final String version;
@@ -24,6 +26,24 @@ class UpdateInfo {
   final String githubUrl;
   final String giteeUrl;
   final String sha256;
+
+  /// 云端要求的最低版本号：当前版本低于它就必须更新，弹窗不可关闭。
+  /// 0 表示不强制。
+  final int minVersionCode;
+
+  /// 这次更新是不是强制的（由 [UpdateService.check] 结合本机版本算出来）。
+  final bool mandatory;
+
+  UpdateInfo withMandatory(bool value) => UpdateInfo(
+    version: version,
+    versionCode: versionCode,
+    notes: notes,
+    githubUrl: githubUrl,
+    giteeUrl: giteeUrl,
+    sha256: sha256,
+    minVersionCode: minVersionCode,
+    mandatory: value,
+  );
 
   static UpdateInfo? fromJson(Map<String, dynamic> json) {
     final version = (json['version'] ?? '').toString().trim();
@@ -36,6 +56,7 @@ class UpdateInfo {
       githubUrl: (json['apk_github'] ?? '').toString(),
       giteeUrl: (json['apk_gitee'] ?? '').toString(),
       sha256: (json['sha256'] ?? '').toString().toLowerCase(),
+      minVersionCode: (json['minVersionCode'] as num?)?.toInt() ?? 0,
     );
   }
 }
@@ -58,8 +79,17 @@ class UpdateService {
     final current = await _currentVersionCode();
     if (info.versionCode <= current) return null;
     if (info.githubUrl.isEmpty && info.giteeUrl.isEmpty) return null;
-    return info;
+    return info.withMandatory(isMandatory(current: current, min: info.minVersionCode));
   }
+
+  /// 是否必须更新：本机版本低于云端要求的最低版本。
+  /// 纯函数，方便单测；min <= 0 一律不强制（默认行为）。
+  static bool isMandatory({required int current, required int min}) =>
+      min > 0 && current < min;
+
+  /// 手动下载兜底：自动下载失败时让用户去浏览器拿安装包。
+  static const String releasePage =
+      'https://github.com/extrisha/litang/releases/latest';
 
   static Future<int> _currentVersionCode() async {
     try {
