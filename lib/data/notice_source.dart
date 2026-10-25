@@ -107,12 +107,22 @@ class RemoteNoticeSource implements NoticeSource {
       return cached.feed;
     }
 
+    // 镜像可能各自停滞（GitHub 有新数据、Gitee 还停在几天前），
+    // 所以「能解析」还不够，得是「够新」的才算数；都不新就用最新的那个。
+    NoticeFeed? stale;
+    final now = DateTime.now();
     for (final url in mirrors) {
       final feed = await _download(url);
-      if (feed != null && feed.notices.isNotEmpty) {
+      if (feed == null || feed.notices.isEmpty) continue;
+      if (isFreshEnough(feed, now)) {
         await _writeCache(feed);
         return feed;
       }
+      if (stale == null || _newer(feed, stale)) stale = feed;
+    }
+    if (stale != null) {
+      await _writeCache(stale);
+      return stale;
     }
 
     // 网络失败：过期缓存也比没有强
@@ -129,6 +139,24 @@ class RemoteNoticeSource implements NoticeSource {
     if (live != null && live.notices.isNotEmpty) return live;
 
     return _fallback.fetch();
+  }
+
+  /// 云端数据超过这个天数就算「镜像停滞」，继续试下一个镜像。
+  static const Duration maxStaleness = Duration(days: 3);
+
+  /// 云端给的 `updatedAt` 够不够新；没有 `updatedAt` 就当作可用。
+  static bool isFreshEnough(NoticeFeed feed, DateTime now) {
+    final at = feed.fetchedAt;
+    if (at == null) return true;
+    return now.difference(at) <= maxStaleness;
+  }
+
+  static bool _newer(NoticeFeed a, NoticeFeed b) {
+    final x = a.fetchedAt;
+    final y = b.fetchedAt;
+    if (x == null) return false;
+    if (y == null) return true;
+    return x.isAfter(y);
   }
 
   Future<NoticeFeed?> _download(String url) async {

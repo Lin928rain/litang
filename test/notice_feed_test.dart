@@ -212,6 +212,37 @@ void main() {
     });
   });
 
+  group('镜像新鲜度', () {
+    NoticeFeed feed(DateTime? at) => NoticeFeed(
+      notices: [
+        Notice(dept: '教务处', title: '通知', publishedAt: DateTime(2026, 10, 25)),
+      ],
+      fetchedAt: at,
+    );
+    final now = DateTime(2026, 10, 25, 12);
+
+    test('三天内算新，超过三天算停滞（继续试下一个镜像）', () {
+      expect(
+        RemoteNoticeSource.isFreshEnough(
+          feed(now.subtract(const Duration(hours: 2))),
+          now,
+        ),
+        isTrue,
+      );
+      expect(
+        RemoteNoticeSource.isFreshEnough(
+          feed(now.subtract(const Duration(days: 4))),
+          now,
+        ),
+        isFalse,
+      );
+    });
+
+    test('没有 updatedAt 时当作可用，不至于整条链路失败', () {
+      expect(RemoteNoticeSource.isFreshEnough(feed(null), now), isTrue);
+    });
+  });
+
   group('真实产物', () {
     // 直接拿 tools/notice-sync/out/notices.json 跑一遍：
     // 解析器 + 排序在 7000+ 条真实数据上不炸，而且结果看得懂。
