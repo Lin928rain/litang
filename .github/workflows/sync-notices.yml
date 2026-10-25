@@ -7,6 +7,11 @@ on:
     - cron: '0 13 * * *'
     - cron: '0 22 * * *'
   workflow_dispatch:
+  # 改了抓取配置/脚本就立刻跑一次，不用等定时任务
+  push:
+    paths:
+      - 'tools/notice-sync/**'
+      - '.github/workflows/sync-notices.yml'
 
 permissions:
   contents: write
