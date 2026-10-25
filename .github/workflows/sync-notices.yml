@@ -20,6 +20,10 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    # 同一时间只跑一个同步，避免两次抓取互相把对方的提交顶掉
+    concurrency:
+      group: sync-notices
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -35,15 +39,36 @@ jobs:
 
       - name: Commit if changed (GitHub)
         run: |
+          set -u
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          echo "当前分支: $(git rev-parse --abbrev-ref HEAD) / HEAD: $(git rev-parse --short HEAD)"
+
           git add tools/notice-sync/out/notices.json
-          if git diff --quiet --cached; then
+          if git diff --cached --quiet; then
             echo "没有变化，跳过提交"
-          else
-            git commit -m "chore(notices): sync $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            exit 0
           fi
+          git commit -m "chore(notices): sync $(date -u +%Y-%m-%dT%H:%MZ)"
+          echo "本次提交: $(git log --oneline -1)"
+
+          # 用 HEAD:main 而不是裸 git push：schedule 事件下可能是游离 HEAD。
+          # 手动推送撞车时（远端已前进），拉一次再合，冲突以本地数据为准。
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "✅ 已推送（第 $i 次尝试）"
+              exit 0
+            fi
+            echo "⚠️ push 第 $i 次失败，尝试同步远端后重试"
+            # 浅克隆下直接 --depth=1 拉会变成「无共同祖先」，先补齐历史
+            git fetch --unshallow origin main || git fetch origin main || true
+            git merge --no-edit -X ours FETCH_HEAD || true
+            sleep 5
+          done
+          echo "❌ 推送失败，诊断信息："
+          git status
+          git log --oneline -3
+          exit 1
 
       # 同步到 Gitee 的 lit-Calendar 仓库（和校历放一起，作为国内数据源）
       # 需要仓库 Secret: GITEE_TOKEN
