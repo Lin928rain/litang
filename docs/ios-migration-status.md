@@ -23,17 +23,35 @@
 - 修改通知提交去重逻辑后，相关 23 项测试再次通过。
 - Bash 包装脚本语法与 Info.plist 结构检查通过。
 
-Swift Cookie 范围测试已写入 RunnerTests，并接入工作流；需要在云端 Xcode 执行，本地 Windows 不具备 Apple SDK。
+Swift Cookie 范围测试已写入 RunnerTests，并接入工作流；本地 Windows 不具备 Apple SDK。
+
+## 云端构建
+
+- 已创建公开 fork [Lin928rain/litang](https://github.com/Lin928rain/litang)，迁移分支推送到该仓库，未向上游 extrisha/litang 写入。
+- 第一轮构建发现原有 `.gitignore` 中一行注释不是 UTF-8，已规范为 UTF-8 注释，忽略规则保持一致；另检查了 210 个源码和配置文件的编码。
+- [第二轮构建](https://github.com/Lin928rain/litang/actions/runs/40259844438)已成功，应用源码 commit `95bdd76f6fd4c0b345f7ad75f08cb621a917e37e`：云端依赖安装、静态检查、171 项 Dart/Widget 测试、iOS 真机 Release 编译、IPA 包装及 3 项原生 Cookie 测试全部通过。
+- 原生测试在 iPhone 16 Pro 模拟器完成，覆盖域名隔离、Cookie 路径边界、有效期及 Secure 属性。这不等于真实学校账号或真实手机安装已验证。
+- 固定版本的 `flutter_secure_storage` 9.2.4 尚未支持 Swift Package Manager，Flutter 自动使用 CocoaPods 兼容路径，当前固定工具链已验证构建成功。
+
+## 已导出的 IPA
+
+- 文件：`litang-ios-0.4.2-16-unsigned.ipa`，9,745,551 字节（约 9.3 MiB）。
+- [GitHub 构建产物](https://github.com/Lin928rain/litang/actions/runs/40259844438/artifacts/12624263741)：登录 GitHub 后下载 ZIP 并解压得到 IPA、SHA-256 和构建元信息，保留期 14 天。
+- 本地文件：`build/ios-downloads/40259844438/litang-ios-0.4.2-16-unsigned.ipa`。
+- 最低系统：iOS 15.0；平台：iPhoneOS；架构：arm64；Bundle ID：`io.github.extrisha.litang`。
+- SHA-256：`ca76a269af6dd9531632a8db6551b3e6009fb9d7dee96f57230b7f51706e5e8b`。
+- 下载后已核对 SHA-256 与云端元信息一致、ZIP CRC、Payload 目录、应用 Info.plist、主程序及两个 Flutter Framework 的 Mach-O 架构，确认没有根应用签名或 embedded.mobileprovision。
+- 本地校验记录：`build/ios-downloads/40259844438/verification.json`；完整编译及测试日志：`build/ios-logs/40259844438/`。
 
 ## 待完成
 
-- [ ] 选择有写权限的 GitHub 构建仓库并推送迁移分支。当前 GitHub CLI 登录 Lin928rain，对上游 extrisha/litang 的 viewerPermission 为 READ，不能直接在上游提交或触发工作流。
-- [ ] 首轮云端依赖安装、Swift 编译、真机 Release 构建和原生模拟器测试。根据日志处理实际的 SPM/CocoaPods 兼容问题。
-- [ ] 下载首个成功的未签名 IPA，验证结构和元信息。
+- [x] 选择有写权限的 GitHub 构建仓库并推送迁移分支：Lin928rain/litang。
+- [x] 云端依赖安装、Swift 编译、真机 Release 构建和原生模拟器测试。
+- [x] 下载首个成功的未签名 IPA，验证结构和元信息。
 - [ ] 用户在 Windows 配好 AltServer/AltStore，并在 iPhone 完成首次个人签名安装。
 - [ ] 真机验证教务、学习通、一网畅学、Keychain、扫码、定位、附件、视频与通知。
 - [ ] 验证同账号覆盖升级及一次免费签名刷新。
 - [ ] 更换或确认 iOS 图标：当前仍使用仓库原有 AppIcon 资源，尚未完成品牌图标验收。
 - [ ] Android 原生构建与手机回归；目前仅共享 Dart 代码的静态检查和自动化测试通过。
 
-尚未生成或验证 IPA，不将代码适配完成等同于迁移验收完成。后续构建结果和实际安装情况应更新到本文件。
+云端构建、原生模拟器测试和 IPA 下载校验已通过。IPA 仍需用户的免费 Apple Account 重签后安装，真实 iPhone 安装、学校账号功能及续签验收尚未完成。

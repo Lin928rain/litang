@@ -12,7 +12,9 @@
 
 ## 获取 IPA
 
-1. 打开实际构建仓库的 GitHub Actions，选择 **Build iOS IPA (unsigned)** 工作流。
+首个成功版本为 **0.4.2+16**：[构建记录](https://github.com/Lin928rain/litang/actions/runs/40259844438) / [下载构建产物](https://github.com/Lin928rain/litang/actions/runs/40259844438/artifacts/12624263741)。它是 iOS 15.0+、arm64 的未签名 IPA，仍需执行下面的个人签名安装流程。
+
+1. 打开 [Lin928rain/litang 的 GitHub Actions](https://github.com/Lin928rain/litang/actions/workflows/build-ios.yml)，选择 **Build iOS IPA (unsigned)** 工作流。
 2. 在 `codex/ios-migration` 分支推送相关修改会触发构建；工作流进入默认分支后也可通过 **Run workflow** 手动构建。
 3. 打开成功的运行记录，在 **Artifacts** 下载 `litang-ios-unsigned-<运行序号>`。下载 artifact 一般需要登录有访问权限的 GitHub 账号。
 4. 解压 GitHub 提供的 artifact ZIP，得到 `litang-ios-<版本>-<构建号>-unsigned.ipa`、对应 `.sha256` 和 `build-info.json`。
