@@ -126,9 +126,8 @@ class CourseApi {
   /// 拿不到再按当前日期推算的学年学期兜底。
   /// 从教务首页用户信息里取学院/班级，如「健康科学与工程学院 康复25291002班」。
   static ({String college, String className})? parseUserInfo(String html) {
-    final match = RegExp(
-      r'<p>([^<]*(?:学院|学部|教学部))\s*([^<]*)</p>',
-    ).firstMatch(html);
+    final match = RegExp(r'<p>([^<]*(?:学院|学部|教学部))\s*([^<]*)</p>')
+        .firstMatch(html);
     if (match == null) {
       return null;
     }
@@ -249,10 +248,21 @@ class CourseApi {
           : int.parse(match!.group(2)!);
       final span = end - start < 1 ? 1 : end - start;
       final room = it['cdmc']?.toString().trim() ?? '';
-      final teacher = it['xm']?.toString().trim();
+      final teacherText = it['xm']?.toString().trim() ?? '';
+      final teacher = teacherText.isEmpty ? null : teacherText;
       final weeksText = it['zcd']?.toString().trim() ?? '';
       final weeks = parseCourseWeeks(weeksText);
-      final key = '$name|$day|$start|$span|$room';
+      // 同一课程可能按周次分段、由不同教师授课。只有完整排课相同才去重，
+      // 否则后续周次会被误删（例如军事理论的 3-4、5-6、7-8及10周）。
+      final key = jsonEncode([
+        name,
+        day,
+        start,
+        span,
+        room,
+        teacher,
+        weeks ?? weeksText,
+      ]);
       if (!seen.add(key)) {
         continue;
       }
@@ -266,7 +276,7 @@ class CourseApi {
           start: start,
           span: span,
           room: room,
-          teacher: (teacher == null || teacher.isEmpty) ? null : teacher,
+          teacher: teacher,
           weeks: weeks,
           weeksText: weeksText,
         ),
