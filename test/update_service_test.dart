@@ -1,7 +1,33 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:project_usst/services/update_service.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('iOS 不读取 Android 更新清单，也不下载或安装 APK', () async {
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    addTearDown(() => debugDefaultTargetPlatformOverride = null);
+    expect(UpdateService.supportsApkUpdates, isFalse);
+    expect(await UpdateService.check(), isNull);
+    final info = UpdateInfo.fromJson({
+      'version': '99.0.0',
+      'versionCode': 9999,
+      'apk_github': 'https://example.com/app.apk',
+    })!;
+    await expectLater(UpdateService.download(info), throwsUnsupportedError);
+    await expectLater(
+      UpdateService.install('/tmp/app.apk'),
+      throwsUnsupportedError,
+    );
+  });
+
+  test('Android 保留 APK 更新能力', () {
+    debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    addTearDown(() => debugDefaultTargetPlatformOverride = null);
+    expect(UpdateService.supportsApkUpdates, isTrue);
+  });
+
   group('UpdateInfo.fromJson', () {
     Map<String, dynamic> base() => <String, dynamic>{
       'version': '0.4.1',
@@ -28,11 +54,11 @@ void main() {
 
     test('version / versionCode 缺失或非法时返回 null', () {
       expect(UpdateInfo.fromJson(<String, dynamic>{}), isNull);
-      expect(UpdateInfo.fromJson(<String, dynamic>{'version': '0.4.1'}), isNull);
       expect(
-        UpdateInfo.fromJson(<String, dynamic>{'versionCode': 15}),
+        UpdateInfo.fromJson(<String, dynamic>{'version': '0.4.1'}),
         isNull,
       );
+      expect(UpdateInfo.fromJson(<String, dynamic>{'versionCode': 15}), isNull);
     });
   });
 
@@ -72,7 +98,8 @@ void main() {
       version: '0.4.2',
       versionCode: 16,
       notes: '',
-      githubUrl: 'https://github.com/o/r/releases/latest/download/app-release.apk',
+      githubUrl:
+          'https://github.com/o/r/releases/latest/download/app-release.apk',
       giteeUrl: gitee,
       sha256: 'x',
     );
@@ -97,7 +124,9 @@ void main() {
     });
 
     test('没有 download 段的地址不会凭空造备选', () {
-      final urls = UpdateService.candidateUrls(info('https://example.com/a.apk'));
+      final urls = UpdateService.candidateUrls(
+        info('https://example.com/a.apk'),
+      );
       expect(urls.length, 2);
     });
 

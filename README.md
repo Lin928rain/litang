@@ -54,6 +54,17 @@
 
 ## 发布流程
 
+### iOS 免费自用构建
+
+Windows 开发，通过 GitHub Actions 的 **Build iOS IPA (unsigned)** 工作流在云端 macOS 编译。
+下载的 IPA 需要使用 AltStore Classic 等工具以自己的 Apple Account 重签后安装，免费账号需要定期续签。
+
+- [迁移进度与验证状态](docs/ios-migration-status.md)
+- [Windows 安装与续签指南](docs/ios-install-windows.md)
+- [迁移计划](docs/ios-migration-plan.md)
+
+### Android APK
+
 ```bash
 # 1) 打包（从「中性路径」构建，避免把本机用户名写进 libapp.so）
 flutter build apk --release

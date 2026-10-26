@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../app_theme.dart';
 
@@ -323,9 +325,14 @@ class _ProfilePageState extends State<ProfilePage> {
               size: 20,
               color: AppColors.usstRed,
             ),
-            title: const Text('检查更新', style: TextStyle(fontSize: 14)),
+            title: Text(
+              defaultTargetPlatform == TargetPlatform.iOS ? 'iOS 安装包' : '检查更新',
+              style: const TextStyle(fontSize: 14),
+            ),
             subtitle: Text(
-              version,
+              defaultTargetPlatform == TargetPlatform.iOS
+                  ? '$version · 使用签名工具安装或更新 IPA'
+                  : version,
               style: const TextStyle(
                 fontSize: 11,
                 color: AppColors.textSecondary,
@@ -333,7 +340,10 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             trailing: TextButton(
               onPressed: _checkUpdate,
-              child: const Text('检查', style: TextStyle(fontSize: 12)),
+              child: Text(
+                defaultTargetPlatform == TargetPlatform.iOS ? '查看' : '检查',
+                style: const TextStyle(fontSize: 12),
+              ),
             ),
           );
         },
@@ -342,6 +352,18 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<void> _checkUpdate() async {
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      try {
+        final opened = await launchUrl(
+          Uri.parse(UpdateService.iosBuildsPage),
+          mode: LaunchMode.externalApplication,
+        );
+        if (!opened && mounted) _toast('暂时无法打开安装包页面');
+      } catch (_) {
+        if (mounted) _toast('暂时无法打开安装包页面');
+      }
+      return;
+    }
     final info = await UpdateService.check();
     if (!mounted) return;
     if (info == null) {

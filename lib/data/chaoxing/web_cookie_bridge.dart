@@ -8,6 +8,7 @@ import '../auth/cas_client.dart';
 /// 之所以要原生那一层：`webview_flutter` 4.x 没有读取 cookie 的 API，
 /// 而学习通的会话 cookie 是 httpOnly 的，`document.cookie` 也读不到。
 /// Android 侧在 `MainActivity` 里用 `CookieManager.getCookie(url)` 实现，
+/// iOS 从同一 WKWebsiteDataStore 读取并保留 cookie 的域和路径。
 /// 通道名 `litang/web_cookies`；桌面/其它平台没有通道，直接返回空。
 class WebCookieBridge {
   WebCookieBridge._();
@@ -26,6 +27,21 @@ class WebCookieBridge {
   static Future<List<CasCookie>> read({List<String>? urls}) async {
     final targets = urls ?? chaoxingUrls;
     try {
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
+        final records = await _channel.invokeListMethod<dynamic>(
+          'readCookies',
+          {'urls': targets},
+        );
+        final seen = <String>{};
+        return <CasCookie>[
+          for (final raw in records ?? const <dynamic>[])
+            if (raw is Map) CasCookie.fromJson(Map<String, dynamic>.from(raw)),
+        ].where((cookie) {
+          return cookie.name.isNotEmpty &&
+              cookie.domain.isNotEmpty &&
+              seen.add('${cookie.name}|${cookie.domain}|${cookie.path}');
+        }).toList();
+      }
       final map = await _channel.invokeMapMethod<String, String>('read', {
         'urls': targets,
       });
@@ -50,7 +66,7 @@ class WebCookieBridge {
   /// 退出登录时清一下 WebView 里的 cookie，别留着上一个账号的会话。
   static Future<void> clear() async {
     try {
-      await _channel.invokeMethod<void>('clear');
+      await _channel.invokeMethod<void>('clear', {'urls': chaoxingUrls});
     } catch (_) {
       // 没有通道（桌面端）就算了
     }

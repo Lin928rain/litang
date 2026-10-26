@@ -15,6 +15,7 @@ import '../data/chaoxing/chaoxing_client.dart';
 import '../data/lms/homework_api.dart';
 import '../data/lms/todo_api.dart';
 import '../data/lms/tronclass_auth.dart';
+import 'reminder_plan.dart';
 
 /// 作业 DDL 的本地提醒（考试不提醒，考试时间大家自己会盯）。
 ///
@@ -49,6 +50,9 @@ class ReminderService {
   bool _initialized = false;
   bool _unavailable = false;
   Set<String>? _scheduledKeys;
+  Map<int, PlannedReminder>? _iosPlan;
+  final Map<int, String> _iosSubmitted = <int, String>{};
+  Future<void> _iosPlanOperations = Future<void>.value();
 
   bool get _supported =>
       !kIsWeb &&
@@ -99,6 +103,19 @@ class ReminderService {
         await android?.requestExactAlarmsPermission();
       } catch (_) {
         // 权限被拒也能用非精确闹钟兜底
+      }
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
+        await _plugin
+            .resolvePlatformSpecificImplementation<
+              IOSFlutterLocalNotificationsPlugin
+            >()
+            ?.requestPermissions(alert: true, sound: true, badge: true);
+        // 从磁盘恢复所有来源，补足先前因容量限制而没有提交给系统的提醒。
+        try {
+          await _updateIosPlan((_) {});
+        } catch (_) {
+          // 缓存或某条计划失败不应禁用整个通知服务；下一次同步会重试。
+        }
       }
       _initialized = true;
       return true;
@@ -374,6 +391,29 @@ class ReminderService {
     required tz.TZDateTime now,
     Map<String, dynamic> extraPayload = const <String, dynamic>{},
   }) async {
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      final payload = jsonEncode(<String, dynamic>{
+        'key': key,
+        ...extraPayload,
+      });
+      await _updateIosPlan((plan) {
+        plan.removeWhere((_, entry) => entry.key == key);
+        for (var slot = 0; slot < _offsets.length; slot++) {
+          final fireAt = deadline.subtract(_offsets[slot]);
+          if (!fireAt.isAfter(now)) continue;
+          final id = _idFor(key, slot);
+          plan[id] = PlannedReminder(
+            id: id,
+            key: key,
+            fireAt: fireAt,
+            title: title,
+            body: body,
+            payload: payload,
+          );
+        }
+      });
+      return;
+    }
     for (var slot = 0; slot < _offsets.length; slot++) {
       final id = _idFor(key, slot);
       final fireAt = tz.TZDateTime.from(
@@ -422,11 +462,104 @@ class ReminderService {
   }
 
   Future<void> _cancelKey(String key) async {
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      await _updateIosPlan((plan) {
+        plan.removeWhere((_, entry) => entry.key == key);
+      });
+      return;
+    }
     for (var slot = 0; slot < _offsets.length; slot++) {
       try {
         await _plugin.cancel(id: _idFor(key, slot));
       } catch (_) {}
     }
+  }
+
+  /// 串行合并两个来源的计划；只向 iOS 提交最近的最多 60 条，预留系统容量。
+  Future<void> _updateIosPlan(void Function(Map<int, PlannedReminder>) update) {
+    final operation = _iosPlanOperations.catchError((Object _) {}).then((
+      _,
+    ) async {
+      final dir = await getApplicationDocumentsDirectory();
+      final file = File('${dir.path}/ios_reminder_plan.json');
+      var plan = _iosPlan;
+      if (plan == null) {
+        plan = <int, PlannedReminder>{};
+        if (await file.exists()) {
+          try {
+            final records = jsonDecode(await file.readAsString());
+            if (records is List) {
+              for (final raw in records) {
+                try {
+                  final entry = PlannedReminder.fromJson(
+                    Map<String, dynamic>.from(raw as Map),
+                  );
+                  plan[entry.id] = entry;
+                } catch (_) {
+                  // 单条旧记录损坏不能阻断其它提醒。
+                }
+              }
+            }
+          } catch (_) {
+            // 文件损坏时从下次同步重建。
+          }
+        }
+        _iosPlan = plan;
+      }
+      update(plan);
+      final now = DateTime.now();
+      plan.removeWhere((_, entry) => !entry.fireAt.isAfter(now));
+      final temp = File('${file.path}.tmp');
+      await temp.writeAsString(
+        jsonEncode(plan.values.map((e) => e.toJson()).toList()),
+      );
+      await temp.rename(file.path);
+
+      final pending = await _plugin.pendingNotificationRequests();
+      bool managed(PendingNotificationRequest request) {
+        try {
+          final key = (jsonDecode(request.payload ?? '') as Map)['key'];
+          return key is String &&
+              (key.startsWith(_tronPrefix) || key.startsWith(_cxPrefix));
+        } catch (_) {
+          return false;
+        }
+      }
+
+      final others = pending.where((request) => !managed(request)).length;
+      final chosen = nearestReminders(
+        plan.values,
+        now: now,
+        limit: 60 - others,
+      );
+      final chosenIds = chosen.map((entry) => entry.id).toSet();
+      for (final request in pending.where(managed)) {
+        if (!chosenIds.contains(request.id)) {
+          await _plugin.cancel(id: request.id);
+        }
+      }
+      _iosSubmitted.removeWhere((id, _) => !chosenIds.contains(id));
+      final pendingIds = pending.map((request) => request.id).toSet();
+      for (final entry in chosen) {
+        final signature = jsonEncode(entry.toJson());
+        if (pendingIds.contains(entry.id) &&
+            _iosSubmitted[entry.id] == signature) {
+          continue;
+        }
+        await _plugin.zonedSchedule(
+          id: entry.id,
+          scheduledDate: tz.TZDateTime.from(entry.fireAt, tz.local),
+          notificationDetails: _details(),
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          title: entry.title,
+          body: entry.body,
+          payload: entry.payload,
+        );
+        _iosSubmitted[entry.id] = signature;
+      }
+    });
+    _iosPlanOperations = operation;
+    return operation;
   }
 
   NotificationDetails _details() {

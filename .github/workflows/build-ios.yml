@@ -1,0 +1,83 @@
+name: Build iOS IPA (unsigned)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/ios-migration]
+    paths:
+      - '.github/workflows/build-ios.yml'
+      - 'tools/ios/**'
+      - 'ios/**'
+      - 'lib/**'
+      - 'test/**'
+      - 'assets/**'
+      - 'pubspec.*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      FLUTTER_VERSION: '3.47.7'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - name: Toolchain versions
+        run: |
+          flutter --version
+          xcodebuild -version
+          swift --version
+      - name: Install dependencies
+        run: flutter pub get --enforce-lockfile
+      - name: Analyze
+        run: flutter analyze --no-pub
+      - name: Dart and widget tests
+        run: flutter test --no-pub
+      - name: Build unsigned device release
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/ios-logs
+          flutter build ios --release --no-codesign --no-pub \
+            --dart-define="LITANG_IOS_BUILDS_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/build-ios.yml" \
+            2>&1 | tee build/ios-logs/build.log
+      - name: Package unsigned IPA
+        run: bash tools/ios/package-unsigned-ipa.sh
+      - name: Native cookie scope tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          flutter build ios --simulator --debug --no-codesign --no-pub 2>&1 | tee build/ios-logs/simulator-build.log
+          device_id="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next(x["udid"] for group in d["devices"].values() for x in group if x["isAvailable"] and x["name"].startswith("iPhone")))')"
+          xcodebuild test -workspace ios/Runner.xcworkspace -scheme Runner \
+            -destination "platform=iOS Simulator,id=$device_id" \
+            -only-testing:RunnerTests CODE_SIGNING_ALLOWED=NO \
+            2>&1 | tee build/ios-logs/native-tests.log
+      - name: Upload IPA and provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: litang-ios-unsigned-${{ github.run_number }}
+          path: build/ios-ipa/*
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build-logs-${{ github.run_number }}
+          path: build/ios-logs/
+          if-no-files-found: ignore
+          retention-days: 7

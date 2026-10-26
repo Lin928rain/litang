@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
 import 'package:open_filex/open_filex.dart';
@@ -65,6 +66,16 @@ class UpdateInfo {
 class UpdateService {
   UpdateService._();
 
+  /// 此清单和安装器只适用于 Android；iOS 通过个人签名工具覆盖安装 IPA。
+  static bool get supportsApkUpdates =>
+      !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+
+  static const String iosBuildsPage = String.fromEnvironment(
+    'LITANG_IOS_BUILDS_URL',
+    defaultValue:
+        'https://github.com/extrisha/litang/actions/workflows/build-ios.yml',
+  );
+
   static const String githubManifest =
       'https://raw.githubusercontent.com/extrisha/litang/main/update.json';
   static const String giteeManifest =
@@ -72,6 +83,7 @@ class UpdateService {
 
   /// 返回新版本；没有更新或检查失败返回 null。
   static Future<UpdateInfo?> check() async {
+    if (!supportsApkUpdates) return null;
     final info =
         await _fetchManifest(githubManifest) ??
         await _fetchManifest(giteeManifest);
@@ -79,7 +91,9 @@ class UpdateService {
     final current = await _currentVersionCode();
     if (info.versionCode <= current) return null;
     if (info.githubUrl.isEmpty && info.giteeUrl.isEmpty) return null;
-    return info.withMandatory(isMandatory(current: current, min: info.minVersionCode));
+    return info.withMandatory(
+      isMandatory(current: current, min: info.minVersionCode),
+    );
   }
 
   /// 是否必须更新：本机版本低于云端要求的最低版本。
@@ -121,6 +135,9 @@ class UpdateService {
     UpdateInfo info, {
     void Function(double progress)? onProgress,
   }) async {
+    if (!supportsApkUpdates) {
+      throw UnsupportedError('当前平台不支持 APK 更新');
+    }
     final urls = candidateUrls(info);
     Object? lastError;
     for (var i = 0; i < urls.length; i++) {
@@ -229,6 +246,9 @@ class UpdateService {
 
   /// 调系统安装器。
   static Future<void> install(String path) async {
+    if (!supportsApkUpdates) {
+      throw UnsupportedError('当前平台不支持 APK 安装');
+    }
     await OpenFilex.open(path);
   }
 }
