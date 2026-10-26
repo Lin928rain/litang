@@ -2,6 +2,19 @@
 
 更新日期：2026-10-26。迁移分支：`codex/ios-migration`。
 
+## 课表分段排课修复（0.4.3+17）
+
+- 课程去重原先未包含周次和教师，会把军事理论等课程的后续排课段误删。现在按课程、星期、节次、教室、教师及解析后的周次判断重复，保留不同周次和不同教师的记录。
+- 用匿名测试数据还原截图中的周二第 8～9 节：3～4 周由教师甲授课，5～6 周由教师乙授课，7～8、10 周由教师丙授课。
+- 回归测试在修复前于第 5 周失败，修复后覆盖第 3～8、10 周显示、对应教师正确，以及第 2、9、11 周不显示；还经过缓存编解码验证。
+- 课表缓存升级为 v3，旧 v2 缓存不再读取，避免升级后继续展示被误删周次的课表；现有页面在登录有效且缓存缺失时会重新同步，登录态保持不变。
+- 本地静态检查通过，全部 177 项测试通过。
+- 源码 commit：`f0a15821e881df9517c9d47b16cda26a8ddbcc23`；[本次 IPA 构建](https://github.com/Lin928rain/litang/actions/runs/40284238708)已成功，云端静态检查、177 项 Dart/Widget 测试及 3 项原生测试全部通过。
+- 最新文件：`litang-ios-0.4.3-17-unsigned.ipa`，9,745,418 字节（约 9.3 MiB）；[下载构建产物](https://github.com/Lin928rain/litang/actions/runs/40284238708/artifacts/12633722912)。
+- 本地文件：`build/ios-downloads/40284238708/litang-ios-0.4.3-17-unsigned.ipa`，校验记录为同目录的 `verification.json`。
+- SHA-256：`01114e23c470bc4fd62e82e8d0360d894cd6900cb05d4570e9348a004555ed7a`；下载后已核对校验值、版本 0.4.3/构建号 17、源码 commit、ZIP CRC、arm64 Mach-O 与未签名状态，最低系统 iOS 15.0，包含 iPhone/iPad 两种设备支持。
+- 已在 AOT 产物中确认新课表 v3 缓存标识，避免拿到旧构建。实际用户账号的课表仍需安装后联网同步验证。
+
 ## 已实现
 
 - GitHub Actions 无签名真机 Release 构建，固定 Flutter 3.47.7 / Dart 3.13.5、macOS 15、Xcode 26.3。
@@ -33,7 +46,7 @@ Swift Cookie 范围测试已写入 RunnerTests，并接入工作流；本地 Win
 - 原生测试在 iPhone 16 Pro 模拟器完成，覆盖域名隔离、Cookie 路径边界、有效期及 Secure 属性。这不等于真实学校账号或真实手机安装已验证。
 - 固定版本的 `flutter_secure_storage` 9.2.4 尚未支持 Swift Package Manager，Flutter 自动使用 CocoaPods 兼容路径，当前固定工具链已验证构建成功。
 
-## 已导出的 IPA
+## 首版 IPA（0.4.2+16，历史版本）
 
 - 文件：`litang-ios-0.4.2-16-unsigned.ipa`，9,745,551 字节（约 9.3 MiB）。
 - [GitHub 构建产物](https://github.com/Lin928rain/litang/actions/runs/40259844438/artifacts/12624263741)：登录 GitHub 后下载 ZIP 并解压得到 IPA、SHA-256 和构建元信息，保留期 14 天。

@@ -12,6 +12,8 @@
 
 ## 获取 IPA
 
+最新修复版为 **0.4.3+17**：[下载构建产物](https://github.com/Lin928rain/litang/actions/runs/40284238708/artifacts/12633722912) / [构建记录](https://github.com/Lin928rain/litang/actions/runs/40284238708)。修复了军事理论等课程分段排课被误去重的问题，支持 iPhone/iPad，最低 iOS/iPadOS 15.0。可以在 iPad 的 Safari 登录 GitHub 后下载产物 ZIP，在“文件”App 中解压获得 IPA。
+
 首个成功版本为 **0.4.2+16**：[构建记录](https://github.com/Lin928rain/litang/actions/runs/40259844438) / [下载构建产物](https://github.com/Lin928rain/litang/actions/runs/40259844438/artifacts/12624263741)。它是 iOS 15.0+、arm64 的未签名 IPA，仍需执行下面的个人签名安装流程。
 
 1. 打开 [Lin928rain/litang 的 GitHub Actions](https://github.com/Lin928rain/litang/actions/workflows/build-ios.yml)，选择 **Build iOS IPA (unsigned)** 工作流。
@@ -47,6 +49,7 @@
 
 - 从新一次成功运行下载新版 IPA，以同一 Apple Account 和相同应用身份重签覆盖安装，避免随意修改 Bundle ID。
 - 首次升级验证课表缓存和登录态能否保留；签名工具或账号身份改变可能影响 Keychain 访问。
+- 0.4.3 的课表缓存会按新版本重新建立。覆盖安装后联网进入“我的”，等待课表同步；若没有自动完成，可点击课表右上角的刷新按钮。旧版已丢失的周次无法仅靠切换教学周恢复。
 - iOS 版“我的 → iOS 安装包”打开实际构建仓库的工作流页面；安装和升级由签名工具完成。
 - APK 更新清单仅用于 Android，iOS 不会执行 APK 下载和强制安装。
 
