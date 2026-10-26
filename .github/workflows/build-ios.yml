@@ -5,6 +5,8 @@ on:
   push:
     branches: [codex/ios-migration]
     paths:
+      - '.gitignore'
+      - '.gitattributes'
       - '.github/workflows/build-ios.yml'
       - 'tools/ios/**'
       - 'ios/**'

@@ -62,7 +62,7 @@ android/key.properties
 **/.gradle/
 android/local.properties
 
-# 本地备份目录（不入库）
+# Local backup directory (do not commit)
 Project_USST_backups/
 
 # iOS signing and build artifacts
